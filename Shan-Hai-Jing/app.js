@@ -3228,7 +3228,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-火-鰈-19",
+        id: "gen-huodie-19",
         nameCn: "火鰈",
         zhuyin: "ㄘ 一 ㄠˊ",
         nameEn: "Spiritual 火鰈",
@@ -3238,7 +3238,7 @@ const BEASTS_DATABASE = [
         regionCn: "中山經 (第10卷)",
         classicText: "「中山經 (第10卷)有獸焉，其狀如鰈而火身，其名曰火鰈，見則天下大吉。」",
         description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-火-鰈-19.webp",
+        image: "assets/webp/gen-huodie-19.webp",
         stats: {
             spiritual: 81,
             aggression: 46,
@@ -6468,7 +6468,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-火-鰈-199",
+        id: "gen-huodie-199",
         nameCn: "火鰈",
         zhuyin: "ㄏ 一 ㄠˊ",
         nameEn: "Spiritual 火鰈",
@@ -6478,7 +6478,7 @@ const BEASTS_DATABASE = [
         regionCn: "中山經 (第10卷)",
         classicText: "「中山經 (第10卷)有獸焉，其狀如鰈而火身，其名曰火鰈，見則天下大吉。」",
         description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-火-鰈-199.webp",
+        image: "assets/webp/gen-huodie-199.webp",
         stats: {
             spiritual: 81,
             aggression: 66,

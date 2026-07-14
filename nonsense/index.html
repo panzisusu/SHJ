@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤪 隨選幹話金句全集機 | Random Nonsense Generator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background glow spots -->
+    <div class="glow-spot glow-1"></div>
+    <div class="glow-spot glow-2"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="brand-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-face-laugh-wink"></i>
+                </div>
+                <div class="title-group">
+                    <h1>隨選幹話金句全集機</h1>
+                    <p>依照廢話指數與邏輯碎裂度「反向加權」之機率隨機抽選系統 🌟</p>
+                </div>
+            </div>
+            <a href="https://gogogo137-cmyk.github.io/index-zh.html#portfolio" class="back-home-btn">
+                <i class="fa-solid fa-house"></i> GOGOGO137 : 胖子叔叔的作品集
+            </a>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="dashboard">
+            <!-- Top Side: Filter Controller Card -->
+            <section class="control-card">
+                <div class="section-title">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>幹話篩選主控台</span>
+                </div>
+
+                <!-- Category Filter -->
+                <div class="filter-group">
+                    <div class="filter-label">
+                        <i class="fa-solid fa-layer-group"></i> 選擇幹話範疇：
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active category-btn" id="cbtn-all" onclick="filterCategory('all')">全部類別</button>
+                        <button class="filter-btn category-btn" id="cbtn-logic" onclick="filterCategory('logic')">邏輯鬼才組</button>
+                        <button class="filter-btn category-btn" id="cbtn-nonsense" onclick="filterCategory('nonsense')">廢話大師組</button>
+                        <button class="filter-btn category-btn" id="cbtn-soup" onclick="filterCategory('soup')">心靈毒雞湯</button>
+                        <button class="filter-btn category-btn" id="cbtn-love" onclick="filterCategory('love')">情感指南針</button>
+                    </div>
+                </div>
+
+                <!-- Spin Trigger Action -->
+                <div class="spin-action-wrapper">
+                    <button class="btn-spin" id="btn-spin" onclick="spinWheel()">
+                        <i class="fa-solid fa-shuffle"></i> 隨機抽取一句幹話！
+                    </button>
+                </div>
+            </section>
+
+            <!-- Bottom Side: Spotlight Presentation Card -->
+            <section class="spotlight-card">
+                <div class="spotlight-left">
+                    <!-- Dynamic emoji/icon avatar representing the quote vibe -->
+                    <div id="spotlight-avatar" class="spotlight-avatar-container">
+                        <i class="fa-solid fa-brain-circuit"></i>
+                    </div>
+                </div>
+                <div class="spotlight-right">
+                    <div class="spotlight-info-header">
+                        <h2 id="spotlight-quote">
+                            「聽君一席話，如聽一席話。」
+                        </h2>
+                        <div id="spotlight-category" class="spotlight-badge">邏輯鬼才組</div>
+                    </div>
+
+                    <!-- Metrics box showing the math weights -->
+                    <div class="spotlight-metrics">
+                        <div class="metric-item">
+                            <div class="metric-title">幹話指數</div>
+                            <div class="metric-value highlight" id="spotlight-index">99%</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-title">邏輯碎裂度</div>
+                            <div class="metric-value" id="spotlight-shatter">100%</div>
+                        </div>
+                        <div class="metric-item" style="grid-column: 1 / -1; background: rgba(57, 255, 20, 0.08); border-color: rgba(57, 255, 20, 0.2)">
+                            <div class="metric-title" style="color: #39ff14">實用程度 (Utility)</div>
+                            <div class="metric-value" id="spotlight-utility" style="color: #39ff14">0.0%</div>
+                        </div>
+                    </div>
+
+                    <!-- Description fields -->
+                    <div class="spotlight-desc-box">
+                        <div class="desc-block">
+                            <strong>金句深度賞析 Analysis</strong>
+                            <p id="spotlight-analysis">這句話運用了高度的語意重複法，表面上同意了對方的看法，但實際上沒有提供任何新的資訊。堪稱語言學上的完美閉環，能夠在不冒犯任何人的情況下，成功度過一秒鐘。</p>
+                        </div>
+                        <div class="desc-block">
+                            <strong>建議使用場景 Application Scene</strong>
+                            <p id="spotlight-scene">開會時被長官詢問意見、朋友講完超長廢話時的敷衍點頭、或者想製造哲學深度時。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Panel: Quotes Pool Gallery -->
+        <section class="pool-gallery-section">
+            <div class="pool-header">
+                <h2><i class="fa-solid fa-list-ul"></i> 當前候選幹話池 (Pool)</h2>
+                <span id="pool-count">當前篩選池：0 句</span>
+            </div>
+            <!-- Grid displaying miniature cards of quotes currently selected -->
+            <div class="cheer-grid" id="quote-grid">
+                <!-- Dynamically loaded by app.js -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Script file -->
+    <script src="app.js"></script>
+</body>
+</html>

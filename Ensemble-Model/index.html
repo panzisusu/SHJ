@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensemble Model 集成學習演兵場 | Interactive Playground</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="ink-wash-vignette"></div>
+    <div class="ensemble-bg-artwork"></div>
+    
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <div class="top-nav-bar">
+            <a href="https://gogogo137-cmyk.github.io/index-zh.html" class="top-nav-link">
+                <i class="fa-solid fa-arrow-left-long"></i> gogogo137胖子叔叔作品集
+            </a>
+            <span class="top-nav-divider">|</span>
+            <a href="https://github.com/gogogo137-cmyk/Ensemble-Model" class="top-nav-link" target="_blank">
+                <i class="fa-brands fa-github"></i> GITHUB 專案連結說明
+            </a>
+        </div>
+        
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-layer-group logo-icon"></i>
+                <h1>Ensemble Model 集成學習演兵場</h1>
+            </div>
+            <p class="subtitle">自助聚合 (Bagging) 與自適應提升 (AdaBoost) 的水墨風動態視覺化</p>
+            
+            <!-- Navigation Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('playground')">
+                    <i class="fa-solid fa-compass"></i> ⚔️ 演兵沙盤 (Playground)
+                </button>
+                <button class="tab-btn" onclick="switchTab('tutorial')">
+                    <i class="fa-solid fa-scroll"></i> 📖 整合講堂 (Tutorial)
+                </button>
+                <button class="tab-btn" onclick="switchTab('notes')">
+                    <i class="fa-solid fa-book-open"></i> 📂 山海筆記 (Notes)
+                </button>
+            </div>
+        </header>
+
+        <!-- Tab 1: Interactive Playground -->
+        <section id="playground-tab" class="tab-content active">
+            <div class="grid-layout">
+                <!-- Left Column -->
+                <div class="grid-col-left">
+                    <!-- Left Column: Controls Panel -->
+                    <div class="panel glass-card">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-sliders text-gold"></i> 演格參數控制 (Controls)</h2>
+                        </div>
+                        <p class="panel-desc">點擊畫布可任意擺放數據點，在此調整集成學習的參數進行即時訓練。</p>
+                        
+                        <!-- Class Selection -->
+                        <div class="form-group">
+                            <label>選用印記 (Data Class)</label>
+                            <div class="class-selector">
+                                <button id="class-red-btn" class="class-btn active" onclick="setClass(1)">
+                                    <span class="dot-preview red-dot"></span> 硃砂印 (Class A)
+                                </button>
+                                <button id="class-black-btn" class="class-btn" onclick="setClass(-1)">
+                                    <span class="dot-preview black-dot"></span> 深墨滴 (Class B)
+                                </button>
+                            </div>
+                        </div>
+    
+                        <!-- Ensemble Method Selection -->
+                        <div class="form-group">
+                            <label for="ensemble-method">集成演算法 (Method)</label>
+                            <select id="ensemble-method" onchange="onMethodChange()">
+                                <option value="bagging">自助聚合 (Bagging)</option>
+                                <option value="randomforest">隨機森林 (Random Forest)</option>
+                                <option value="boosting">自適應提升 (AdaBoost)</option>
+                                <option value="gbdt">梯度提升 (GBDT - Residuals)</option>
+                                <option value="voting">加權投票 (Voting - 3 Models)</option>
+                                <option value="stacking">堆疊泛化 (Stacking - 3 Models)</option>
+                            </select>
+                        </div>
+    
+                        <!-- Common Parameter: Estimator Count -->
+                        <div class="form-group">
+                            <label for="estimator-count">弱學習器數量 (Estimators): <span id="val-estimators">5</span></label>
+                            <input type="range" id="estimator-count" min="1" max="15" value="5" step="1" oninput="onParamChange()">
+                        </div>
+    
+                        <!-- Common Parameter: Tree Depth (Decision Stump vs Complex Tree) -->
+                        <div class="form-group">
+                            <label for="tree-depth">弱學習器深度 (Max Depth): <span id="val-depth">1 (Decision Stump)</span></label>
+                            <input type="range" id="tree-depth" min="1" max="3" value="1" step="1" oninput="onParamChange()">
+                            <span class="input-hint">深度為 1 時為決策樹枝 (Stump)，即單一橫線或直線分割。</span>
+                        </div>
+    
+                        <!-- Bagging-specific: Sample Rate -->
+                        <div class="form-group" id="group-sample-rate">
+                            <label for="sample-rate">自助抽樣比例 (Sample Rate): <span id="val-sample-rate">80%</span></label>
+                            <input type="range" id="sample-rate" min="50" max="100" value="80" step="5" oninput="onParamChange()">
+                        </div>
+    
+                        <!-- Boosting-specific: Learning Rate -->
+                        <div class="form-group" id="group-learning-rate" style="display: none;">
+                            <label for="learning-rate">學習率 (Learning Rate &eta;): <span id="val-learning-rate">0.5</span></label>
+                            <input type="range" id="learning-rate" min="0.1" max="1.0" value="0.5" step="0.1" oninput="onParamChange()">
+                        </div>
+    
+                        <!-- Actions -->
+                        <div class="panel-actions">
+                            <button class="btn btn-primary" onclick="triggerStep()">
+                                <i class="fa-solid fa-forward-step"></i> 單步更新 (Step)
+                            </button>
+                            <button class="btn btn-secondary" onclick="toggleAutoTrain()">
+                                <i class="fa-solid fa-play" id="btn-play-icon"></i> <span id="btn-play-text">自動演示</span>
+                            </button>
+                            <button class="btn btn-outline" onclick="generateRandomData()">
+                                <i class="fa-solid fa-dice"></i> 隨機點
+                            </button>
+                            <button class="btn btn-danger" onclick="clearData()">
+                                <i class="fa-solid fa-trash-can"></i> 清除畫布
+                            </button>
+                        </div>
+                    </div>
+    
+                    <!-- Left Column: Hyperparameter Guide Card -->
+                    <div class="panel glass-card card-glow-gold">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-gears text-gold"></i> 💡 超參數與優化指南</h2>
+                        </div>
+                        <div class="hyper-guide-content" style="font-size: 12.5px; line-height: 1.6; color: var(--text-secondary);">
+                            <p style="margin-top: 0;">本沙盒提供以下可調的<strong>超參數 (Hyperparameters)</strong>，它們決定了模型的複雜度與泛化能力：</p>
+                            
+                            <div class="hyper-item" style="margin-bottom: 12px; border-bottom: 1px dashed var(--gold-border); padding-bottom: 8px;">
+                                <strong style="color: var(--text-primary);"><i class="fa-solid fa-tree text-gold"></i> 樹的最大深度 (Tree Depth):</strong>
+                                <div style="margin-top: 4px;">控制單個決策樹的複雜度。深度 1 (Stump) 偏向高偏差 (Bias)；增加深度可降低偏差，但過高會導致過擬合 (Overfitting)。</div>
+                            </div>
+                            
+                            <div class="hyper-item" style="margin-bottom: 12px; border-bottom: 1px dashed var(--gold-border); padding-bottom: 8px;">
+                                <strong style="color: var(--text-primary);"><i class="fa-solid fa-calculator text-gold"></i> 學習器數量 (Estimators):</strong>
+                                <div style="margin-top: 4px;">整合的弱學習器個數。過少會欠擬合；對 AdaBoost/GBDT 而言，過多可能造成過擬合，需搭配學習率調整。</div>
+                            </div>
+                            
+                            <div class="hyper-item" style="margin-bottom: 12px; border-bottom: 1px dashed var(--gold-border); padding-bottom: 8px;">
+                                <strong style="color: var(--text-primary);"><i class="fa-solid fa-percentage text-gold"></i> 樣本抽樣比例 (Sample Rate):</strong>
+                                <div style="margin-top: 4px;">控制 Bagging/RF 的隨機多樣性。較低的比例可增加基學習器間的差異，有助於降低變異數 (Variance)。</div>
+                            </div>
+                            
+                            <div class="hyper-item" style="margin-bottom: 12px; border-bottom: 1px dashed var(--gold-border); padding-bottom: 8px;">
+                                <strong style="color: var(--text-primary);"><i class="fa-solid fa-bolt text-gold"></i> 學習率 (Learning Rate):</strong>
+                                <div style="margin-top: 4px;">控制 Boosting/GBDT 每次疊代的步長。小步長搭配較多的學習器，通常能獲得更佳的泛化效能。</div>
+                            </div>
+                            
+                            <div class="hyper-automl" style="background: var(--gold-glow); padding: 10px; border-radius: 6px; border: 1px solid var(--gold-border); margin-top: 10px;">
+                                <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;"><i class="fa-solid fa-wand-magic-sparkles text-gold"></i> AutoML 自動化調參策略：</strong>
+                                <ul style="margin: 0; padding-left: 18px; font-size: 11.5px; color: var(--text-secondary);">
+                                    <li><strong>網格搜尋 (Grid Search):</strong> 暴力窮舉所有超參數組合。</li>
+                                    <li><strong>隨機搜尋 (Random Search):</strong> 隨機抽樣參數空間，速度較快。</li>
+                                    <li><strong>貝氏優化 (Bayesian Opt):</strong> 用高斯過程預測最優參數，收斂最快。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left Column: Dialog Panel (Gemini & ChatGPT History) -->
+                    <div class="panel glass-card card-glow-gold">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-comments text-gold"></i> 歷史學習對話紀錄</h2>
+                        </div>
+                        <p class="panel-desc" style="margin-bottom: 15px;">點擊直接開啟與 AI 導師的學習討論：</p>
+                        <div class="dialog-links">
+                            <a href="./Ens-his.md" class="dialog-link-btn" target="_blank">
+                                <i class="fa-solid fa-robot"></i> Gemini 與我的對話 (Ens-his.md)
+                            </a>
+                            <a href="./Ens-his2.md" class="dialog-link-btn" target="_blank">
+                                <i class="fa-solid fa-robot"></i> Gemini與我的對話之二 (Ens-his2.md)
+                            </a>
+                            <a href="./Ensemble-chatGPT.pdf" class="dialog-link-btn" target="_blank">
+                                <i class="fa-solid fa-file-pdf"></i> chatGPT與我的對話 (Ensemble-chatgpt.pdf)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="grid-col-right">
+                    <!-- Right Column: Canvas & Estimator Breakdown -->
+                    <div class="panel-group">
+                        <!-- Canvas Visualizer -->
+                        <div class="panel glass-card card-glow-gold">
+                            <div class="panel-header">
+                                <h2><i class="fa-solid fa-paint-brush text-gold"></i> 雙維度決策邊界 (Decision Sandbox)</h2>
+                                <span class="badge" id="data-counter">0 筆印記</span>
+                            </div>
+                            
+                            <div class="canvas-wrapper">
+                                <canvas id="sandbox-canvas" width="500" height="500"></canvas>
+                                <div class="canvas-instructions" id="canvas-hint">
+                                    <i class="fa-solid fa-computer-mouse"></i> 點擊此處擺放數據點（左鍵新增，右鍵可刪除）
+                                </div>
+                            </div>
+    
+                            <!-- Legend -->
+                            <div class="canvas-legend">
+                                <span class="legend-item"><span class="legend-color red"></span> 硃砂區域 (A)</span>
+                                <span class="legend-item"><span class="legend-color black"></span> 墨染區域 (B)</span>
+                                <span class="legend-item"><span class="legend-border"></span> 集成邊界</span>
+                            </div>
+                        </div>
+    
+                        <!-- Ensemble Breakdown -->
+                        <div class="panel glass-card">
+                            <div class="panel-header">
+                                <h2><i class="fa-solid fa-network-wired text-gold"></i> 集成模型拆解 (Base Estimators)</h2>
+                                <span class="badge badge-accent" id="train-status">未訓練</span>
+                            </div>
+                            <div class="estimator-grid" id="estimator-list">
+                                <!-- Injected by JS -->
+                                <div class="empty-state">
+                                    <i class="fa-solid fa-folder-open"></i>
+                                    <p>請點擊「單步更新」或新增數據點以觀察弱學習器的組成。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Tutorial -->
+        <section id="tutorial-tab" class="tab-content">
+            <div class="panel glass-card math-theory-panel">
+                <h2><i class="fa-solid fa-book text-gold"></i> 整合學習理論大講堂</h2>
+                
+                <div class="math-intro-grid">
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-cube text-gold"></i> 1. 自助聚合法 (Bagging) & 隨機森林 (Random Forest)</h3>
+                        <p>Bagging 藉由<strong>降低模型的變異 (Variance)</strong> 來提升效能，隨機森林 (Random Forest) 就是最經典的 Bagging 實作。</p>
+                        <div class="theory-box">
+                            <strong>運作核心：</strong>
+                            <ul>
+                                <li><strong>Bootstrap Sampling：</strong> 從原始訓練集中進行「有放回抽樣」產生 $T$ 個獨立子集。</li>
+                                <li><strong>Feature Bagging (RF 核心)：</strong> 在分割每個樹節點時，隨機選取部分特徵進行分裂評估，而非檢索所有特徵。這增加了個別樹之間的多樣性。</li>
+                                <li><strong>Aggregation：</strong> 將所有樹的預測結果以多數決 (Voting) 聚合。</li>
+                            </ul>
+                        </div>
+                        <p class="theory-note">在本沙盤的隨機森林模式下，當分裂節點時，系統會隨機抽籤只決定使用 X 軸或 Y 軸特徵進行分割（傳統 Bagging 會同時評估 X 和 Y 取最佳者）。這使得個別決策邊界更具隨機性，但集成後的邊界反而更平滑且穩定。</p>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-arrows-spin text-gold"></i> 2. 自適應提升 (AdaBoost) & 梯度提升 (GBDT)</h3>
+                        <p>Boosting 著重於將弱學習器提升為強學習器，核心在於<strong>降低偏差 (Bias)</strong>。</p>
+                        <div class="theory-box">
+                            <strong>演算法比較：</strong>
+                            <ul>
+                                <li><strong>AdaBoost：</strong> 根據前一輪的**分類錯誤率**更新樣本權重。錯題點的權重變高（圖形放大），使後續模型聚焦處理。</li>
+                                <li><strong>GBDT (Gradient Boosting)：</strong> 每一步都在擬合前一步模型的**機率殘差 (Residuals / Gradients)**，即真實值與預測機率之差。</li>
+                            </ul>
+                            <strong>GBDT 殘差計算公式：</strong>
+                            <div class="math-formula">
+                                $$r_i = y_i - \sigma(F_{t-1}(x_i))$$
+                            </div>
+                        </div>
+                        <p class="theory-note">在 GBDT 模式下，弱學習器轉變為回歸樹，用以擬合點的殘差。隨著迭代次數增加，您會發現分類越模糊的邊界處其擬合精度會被逐步微調，決策邊界呈現出漸進的層次感。</p>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-code-fork text-gold"></i> 3. 多模型投票 (Voting) & 堆疊泛化 (Stacking)</h3>
+                        <p>當不限定於使用同一種類型（如同為決策樹）的弱學習器時，我們可以使用多模型整合：</p>
+                        <div class="theory-box">
+                            <strong>基底模型設計 (Base Models)：</strong>
+                            <p>本沙盒中配置了三種不同數學性質的分類器：</p>
+                            <ol>
+                                <li><strong>決策單元 (Stump)</strong>：軸向單線分割。</li>
+                                <li><strong>線性劃分 (Linear)</strong>：任意斜率對角分割。</li>
+                                <li><strong>圓形劃分 (Circle)</strong>：空間範圍內外分割。</li>
+                            </ol>
+                            <hr style="border: 0; border-top: 1px solid var(--gold-border); margin: 10px 0;">
+                            <strong>整合方式：</strong>
+                            <ul>
+                                <li><strong>Voting：</strong> 三個模型各自訓練後，對新樣本取多數決 (Majority Vote)。</li>
+                                <li><strong>Stacking：</strong> 將三個模型在原始數據上的預測值輸出（作為特徵），另外訓練一個 Meta-Stump 元分類器來動態融合他們的預測結果。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Study Notes -->
+        <section id="notes-tab" class="tab-content">
+            <div class="grid-layout notebook-layout">
+                <!-- Left Column: README -->
+                <div class="panel glass-card scroll-panel">
+                    <div class="panel-header">
+                        <h2><i class="fa-solid fa-scroll text-gold"></i> 專案導覽手冊 (README.md)</h2>
+                    </div>
+                    <div class="markdown-body" id="readme-container">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Right Column: Ens-his -->
+                <div class="panel glass-card scroll-panel">
+                    <div class="panel-header">
+                        <h2><i class="fa-solid fa-history text-gold"></i> 對話與操作歷程 (Ens-his.md)</h2>
+                    </div>
+                    <div class="markdown-body" id="history-container">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 gogogo137-cmyk. Classical Ink-wash Web Portfolio &copy; All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JS Logic -->
+    <script src="app.js"></script>
+</body>
+</html>

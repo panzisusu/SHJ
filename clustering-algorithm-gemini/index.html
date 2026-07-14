@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustering 分群演算法演兵場 | Interactive Playground</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="ink-wash-vignette"></div>
+    <div class="clustering-bg-artwork"></div>
+    
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <div class="top-nav-bar">
+            <a href="https://gogogo137-cmyk.github.io/index-zh.html" class="top-nav-link">
+                <i class="fa-solid fa-arrow-left-long"></i> gogogo137胖子叔叔作品集
+            </a>
+            <span class="top-nav-divider">|</span>
+            <a href="https://github.com/gogogo137-cmyk/Clustering-" class="top-nav-link" target="_blank">
+                <i class="fa-brands fa-github"></i> GITHUB 專案連結說明
+            </a>
+        </div>
+        
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-circle-nodes logo-icon"></i>
+                <h1>Clustering 分群演算法演兵場</h1>
+            </div>
+            <p class="subtitle">K-Means、K-Medoids、DBSCAN、GMM 與核函數分群的水墨風動態視覺化</p>
+            
+            <!-- Navigation Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('playground')">
+                    <i class="fa-solid fa-compass"></i> ⚔️ 分群沙盤 (Playground)
+                </button>
+                <button class="tab-btn" onclick="switchTab('tutorial')">
+                    <i class="fa-solid fa-scroll"></i> 📖 整合講堂 (Tutorial)
+                </button>
+                <button class="tab-btn" onclick="switchTab('notes')">
+                    <i class="fa-solid fa-book-open"></i> 📂 山海筆記 (Notes)
+                </button>
+            </div>
+        </header>
+
+        <!-- Tab 1: Interactive Playground -->
+        <section id="playground-tab" class="tab-content active">
+            <div class="grid-layout">
+                <!-- Left Column -->
+                <div class="grid-col-left">
+                    <!-- Left Column: Controls Panel -->
+                    <div class="panel glass-card">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-sliders text-gold"></i> 參數控制 (Controls)</h2>
+                        </div>
+                        <p class="panel-desc">點擊右側畫布可任意擺放或移除數據點，在此調整超參數並進行即時分群更新。</p>
+                        
+                        <!-- Dataset Preset Selection -->
+                        <div class="form-group">
+                            <label for="dataset-preset">資料分佈模式 (Data Pattern)</label>
+                            <select id="dataset-preset" onchange="onPresetChange()">
+                                <option value="blobs">高斯圓形群聚 (Gaussian Blobs)</option>
+                                <option value="circles">同心雙環 (Concentric Circles)</option>
+                                <option value="moons">雙月牙形 (Two Moons)</option>
+                                <option value="spiral">雙螺旋線 (Spiral)</option>
+                                <option value="custom">自定義數據點 (Empty Canvas)</option>
+                            </select>
+                        </div>
+    
+                        <!-- Algorithm Selection -->
+                        <div class="form-group">
+                            <label for="algorithm-select">分群演算法 (Algorithm)</label>
+                            <select id="algorithm-select" onchange="onAlgorithmChange()">
+                                <option value="kmeans">K-Means 分群</option>
+                                <option value="kmedoids">K-Medoids (PAM) 分群</option>
+                                <option value="dbscan">密度分群 (DBSCAN)</option>
+                                <option value="gmm">混合高斯模型 (GMM - EM)</option>
+                                <option value="spectral">核函數 K-Means (Spectral Approx.)</option>
+                            </select>
+                        </div>
+    
+                        <!-- Parameter 1: Cluster Count (K) -->
+                        <div class="form-group" id="group-k">
+                            <label for="cluster-k">分群數量 (K): <span id="val-k">3</span></label>
+                            <input type="range" id="cluster-k" min="2" max="6" value="3" step="1" oninput="onParamChange()">
+                        </div>
+    
+                        <!-- Parameter 2: DBSCAN Epsilon -->
+                        <div class="form-group" id="group-eps" style="display: none;">
+                            <label for="dbscan-eps">鄰域半徑 (Epsilon &epsilon;): <span id="val-eps">40</span></label>
+                            <input type="range" id="dbscan-eps" min="15" max="80" value="40" step="1" oninput="onParamChange()">
+                        </div>
+    
+                        <!-- Parameter 3: DBSCAN MinPts -->
+                        <div class="form-group" id="group-minpts" style="display: none;">
+                            <label for="dbscan-minpts">最少密度點數 (MinPts): <span id="val-minpts">4</span></label>
+                            <input type="range" id="dbscan-minpts" min="1" max="10" value="4" step="1" oninput="onParamChange()">
+                        </div>
+
+                        <!-- Parameter 4: RBF Kernel Gamma (Spectral) -->
+                        <div class="form-group" id="group-gamma" style="display: none;">
+                            <label for="kernel-gamma">核函數寬度 (Gamma &gamma;): <span id="val-gamma">0.05</span></label>
+                            <input type="range" id="kernel-gamma" min="0.01" max="0.30" value="0.05" step="0.01" oninput="onParamChange()">
+                        </div>
+    
+                        <!-- Actions -->
+                        <div class="panel-actions">
+                            <button class="btn btn-primary" onclick="triggerStep()">
+                                <i class="fa-solid fa-forward-step"></i> 單步疊代 (Step)
+                            </button>
+                            <button class="btn btn-secondary" onclick="toggleAutoRun()">
+                                <i class="fa-solid fa-play" id="btn-play-icon"></i> <span id="btn-play-text">自動收斂</span>
+                            </button>
+                            <button class="btn btn-outline" onclick="generateRandomPoints()">
+                                <i class="fa-solid fa-arrows-rotate"></i> 重置數據
+                            </button>
+                            <button class="btn btn-danger" onclick="clearCanvas()">
+                                <i class="fa-solid fa-trash-can"></i> 清空畫布
+                            </button>
+                        </div>
+                    </div>
+    
+                    <!-- Left Column: Status Details Card -->
+                    <div class="panel glass-card card-glow-gold">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-circle-info text-gold"></i> 收斂狀態與指標</h2>
+                        </div>
+                        <div class="status-content" style="font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
+                            <div class="status-item">
+                                <strong>當前疊代次數 (Iteration):</strong> <span id="info-iteration" class="text-gold">0</span>
+                            </div>
+                            <div class="status-item" id="status-extra-cost">
+                                <strong>目標函數損失 (Inertia/Loss):</strong> <span id="info-cost">--</span>
+                            </div>
+                            <div class="status-item">
+                                <strong>收斂狀態 (Status):</strong> <span id="info-status" class="badge">未開始</span>
+                            </div>
+                            <div class="status-item" id="dbscan-breakdown" style="display: none; margin-top: 10px;">
+                                <strong>DBSCAN 節點統計:</strong>
+                                <ul style="margin: 5px 0 0 0; padding-left: 18px; font-size: 12px;">
+                                    <li>核心點 (Core): <span id="count-core">0</span></li>
+                                    <li>邊界點 (Border): <span id="count-border">0</span></li>
+                                    <li>噪聲點 (Noise): <span id="count-noise" style="color: var(--vermilion);">0</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Left Column: Dialog Panel (Gemini & ChatGPT History) -->
+                    <div class="panel glass-card card-glow-gold">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-comments text-gold"></i> 歷史學習對話紀錄</h2>
+                        </div>
+                        <p class="panel-desc" style="margin-bottom: 15px;">點擊開啟與 AI 導師的討論歷程與文獻分析：</p>
+                        <div class="dialog-links">
+                            <a href="./gemini.md" class="dialog-link-btn" target="_blank">
+                                <i class="fa-solid fa-robot"></i> Gemini 與我的對話 (gemini.md)
+                            </a>
+                            <a href="../Clustering演算法-GEMINI版本/clustering_text.txt" class="dialog-link-btn" target="_blank">
+                                <i class="fa-solid fa-file-lines"></i> 課堂 ChatGPT 對話原始檔 (clustering_text.txt)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="grid-col-right">
+                    <!-- Right Column: Canvas & Visualizer -->
+                    <div class="panel-group">
+                        <!-- Canvas Visualizer -->
+                        <div class="panel glass-card card-glow-gold">
+                            <div class="panel-header">
+                                <h2><i class="fa-solid fa-paint-brush text-gold"></i> 分群演算法沙箱 (Clustering Sandbox)</h2>
+                                <span class="badge" id="data-counter">0 筆數據點</span>
+                            </div>
+                            
+                            <div class="canvas-wrapper">
+                                <canvas id="clustering-canvas" width="500" height="500"></canvas>
+                                <div class="canvas-instructions" id="canvas-hint">
+                                    <i class="fa-solid fa-computer-mouse"></i> 點擊此處擺放數據點（左鍵新增，右鍵可刪除）
+                                </div>
+                            </div>
+    
+                            <!-- Legend -->
+                            <div class="canvas-legend" id="clustering-legend">
+                                <!-- Dynamically generated by JS based on K -->
+                            </div>
+                        </div>
+    
+                        <!-- Algorithm Guide Panel -->
+                        <div class="panel glass-card">
+                            <div class="panel-header">
+                                <h2><i class="fa-solid fa-compass-drafting text-gold"></i> 當前演算法動態觀測指南</h2>
+                            </div>
+                            <div id="algo-guide-text" style="font-size: 13px; line-height: 1.6; color: var(--text-secondary);">
+                                <!-- Dynamically filled based on selected algorithm -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Tutorial -->
+        <section id="tutorial-tab" class="tab-content">
+            <div class="panel glass-card math-theory-panel">
+                <h2><i class="fa-solid fa-book text-gold"></i> 分群演算法大講堂</h2>
+                
+                <div class="math-intro-grid">
+                    <!-- K-Means & K-Medoids -->
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-circle-dot text-gold"></i> 1. K-Means 與 K-Medoids (PAM) 演算法</h3>
+                        <p>兩者皆為**劃分式分群 (Partitioning Clustering)**，目標是最小化各點到群心的內誤差平方和。</p>
+                        <div class="theory-box">
+                            <strong>核心差異比較：</strong>
+                            <ul>
+                                <li><strong>K-Means 中心點 (Centroid)：</strong> 群心是群內所有點的幾何平均值。因為是平均值，此點**可不存在於真實資料集**中。其容易受到極端值 (Outliers) 影響。</li>
+                                <li><strong>K-Medoids 中心點 (Medoid)：</strong> 強制中心點必須是**真實存在的數據點**，即群內與其他所有點的距離和（如 $L_1$ 曼哈頓距離）最小的點。這使得它比 K-Means 更加**耐受離群值 (Robust to Outliers)**。</li>
+                            </ul>
+                            <strong>K-Means 目標損失函數：</strong>
+                            <div class="math-formula">
+                                $$J = \sum_{k=1}^{K} \sum_{i \in C_k} ||x_i - \mu_k||^2$$
+                            </div>
+                        </div>
+                        <p class="theory-note">在本沙箱中，K-Means 用「十」字形虛線圓環代表群心，而 K-Medoids 的中心則會直接鎖定在某個實心點上，並隨每一次迭代進行轉移。</p>
+                    </div>
+ 
+                    <!-- DBSCAN -->
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-water text-gold"></i> 2. 密度分群法 (DBSCAN)</h3>
+                        <p>DBSCAN 著重於資料的分佈密度，可自動偵測噪點，且能處理任意複雜形狀的群聚。</p>
+                        <div class="theory-box">
+                            <strong>運作核心概念：</strong>
+                            <ul>
+                                <li><strong>核心點 (Core Point)：</strong> 在半徑 $\epsilon$ 內，含有至少 $MinPts$ 個數據點（包括自己）。</li>
+                                <li><strong>邊界點 (Border Point)：</strong> 落在核心點的 $\epsilon$ 鄰域內，但其自身的鄰域點數少於 $MinPts$。</li>
+                                <li><strong>噪聲點 (Noise Point)：</strong> 既不是核心點，也不是邊界點的孤立數據。</li>
+                            </ul>
+                        </div>
+                        <p class="theory-note">DBSCAN 在處理 Concentric Circles、Two Moons、Spiral 等「非凸形 (Non-convex)」結構時表現完美。本沙箱會動態以紅點標記 Core Point，並將無法歸類的點視為灰色噪聲點。</p>
+                    </div>
+
+                    <!-- GMM -->
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-chart-line text-gold"></i> 3. 混合高斯模型 (GMM) 與期望最大化 (EM) 演算法</h3>
+                        <p>GMM 假設所有數據點是由多個具有不同均值 $\mu_k$ 和協方差矩陣 $\Sigma_k$ 的高斯分佈混合產生的。</p>
+                        <div class="theory-box">
+                            <strong>期待最大化 (EM) 流程：</strong>
+                            <ul>
+                                <li><strong>E-step (Expectation)：</strong> 根據當前參數計算每個數據點屬於第 $k$ 個高斯分佈的響應度 (Responsibility) $\gamma_{ik}$：
+                                    $$\gamma_{ik} = \frac{\pi_k \mathcal{N}(x_i | \mu_k, \Sigma_k)}{\sum_{j=1}^{K} \pi_j \mathcal{N}(x_i | \mu_j, \Sigma_j)}$$
+                                </li>
+                                <li><strong>M-step (Maximization)：</strong> 使用 $\gamma_{ik}$ 作為權重，重新計算並更新每個高斯分佈的均值 $\mu_k$、協方差矩陣 $\Sigma_k$ 與混合權重 $\pi_k$。</li>
+                            </ul>
+                        </div>
+                        <p class="theory-note">相較於 K-Means 的硬分配 (Hard Assignment)，GMM 是一種軟分配 (Soft Assignment)，點的顏色是多種群色混合的漸層。沙箱會繪製出高斯的 $1\sigma, 2\sigma$ 擴散協方差橢圓，直觀呈現高斯分佈的形狀與方向。</p>
+                    </div>
+
+                    <!-- Spectral / Kernel K-Means -->
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-network-wired text-gold"></i> 4. 核函數分群 (Kernel K-Means) 與譜分群 (Spectral)</h3>
+                        <p>當數據在高維空間中是非線性可分時，我們可以使用核函數將點映射到高維希爾伯特空間，以使它們線性可分。</p>
+                        <div class="theory-box">
+                            <strong>RBF 核函數公式：</strong>
+                            <div class="math-formula">
+                                $$K(x_i, x_j) = \exp(-\gamma ||x_i - x_j||^2)$$
+                            </div>
+                            <strong>高維空間距離評估：</strong>
+                            <p>點 $x_i$ 到高維空間群心 $c_k$ 的距離平方可完全由核矩陣表示：</p>
+                            <div class="math-formula">
+                                $$d_\Phi(x_i, c_k)^2 = K(x_i, x_i) - \frac{2}{N_k}\sum_{j \in C_k} K(x_i, x_j) + \frac{1}{N_k^2}\sum_{j, l \in C_k} K(x_j, x_l)$$
+                            </div>
+                        </div>
+                        <p class="theory-note">這是譜分群 (Spectral Clustering) 的核近似實現。當遭遇同心圓 (Circles) 或螺旋線 (Spiral) 時，普通的 K-Means 會無能為力，但 Kernel K-Means 透過 RBF 核函數，能以超凡的非線性分割能力完美分離非凹形邊界！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Study Notes -->
+        <section id="notes-tab" class="tab-content">
+            <div class="grid-layout notebook-layout">
+                <!-- Main Notes Content -->
+                <div class="panel glass-card">
+                    <h2><i class="fa-solid fa-book-bookmark text-gold"></i> 分群演算法文獻評級與學術整理</h2>
+                    <p>本筆記依據經典文獻、Survey 論著及基準測試 (Benchmark)，整理十種資料分佈下各大演算法的表現評級。旨在幫助學子進行期末複習，並應對課堂上對 AI 可信度的學術追問。</p>
+                    
+                    <h3>🎨 精選機器學習圖表講義 (Interactive Infographics)</h3>
+                    <p>點擊下方圖表卡片可開啟高解析度放大檢視，深入學習各類分群演算法的核心機制、決策路徑與演算實例。</p>
+                    
+                    <div class="infographic-grid">
+                        <div class="infographic-card" data-img="assets/gpt_img_10_55_38.png">
+                            <div class="infographic-img-container">
+                                <img src="assets/gpt_img_10_55_38.png" alt="主流 Clustering 演算法總整理">
+                            </div>
+                            <div class="infographic-info">
+                                <div class="infographic-title">主流 Clustering 演算法總整理</div>
+                                <div class="infographic-desc">10大主流分群演算法經典論文發表年份、Benchmark與學術評級對照。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card" data-img="assets/gpt_img_11_03_23.png">
+                            <div class="infographic-img-container">
+                                <img src="assets/gpt_img_11_03_23.png" alt="主流 Clustering 演算法特性比較表">
+                            </div>
+                            <div class="infographic-info">
+                                <div class="infographic-title">主流 Clustering 演算法特性比較表</div>
+                                <div class="infographic-desc">橫向對比是否需要K值、抗噪點干擾、大數據擴充性與軟分群支援度。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card" data-img="assets/gpt_img_10_38_12.png">
+                            <div class="infographic-img-container">
+                                <img src="assets/gpt_img_10_38_12.png" alt="如何選擇適合的 Clustering 演算法決策流程圖">
+                            </div>
+                            <div class="infographic-info">
+                                <div class="infographic-title">分群演算法選擇決策流程圖</div>
+                                <div class="infographic-desc">經典是非條件決策樹路徑，逐步引導選出最適合資料型態的分群解法。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card" data-img="assets/gpt_img_11_05_55.png">
+                            <div class="infographic-img-container">
+                                <img src="assets/gpt_img_11_05_55.png" alt="如何選擇最適合的 Clustering 演算法情境指引">
+                            </div>
+                            <div class="infographic-info">
+                                <div class="infographic-title">最適合之分群演算法情境指引</div>
+                                <div class="infographic-desc">各類實務情境（如不知道K、形狀複雜、群集重疊）對照表與快速Q&A。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card" data-img="assets/gpt_img_10_38_56.png">
+                            <div class="infographic-img-container">
+                                <img src="assets/gpt_img_10_38_56.png" alt="K-means++ 2D 步驟教學與例題演示">
+                            </div>
+                            <div class="infographic-info">
+                                <div class="infographic-title">K-means++ 2D 步驟教學與例題</div>
+                                <div class="infographic-desc">以二維 6 個點拆分 2 群為例，詳細演示隨機初始中心點及機率演化步驟。</div>
+                            </div>
+                        </div>
+                        
+                        <div class="infographic-card" data-img="assets/gpt_img_10_37_53.png">
+                            <div class="infographic-img-container">
+                                <img src="assets/gpt_img_10_37_53.png" alt="Hierarchical Clustering (階層式分群) 完整筆記">
+                            </div>
+                            <div class="infographic-info">
+                                <div class="infographic-title">Hierarchical Clustering 完整筆記</div>
+                                <div class="infographic-desc">一圖懂Agglomerative/Divisive雙流程、Linkage距離定義與樹狀圖。</div>
+                            </div>
+                        </div>
+
+                        <div class="infographic-card" data-img="assets/gpt_img_10_34_55.png">
+                            <div class="infographic-img-container">
+                                <img src="assets/gpt_img_10_34_55.png" alt="Top 10 Clustering Patterns & Algorithm Performance">
+                            </div>
+                            <div class="infographic-info">
+                                <div class="infographic-title">Top 10 Patterns & Performance (EN)</div>
+                                <div class="infographic-desc">英文學術定義的10種分佈模式（螺旋線等）下9大演算法效能評級。</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>📊 Data Pattern vs Algorithm 性能評級表</h3>
+                    <table class="notebook-table">
+                        <thead>
+                            <tr>
+                                <th>資料分佈模式</th>
+                                <th>K-Means</th>
+                                <th>K-Medoids</th>
+                                <th>DBSCAN</th>
+                                <th>GMM</th>
+                                <th>Spectral / Kernel</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Gaussian Blobs</strong> (圓形群聚)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                                <td>⭐⭐☆ (良)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Concentric Circles</strong> (同心雙環)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Two Moons</strong> (雙月牙形)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Spiral</strong> (雙螺旋線)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Anisotropic</strong> (橢圓拉伸)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐☆ (良)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                                <td>⭐⭐⭐ (優)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Varying Density</strong> (密度不均)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐☆ (需調參)</td>
+                                <td>⭐⭐☆ (良)</td>
+                                <td>⭐⭐☆ (良)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Noise & Outliers</strong> (噪聲干擾)</td>
+                                <td>⭐☆☆ (怕噪點)</td>
+                                <td>⭐⭐☆ (較耐噪)</td>
+                                <td>⭐⭐⭐ (自動去噪)</td>
+                                <td>⭐☆☆ (易偏差)</td>
+                                <td>⭐⭐☆ (良)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Overlapping</strong> (群聚重疊)</td>
+                                <td>⭐⭐☆ (硬切分)</td>
+                                <td>⭐⭐☆ (硬切分)</td>
+                                <td>⭐☆☆ (差)</td>
+                                <td>⭐⭐⭐ (軟機率)</td>
+                                <td>⭐⭐☆ (良)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Imbalanced Sizes</strong> (規模不均)</td>
+                                <td>⭐☆☆ (偏好均等)</td>
+                                <td>⭐☆☆ (偏好均等)</td>
+                                <td>⭐⭐☆ (良)</td>
+                                <td>⭐⭐⭐ (估計權重)</td>
+                                <td>⭐⭐☆ (良)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>High Dimension</strong> (高維資料)</td>
+                                <td>⭐⭐☆ (易受維度災難)</td>
+                                <td>⭐☆☆ (計算慢)</td>
+                                <td>⭐☆☆ (距離失效)</td>
+                                <td>⭐☆☆ (參數過度)</td>
+                                <td>⭐⭐☆ (常搭配降維)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="font-size: 12px; color: var(--text-secondary); margin-top: 10px;">
+                        * 註：評級標準定義 —— <strong>⭐⭐⭐ (Excellent)</strong>：代表性基準測試表現最優，具備強健的理論與實驗支持；<strong>⭐⭐☆ (Good)</strong>：表現良好，但需細緻調整參數；<strong>⭐☆☆ (Poor)</strong>：先天限制，在此資料分佈下極易失效。
+                    </div>
+
+                    <h3>📄 經典文獻學術引註 (References)</h3>
+                    <div class="references-list">
+                        <div class="ref-item">
+                            <span class="ref-author">MacQueen, J. (1967).</span>
+                            <span class="ref-title">"Some Methods for Classification and Analysis of Multivariate Observations."</span>
+                            <span class="ref-source">Proceedings of the Fifth Berkeley Symposium on Mathematical Statistics and Probability.</span>
+                            <span class="ref-tag">K-Means 原典</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-author">Kaufman, L., & Rousseeuw, P. J. (1990).</span>
+                            <span class="ref-title">"Finding Groups in Data: An Introduction to Cluster Analysis."</span>
+                            <span class="ref-source">John Wiley & Sons.</span>
+                            <span class="ref-tag">K-Medoids / PAM</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-author">Ester, M., Kriegel, H. P., Sander, J., & Xu, X. (1996).</span>
+                            <span class="ref-title">"A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise."</span>
+                            <span class="ref-source">Proceedings of the Second International Conference on Knowledge Discovery and Data Mining (KDD).</span>
+                            <span class="ref-tag">DBSCAN 原典</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-author">Ng, A. Y., Jordan, M. I., & Weiss, Y. (2002).</span>
+                            <span class="ref-title">"On Spectral Clustering: Analysis and an Algorithm."</span>
+                            <span class="ref-source">Advances in Neural Information Processing Systems (NeurIPS).</span>
+                            <span class="ref-tag">Spectral Clustering</span>
+                        </div>
+                        <div class="ref-item">
+                            <span class="ref-author">Jain, A. K. (2010).</span>
+                            <span class="ref-title">"Data Clustering: 50 Years Beyond K-Means."</span>
+                            <span class="ref-source">Pattern Recognition Letters.</span>
+                            <span class="ref-tag">綜合性回顧論文</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lightbox Modal for Infographic Preview -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <div class="lightbox-content-wrapper">
+            <button id="lightbox-close" class="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="放大圖表">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Custom JS Scripts -->
+    <script src="app.js"></script>
+    
+    <!-- Render LaTeX math symbols nicely -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+        
+        // Lightbox Modal Logic
+        const modal = document.getElementById('lightbox-modal');
+        const modalImg = document.getElementById('lightbox-img');
+        const modalCaption = document.getElementById('lightbox-caption');
+        const modalClose = document.getElementById('lightbox-close');
+
+        document.querySelectorAll('.infographic-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const imgUrl = card.getAttribute('data-img');
+                const title = card.querySelector('.infographic-title').innerText;
+                modalImg.src = imgUrl;
+                modalCaption.innerText = title;
+                modal.classList.add('active');
+            });
+        });
+
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal || e.target.classList.contains('lightbox-content-wrapper')) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

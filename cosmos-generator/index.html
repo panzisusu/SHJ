@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 宇宙星空軌跡生成器 | Interactive Cosmos Gravity Simulator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background star dust (CSS parallax overlay) -->
+    <div class="space-bg"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand-section">
+                <a href="../index-zh.html" class="back-home-btn" title="返回個人首頁">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div class="logo-icon">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <div class="title-group">
+                    <h1>宇宙星空軌跡生成系統</h1>
+                    <p>天體物理二維引力模擬器，繪製迷人星軌與星系崩塌軌跡 🌌</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="workspace-grid">
+            <!-- Left Side: Controls Panel -->
+            <section class="control-panel">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-sliders"></i> 引力與粒子主控台</h2>
+                </div>
+
+                <div class="panel-body">
+                    <!-- 1. Presets Selection -->
+                    <div class="control-group">
+                        <label class="group-label"><i class="fa-solid fa-galaxy"></i> 星系快速預設：</label>
+                        <div class="preset-grid">
+                            <button class="preset-btn active" onclick="loadPreset('spiral')">螺旋星系</button>
+                            <button class="preset-btn" onclick="loadPreset('binary')">雙星環繞</button>
+                            <button class="preset-btn" onclick="loadPreset('dust')">星際塵埃</button>
+                            <button class="preset-btn" onclick="loadPreset('collapse')">重力塌陷</button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Physics Controls -->
+                    <div class="control-group">
+                        <div class="slider-header">
+                            <label for="gravity-g"><i class="fa-solid fa-circle-nodes"></i> 萬有引力常數 (G)</label>
+                            <span class="slider-val" id="g-val">1.2</span>
+                        </div>
+                        <input type="range" id="gravity-g" min="0" max="5" step="0.1" value="1.2">
+                    </div>
+
+                    <div class="control-group">
+                        <div class="slider-header">
+                            <label for="core-mass"><i class="fa-solid fa-atom"></i> 中心天體質量 (Mass)</label>
+                            <span class="slider-val" id="mass-val">15000</span>
+                        </div>
+                        <input type="range" id="core-mass" min="0" max="50000" step="500" value="15000">
+                    </div>
+
+                    <!-- 3. Particle Settings -->
+                    <div class="control-group">
+                        <div class="slider-header">
+                            <label for="particle-count"><i class="fa-solid fa-star"></i> 恆星發射數量</label>
+                            <span class="slider-val" id="count-val">600</span>
+                        </div>
+                        <input type="range" id="particle-count" min="50" max="2500" step="50" value="600">
+                    </div>
+
+                    <div class="control-group">
+                        <div class="slider-header">
+                            <label for="trail-length"><i class="fa-solid fa-route"></i> 星軌殘影長度</label>
+                            <span class="slider-val" id="trail-val">95%</span>
+                        </div>
+                        <input type="range" id="trail-length" min="50" max="99.5" step="0.5" value="95">
+                    </div>
+
+                    <!-- 4. Color Palette -->
+                    <div class="control-group">
+                        <label class="group-label"><i class="fa-solid fa-palette"></i> 星際發光配色：</label>
+                        <select id="color-palette" class="select-control">
+                            <option value="supernova" selected>🔥 超新星 (粉紅/金黃/亮白)</option>
+                            <option value="deepspace">💎 深空星雲 (靛藍/霓虹紫/青綠)</option>
+                            <option value="solar">☀️ 太陽烈焰 (熔岩紅/橙黃/亮金)</option>
+                            <option value="frost">❄️ 極寒冰川 (極光青/天藍/冰白)</option>
+                        </select>
+                    </div>
+
+                    <!-- 5. Simulator Actions -->
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary" onclick="togglePlayState()" id="btn-pause">
+                            <i class="fa-solid fa-pause"></i> 暫停模擬
+                        </button>
+                        <button class="btn btn-secondary" onclick="clearParticles()">
+                            <i class="fa-solid fa-trash-can"></i> 清空宇宙
+                        </button>
+                        <button class="btn btn-primary" onclick="exportStarrySky()">
+                            <i class="fa-solid fa-download"></i> 捕獲星空 (桌布下載)
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Canvas Workspace -->
+            <section class="canvas-panel">
+                <div class="canvas-container">
+                    <canvas id="cosmos-canvas"></canvas>
+                    
+                    <!-- HUD Overlay Info -->
+                    <div class="hud-overlay">
+                        <div class="hud-item">FPS: <span id="hud-fps" class="hud-val">60</span></div>
+                        <div class="hud-item">星體數量: <span id="hud-particles" class="hud-val">0</span></div>
+                        <div class="hud-item">引力源數: <span id="hud-sources" class="hud-val">1</span></div>
+                    </div>
+
+                    <!-- Floating Tips -->
+                    <div class="canvas-tips">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>點擊或拖曳滑鼠在太空中發射星體；按住 <b>Shift + 點擊</b> 可放置額外的引力黑洞！</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Disclaimer Footer -->
+        <footer class="app-disclaimer">
+            <p><strong>免責聲明 / Disclaimer</strong></p>
+            <p>本網頁僅作為個人程式開發學習與前端網頁作品集展示使用，無任何商業營利行為。天體物理模擬基於二維簡化萬有引力算法與牛頓運動定律，星軌線條與位置計算可能存在數值累加誤差，純屬互動視覺特效展示。</p>
+            <p>This website is for personal programming education and portfolio demonstration purposes only. The celestial orbital simulation runs on a simplified 2D Newtonian gravity formula. Calculations are optimized for high-performance visual aesthetics and do not represent professional astronomical instrumentation.</p>
+        </footer>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="app.js"></script>
+</body>
+</html>

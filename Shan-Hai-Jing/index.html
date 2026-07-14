@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="探索《山海經》的神話世界，包含精美奇獸異誌插圖、互動式天體羅盤方位篩選、經典神話傳說與異獸能力數值詳細剖析。">
+    
+    <!-- PWA Setup & iOS Mobile Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f6f3ea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="assets/webp/placeholder_beast.webp">
+
+    <title>山海經 · 奇獸異誌 | Shan-Hai-Jing</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;600&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Canvas for Spiritual Particle Dust -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <div class="top-nav-bar">
+            <a href="https://gogogo137-cmyk.github.io/index-zh.html" class="top-nav-link">
+                <i class="fa-solid fa-arrow-left-long"></i> 胖子叔叔作品集
+            </a>
+        </div>
+        
+        <!-- Mystical Header Section -->
+        <header class="app-header">
+            <div class="header-overlay"></div>
+            <div class="header-content">
+                <div class="title-area">
+                    <span class="ancient-seal">山海經</span>
+                    <h1 id="main-title" class="english-title">Shan-Hai-Jing</h1>
+                    <p class="subtitle">奇獸異誌 · 互動神話卷軸</p>
+                </div>
+                
+                <!-- Celestial Luo Pan Compass -->
+                <div class="compass-wrapper">
+                    <div id="luo-pan-compass" class="luo-pan">
+                        <div class="compass-ring ring-outer"></div>
+                        <div class="compass-ring ring-middle">
+                            <span class="direction-label dir-n" data-dir="north">北</span>
+                            <span class="direction-label dir-e" data-dir="east">東</span>
+                            <span class="direction-label dir-s" data-dir="south">南</span>
+                            <span class="direction-label dir-w" data-dir="west">西</span>
+                        </div>
+                        <div class="compass-ring ring-inner">
+                            <div class="trigram-symbols">☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷</div>
+                        </div>
+                        <div id="compass-center" class="compass-center" data-dir="central">
+                            <span class="center-text">中</span>
+                            <div class="needle"></div>
+                        </div>
+                    </div>
+                    <p class="compass-tip"><i class="fa-solid fa-compass spin-icon"></i> 旋轉羅盤或點擊方位以探尋各方異獸</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tab-navigation" aria-label="主要導覽">
+            <button class="nav-tab active" id="tab-btn-bestiary" data-target="tab-bestiary">
+                <i class="fa-solid fa-dragon"></i> 山海百獸
+            </button>
+            <button class="nav-tab" id="tab-btn-lore" data-target="tab-lore">
+                <i class="fa-solid fa-scroll"></i> 山海經與神話傳說
+            </button>
+            <button class="nav-tab" id="tab-btn-cardgame" data-target="tab-cardgame">
+                <i class="fa-solid fa-gamepad"></i> 卡牌遊戲(籌備中)
+            </button>
+            <button class="nav-tab" id="tab-btn-cardgame-guide" data-target="tab-cardgame-guide">
+                <i class="fa-solid fa-book"></i> 卡牌遊戲說明
+            </button>
+            <button class="nav-tab" id="tab-btn-notes" data-target="tab-notes">
+                <i class="fa-solid fa-pen-nib"></i> 筆者說明
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- TAB 1: BESTIARY -->
+            <section id="tab-bestiary" class="tab-pane active">
+                <!-- Filters Bar -->
+                <div class="filters-bar" id="filters-container">
+                    <div class="filter-group">
+                        <label for="select-category"><i class="fa-solid fa-tags"></i> 屬性分類：</label>
+                        <div class="filter-buttons" id="select-category">
+                            <button class="filter-btn active" data-filter-type="category" data-value="all">全部</button>
+                            <button class="filter-btn" data-filter-type="category" data-value="divine">神獸</button>
+                            <button class="filter-btn" data-filter-type="category" data-value="auspicious">瑞獸</button>
+                            <button class="filter-btn" data-filter-type="category" data-value="perilous">凶獸</button>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="select-region"><i class="fa-solid fa-map-location-dot"></i> 地域經脈：</label>
+                        <div class="filter-buttons" id="select-region">
+                            <button class="filter-btn active" data-filter-type="region" data-value="all">全部</button>
+                            <button class="filter-btn" data-filter-type="region" data-value="east">東山經</button>
+                            <button class="filter-btn" data-filter-type="region" data-value="south">南山經</button>
+                            <button class="filter-btn" data-filter-type="region" data-value="west">西山經</button>
+                            <button class="filter-btn" data-filter-type="region" data-value="north">北山經</button>
+                            <button class="filter-btn" data-filter-type="region" data-value="central">中山經</button>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-status" id="filter-status-text">
+                        正在展示所有異獸 (共 5 隻)
+                    </div>
+                </div>
+
+                <!-- Bestiary Grid -->
+                <div class="beast-grid" id="beast-cards-grid">
+                    <!-- Cards will be dynamically generated by JS -->
+                </div>
+            </section>
+
+            <!-- TAB 2: LORE EXPLORER -->
+            <section id="tab-lore" class="tab-pane">
+                <div class="about-container" style="margin-bottom: 40px;">
+                    <div class="about-card">
+                        <div class="about-image-decoration"></div>
+                        <div class="about-text">
+                            <h2>關於《山海經》</h2>
+                            <p class="about-p font-chinese">
+                                《山海經》是中國一部極具神秘色彩的先秦古籍，全書共十八篇，分為《山經》五篇和《海經》十三篇。它以地理空間為框架，記錄了遠古時代的地理、物產、神話、巫術、民俗及異獸。
+                            </p>
+                            <p class="about-p font-chinese">
+                                書中描述了四百多個神怪異獸，牠們往往擁有奇特的外貌與超自然的力量。例如，有預示戰爭的「蜚」、象徵德行的「鳳凰」、以及帶來幸福的「九尾狐」。這些異獸不僅是遠古人民對未知自然力量的投射與敬畏，也是古代巫覡文化的縮影。
+                            </p>
+                            <p class="about-p">
+                                As a foundational text of Chinese mythology, the *Classic of Mountains and Seas* (Shan Hai Jing) blends early geography, cosmology, and folklore. It lists hundreds of sacred mountains, remote rivers, and mystical beasts, presenting a vivid canvas of how ancient peoples perceived the metaphysical forces of their environment.
+                            </p>
+                            <div class="quote-block">
+                                <p class="quote-text">「《山海經》，古之巫書也，紀神怪百物，涉地理史地，莫不神異。」</p>
+                                <span class="quote-author">—— 歷代學術評語</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lore-scroll-container">
+                    <div class="lore-intro">
+                        <h2>神話卷軸</h2>
+                        <p>《山海經》不僅記載了地理與山川，更保存了眾多膾炙人口的中國遠古神話。點擊下方卷軸閱讀傳說故事。</p>
+                    </div>
+
+                    <div class="scrolls-wrapper">
+                        <!-- Scroll 1 -->
+                        <div class="myth-scroll-card" id="scroll-kuafu">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">追日之志</span>
+                                <h3 class="scroll-title">夸父追日</h3>
+                                <p class="scroll-preview">夸父與日逐走，入日；渴，欲得飲，飲於河、渭；河、渭不足，北飲大澤。未至，道渴而死。棄其杖，化為鄧林。</p>
+                                <button class="read-scroll-btn" data-story="kuafu">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 2 -->
+                        <div class="myth-scroll-card" id="scroll-jingwei">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">填海之執</span>
+                                <h3 class="scroll-title">精衛填海</h3>
+                                <p class="scroll-preview">炎帝之少女，名曰女娃。女娃遊於東海，溺而不返，常銜西山之木石，以堙於東海。</p>
+                                <button class="read-scroll-btn" data-story="jingwei">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 3 -->
+                        <div class="myth-scroll-card" id="scroll-nuwa">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">補天之慈</span>
+                                <h3 class="scroll-title">女媧補天</h3>
+                                <p class="scroll-preview">往古之時，四極廢，九州裂，天不兼覆，地不周載。女媧煉五色石以補蒼天，斷鰲足以立四極。</p>
+                                <button class="read-scroll-btn" data-story="nuwa">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 4 -->
+                        <div class="myth-scroll-card" id="scroll-houyi">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">射日之勇</span>
+                                <h3 class="scroll-title">后羿射日</h3>
+                                <p class="scroll-preview">堯時十日並出，焦禾稼，殺草木，而民無所食。羿上射九日，萬民皆喜。</p>
+                                <button class="read-scroll-btn" data-story="houyi">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 5 -->
+                        <div class="myth-scroll-card" id="scroll-gunyu">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">治水之功</span>
+                                <h3 class="scroll-title">鯀禹治水</h3>
+                                <p class="scroll-preview">鯀竊帝之息壤以堙洪水，不待帝命。帝令祝融殺鯀於羽郊。鯀複生禹，帝乃命禹卒布土以定九州。</p>
+                                <button class="read-scroll-btn" data-story="gunyu">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 6 -->
+                        <div class="myth-scroll-card" id="scroll-xingtian">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">戰神之魂</span>
+                                <h3 class="scroll-title">刑天舞干戚</h3>
+                                <p class="scroll-preview">刑天與帝至此爭神，帝斷其首，葬之常羊之山。乃以乳為目，以臍為口，操干戚以舞。</p>
+                                <button class="read-scroll-btn" data-story="xingtian">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 7 -->
+                        <div class="myth-scroll-card" id="scroll-chiyou">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">涿鹿之戰</span>
+                                <h3 class="scroll-title">黃帝戰蚩尤</h3>
+                                <p class="scroll-preview">蚩尤作兵伐黃帝，黃帝乃令應龍攻之冀州之野。應龍畜水。蚩尤請風伯雨師，縱大風雨。</p>
+                                <button class="read-scroll-btn" data-story="chiyou">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 8 -->
+                        <div class="myth-scroll-card" id="scroll-gonggong">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">天塌地陷</span>
+                                <h3 class="scroll-title">共工觸山</h3>
+                                <p class="scroll-preview">昔者共工與顓頊爭為帝，怒而觸不周之山，天柱折，地維絕。天傾西北，地陷東南。</p>
+                                <button class="read-scroll-btn" data-story="gonggong">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 9 -->
+                        <div class="myth-scroll-card" id="scroll-xiwangmu">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">崑崙仙主</span>
+                                <h3 class="scroll-title">西王母傳說</h3>
+                                <p class="scroll-preview">西王母其狀如人，豹尾虎齒而善嘯，蓬髮戴勝，是司天之厲及五殘。</p>
+                                <button class="read-scroll-btn" data-story="xiwangmu">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 10 -->
+                        <div class="myth-scroll-card" id="scroll-xihe">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">太陽之母</span>
+                                <h3 class="scroll-title">羲和浴日</h3>
+                                <p class="scroll-preview">東海之外，甘水之間，有羲和之國。有女子名曰羲和，方日浴於甘淵。羲和者，帝俊之妻，生十日。</p>
+                                <button class="read-scroll-btn" data-story="xihe">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 11 -->
+                        <div class="myth-scroll-card" id="scroll-changxi">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">月亮之母</span>
+                                <h3 class="scroll-title">常羲沐月</h3>
+                                <p class="scroll-preview">有女子方浴月。帝俊之妻常羲，生月十有二，此始浴之。</p>
+                                <button class="read-scroll-btn" data-story="changxi">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 12 -->
+                        <div class="myth-scroll-card" id="scroll-qigong">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">機巧異能</span>
+                                <h3 class="scroll-title">奇肱國飛車</h3>
+                                <p class="scroll-preview">奇肱之國在其北，其人一臂三目...能為飛車，從風遠行。</p>
+                                <button class="read-scroll-btn" data-story="qigong">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 13 -->
+                        <div class="myth-scroll-card" id="scroll-lingshan">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">巫術藥草</span>
+                                <h3 class="scroll-title">靈山十巫</h3>
+                                <p class="scroll-preview">有靈山，十巫從此升降，百藥爰在。十巫者：巫咸、巫即、巫盼、巫彭、巫姑、巫真...</p>
+                                <button class="read-scroll-btn" data-story="lingshan">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 14 -->
+                        <div class="myth-scroll-card" id="scroll-shaohao">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">歸墟大壑</span>
+                                <h3 class="scroll-title">少昊與歸墟</h3>
+                                <p class="scroll-preview">東海之外大壑，少昊之國。少昊孺帝顓頊於此，棄其琴瑟。其琴瑟在歸墟。</p>
+                                <button class="read-scroll-btn" data-story="shaohao">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 15 -->
+                        <div class="myth-scroll-card" id="scroll-yugong">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">移山之志</span>
+                                <h3 class="scroll-title">愚公移山</h3>
+                                <p class="scroll-preview">北山愚公者，年且九十，面山而居。帝感其誠，命夸娥氏二子負二山，一厝朔東，一厝雍南。</p>
+                                <button class="read-scroll-btn" data-story="yugong">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 16 -->
+                        <div class="myth-scroll-card" id="scroll-nine_tailed_fox">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">青丘祥瑞</span>
+                                <h3 class="scroll-title">九尾狐傳說</h3>
+                                <p class="scroll-preview">青丘之山，有獸焉，其狀如狐而九尾，其音如嬰兒，能食人，食之不蠱。</p>
+                                <button class="read-scroll-btn" data-story="nine_tailed_fox">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 17 -->
+                        <div class="myth-scroll-card" id="scroll-zhulong">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">晝夜四季</span>
+                                <h3 class="scroll-title">鐘山神燭龍</h3>
+                                <p class="scroll-preview">鐘山之神，名曰燭陰，視為晝，瞑為夜，吹為冬，呼為夏，不飲，不食，不息...</p>
+                                <button class="read-scroll-btn" data-story="zhulong">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 18 -->
+                        <div class="myth-scroll-card" id="scroll-taotie">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">貪婪無厭</span>
+                                <h3 class="scroll-title">貪婪之獸饕餮</h3>
+                                <p class="scroll-preview">鉤吾之山有獸焉，其狀如羊身人面，其目在腋下，虎齒人手，其音如嬰兒，名曰饕餮。</p>
+                                <button class="read-scroll-btn" data-story="taotie">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 19 -->
+                        <div class="myth-scroll-card" id="scroll-qilin">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">太平仁獸</span>
+                                <h3 class="scroll-title">盛世瑞獸麒麟</h3>
+                                <p class="scroll-preview">貃山有獸焉，其狀如麂而一角，其名曰麒麟，見則天下太平。</p>
+                                <button class="read-scroll-btn" data-story="qilin">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 20 -->
+                        <div class="myth-scroll-card" id="scroll-hundun">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">無序初元</span>
+                                <h3 class="scroll-title">渾沌無面目</h3>
+                                <p class="scroll-preview">天山有神焉，其狀如黃囊，赤如丹火，六足四翼，渾敦無面目，是識歌舞，實為帝江也。</p>
+                                <button class="read-scroll-btn" data-story="hundun">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 21 -->
+                        <div class="myth-scroll-card" id="scroll-tiangou">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">禦凶避邪</span>
+                                <h3 class="scroll-title">天狗食月</h3>
+                                <p class="scroll-preview">陰山有獸焉，其狀如貍而白首，名曰天狗，其音如榴榴，可以禦凶。</p>
+                                <button class="read-scroll-btn" data-story="tiangou">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 22 -->
+                        <div class="myth-scroll-card" id="scroll-bifang">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">木精火鳥</span>
+                                <h3 class="scroll-title">火神鳥畢方</h3>
+                                <p class="scroll-preview">畢方鳥在其東，青水東，其為鳥人面一足。見則其邑有訛火。</p>
+                                <button class="read-scroll-btn" data-story="bifang">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 23 -->
+                        <div class="myth-scroll-card" id="scroll-four_fiends">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">凶星降世</span>
+                                <h3 class="scroll-title">四大凶獸傳說</h3>
+                                <p class="scroll-preview">舜臣堯，賓於四門，流四凶族：混沌、窮奇、檮杌、饕餮，投諸四裔，以禦魑魅。</p>
+                                <button class="read-scroll-btn" data-story="four_fiends">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 24 -->
+                        <div class="myth-scroll-card" id="scroll-four_sacreds">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">四宿星御</span>
+                                <h3 class="scroll-title">四大神獸（聖獸）傳說</h3>
+                                <p class="scroll-preview">天官五獸：左青龍、右白虎、前朱雀、後玄武，以正四方，以安天下。</p>
+                                <button class="read-scroll-btn" data-story="four_sacreds">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 25 -->
+                        <div class="myth-scroll-card" id="scroll-four_auspicious">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">盛世祥瑞</span>
+                                <h3 class="scroll-title">四大瑞獸傳說</h3>
+                                <p class="scroll-preview">麒麟、鳳凰、白澤、騶虞，現則天下太平、國泰民安，為世間至高福澤之象徵。</p>
+                                <button class="read-scroll-btn" data-story="four_auspicious">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 26 -->
+                        <div class="myth-scroll-card" id="scroll-four_demons">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">魅影妖祟</span>
+                                <h3 class="scroll-title">四大妖獸傳說</h3>
+                                <p class="scroll-preview">九尾妖狐、禍斗、蠱雕、相柳，或具幻惑魅心之術，或食火噴毒，為大自然野性之化身。</p>
+                                <button class="read-scroll-btn" data-story="four_demons">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 27 -->
+                        <div class="myth-scroll-card" id="scroll-four_disasters">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">凶兆降臨</span>
+                                <h3 class="scroll-title">四大災獸傳說</h3>
+                                <p class="scroll-preview">蜚、肥遺、蠻蠻、猾褢，現身即伴隨著大疫、大旱、大水與戰爭兵災。</p>
+                                <button class="read-scroll-btn" data-story="four_disasters">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+
+                        <!-- Scroll 28 -->
+                        <div class="myth-scroll-card" id="scroll-four_spirituals">
+                            <div class="scroll-wood wood-top"></div>
+                            <div class="scroll-body">
+                                <span class="scroll-tag">天地靈根</span>
+                                <h3 class="scroll-title">四大靈獸傳說</h3>
+                                <p class="scroll-preview">麟、鳳、龜、龍，謂之四靈。融合萬物精氣，為五行八卦與華夏圖騰之源起。</p>
+                                <button class="read-scroll-btn" data-story="four_spirituals">展開卷軸</button>
+                            </div>
+                            <div class="scroll-wood wood-bottom"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            
+            <!-- TAB 5: CARD GAME -->
+            <section id="tab-cardgame" class="tab-pane">
+                <!-- Environment Selection Banner (Universal top banner) -->
+                <div class="env-banner-section" style="margin-bottom: 25px; padding: 15px; background: rgba(140, 107, 18, 0.05); border: 1px solid rgba(140, 107, 18, 0.2); border-radius: 8px; box-shadow: var(--shadow-sm);">
+                    <div class="env-selector-wrapper" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;">
+                        <label for="env-select" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); font-size: 1.1rem; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.5);"><i class="fa-solid fa-cloud-sun"></i> 戰場環境 Environment：</label>
+                        <select id="env-select" style="background: var(--paper-bg); color: var(--ink-dark); border: 1px solid var(--ancient-gold); padding: 6px 15px; font-family: 'Noto Serif TC', serif; font-size: 1rem; border-radius: 4px; cursor: pointer; font-weight: bold; outline: none; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
+                            <option value="mountain" selected>【山中環境】山經異獸護甲提升 20%（例如：九尾狐、陸吾、猙、朏朏）</option>
+                            <option value="water">【水中環境】海經/澤經異獸攻擊提升 20%（例如：巴蛇、玄龜、旋龜、鱵魚）</option>
+                            <option value="heaven">【天界環境】神獸最大生命與攻擊額外提升 15%（例如：燭龍、鳳凰、麒麟）</option>
+                        </select>
+                    </div>
+                    <div class="env-display-bar" id="env-display-bar" style="text-align: center; font-size: 0.95rem; font-family: 'Noto Serif TC', serif; color: var(--ink-light); font-weight: 500;">
+                        當前環境：<span id="env-current-name" style="color: var(--vermilion-red); font-weight: bold;">【山中環境】</span> - 幽深山林，怪石嶙峋。山經屬性異獸護甲額外提升 20%。
+                    </div>
+                </div>
+
+                <div class="game-parallel-container">
+                    <!-- Original Board (Layout 1) -->
+                    <div class="game-layout layout-original">
+                        <h3 class="layout-title" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); text-align: center; margin-top: 0; margin-bottom: 15px; font-size: 1.25rem; border-bottom: 1px solid rgba(140,107,18,0.2); padding-bottom: 8px;"><i class="fa-solid fa-chess-board"></i> 佈局 A：經典神話戰局 (Classic Layout)</h3>
+                        <div class="game-board-area">
+                            <!-- Stage & Level Selector Header -->
+                            <div class="game-header">
+                                <div class="campaign-selector-wrapper" style="margin-bottom: 20px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                    <label for="campaign-select" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); font-size: 1.1rem; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.5);"><i class="fa-solid fa-scroll"></i> 選擇戰役 Campaign：</label>
+                                    <select id="campaign-select" style="background: var(--paper-bg); color: var(--ink-dark); border: 1px solid var(--ancient-gold); padding: 6px 15px; font-family: 'Noto Serif TC', serif; font-size: 1rem; border-radius: 4px; cursor: pointer; font-weight: bold; outline: none; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
+                                        <option value="fiends">四大凶獸戰役 (混沌、窮奇、檮杌、饕餮)</option>
+                                        <option value="sacreds">四大神獸戰役 (玄武、朱雀、白虎、青龍)</option>
+                                        <option value="disasters">四大災獸戰役 (猾褢、蠻蠻、肥遺、蜚)</option>
+                                        <option value="auspicious">四大瑞獸戰役 (騶虞、白澤、鳳凰、麒麟)</option>
+                                    </select>
+                                </div>
+                                <div class="level-progress">
+                                    <div class="level-node active" data-level="1" id="node-level-1">
+                                        <div class="node-circle">一</div>
+                                        <span class="node-name">混沌</span>
+                                    </div>
+                                    <div class="level-line" id="line-level-1"></div>
+                                    <div class="level-node" data-level="2" id="node-level-2">
+                                        <div class="node-circle">二</div>
+                                        <span class="node-name">窮奇</span>
+                                    </div>
+                                    <div class="level-line" id="line-level-2"></div>
+                                    <div class="level-node" data-level="3" id="node-level-3">
+                                        <div class="node-circle">三</div>
+                                        <span class="node-name">檮杌</span>
+                                    </div>
+                                    <div class="level-line" id="line-level-3"></div>
+                                    <div class="level-node" data-level="4" id="node-level-4">
+                                        <div class="node-circle">四</div>
+                                        <span class="node-name">饕餮</span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Main Battlefield Grid -->
+                            <div class="battlefield-container">
+                                <!-- Boss Area -->
+                                <div class="boss-section">
+                                    <div class="boss-card-container">
+                                        <img id="boss-avatar" src="assets/webp/hundun.webp" alt="魔王">
+                                        <div class="boss-info-panel">
+                                            <h3 id="boss-name">四大惡神：混沌</h3>
+                                            <div class="boss-hp-bar">
+                                                <div id="boss-hp-fill" class="hp-fill" style="width: 100%;"></div>
+                                                <span id="boss-hp-text">150 / 150</span>
+                                            </div>
+                                            <p id="boss-skill-desc" class="boss-skill-text">【混沌初開】每回合結束時，隨機降低玩家場上一張卡牌 20% 攻擊力。</p>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- 5 Direction Battle Slots -->
+                                <div class="slots-section">
+                                    <!-- Slot headers representing the 5 directions -->
+                                    <div class="slots-header">
+                                        <span class="slot-title">東山經 (木)</span>
+                                        <span class="slot-title">南山經 (火)</span>
+                                        <span class="slot-title">西山經 (金)</span>
+                                        <span class="slot-title">北山經 (水)</span>
+                                        <span class="slot-title">中山經 (土)</span>
+                                    </div>
+                                    
+                                    <!-- Enemy Card Slots -->
+                                    <div class="enemy-slots">
+                                        <div class="card-slot enemy-slot" data-direction="east" id="enemy-slot-east"></div>
+                                        <div class="card-slot enemy-slot" data-direction="south" id="enemy-slot-south"></div>
+                                        <div class="card-slot enemy-slot" data-direction="west" id="enemy-slot-west"></div>
+                                        <div class="card-slot enemy-slot" data-direction="north" id="enemy-slot-north"></div>
+                                    </div>
+        
+                                    <!-- Clash Indicators / Battle Lines -->
+                                    <div class="clash-indicators">
+                                        <div class="clash-line" id="clash-east"><i class="fa-solid fa-swords"></i></div>
+                                        <div class="clash-line" id="clash-south"><i class="fa-solid fa-swords"></i></div>
+                                        <div class="clash-line" id="clash-west"><i class="fa-solid fa-swords"></i></div>
+                                        <div class="clash-line" id="clash-north"><i class="fa-solid fa-swords"></i></div>
+                                    </div>
+        
+                                    <!-- Player Card Slots -->
+                                    <div class="player-slots">
+                                        <div class="card-slot player-slot" data-direction="east" id="player-slot-east"></div>
+                                        <div class="card-slot player-slot" data-direction="south" id="player-slot-south"></div>
+                                        <div class="card-slot player-slot" data-direction="west" id="player-slot-west"></div>
+                                        <div class="card-slot player-slot" data-direction="north" id="player-slot-north"></div>
+                                    </div>
+                                </div>
+        
+                                <!-- Player Hand & Status Area -->
+                                <div class="player-control-panel">
+                                    <div class="player-stats-panel">
+                                        <div class="player-health">
+                                            <span class="label"><i class="fa-solid fa-heart"></i> 玩家生命</span>
+                                            <div class="hp-bar-small">
+                                                <div id="player-hp-fill" class="hp-fill-player" style="width: 100%;"></div>
+                                            </div>
+                                            <span id="player-hp-text" class="hp-text">100 / 100</span>
+                                        </div>
+                                        <div class="player-mana">
+                                            <span class="label"><i class="fa-solid fa-fire-flame-simple"></i> 靈力值</span>
+                                            <div class="mana-bubbles" id="mana-bubbles-container">
+                                                <!-- mana bubbles will render here dynamically -->
+                                            </div>
+                                            <span id="player-mana-text" class="mana-text">3 / 3</span>
+                                        </div>
+                                        <div class="action-buttons">
+                                            <button class="game-btn primary-game-btn" id="start-clash-btn">開始對決 (Battle)</button>
+                                            <button class="game-btn secondary-game-btn" id="restart-level-btn">重新挑戰</button>
+                                        </div>
+                                    </div>
+        
+                                    <!-- Hand Cards -->
+                                    <div class="player-hand-container">
+                                        <div class="hand-label">手牌區 (點擊手牌再點擊戰場插槽部署)</div>
+                                        <div class="player-hand" id="player-hand-cards">
+                                            <!-- Hand cards rendered here dynamically -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End of .game-board-area -->
+                    </div>
+
+                    <!-- New Mobile Landscape Board (Layout 2) -->
+                    <div class="game-layout layout-mobile-landscape">
+                        <h3 class="layout-title" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); text-align: center; margin-top: 0; margin-bottom: 15px; font-size: 1.25rem; border-bottom: 1px solid rgba(140,107,18,0.2); padding-bottom: 8px;"><i class="fa-solid fa-mobile-screen-button"></i> 佈局 B：手機橫屏對決模擬器 (Landscape Layout)</h3>
+                        
+                        <div class="phone-frame-container">
+                            <div class="phone-screen" id="phone-screen-env">
+                                <!-- Top Environment Status Overlay -->
+                                <div class="phone-top-status">
+                                    <span class="phone-env-tag"><i class="fa-solid fa-earth-asia"></i> 戰場環境：<span id="phone-env-text">山中</span></span>
+                                    <span class="phone-time-tag">山海奇獸對決模式 · 橫屏</span>
+                                </div>
+                                
+                                <div class="screen-content">
+                                    <!-- Left Half (我方 Player Side) -->
+                                    <div class="screen-side player-side">
+                                        <div class="side-title">我方陣地 (Player Side)</div>
+                                        <div class="landscape-grid">
+                                            <!-- Slot 1: Hand & HP Stats -->
+                                            <div class="landscape-slot slot-stats" id="landscape-slot-1">
+                                                <div class="slot-label">【1】持有卡牌與生命</div>
+                                                <div class="phone-hp-bar">
+                                                    <span class="hp-label"><i class="fa-solid fa-heart"></i> HP:</span>
+                                                    <div class="hp-track"><div id="new-player-hp-fill" class="hp-fill-player" style="width: 100%;"></div></div>
+                                                    <span id="new-player-hp-text" class="stat-num-text">100/100</span>
+                                                </div>
+                                                <div class="phone-mana-bar">
+                                                    <span class="mana-label"><i class="fa-solid fa-fire-flame-simple"></i> 靈力:</span>
+                                                    <span id="new-player-mana-text" class="stat-num-text">3/3</span>
+                                                </div>
+                                                <div class="phone-hand-container">
+                                                    <div class="hand-cards-mini" id="new-player-hand-cards">
+                                                        <!-- mini hand cards dynamic render -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Slot 2: Player Hero -->
+                                            <div class="landscape-slot slot-hero" id="landscape-slot-2">
+                                                <div class="slot-label">【2】我方英雄</div>
+                                                <div class="hero-card-compact">
+                                                    <img class="hero-avatar" src="assets/webp/qilin.webp" alt="我方英雄">
+                                                    <div class="hero-info">
+                                                        <div class="hero-name">軒轅黃帝</div>
+                                                        <div class="hero-sub">守護獸：麒麟</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Slot 3: Center Top (East) -->
+                                            <div class="landscape-slot card-slot player-slot" data-direction="east" id="new-player-slot-east">
+                                                <div class="slot-num">3 (東山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot 4: Center Bottom (South) -->
+                                            <div class="landscape-slot card-slot player-slot" data-direction="south" id="new-player-slot-south">
+                                                <div class="slot-num">4 (南山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot 5: Right Top (West) -->
+                                            <div class="landscape-slot card-slot player-slot" data-direction="west" id="new-player-slot-west">
+                                                <div class="slot-num">5 (西山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot 6: Right Bottom (North) -->
+                                            <div class="landscape-slot card-slot player-slot" data-direction="north" id="new-player-slot-north">
+                                                <div class="slot-num">6 (北山經)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Middle Divider line -->
+                                    <div class="screen-divider-line"></div>
+
+                                    <!-- Right Half (敵方 Enemy Side) -->
+                                    <div class="screen-side enemy-side">
+                                        <div class="side-title">敵方陣地 (Enemy Side)</div>
+                                        <div class="landscape-grid">
+                                            <!-- Slot A: Left Top (West) -->
+                                            <div class="landscape-slot card-slot enemy-slot" data-direction="west" id="new-enemy-slot-west">
+                                                <div class="slot-num">A (西山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot B: Left Bottom (North) -->
+                                            <div class="landscape-slot card-slot enemy-slot" data-direction="north" id="new-enemy-slot-north">
+                                                <div class="slot-num">B (北山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot C: Center Top (East) -->
+                                            <div class="landscape-slot card-slot enemy-slot" data-direction="east" id="new-enemy-slot-east">
+                                                <div class="slot-num">C (東山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot D: Center Bottom (South) -->
+                                            <div class="landscape-slot card-slot enemy-slot" data-direction="south" id="new-enemy-slot-south">
+                                                <div class="slot-num">D (南山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot E: Enemy Hero -->
+                                            <div class="landscape-slot slot-hero" id="landscape-slot-E">
+                                                <div class="slot-label">【E】敵方英雄</div>
+                                                <div class="hero-card-compact boss">
+                                                    <img class="hero-avatar" id="new-boss-avatar" src="assets/webp/hundun.webp" alt="敵方英雄">
+                                                    <div class="hero-info">
+                                                        <div class="hero-name" id="new-boss-name-mob">混沌</div>
+                                                        <div class="hero-sub">四大惡神</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Slot F: Enemy Stats & HP -->
+                                            <div class="landscape-slot slot-stats" id="landscape-slot-F">
+                                                <div class="slot-label">【F】敵方生命與卡牌</div>
+                                                <div class="phone-hp-bar boss">
+                                                    <span class="hp-label"><i class="fa-solid fa-skull"></i> HP:</span>
+                                                    <div class="hp-track"><div id="new-boss-hp-fill" class="hp-fill" style="width: 100%;"></div></div>
+                                                    <span id="new-boss-hp-text" class="stat-num-text">150/150</span>
+                                                </div>
+                                                <div class="phone-mana-bar">
+                                                    <span class="mana-label"><i class="fa-solid fa-layer-group"></i> 牌數:</span>
+                                                    <span id="new-enemy-deck-count" class="stat-num-text">8 張</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <!-- New Desktop Full-width Landscape Board (Layout C) -->
+                    <div class="game-layout layout-desktop-landscape">
+                        <h3 class="layout-title" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); text-align: center; margin-top: 30px; margin-bottom: 15px; font-size: 1.25rem; border-bottom: 1px solid rgba(140,107,18,0.2); padding-bottom: 8px;"><i class="fa-solid fa-desktop"></i> 佈局 C：電腦版寬屏對決戰場 (Desktop Landscape)</h3>
+                        
+                        <div class="desktop-board-container" id="desktop-board-env">
+                            <!-- Top Environment Status Overlay -->
+                            <div class="desktop-top-status">
+                                <span class="desktop-env-tag"><i class="fa-solid fa-earth-asia"></i> 戰場環境：<span id="desktop-env-text">山中</span></span>
+                                <span class="desktop-time-tag">山海奇獸對決模式 · 電腦寬屏大視野</span>
+                            </div>
+                            
+                            <div class="desktop-screen-content">
+                                <!-- Left Half (我方 Player Side) -->
+                                <div class="desktop-screen-side player-side">
+                                    <div class="side-title">我方陣地 (Player Side)</div>
+                                    <div class="desktop-landscape-grid">
+                                        <!-- Slot 1: Hand & HP Stats -->
+                                        <div class="desktop-landscape-slot slot-stats" id="desktop-slot-1">
+                                            <div class="slot-label">【1】持有卡牌與生命</div>
+                                            <div class="desktop-hp-bar">
+                                                <span class="hp-label"><i class="fa-solid fa-heart"></i> HP:</span>
+                                                <div class="hp-track"><div id="new-pc-player-hp-fill" class="hp-fill-player" style="width: 100%;"></div></div>
+                                                <span id="new-pc-player-hp-text" class="stat-num-text">100/100</span>
+                                            </div>
+                                            <div class="desktop-mana-bar">
+                                                <span class="mana-label"><i class="fa-solid fa-fire-flame-simple"></i> 靈力:</span>
+                                                <span id="new-pc-player-mana-text" class="stat-num-text">3/3</span>
+                                            </div>
+                                            <div class="desktop-hand-container">
+                                                <div class="hand-cards-pc-mini" id="new-pc-player-hand-cards">
+                                                    <!-- PC hand cards render dynamically -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Slot 2: Player Hero -->
+                                        <div class="desktop-landscape-slot slot-hero" id="desktop-slot-2">
+                                            <div class="slot-label">【2】我方英雄</div>
+                                            <div class="hero-card-compact-large">
+                                                <img class="hero-avatar-large" src="assets/webp/qilin.webp" alt="我方英雄">
+                                                <div class="hero-info-large">
+                                                    <div class="hero-name-large">軒轅黃帝</div>
+                                                    <div class="hero-sub-large">守護獸：麒麟</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Slot 3: Center Top (East) -->
+                                        <div class="desktop-landscape-slot card-slot player-slot" data-direction="east" id="new-pc-player-slot-east">
+                                            <div class="slot-num">3 (東山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot 4: Center Bottom (South) -->
+                                        <div class="desktop-landscape-slot card-slot player-slot" data-direction="south" id="new-pc-player-slot-south">
+                                            <div class="slot-num">4 (南山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot 5: Right Top (West) -->
+                                        <div class="desktop-landscape-slot card-slot player-slot" data-direction="west" id="new-pc-player-slot-west">
+                                            <div class="slot-num">5 (西山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot 6: Right Bottom (North) -->
+                                        <div class="desktop-landscape-slot card-slot player-slot" data-direction="north" id="new-pc-player-slot-north">
+                                            <div class="slot-num">6 (北山經)</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Middle Divider line -->
+                                <div class="desktop-screen-divider-line"></div>
+
+                                <!-- Right Half (敵方 Enemy Side) -->
+                                <div class="desktop-screen-side enemy-side">
+                                    <div class="side-title">敵方陣地 (Enemy Side)</div>
+                                    <div class="desktop-landscape-grid">
+                                        <!-- Slot A: Left Top (West) -->
+                                        <div class="desktop-landscape-slot card-slot enemy-slot" data-direction="west" id="new-pc-enemy-slot-west">
+                                            <div class="slot-num">A (西山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot B: Left Bottom (North) -->
+                                        <div class="desktop-landscape-slot card-slot enemy-slot" data-direction="north" id="new-pc-enemy-slot-north">
+                                            <div class="slot-num">B (北山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot C: Center Top (East) -->
+                                        <div class="desktop-landscape-slot card-slot enemy-slot" data-direction="east" id="new-pc-enemy-slot-east">
+                                            <div class="slot-num">C (東山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot D: Center Bottom (South) -->
+                                        <div class="desktop-landscape-slot card-slot enemy-slot" data-direction="south" id="new-pc-enemy-slot-south">
+                                            <div class="slot-num">D (南山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot E: Enemy Hero -->
+                                        <div class="desktop-landscape-slot slot-hero" id="desktop-slot-E">
+                                            <div class="slot-label">【E】敵方英雄</div>
+                                            <div class="hero-card-compact-large boss">
+                                                <img class="hero-avatar-large" id="new-pc-boss-avatar" src="assets/webp/hundun.webp" alt="敵方英雄">
+                                                <div class="hero-info-large">
+                                                    <div class="hero-name-large" id="new-pc-boss-name-mob">混沌</div>
+                                                    <div class="hero-sub-large">四大惡神</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Slot F: Enemy Stats & HP -->
+                                        <div class="desktop-landscape-slot slot-stats" id="desktop-slot-F">
+                                            <div class="slot-label">【F】敵方生命與卡牌</div>
+                                            <div class="desktop-hp-bar boss">
+                                                <span class="hp-label"><i class="fa-solid fa-skull"></i> HP:</span>
+                                                <div class="hp-track"><div id="new-pc-boss-hp-fill" class="hp-fill" style="width: 100%;"></div></div>
+                                                <span id="new-pc-boss-hp-text" class="stat-num-text">150/150</span>
+                                            </div>
+                                            <div class="desktop-mana-bar">
+                                                <span class="mana-label"><i class="fa-solid fa-layer-group"></i> 牌數:</span>
+                                                <span id="new-pc-enemy-deck-count" class="stat-num-text">8 張</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Win/Loss Overlay Modal -->
+                <div class="game-overlay-modal" id="game-result-modal">
+                    <div class="game-modal-content">
+                        <h2 id="game-result-title">對決勝利</h2>
+                        <p id="game-result-desc">您成功擊敗了混沌！</p>
+                        <button class="game-btn primary-game-btn" id="game-result-action-btn">挑戰下一關</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: CARD GAME GUIDE -->
+            <section id="tab-cardgame-guide" class="tab-pane">
+                <div class="about-container">
+                    <div class="about-card" style="max-width: 900px; width: 95%;">
+                        <div class="about-text" style="width: 100%;">
+                            <h2>《山海經 · 奇獸對決》卡牌對戰說明</h2>
+                            <p class="about-p">
+                                歡迎來到《山海經 · 奇獸對決》對戰玩法說明頁面！本遊戲是一個專為《山海經》設計的策略卡牌闖關對抗遊戲。玩家可以使用收集到的山海異獸卡牌，在「東、南、西、北、中」五大方位戰線上與混沌、窮奇、檮杌、饕餮等強大魔王進行對決。
+                            </p>
+
+                            <h3 style="color: var(--gold-primary); font-family: 'Noto Serif TC', serif; border-bottom: 1px solid var(--gold-border); padding-bottom: 6px; margin-top: 25px;"><i class="fa-solid fa-fire-flame-simple"></i> 1. 召喚與靈力限制</h3>
+                            <p class="about-p">
+                                每張卡牌左上角標示的數字為其<strong>召喚靈力點數 (Cost)</strong>。玩家每回合擁有的靈力上限有限（第一回合為 3 點，隨回合推進逐次增加，最多為 8 點）。靈力會於每回合結束後自動補滿。合理分配召喚費用是致勝的關鍵！
+                            </p>
+
+                            <h3 style="color: var(--gold-primary); font-family: 'Noto Serif TC', serif; border-bottom: 1px solid var(--gold-border); padding-bottom: 6px; margin-top: 25px;"><i class="fa-solid fa-shield-halved"></i> 2. 戰力 (ATK) 與生命值 (HP)</h3>
+                            <p class="about-p">
+                                卡牌下方標示了兩個基礎戰鬥數值：
+                                <br>⚔️ <strong>戰力 (ATK)</strong>：代表對決衝突時，能對敵方卡牌造成的傷害量。
+                                <br>❤️ <strong>生命值 (HP)</strong>：代表卡牌能承受的傷害上限。當生命值降至 0 或以下時，該異獸隨從陣亡。
+                            </p>
+
+                            <h3 style="color: var(--gold-primary); font-family: 'Noto Serif TC', serif; border-bottom: 1px solid var(--gold-border); padding-bottom: 6px; margin-top: 25px;"><i class="fa-solid fa-arrows-spin"></i> 3. 屬性相剋機制</h3>
+                            <p class="about-p">
+                                遊戲中的卡牌分為三大類型，形成循環剋制鏈。當攻擊剋制對手時，造成的傷害將<strong>提升 30%</strong>：
+                                <br>🟢 <strong>神獸 克 凶獸 🔴</strong>：神獸攻擊凶獸時，傷害提升 30%。
+                                <br>🔴 <strong>凶獸 克 瑞獸 🔵</strong>：凶獸攻擊瑞獸時，傷害提升 30%。
+                                <br>🔵 <strong>瑞獸 克 神獸 🟢</strong>：瑞獸攻擊神獸時，傷害提升 30%。
+                            </p>
+
+                            <h3 style="color: var(--gold-primary); font-family: 'Noto Serif TC', serif; border-bottom: 1px solid var(--gold-border); padding-bottom: 6px; margin-top: 25px;"><i class="fa-solid fa-map-location-dot"></i> 4. 五山經地域共鳴</h3>
+                            <p class="about-p">
+                                將卡牌放置在符合其<strong>出身地域（經脈）</strong>的格子時，將激活特別共鳴效果：
+                                <br>🟢 <strong>東山經 (木)</strong>：獲得「再生」── 每回合結束時回復 <strong>15 點生命值</strong>。
+                                <br>🔴 <strong>南山經 (火)</strong>：獲得「烈焰」── 在對決時，戰力（ATK）<strong>加成 30%</strong>。
+                                <br>🟡 <strong>西山經 (金)</strong>：獲得「破甲」── 無視敵方防禦，對決傷害額外<strong>增加 20%</strong>。
+                                <br>🔵 <strong>北山經 (水)</strong>：獲得「冰結」── 攻擊前有 <strong>25% 機率凍結對手</strong>，被凍結者本回合無法還擊，造成的傷害降為 0。
+                                <br>🟤 <strong>中山經 (土)</strong>：獲得「萬能共鳴」── 中山經隨從卡牌在任何插槽皆可觸發該插槽的地域共鳴。
+                            </p>
+
+                            <h3 style="color: var(--gold-primary); font-family: 'Noto Serif TC', serif; border-bottom: 1px solid var(--gold-border); padding-bottom: 6px; margin-top: 25px;"><i class="fa-solid fa-star"></i> 5. 卡牌特徵天賦</h3>
+                            <p class="about-p">
+                                依據《山海經》原著的外貌與特徵描述，部分異獸具備獨特天賦：
+                                <br>⚡ <strong>先手速攻（飛行鳥類）</strong>：在衝突中先手攻擊。若能一擊擊殺敵方，則敵方無法觸發反擊，達成無傷消滅。
+                                <br>🛡️ <strong>堅壁嘲諷（物理巨獸）</strong>：卡牌血量較高，充當戰線防護肉盾。
+                                <br>👁️ <strong>多眼洞悉（防止奇擊）</strong>：擁有防禦偵察天賦，使對方的奇襲與冰凍效果失效。
+                            </p>
+
+                            <h3 style="color: var(--gold-primary); font-family: 'Noto Serif TC', serif; border-bottom: 1px solid var(--gold-border); padding-bottom: 6px; margin-top: 25px;"><i class="fa-solid fa-crow"></i> 6. 百鳥爭鳴（群鳥陣營特效）</h3>
+                            <p class="about-p">
+                                當己方或敵方場上同時部署了 <strong>3 隻（含）以上具有飛行特徵（先手⚡圖標）的鳥類卡牌</strong> 時，會自動觸發「百鳥爭鳴」。此陣營效果將干擾對手的精神，使<strong>對手場上所有隨從卡牌的戰力（ATK）降低 20%</strong>！
+                            </p>
+
+                            <h3 style="color: var(--gold-primary); font-family: 'Noto Serif TC', serif; border-bottom: 1px solid var(--gold-border); padding-bottom: 6px; margin-top: 25px;"><i class="fa-solid fa-arrows-spin"></i> 7. 天地五行齊聚（大共鳴）</h3>
+                            <p class="about-p">
+                                當玩家與敵方場上（共 8 個格子）同時部署了涵蓋<strong>東、南、西、北、中</strong>五種地域出身的隨從卡牌時，在回合開始結算前會自動發動「五行大共鳴」。天地之氣交泰，將直接對敵方魔王造成 <strong>30 點真實傷害</strong>，並為我方回復 <strong>20 點生命值</strong>，是逆轉戰局的核心王牌！
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: WRITER'S NOTES -->
+            <section id="tab-notes" class="tab-pane">
+                <div class="about-container">
+                    <div class="about-card">
+                        <div class="about-image-decoration"></div>
+                        <div class="about-text">
+                            <h2>筆者說明 (Author's Notes)</h2>
+                            <p class="about-p font-chinese">
+                                <strong>🔮 關於這個專案的誕生與創作動機</strong>
+                            </p>
+                            <p class="about-p font-chinese">
+                                本專案起源於筆者（胖子叔叔）對中國古代神話與地理奇書《山海經》的深厚喜愛。書中光怪陸離的珍禽異獸、雄渾神秘的創世神話，無一不展現了華夏遠古先民天馬行空的想像力。
+                            </p>
+                            <p class="about-p font-chinese">
+                                為了在這個現代數位時代重現那股古老而神聖的野性美學，筆者特別設計並建立了這個互動式網頁。我們將傳統的<strong>天體羅盤（八卦方位篩選）</strong>與現代的<strong>漸進式Web應用 (PWA)</strong>技術相結合，讓讀者無論是在電腦前還是手機螢幕上，都能如翻閱古籍般流暢地探索各方異獸與神話傳說。
+                            </p>
+                            <p class="about-p font-chinese">
+                                <strong>🤖 人工智慧 (AI) 代理人協同創作</strong>
+                            </p>
+                            <p class="about-p font-chinese">
+                                特別值得一提的是，本專案的程式開發、神話故事編寫以及部分水墨風格異獸插圖的生成，均是由筆者與 <strong>Google DeepMind 研發的 Gemini AI 代理人 (AI Agent)</strong> 以人機協同（Pair Programming）的方式探索、構思並編寫完成的。這是一次極具實驗性的 AI 代理人開發測試，旨在探究生成式 AI 在歷史文化推廣、視覺美學重塑與軟體工程實踐中的潛能。希望透過這次的數位嘗試，能讓更多人體會到《山海經》神話體系的無窮魅力。
+                            </p>
+                            <p class="about-p font-chinese">
+                                <strong>⚖️ 版權與授權說明 (Copyright & Disclaimer)</strong>
+                            </p>
+                            <p class="about-p font-chinese">
+                                1. <strong>美術資產</strong>：網頁中使用的水墨風格異獸插圖、精美背景與UI框架均為專案專屬 AI 繪圖生成，版權歸屬本專案所有。僅供個人學習與非商業性質推廣展示使用。<br>
+                                2. <strong>古籍文字</strong>：經典古籍原文均引自先秦著作《山海經》及漢代《淮南子》、《列子》等經典史料，文字版權屬於公有領域（Public Domain）。<br>
+                                3. <strong>故事釋義</strong>：現代神話故事解說由 AI 代理人整合經典古文編纂而成，版權歸屬本專案，歡迎在保留來源出處的前提下轉載分享。
+                            </p>
+                            <div class="quote-block">
+                                <p class="quote-text">「古老的志怪，透過現代人工智慧的經脈，在網頁的字裡行間重獲新生。」</p>
+                                <span class="quote-author">—— 筆者寄語</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Mystical Detail Modal Overlay -->
+        <div class="modal-overlay" id="beast-modal" role="dialog" aria-modal="true" aria-labelledby="modal-beast-name">
+            <div class="modal-card">
+                <button class="modal-close-btn" id="modal-close" aria-label="關閉視窗">&times;</button>
+                
+                <!-- Left/Right Modal Navigation Buttons -->
+                <button class="modal-nav-btn prev-btn" id="modal-prev" aria-label="上一個異獸" title="上一個">&#10094;</button>
+                <button class="modal-nav-btn next-btn" id="modal-next" aria-label="下一個異獸" title="下一個">&#10095;</button>
+                
+                <div class="modal-grid">
+                    <!-- Left: Beast Image & Decorative Border -->
+                    <div class="modal-visual">
+                        <div class="beast-image-container">
+                            <img id="modal-beast-img" src="" alt="異獸圖" onerror="this.onerror=null; this.src='assets/webp/placeholder_beast.webp';">
+                            <div class="image-frame-gold"></div>
+                        </div>
+                        <div class="beast-region-badge">
+                            <i class="fa-solid fa-compass"></i> <span id="modal-beast-region">東山經</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Stats & Information -->
+                    <div class="modal-info">
+                        <div class="modal-header-info">
+                            <span class="beast-category-tag" id="modal-beast-category">神獸</span>
+                            <h2 id="modal-beast-name" class="beast-chinese-name">九尾狐</h2>
+                            <span id="modal-beast-english" class="beast-english-name">Nine-Tailed Fox</span>
+                        </div>
+                        
+                        <div class="modal-details-body">
+                            <!-- Stats Area -->
+                            <div class="beast-stats">
+                                <h3><i class="fa-solid fa-chart-simple"></i> 靈性數值 (Spiritual Stats)</h3>
+                                <div class="stat-bar-wrapper">
+                                    <span class="stat-label">神性/Spiritual Power</span>
+                                    <div class="stat-bar"><div class="stat-fill" id="stat-spiritual" style="width: 80%"></div></div>
+                                    <span class="stat-num" id="val-spiritual">85</span>
+                                </div>
+                                <div class="stat-bar-wrapper">
+                                    <span class="stat-label">凶性/Aggression</span>
+                                    <div class="stat-bar"><div class="stat-fill" id="stat-aggression" style="width: 20%"></div></div>
+                                    <span class="stat-num" id="val-aggression">20</span>
+                                </div>
+                                <div class="stat-bar-wrapper">
+                                    <span class="stat-label">稀有度/Rarity</span>
+                                    <div class="stat-bar"><div class="stat-fill" id="stat-rarity" style="width: 90%"></div></div>
+                                    <span class="stat-num" id="val-rarity">95</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Lore Text -->
+                            <div class="beast-lore-section">
+                                <h3><i class="fa-solid fa-scroll"></i> 古籍記載 (Original Classic Text)</h3>
+                                <blockquote id="modal-beast-classic" class="classic-quote">
+                                    「青丘之山，有獸焉，其狀如狐而九尾，其音如嬰兒，能食人，食之不蠱。」
+                                </blockquote>
+                                <h3><i class="fa-solid fa-feather"></i> 現代釋義 (Modern Interpretation)</h3>
+                                <p id="modal-beast-desc" class="beast-description">
+                                    九尾狐是中國古代神話傳說中的奇獸。居住在青丘國，長著九條尾巴，聲音如同嬰兒啼哭。雖然傳說牠會食人，但人們若吃了牠的肉，便能避開妖邪蠱惑。在後世中，牠逐漸演化為瑞祥之獸，象徵子孫昌盛與帝王之兆。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story Modal Overlay (For Lore Scroll Reading) -->
+        <div class="modal-overlay" id="story-modal" role="dialog" aria-modal="true" aria-labelledby="modal-story-title">
+            <div class="story-modal-card">
+                <button class="modal-close-btn" id="story-modal-close" aria-label="關閉視窗">&times;</button>
+                <div class="story-scroll-wood wood-left"></div>
+                <div class="story-content-wrapper">
+                    <h2 id="modal-story-title" class="story-modal-title">故事名稱</h2>
+                    <div id="modal-story-body" class="story-modal-body">
+                        <!-- Story paragraphs will go here -->
+                    </div>
+                </div>
+                <div class="story-scroll-wood wood-right"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>© 2026 山海經奇獸異誌網頁專案 | 探索遠古神怪世界</p>
+        </footer>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+    <script src="card-game.js"></script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 台灣運彩模擬投注機 | Taiwan Sports Lottery Simulation</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Glow Spots -->
+    <div class="glow-spot glow-1"></div>
+    <div class="glow-spot glow-2"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="brand-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+                <div class="title-group">
+                    <h1>台灣運彩模擬投注系統</h1>
+                    <p>動態賠率更新、多重投注玩法、虛擬派彩結算之擬真博彩體驗 ⚾ 🏀 ⚽</p>
+                </div>
+            </div>
+            <a href="../index-zh.html" class="back-home-btn">
+                <i class="fa-solid fa-house"></i> 回作品集首頁
+            </a>
+        </header>
+
+        <!-- Wallet Banner Dashboard -->
+        <section class="wallet-banner">
+            <div class="wallet-info">
+                <div class="wallet-label">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>您的虛擬帳戶餘額</span>
+                </div>
+                <div class="wallet-balance">
+                    <span>$</span><span id="wallet-amount">10,000</span><span class="currency"> NTD</span>
+                </div>
+            </div>
+            <div class="wallet-stats">
+                <div class="stat-box">
+                    <span class="stat-lbl">未結算注單</span>
+                    <span class="stat-val" id="active-bets-count">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-lbl">累計淨損益</span>
+                    <span class="stat-val" id="net-profit">$0</span>
+                </div>
+            </div>
+            <button class="btn-refill" onclick="refillWallet()">
+                <i class="fa-solid fa-coins"></i> 領取紓困金 ($10,000)
+            </button>
+        </section>
+
+        <!-- Main Dashboard Workspace -->
+        <main class="dashboard-grid">
+            <!-- Left Panel: Sports Betting Board -->
+            <section class="sports-board">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-trophy"></i> 當前開放投注賽事</h2>
+                    <!-- Category Tabs -->
+                    <div class="category-tabs">
+                        <button class="cat-btn active" onclick="filterCategory('all')">全部賽事</button>
+                        <button class="cat-btn" onclick="filterCategory('baseball')">中華職棒 ⚾</button>
+                        <button class="cat-btn" onclick="filterCategory('basketball')">NBA 🏀</button>
+                        <button class="cat-btn" onclick="filterCategory('soccer')">歐洲足球 ⚽</button>
+                    </div>
+                </div>
+
+                <div class="matches-list" id="matches-list">
+                    <!-- Loaded dynamically via app.js -->
+                </div>
+            </section>
+
+            <!-- Right Panel: Betting Slip & History -->
+            <section class="bets-sidebar">
+                <!-- Sidebar Tabs -->
+                <div class="sidebar-tabs">
+                    <button class="tab-btn active" id="tab-btn-slip" onclick="switchSidebarTab('slip')">
+                        <i class="fa-solid fa-receipt"></i> 投注單 <span class="slip-badge" id="slip-count">0</span>
+                    </button>
+                    <button class="tab-btn" id="tab-btn-history" onclick="switchSidebarTab('history')">
+                        <i class="fa-solid fa-clock-rotate-left"></i> 歷史注單
+                    </button>
+                </div>
+
+                <!-- Tab 1: Bet Slip -->
+                <div class="tab-content active" id="tab-content-slip">
+                    <div class="slip-container">
+                        <div class="slip-items" id="slip-items-container">
+                            <!-- Selected bet items will go here -->
+                            <div class="empty-slip-msg">
+                                <i class="fa-solid fa-receipt"></i>
+                                <p>請點擊左側賽事賠率進行投注</p>
+                            </div>
+                        </div>
+
+                        <!-- Slip Summary and Actions -->
+                        <div class="slip-summary" id="slip-summary-panel" style="display: none;">
+                            <div class="summary-row">
+                                <span>總投注金額</span>
+                                <span class="summary-val">$<span id="summary-total-bet">0</span> NTD</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>預估最高派彩</span>
+                                <span class="summary-val highlight">$<span id="summary-total-payout">0</span> NTD</span>
+                            </div>
+                            <div class="slip-actions">
+                                <button class="btn-clear-slip" onclick="clearSlip()">清除全部</button>
+                                <button class="btn-submit-bets" onclick="submitBets()">
+                                    <i class="fa-solid fa-check"></i> 確認送出投注
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Betting History -->
+                <div class="tab-content" id="tab-content-history">
+                    <div class="history-container" id="history-container">
+                        <!-- Loaded dynamically via app.js -->
+                        <div class="empty-history-msg">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <p>尚無任何投注紀錄</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Disclaimer Footer -->
+        <footer class="app-disclaimer">
+            <p><strong>免責聲明 / Disclaimer</strong></p>
+            <p>本網頁僅作為個人程式開發學習與前端網頁作品集展示使用，無任何真實金錢交易或營利行為。網頁中所有賽事數據、賠率及模擬投注結果均為系統隨機模擬，與真實彩券公司或賽事無關。網頁所展示之賠率與投注內容純屬模擬測試，不構成任何真實博彩建議。</p>
+            <p>This website is for personal programming education and portfolio demonstration purposes only. There is no real money wagering, commercial transactions, or payouts. All match data, odds, and simulated betting results are generated randomly by the system for entertainment and educational purposes, and are completely unrelated to any real-world lottery operator or sports events.</p>
+        </footer>
+    </div>
+
+    <!-- Match Simulation Overlay Modal -->
+    <div class="modal-overlay" id="sim-modal">
+        <div class="sim-card">
+            <div class="sim-header">
+                <h3><i class="fa-solid fa-circle-play fa-pulse"></i> 賽事模擬現場直播</h3>
+                <span class="sim-badge" id="sim-league">CPBL</span>
+            </div>
+            
+            <div class="sim-board">
+                <!-- Team Home -->
+                <div class="sim-team text-right">
+                    <div class="sim-team-logo" id="sim-home-logo">🏠</div>
+                    <div class="sim-team-name" id="sim-home-name">主隊</div>
+                </div>
+                <!-- Score Ticker -->
+                <div class="sim-score">
+                    <span id="sim-home-score">0</span>
+                    <span class="score-divider">:</span>
+                    <span id="sim-away-score">0</span>
+                </div>
+                <!-- Team Away -->
+                <div class="sim-team text-left">
+                    <div class="sim-team-logo" id="sim-away-logo">🚌</div>
+                    <div class="sim-team-name" id="sim-away-name">客隊</div>
+                </div>
+            </div>
+
+            <!-- Live Status/Ticker -->
+            <div class="sim-ticker">
+                <div class="ticker-dot"></div>
+                <span id="sim-status-text">正在進行賽事熱身...</span>
+            </div>
+
+            <!-- Simulation Progress Bar -->
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="sim-progress-fill"></div>
+            </div>
+
+            <!-- Modal Close Action (hidden during active sim) -->
+            <button class="btn-close-sim" id="btn-close-sim" onclick="closeSimModal()" style="display: none;">
+                關閉直播並結算
+            </button>
+        </div>
+    </div>
+
+    <!-- Canvas for celebration confetti effects -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="app.js"></script>
+</body>
+</html>

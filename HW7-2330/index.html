@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📈 TSMC (2330) 台積電股價預測儀表板 | CRISP-DM Stock Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #020617 0%, #0f172a 60%, #083344 100%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --primary-accent: #06b6d4; /* TSMC Cyan Tech color */
+            --primary-accent-hover: #0891b2;
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --input-bg: rgba(2, 6, 23, 0.6);
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-amber: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container */
+        .dashboard-container {
+            width: 100%;
+            max-width: 1300px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .back-btn {
+            color: var(--primary-accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--text-primary);
+            transform: translateX(-3px);
+        }
+
+        .title-area h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, var(--primary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.2rem;
+        }
+
+        .title-area p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Main Workspace Layout */
+        .main-workspace {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .main-workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Side: Controls Card */
+        .controls-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            height: fit-content;
+        }
+
+        .card-header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* Expander / Accordion styling */
+        .expander {
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .expander-header {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 14px 18px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+
+        .expander-header:hover {
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .expander-content {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .expander.collapsed .expander-content {
+            display: none;
+        }
+
+        .expander-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .expander.collapsed .expander-header i {
+            transform: rotate(-90deg);
+        }
+
+        /* Sliders / Inputs styling */
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .slider-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #cbd5e1;
+        }
+
+        .slider-label-row span.val-badge {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--primary-accent);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .slider-group input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #475569;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .slider-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-accent);
+            box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+            transition: transform 0.1s ease;
+        }
+
+        .slider-group input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.25);
+        }
+
+        /* Right Side: Prediction & Analysis Tabs */
+        .results-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Prediction Value Card */
+        .prediction-card {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(8, 145, 178, 0.25) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prediction-card::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--primary-accent);
+            filter: blur(80px);
+            opacity: 0.15;
+            top: -50px;
+            right: -50px;
+            z-index: -1;
+        }
+
+        .pred-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #9feefc;
+            margin-bottom: 10px;
+        }
+
+        .pred-value {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(to right, #ffffff, #9feefc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            margin-bottom: 5px;
+        }
+
+        .trend-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .trend-up {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .trend-down {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--accent-red);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .pred-sub {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .cat-cans-counter {
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 6px 16px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fcd34d; /* Warm Yellow */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tab Layout */
+        .tabs-header {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 1px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+
+        .tab-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-accent);
+            background: rgba(6, 182, 212, 0.06);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--primary-accent);
+            border-radius: 3px;
+        }
+
+        .tab-content-panel {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+            min-height: 400px;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* CRISP-DM Accordion */
+        .report-section {
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.2);
+        }
+
+        .report-section-header {
+            background: rgba(30, 41, 59, 0.4);
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.3s ease;
+        }
+
+        .report-section-header:hover {
+            background: rgba(30, 41, 59, 0.7);
+        }
+
+        .report-section-content {
+            padding: 24px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .report-section.collapsed .report-section-content {
+            display: none;
+        }
+
+        .report-section-header i {
+            transition: transform 0.3s ease;
+        }
+
+        .report-section.collapsed .report-section-header i {
+            transform: rotate(-90deg);
+        }
+
+        .report-section-content h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        .report-section-content blockquote {
+            border-left: 4px solid var(--primary-accent);
+            padding-left: 15px;
+            margin: 10px 0;
+            color: #e2e8f0;
+            font-style: italic;
+        }
+
+        /* Tables inside reports */
+        table.report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.85rem;
+        }
+
+        table.report-table th, table.report-table td {
+            border: 1px solid var(--card-border);
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        table.report-table th {
+            background: rgba(30, 41, 59, 0.8);
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        table.report-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Plots display grid */
+        .plots-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .plot-container {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .plot-container h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .plot-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            background: #ffffff;
+            padding: 5px;
+        }
+
+        .plot-caption {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Fun Stories tab styling */
+        .fun-toggle-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .fun-btn {
+            border: 1px solid var(--card-border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fun-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .fun-btn.active {
+            background: var(--accent-amber);
+            border-color: var(--accent-amber);
+            color: #000000;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .fun-story-box {
+            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #e2e8f0;
+            display: none;
+        }
+
+        .fun-story-box.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .fun-story-box h3 {
+            font-size: 1.4rem;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--accent-amber);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+
+        .fun-story-box p {
+            margin-bottom: 15px;
+        }
+
+        .fun-story-box ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        footer a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Floating Navigation Header -->
+        <header>
+            <div class="title-area">
+                <h1>📈 TSMC (2330) 台積電股價預測儀表板</h1>
+                <p>基於 CRISP-DM 流程之時間序列與機器學習迴歸模型對比分析儀表板</p>
+            </div>
+            <a href="../index-zh.html" class="back-btn">
+                <i class="fa-solid fa-house"></i> 返回作品集
+            </a>
+        </header>
+
+        <!-- Main Workspace Grid -->
+        <main class="main-workspace">
+            <!-- Left Side: Grouped Sliders Card -->
+            <section class="controls-card">
+                <div class="card-header-title">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>交易特徵拉桿面板</span>
+                </div>
+
+                <!-- Expander 1: Stock Price Input -->
+                <div class="expander" id="exp-stock">
+                    <div class="expander-header" onclick="toggleExpander('exp-stock')">
+                        <span>📊 台積電歷史日收盤價</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="expander-content">
+                        <!-- Close Price Slider -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span>今日收盤價 (Close)</span>
+                                <span class="val-badge" id="lbl-close">2375.0</span>
+                            </div>
+                            <input type="range" id="val-close" min="300" max="2500" step="0.5" value="2375.0" oninput="updateVal(this.value)">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Pred Card + Tabs Content -->
+            <section class="results-container">
+                <!-- Large Price Card -->
+                <div class="prediction-card">
+                    <span class="pred-label">預估下一交易日收盤價</span>
+                    <span class="pred-value" id="price-display">NT$ 2,375.00</span>
+                    
+                    <div id="trend-box" class="trend-badge trend-up">
+                        <i id="trend-icon" class="fa-solid fa-circle-arrow-up"></i>
+                        <span id="trend-text">看漲 (Bullish) +NT$ 0.00 (+0.00%)</span>
+                    </div>
+                    
+                    <span class="pred-sub">輸入股價: NT$ <span id="input-display">2,375.00</span> </span>
+                    
+                    <!-- Cat tuna cans conversion counter -->
+                    <div class="cat-cans-counter">
+                        <i class="fa-solid fa-cat"></i>
+                        <span>貓爪折算: 1 股台積電約可換 <span id="cans-display">47.5</span> 個特級鮪魚罐罐 🥫 (以一罐 $50 計算)</span>
+                    </div>
+                </div>
+
+                <!-- Tabs header -->
+                <div class="tabs-header">
+                    <button class="tab-btn active" onclick="switchTab('tab-overview')">專案報告</button>
+                    <button class="tab-btn" onclick="switchTab('tab-plots')">分析圖表集</button>
+                    <button class="tab-btn" onclick="switchTab('tab-stories')">趣味故事版</button>
+                </div>
+
+                <!-- Tabs Content Panel -->
+                <div class="tab-content-panel">
+                    <!-- TAB 1: CRISP-DM OVERVIEW -->
+                    <div class="tab-pane active" id="tab-overview">
+                        <!-- BU -->
+                        <div class="report-section" id="rep-bu">
+                            <div class="report-section-header" onclick="toggleReportSection('rep-bu')">
+                                <span>1. Business Understanding (商業理解)</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="report-section-content">
+                                <h4>核心商業問題</h4>
+                                <blockquote>如何結合機器學習迴歸模型與時間序列自迴歸模型的優勢，在台積電股價創歷史新高的趨勢下，準確預測下一個交易日的收盤價格，並揭示不同模型的外推局限性？</blockquote>
+                                <h4>專案目標 (Project Goal)</h4>
+                                <p>本專案以下載的 1,215 筆台積電歷史日交易價格為基礎，比較機器學習（OLS、Ridge、Random Forest）與時間序列模型（ARIMA 1,1,0 靜態 vs 滾動）的預測精度，凸顯決策樹模型在外推股價時的本質局限，並選出最佳模型部署於互動網頁。</p>
+                            </div>
+                        </div>
+
+                        <!-- DU -->
+                        <div class="report-section collapsed" id="rep-du">
+                            <div class="report-section-header" onclick="toggleReportSection('rep-du')">
+                                <span>2. Data Understanding (資料理解)</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="report-section-content">
+                                <p>本數據集包含自 2021 年至 2026 年共 1,215 個交易日的台積電歷史價格。</p>
+                                <h4>欄位與時序特徵</h4>
+                                <ul>
+                                    <li><strong>Close (收盤價)</strong>：本次預測的核心目標與輸入變數。</li>
+                                    <li><strong>趨勢特徵</strong>：台積電股價在 2026 年大幅飆升（突破 2,000 元台幣以上），使得測試集的價格區間顯著高於訓練集。這為測試機器學習模型的外推能力（Extrapolation）提供了完美的實驗場景。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- DP -->
+                        <div class="report-section collapsed" id="rep-dp">
+                            <div class="report-section-header" onclick="toggleReportSection('rep-dp')">
+                                <span>3. Data Preprocessing (資料前處理)</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="report-section-content">
+                                <h4>A. 平穩性檢定 (Augmented Dickey-Fuller Test)</h4>
+                                <p>在訓練集上對收盤價 <code>Close</code> 進行 ADF 檢定：</p>
+                                <ul>
+                                    <li><strong>原始收盤價</strong>：p-value 為 <strong><code>0.9537</code></strong>（說明原始股價序列具有<strong>非平穩性</strong>，即隨機漫步）。</li>
+                                    <li><strong>一階差分（1st Difference）</strong>：p-value 降至 <strong><code>0.0000</code></strong>（顯著小於 0.05，達到<strong>平穩性</strong>）。</li>
+                                    <li><strong>結論</strong>：確定 ARIMA 模型的差分階數 <strong>d = 1</strong>。</li>
+                                </ul>
+                                <h4>B. 資料切分 (時序切分)</h4>
+                                <p>為了防止數據洩漏並對齊圖表，我們將測試集起點設定為 <strong>2026-04-15</strong>：</p>
+                                <ul>
+                                    <li><strong>訓練集</strong>：2026-04-15 之前的歷史數據 (共 1,172 筆)。</li>
+                                    <li><strong>測試集</strong>：2026-04-15 之後的近期數據 (共 43 筆，股價處於 2,000 ~ 2,400 元的高檔區)。</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- M -->
+                        <div class="report-section collapsed" id="rep-m">
+                            <div class="report-section-header" onclick="toggleReportSection('rep-m')">
+                                <span>4. Modeling (模型建立)</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="report-section-content">
+                                <p>本專案建立並比較了機器學習模型與時間序列模型在台積電股價預測上的表現，共實作並評估了以下五種預測方法：</p>
+                                <ol>
+                                    <li><strong>Linear Regression (線性迴歸)</strong>：使用今日收盤價 X_t 預測明日收盤價 y_t+1。</li>
+                                    <li><strong>Ridge Regression (脊迴歸)</strong>：在線性迴歸基礎上加上 L2 正則化（alpha = 1.0），以防止過度擬合。</li>
+                                    <li><strong>Random Forest (隨機森林)</strong>：使用 100 棵決策樹的集成學習模型，探討非線性樹模型在趨勢推估上的局限性。</li>
+                                    <li><strong>ARIMA(1, 1, 0) static (靜態預測)</strong>：僅使用訓練集擬合 ARIMA 參數，在整個測試期間進行多步預測（不再讀入測試集的新觀測值），預測值會快速收斂至常數（平滑的直線）。</li>
+                                    <li><strong>ARIMA(1, 1, 0) rolling (滾動預測)</strong>：在測試集的每個時間點，將前一日的實際股價納入歷史數據中重新擬合模型，進行一步領先預測（One-Step-Ahead Rolling Forecast）。</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- E -->
+                        <div class="report-section collapsed" id="rep-e">
+                            <div class="report-section-header" onclick="toggleReportSection('rep-e')">
+                                <span>5. Model Evaluation (模型評估)</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="report-section-content">
+                                <h4>各模型效能指標對比</h4>
+                                <p>我們對比了各個模型在測試集上的預測精準度（R² 越高越好，其餘指標越低越好）：</p>
+                                <table class="report-table">
+                                    <thead>
+                                        <tr>
+                                            <th>模型名稱</th>
+                                            <th>測試集 R²</th>
+                                            <th>測試集 MAE (元台幣)</th>
+                                            <th>測試集 RMSE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Linear Regression (OLS)</strong></td>
+                                            <td><strong>0.7761</strong></td>
+                                            <td><strong>38.02</strong></td>
+                                            <td><strong>46.54</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Ridge Regression</strong></td>
+                                            <td><strong>0.7761</strong></td>
+                                            <td><strong>38.02</strong></td>
+                                            <td><strong>46.54</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>ARIMA(1, 1, 0) rolling (滾動)</strong></td>
+                                            <td><strong>0.5466</strong></td>
+                                            <td><strong>55.18</strong></td>
+                                            <td><strong>66.23</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>ARIMA(1, 1, 0) static (靜態)</strong></td>
+                                            <td><strong>-3.7822</strong></td>
+                                            <td><strong>194.00</strong></td>
+                                            <td><strong>215.09</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Random Forest</strong></td>
+                                            <td><strong>-6.9447</strong></td>
+                                            <td><strong>259.20</strong></td>
+                                            <td><strong>277.24</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- FR -->
+                        <div class="report-section collapsed" id="rep-fr">
+                            <div class="report-section-header" onclick="toggleReportSection('rep-fr')">
+                                <span>6. Final Result & Deploy (結論與部署)</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+                            <div class="report-section-content">
+                                <h4>專案結論</h4>
+                                <ul>
+                                    <li><strong>外推能力是關鍵</strong>：在股價呈現持續突破新高的強勢多頭市場中，<strong>外推能力（Extrapolation）</strong> 至關重要。線性模型由於不受上限約束，外推表現顯著優於樹集成模型（Random Forest）。</li>
+                                    <li><strong>時序滾動的重要性</strong>：傳統時間序列模型（如 ARIMA）若不進行滾動更新（static），其多步預測將迅速失去實用價值。導入滾動預測（rolling）後，模型預測能力大幅提升，是量化交易系統中的必備機制。</li>
+                                </ul>
+                                <h4>最佳部署模型</h4>
+                                <p>本系統已將最佳模型（Linear Regression OLS）編碼於網頁中，讓使用者能動態調整今日收盤價，即時推估次日股價！</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: ANALYSIS PLOTS -->
+                    <div class="tab-pane" id="tab-plots">
+                        <div class="plots-grid">
+                            <!-- Plot 1 -->
+                            <div class="plot-container">
+                                <h3>📈 2330.TW 模型預測對比走勢圖</h3>
+                                <img src="./model_comparison.png" alt="Model Comparison">
+                                <div class="plot-caption">
+                                    展示了線性迴歸、脊迴歸、隨機森林與 ARIMA (靜態 vs 滾動) 在測試集上的實際外推表現。
+                                    特別標記了 <strong>擴大喇叭形（Megaphone Pattern）</strong> 與 <strong>上升收斂楔形（Wedge Pattern）</strong> 形態。
+                                </div>
+                            </div>
+                            
+                            <!-- Plot 2 -->
+                            <div class="plot-container">
+                                <h3>📊 特徵相關性矩陣圖 (Correlation Matrix)</h3>
+                                <img src="./correlation_matrix.png" alt="Correlation Matrix">
+                                <div class="plot-caption">
+                                    特徵間的相關係數矩陣，揭示不同滯後天數收盤價（Lags）與當日股價的高度線性相關性。
+                                </div>
+                            </div>
+                            
+                            <!-- Plot 3 -->
+                            <div class="plot-container">
+                                <h3>🎯 逐步特徵選擇 (SFS) 折線圖</h3>
+                                <img src="./feature_selection_stepwise.png" alt="Feature Selection">
+                                <div class="plot-caption">
+                                    展示隨著選入特徵個數增加，模型的訓練集與測試集評估指標的變化，從而鎖定最優特徵子集。
+                                </div>
+                            </div>
+
+                            <!-- Plot 4 -->
+                            <div class="plot-container">
+                                <h3>📦 資料離群值分佈箱形圖 (Outliers Boxplot)</h3>
+                                <img src="./outliers_boxplot.png" alt="Outliers Boxplot">
+                                <div class="plot-caption">
+                                    檢查股價數據集的離群分佈，確保數據清洗符合模型假設前提。
+                                </div>
+                            </div>
+
+                            <!-- Plot 5 -->
+                            <div class="plot-container">
+                                <h3>✨ 真實值 vs. 預測值散佈圖</h3>
+                                <img src="./predictions_scatter.png" alt="Predictions Scatter">
+                                <div class="plot-caption">
+                                    對比測試集真實股價與最優模型預測價格的擬合分佈，展現高精度的線性關係。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: FUN STORIES -->
+                    <div class="tab-pane" id="tab-stories">
+                        <div class="fun-toggle-row">
+                            <button class="fun-btn active" id="fbtn-elementary" onclick="switchStory('elementary')">🎈 國小生版本</button>
+                            <button class="fun-btn" id="fbtn-kindergarten" onclick="switchStory('kindergarten')">🚂 幼稚園版本</button>
+                            <button class="fun-btn" id="fbtn-cat" onclick="switchStory('cat')">🐱 招財貓版本</button>
+                        </div>
+
+                        <!-- Elementary story -->
+                        <div class="fun-story-box active" id="story-elementary">
+                            <h3><i class="fa-solid fa-circle-nodes"></i> 氣球飛高高與小狗猜高度</h3>
+                            <p>台積電的股價就像一顆「彩色氣球」，每天都在往上飛，而且飛得比以前任何時候都還要高！</p>
+                            <ul>
+                                <li>
+                                    <strong>聰明的小狗（線性迴歸）</strong>：它看到氣球今天在哪裡，就猜明天也會在差不多高的地方，氣球越飛越高，小狗也跟著往上看，所以猜得最準！
+                                </li>
+                                <li>
+                                    <strong>受傷的小狗（隨機森林）</strong>：這隻小狗以前只看過氣球最高飛到 2049 公分，它以為氣球一輩子只能飛到這個高度。所以當氣球飛到 2400 公分時，它還是傻傻地猜 1979 公分，結果差了十萬八千里！
+                                </li>
+                                <li>
+                                    <strong>不理人的小狗（ARIMA 靜態）</strong>：它只看了一開始的資料，後面就不管了，直接躺平在地上猜一個固定高度，當然猜不準！
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Kindergarten story -->
+                        <div class="fun-story-box" id="story-kindergarten">
+                            <h3><i class="fa-solid fa-child-reaching"></i> 小火車一直往上爬</h3>
+                            <p>小朋友，台積電股價是一台一直往山頂開的「黃金小火車（2330）」喔！</p>
+                            <ul>
+                                <li>
+                                    <strong>線性迴歸小貓咪</strong>：會跟著火車一直往上看，火車爬越高牠就往越高的位置猜，所以猜對了！
+                                </li>
+                                <li>
+                                    <strong>隨機森林小熊</strong>：只記得火車在半山腰的樣子，當火車開到更高的山頂時，小熊還在看半山腰，就找不到火車了！
+                                </li>
+                                <li>
+                                    <strong>ARIMA 滾動小貓</strong>：每天都會跑去火車最新停的位置看一眼，所以它也能跟上火車！
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Cat story -->
+                        <div class="fun-story-box" id="story-cat">
+                            <h3><i class="fa-solid fa-cat"></i> 喵～極限罐罐與貓爪外推學！</h3>
+                            <p>本喵作為量化交易貓老大，為大家分析一下為什麼有些模型能預測罐罐，有些卻只能餓肚子：</p>
+                            <ul>
+                                <li>
+                                    <strong>無限外推貓爪 (Linear Regression)</strong>：
+                                    喵嗚！如果奴才給的罐罐每天都在變多，已經超過了本喵這輩子看過的數量。線性模型貓咪會大膽預測：「明天一定有更多罐罐！」這隻貓咪最聰明，每天都吃得飽飽的！🐾
+                                </li>
+                                <li>
+                                    <strong>井底之蛙樹貓 (Random Forest)</strong>：
+                                    隨機森林貓咪是一隻保守貓，它在心裡設定了上限：「本喵這輩子最多只見過 2049 個罐罐，所以天底下的罐罐不可能超過這個數量！」當奴才拿出 2400 個罐罐時，它還是固執地猜 1979 個。這就是「無法外推的樹貓悲劇」！
+                                </li>
+                                <li>
+                                    <strong>裝聾作啞靜態貓 (ARIMA static)</strong>：
+                                    這隻貓咪只在第一天算了一次，之後就躲起來睡覺（不更新數據），不管外面罐罐變多少，它都猜一個固定數字（躺平）。
+                                </li>
+                                <li>
+                                    <strong>每日勤奮滾動貓 (ARIMA rolling)</strong>：
+                                    它很勤勞，每天開飯前都會跑去秤一下今天有多少罐罐（滾動更新），雖然它的預測總是慢了一天（有 lag 延遲），但起碼它不會像樹貓一樣裝傻！
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Designed for HW7-2330 | gogogo137-cmyk &copy; 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // OLS linear regression parameters calculated: 
+        // y_{t+1} = X_t * slope + intercept
+        const slope = 1.003688503320206;
+        const intercept = -1.6100053446879201;
+
+        let currentClosePrice = 2375.0;
+
+        // Toggle Expanders
+        function toggleExpander(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('collapsed');
+        }
+
+        // Toggle Report Sections
+        function toggleReportSection(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('collapsed');
+        }
+
+        // Tab Switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+            const clickedBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => {
+                if (tabId === 'tab-overview') return btn.textContent === '專案報告';
+                if (tabId === 'tab-plots') return btn.textContent === '分析圖表集';
+                return btn.textContent === '趣味故事版';
+            });
+            if (clickedBtn) clickedBtn.classList.add('active');
+            
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Story Switching (Fun stories tab)
+        function switchStory(storyType) {
+            document.querySelectorAll('.fun-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.fun-story-box').forEach(box => box.classList.remove('active'));
+
+            document.getElementById(`fbtn-${storyType}`).classList.add('active');
+            document.getElementById(`story-${storyType}`).classList.add('active');
+        }
+
+        // Update Slider value and trigger prediction
+        function updateVal(val) {
+            currentClosePrice = parseFloat(val);
+            document.getElementById(`lbl-close`).textContent = currentClosePrice.toFixed(1);
+            predictStockPrice();
+        }
+
+        // Predict stock price
+        function predictStockPrice() {
+            // Linear regression forecast
+            let predicted = currentClosePrice * slope + intercept;
+
+            // Compute change
+            let change = predicted - currentClosePrice;
+            let pctChange = (change / currentClosePrice) * 100;
+
+            // Display values
+            document.getElementById('price-display').textContent = `NT$ ${predicted.toLocaleString('zh-TW', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById('input-display').textContent = currentClosePrice.toLocaleString('zh-TW', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+            
+            // Cans calculation (1 TSMC share can buy cans at 50 NTD each)
+            let cansCount = (predicted / 50.0).toFixed(1);
+            document.getElementById('cans-display').textContent = cansCount;
+
+            // Trend indicator update
+            const trendBox = document.getElementById('trend-box');
+            const trendIcon = document.getElementById('trend-icon');
+            const trendText = document.getElementById('trend-text');
+
+            if (change >= 0) {
+                trendBox.className = "trend-badge trend-up";
+                trendIcon.className = "fa-solid fa-circle-arrow-up";
+                trendText.textContent = `看漲 (Bullish) +NT$ ${change.toFixed(2)} (+${pctChange.toFixed(2)}%)`;
+            } else {
+                trendBox.className = "trend-badge trend-down";
+                trendIcon.className = "fa-solid fa-circle-arrow-down";
+                trendText.textContent = `看跌 (Bearish) -NT$ ${Math.abs(change).toFixed(2)} (${pctChange.toFixed(2)}%)`;
+            }
+        }
+
+        // Run initial prediction on load
+        window.onload = () => {
+            predictStockPrice();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📣 台灣啦啦隊員篩選與隨選應援機 | Cheerleader Selection App</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background glow spots -->
+    <div class="glow-spot glow-1"></div>
+    <div class="glow-spot glow-2"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="brand-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-ranking-star"></i>
+                </div>
+                <div class="title-group">
+                    <h1>台灣職業啦啦隊應援隨機機</h1>
+                    <p>依照 2020~2026 年啦啦隊員人氣「開根號」之機率加權隨機抽選系統 🌟</p>
+                </div>
+            </div>
+            <a href="https://gogogo137-cmyk.github.io/index-zh.html#portfolio" class="back-home-btn">
+                <i class="fa-solid fa-house"></i> GOGOGO137 : 胖子叔叔的作品集
+            </a>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="dashboard">
+            <!-- Top Side: Filter Controller Card -->
+            <section class="control-card">
+                <div class="section-title">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>啦啦隊員篩選主控台</span>
+                </div>
+
+                <!-- Sport League Filter -->
+                <div class="filter-group">
+                    <div class="filter-label">
+                        <i class="fa-solid fa-trophy"></i> 選擇職業運動聯盟：
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active league-btn" id="lbtn-all" onclick="filterLeague('all')">全部聯盟</button>
+                        <button class="filter-btn league-btn" id="lbtn-cpbl" onclick="filterLeague('cpbl')">中華職棒 (CPBL)</button>
+                        <button class="filter-btn league-btn" id="lbtn-tpbl" onclick="filterLeague('tpbl')">職業籃球 (TPBL/PLG)</button>
+                        <button class="filter-btn league-btn" id="lbtn-tvl" onclick="filterLeague('tvl')">企業排球 (TVL)</button>
+                    </div>
+                </div>
+
+                <!-- Nationality Filter -->
+                <div class="filter-group">
+                    <div class="filter-label">
+                        <i class="fa-solid fa-globe"></i> 選擇隊員國籍：
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active nat-btn" id="nbtn-all" onclick="filterNationality('all')">全部國籍</button>
+                        <button class="filter-btn nat-btn" id="nbtn-taiwan" onclick="filterNationality('taiwan')">台灣籍</button>
+                        <button class="filter-btn nat-btn" id="nbtn-korea" onclick="filterNationality('korea')">韓國籍</button>
+                        <button class="filter-btn nat-btn" id="nbtn-japan" onclick="filterNationality('japan')">日本籍</button>
+                    </div>
+                </div>
+
+                <!-- Spin Trigger Action -->
+                <div class="spin-action-wrapper">
+                    <button class="btn-spin" id="btn-spin" onclick="spinWheel()">
+                        <i class="fa-solid fa-ranking-star"></i> 開始隨機應援！
+                    </button>
+                </div>
+            </section>
+
+            <!-- Bottom Side: Spotlight Presentation Card -->
+            <section class="spotlight-card">
+                <div class="spotlight-left">
+                    <img id="spotlight-img" src="assets/dahye.png" alt="李多慧">
+                </div>
+                <div class="spotlight-right">
+                    <div class="spotlight-info-header">
+                        <h2 id="spotlight-name">
+                            🐉 李多慧 (이다혜)
+                            <span class="spotlight-nat">韓國籍 (Korea)</span>
+                        </h2>
+                        <div id="spotlight-team">味全龍 Dragon Beauties / 台啤雲豹</div>
+                    </div>
+
+                    <!-- Metrics box showing the math weights -->
+                    <div class="spotlight-metrics">
+                        <div class="metric-item">
+                            <div class="metric-title">真實粉絲人氣</div>
+                            <div class="metric-value" id="spotlight-popularity">980,000</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-title">開根號權重值</div>
+                            <div class="metric-value" id="spotlight-sqrt">990.0</div>
+                        </div>
+                        <div class="metric-item" style="grid-column: 1 / -1; background: rgba(255, 0, 127, 0.08); border-color: rgba(255, 0, 127, 0.2)">
+                            <div class="metric-title" style="color: #ff66b2">當前應援中籤機率</div>
+                            <div class="metric-value highlight" id="spotlight-prob">14.91%</div>
+                        </div>
+                    </div>
+
+                    <!-- Description fields -->
+                    <div class="spotlight-desc-box">
+                        <div class="desc-block">
+                            <strong>個人簡歷 Biography</strong>
+                            <p id="spotlight-bio">來自韓國的應援女神，以頂尖的爆發力舞技與極具親和力的標誌性笑容風靡全台，掀起了中職與職籃啦啦隊的「韓流旋風」，實力深受各界認可。</p>
+                        </div>
+                        <div class="desc-block">
+                            <strong>未來方向 Career Path</strong>
+                            <p id="spotlight-direction">專業舞蹈編排與表演、個人YouTube Vlogger、電視廣告品牌代言、多棲藝人發展。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bottom Panel: Cheerleaders Pool Gallery -->
+        <section class="pool-gallery-section">
+            <div class="pool-header">
+                <h2><i class="fa-solid fa-users"></i> 當前應援候選池 (Pool)</h2>
+                <span id="pool-count">當前篩選池：9 人</span>
+            </div>
+            <!-- Grid displaying miniature cards of cheerleaders currently selected -->
+            <div class="cheer-grid" id="cheer-grid">
+                <!-- Dynamically loaded by app.js -->
+            </div>
+        </section>
+
+        <!-- Disclaimer Footer -->
+        <footer class="app-disclaimer">
+            <p><strong>免責聲明 / Disclaimer</strong></p>
+            <p>本網頁僅作為個人程式開發學習與前端網頁作品集展示使用，無任何商業營利行為。網頁中所使用之啦啦隊員姓名、隊伍及相關資訊，其肖像權、姓名權及商標權均歸原權利人、經紀公司或所屬球團所有。本網頁之所有啦啦隊成員圖片均為AI人工智慧技術生成模擬，並非真實照片。</p>
+            <p>This website is for personal programming education and portfolio demonstration purposes only. All names, team details, and related likenesses of cheerleaders are properties of their respective owners/clubs. All cheerleader images displayed on this website are simulated illustrations generated by Artificial Intelligence (AI) technology and are not actual photographs.</p>
+        </footer>
+    </div>
+
+    <!-- Script file -->
+    <script src="app.js"></script>
+</body>
+</html>

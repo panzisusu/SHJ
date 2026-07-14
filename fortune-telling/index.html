@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 星境啟示錄 | Cosmic Divination Oracle</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@500;700;900&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Parallax Cosmic Background -->
+    <div class="stars-bg"></div>
+    <div class="nebula-bg"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="brand-section">
+                <a href="../index-zh.html" class="back-home-btn" title="返回個人首頁">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div class="logo-icon">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <div class="title-group">
+                    <h1>星境啟示錄</h1>
+                    <p>輸入姓名與生日，觀測您的易經卦象、紫微命宮與西方星盤軌跡 🌌</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Step 1: Onboarding Destiny Form Panel (水晶球表單) -->
+        <section class="onboarding-panel" id="onboarding-panel">
+            <div class="crystal-ball-container">
+                <div class="crystal-ball">
+                    <div class="ball-glow"></div>
+                    <div class="ball-sparkles">
+                        <i class="fa-solid fa-star spark-1"></i>
+                        <i class="fa-solid fa-moon spark-2"></i>
+                        <i class="fa-solid fa-sun spark-3"></i>
+                    </div>
+                    <div class="ball-reflection"></div>
+                </div>
+                <div class="crystal-pedestal"></div>
+            </div>
+
+            <div class="form-card">
+                <h2>開啟命運星圖</h2>
+                <p>請輸入您的真實資料，啟動星際軌跡運算與命理排盤</p>
+                
+                <div class="form-group">
+                    <label for="input-name"><i class="fa-solid fa-signature text-accent"></i> 姓名 / 稱呼</label>
+                    <input type="text" id="input-name" placeholder="請輸入姓名..." maxlength="10">
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="input-birthday"><i class="fa-solid fa-calendar-days text-accent"></i> 出生日期</label>
+                        <input type="date" id="input-birthday" value="1998-06-15" min="1901-01-01">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-gender"><i class="fa-solid fa-venus-mars text-accent"></i> 陰陽屬性</label>
+                        <select id="input-gender">
+                            <option value="male" selected>乾 (男 / Yang)</option>
+                            <option value="female">坤 (女 / Yin)</option>
+                            <option value="none">無 (不設限 / None)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-block" onclick="activateDestinyMap()">
+                    <i class="fa-solid fa-compass-drafting"></i> 啟動天命排盤
+                </button>
+            </div>
+        </section>
+
+        <!-- Mode Switcher Tabs (預設隱藏，輸入資料後解鎖) -->
+        <nav class="oracle-tabs" id="oracle-tabs" style="display: none;">
+            <button class="tab-btn active" onclick="switchMode('destiny')">
+                <i class="fa-solid fa-compass"></i> 🧭 命盤總覽
+            </button>
+            <button class="tab-btn" onclick="switchMode('tarot')">
+                <i class="fa-solid fa-cards"></i> 🔮 塔羅密語
+            </button>
+            <button class="tab-btn" onclick="switchMode('horoscope')">
+                <i class="fa-solid fa-sun-dust"></i> ✨ 星曜運勢
+            </button>
+            <button class="tab-btn" onclick="switchMode('divination')">
+                <i class="fa-solid fa-gong"></i> 🏮 聖筊靈籤
+            </button>
+            <button class="edit-info-btn" onclick="showOnboardingForm()" title="修改個人資料">
+                <i class="fa-solid fa-user-gear"></i>
+            </button>
+        </nav>
+
+        <!-- Main Workspace (預設隱藏，解鎖後展示) -->
+        <main class="workspace-card" id="workspace-card" style="display: none;">
+            
+            <!-- SECTION 0: DESTINY BOARD (新分頁) -->
+            <section id="mode-destiny" class="oracle-section active">
+                <div class="section-intro">
+                    <h2><span id="destiny-user-name">-</span> 的宇宙天命盤</h2>
+                    <p>結合易經八卦、紫微主星、西洋星座與生命靈數，這是星軌賦予您的天賦與命運印記。</p>
+                </div>
+
+                <div class="destiny-grid">
+                    <!-- Card 1: Bagua & Five Elements -->
+                    <div class="destiny-card card-bagua">
+                        <div class="card-header">
+                            <span class="card-icon">☯</span>
+                            <h3>易經八卦與五行</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="bagua-title" id="bagua-title">離卦・離為火</div>
+                            <p class="card-text" id="bagua-desc">載入中...</p>
+                            
+                            <!-- Five elements meter -->
+                            <div class="five-elements">
+                                <h4>五行能量分佈</h4>
+                                <div class="element-row">
+                                    <span class="elem-label">木 (Wood)</span>
+                                    <div class="elem-bar"><div class="elem-fill fill-wood" id="elem-wood" style="width: 20%"></div></div>
+                                </div>
+                                <div class="element-row">
+                                    <span class="elem-label">火 (Fire)</span>
+                                    <div class="elem-bar"><div class="elem-fill fill-fire" id="elem-fire" style="width: 20%"></div></div>
+                                </div>
+                                <div class="element-row">
+                                    <span class="elem-label">土 (Earth)</span>
+                                    <div class="elem-bar"><div class="elem-fill fill-earth" id="elem-earth" style="width: 20%"></div></div>
+                                </div>
+                                <div class="element-row">
+                                    <span class="elem-label">金 (Metal)</span>
+                                    <div class="elem-bar"><div class="elem-fill fill-metal" id="elem-metal" style="width: 20%"></div></div>
+                                </div>
+                                <div class="element-row">
+                                    <span class="elem-label">水 (Water)</span>
+                                    <div class="elem-bar"><div class="elem-fill fill-water" id="elem-water" style="width: 20%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Ziwei Doushu Life Palace -->
+                    <div class="destiny-card card-ziwei">
+                        <div class="card-header">
+                            <span class="card-icon">🌌</span>
+                            <h3>紫微斗數命宮主星</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="ziwei-title" id="ziwei-title">紫微星・帝王之相</div>
+                            <p class="card-text" id="ziwei-desc">載入中...</p>
+                            <div class="card-advice-box">
+                                <strong>【命宮天啟】</strong>
+                                <span id="ziwei-advice">載入中...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Western Zodiac & Planets -->
+                    <div class="destiny-card card-zodiac">
+                        <div class="card-header">
+                            <span class="card-icon" id="zodiac-card-icon">♈</span>
+                            <h3>西洋占星與守護星</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="zodiac-title" id="zodiac-card-title">雙子座 Gemini</div>
+                            <div class="zodiac-metadata">
+                                <span>守護星：<strong id="zodiac-ruler">-</strong></span>
+                                <span>元素屬性：<strong id="zodiac-element">-</strong></span>
+                            </div>
+                            <p class="card-text" id="zodiac-desc">載入中...</p>
+                            <div class="card-advice-box">
+                                <strong>【星曜和諧】</strong>
+                                <span id="zodiac-advice">載入中...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Life Path Number -->
+                    <div class="destiny-card card-lifepath">
+                        <div class="card-header">
+                            <span class="card-icon">🔢</span>
+                            <h3>西方生命靈數</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="lifepath-title">生命靈數：<span id="lifepath-number">7</span></div>
+                            <p class="card-text" id="lifepath-desc">載入中...</p>
+                            <div class="lifepath-keywords" id="lifepath-keywords">
+                                <!-- Dynamic keywords tags -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 (一3): Glyphomancy (梅花易數測字) -->
+                    <div class="destiny-card card-glyph">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="fa-solid fa-pen-fancy"></i></span>
+                            <h3>梅花易數・命運測字</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="glyph-char" id="destiny-glyph-char">泰</div>
+                            <div class="glyph-title" id="destiny-glyph-title">安泰亨通之象</div>
+                            <p class="card-text" id="destiny-glyph-desc">載入中...</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 (二1): Nordic Runes (盧恩符文) -->
+                    <div class="destiny-card card-rune">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="fa-solid fa-gem"></i></span>
+                            <h3>北歐盧恩符文</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="rune-symbol" id="destiny-rune-symbol">ᚠ</div>
+                            <div class="rune-title" id="destiny-rune-title">Fehu (財富)</div>
+                            <p class="card-text" id="destiny-rune-desc">載入中...</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 (二2): Tea Leaf Reading (英式茶葉占卜) -->
+                    <div class="destiny-card card-tea">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="fa-solid fa-mug-hot"></i></span>
+                            <h3>英式茶葉占卜</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="tea-pattern" id="destiny-tea-pattern">☕ 飛鳥 (Bird)</div>
+                            <p class="card-text" id="destiny-tea-desc">載入中...</p>
+                            <div class="card-advice-box">
+                                <strong>【茶渣預言】</strong>
+                                <span id="destiny-tea-advice">載入中...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 8 (二4): Aura-Soma (靈性彩油) -->
+                    <div class="destiny-card card-aura">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="fa-solid fa-flask"></i></span>
+                            <h3>靈性彩油 Aura-Soma</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="aura-bottle-container">
+                                <div class="aura-bottle" id="aura-bottle-visual">
+                                    <div class="aura-liquid upper-liquid" id="aura-liquid-upper"></div>
+                                    <div class="aura-liquid lower-liquid" id="aura-liquid-lower"></div>
+                                    <div class="bottle-shine"></div>
+                                </div>
+                                <div class="aura-bottle-cap"></div>
+                            </div>
+                            <div class="aura-title" id="destiny-aura-title">大天使平衡瓶</div>
+                            <p class="card-text" id="destiny-aura-desc">載入中...</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 (三1): Totem Animal (印地安守護靈獸) -->
+                    <div class="destiny-card card-totem">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="fa-solid fa-feather"></i></span>
+                            <h3>印地安守護靈獸</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="totem-title" id="destiny-totem-title">🦅 狼 (Wolf)</div>
+                            <p class="card-text" id="destiny-totem-desc">載入中...</p>
+                            <div class="card-advice-box">
+                                <strong>【靈運動物指引】</strong>
+                                <span id="destiny-totem-advice">載入中...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 10 (三2): Geomancy (阿拉伯沙書占卜) -->
+                    <div class="destiny-card card-geomancy">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="fa-solid fa-braille"></i></span>
+                            <h3>阿拉伯沙書占卜</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="geomancy-figure" id="destiny-geom-fig">⚃⚃</div>
+                            <div class="geomancy-title" id="destiny-geom-title">Via (道路)</div>
+                            <p class="card-text" id="destiny-geom-desc">載入中...</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 11 (三3): Nakshatra (印度吠陀星曜) -->
+                    <div class="destiny-card card-vedic">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="fa-solid fa-om"></i></span>
+                            <h3>印度吠陀星曜</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="vedic-title" id="destiny-vedic-title">婁宿 (Ashwini)</div>
+                            <p class="card-text" id="destiny-vedic-desc">載入中...</p>
+                            <div class="card-advice-box">
+                                <strong>【吠陀卡因果律】</strong>
+                                <span id="destiny-vedic-advice">載入中...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECTION 1: TAROT ORACLE -->
+            <section id="mode-tarot" class="oracle-section">
+                <div class="section-intro">
+                    <h2>大阿爾克那・三陣啟示</h2>
+                    <p>靜下心來，默想您心中的問題，隨機抽取三張牌，代表您（<span class="user-placeholder-name">-</span>）的「過去」、「現在」與「未來」。</p>
+                </div>
+
+                <div class="tarot-board">
+                    <!-- Past Card -->
+                    <div class="tarot-card-container">
+                        <div class="card-position-label">過去 (Past)</div>
+                        <div class="tarot-card" id="tarot-0" onclick="flipTarotCard(0)">
+                            <div class="card-face card-front">
+                                <div class="card-back-pattern"></div>
+                            </div>
+                            <div class="card-face card-back" id="tarot-back-0">
+                                <!-- Dynamic Tarot Image & Text -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Present Card -->
+                    <div class="tarot-card-container">
+                        <div class="card-position-label">現在 (Present)</div>
+                        <div class="tarot-card" id="tarot-1" onclick="flipTarotCard(1)">
+                            <div class="card-face card-front">
+                                <div class="card-back-pattern"></div>
+                            </div>
+                            <div class="card-face card-back" id="tarot-back-1">
+                                <!-- Dynamic Tarot Image & Text -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Future Card -->
+                    <div class="tarot-card-container">
+                        <div class="card-position-label">未來 (Future)</div>
+                        <div class="tarot-card" id="tarot-2" onclick="flipTarotCard(2)">
+                            <div class="card-face card-front">
+                                <div class="card-back-pattern"></div>
+                            </div>
+                            <div class="card-face card-back" id="tarot-back-2">
+                                <!-- Dynamic Tarot Image & Text -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tarot-controls">
+                    <button class="btn btn-primary" onclick="drawTarot()">
+                        <i class="fa-solid fa-wand-sparkles"></i> 洗牌並抽取啟示
+                    </button>
+                </div>
+
+                <!-- Interpretation Panels -->
+                <div class="tarot-results" id="tarot-results" style="display: none;">
+                    <h3><i class="fa-solid fa-scroll-old"></i> 星際啟示解讀</h3>
+                    <div class="tarot-results-grid">
+                        <div class="result-box" id="result-0">
+                            <h4>過去</h4>
+                            <h5 class="card-name">-</h5>
+                            <p class="card-desc">-</p>
+                        </div>
+                        <div class="result-box" id="result-1">
+                            <h4>現在</h4>
+                            <h5 class="card-name">-</h5>
+                            <p class="card-desc">-</p>
+                        </div>
+                        <div class="result-box" id="result-2">
+                            <h4>未來</h4>
+                            <h5 class="card-name">-</h5>
+                            <p class="card-desc">-</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- SECTION 2: ASTRO HOROSCOPE -->
+            <section id="mode-horoscope" class="oracle-section">
+                <div class="section-intro">
+                    <h2>星曜行運軌跡</h2>
+                    <p>下方為您的出生星盤星座。您也可以隨意點擊其他星座，觀測今日宇宙磁場對該星座的能量能量分佈。</p>
+                </div>
+
+                <!-- Zodiac Sign Grid Selector -->
+                <div class="zodiac-grid">
+                    <button class="zodiac-item" id="zodiac-aries" onclick="selectZodiac('aries')">
+                        <span class="zodiac-symbol">♈</span>
+                        <span class="zodiac-name">牡羊座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-taurus" onclick="selectZodiac('taurus')">
+                        <span class="zodiac-symbol">♉</span>
+                        <span class="zodiac-name">金牛座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-gemini" onclick="selectZodiac('gemini')">
+                        <span class="zodiac-symbol">♊</span>
+                        <span class="zodiac-name">雙子座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-cancer" onclick="selectZodiac('cancer')">
+                        <span class="zodiac-symbol">♋</span>
+                        <span class="zodiac-name">巨蟹座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-leo" onclick="selectZodiac('leo')">
+                        <span class="zodiac-symbol">♌</span>
+                        <span class="zodiac-name">獅子座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-virgo" onclick="selectZodiac('virgo')">
+                        <span class="zodiac-symbol">♍</span>
+                        <span class="zodiac-name">處女座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-libra" onclick="selectZodiac('libra')">
+                        <span class="zodiac-symbol">♎</span>
+                        <span class="zodiac-name">天秤座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-scorpio" onclick="selectZodiac('scorpio')">
+                        <span class="zodiac-symbol">♏</span>
+                        <span class="zodiac-name">天蠍座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-sagittarius" onclick="selectZodiac('sagittarius')">
+                        <span class="zodiac-symbol">♐</span>
+                        <span class="zodiac-name">射手座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-capricorn" onclick="selectZodiac('capricorn')">
+                        <span class="zodiac-symbol">♑</span>
+                        <span class="zodiac-name">摩羯座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-aquarius" onclick="selectZodiac('aquarius')">
+                        <span class="zodiac-symbol">♒</span>
+                        <span class="zodiac-name">水瓶座</span>
+                    </button>
+                    <button class="zodiac-item" id="zodiac-pisces" onclick="selectZodiac('pisces')">
+                        <span class="zodiac-symbol">♓</span>
+                        <span class="zodiac-name">雙魚座</span>
+                    </button>
+                </div>
+
+                <!-- Horoscope Result display -->
+                <div class="horoscope-report" id="horoscope-report" style="display: none;">
+                    <div class="report-header">
+                        <div class="report-zodiac-icon" id="report-icon">♈</div>
+                        <div class="report-title-group">
+                            <h3 id="report-title">牡羊座 Aries</h3>
+                            <p class="report-date" id="report-date">今日運勢行度</p>
+                        </div>
+                    </div>
+
+                    <div class="report-body">
+                        <!-- Score meters -->
+                        <div class="stats-container">
+                            <div class="stat-row">
+                                <span class="stat-label"><i class="fa-solid fa-heart text-love"></i> 愛情星盤</span>
+                                <div class="stat-bar-outer"><div class="stat-bar-inner bg-love" id="bar-love" style="width: 0%"></div></div>
+                                <span class="stat-percent" id="pct-love">0%</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label"><i class="fa-solid fa-briefcase text-work"></i> 事業星圖</span>
+                                <div class="stat-bar-outer"><div class="stat-bar-inner bg-work" id="bar-work" style="width: 0%"></div></div>
+                                <span class="stat-percent" id="pct-work">0%</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label"><i class="fa-solid fa-coins text-money"></i> 財帛宮位</span>
+                                <div class="stat-bar-outer"><div class="stat-bar-inner bg-money" id="bar-money" style="width: 0%"></div></div>
+                                <span class="stat-percent" id="pct-money">0%</span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label"><i class="fa-solid fa-shield-halved text-health"></i> 疾厄健康</span>
+                                <div class="stat-bar-outer"><div class="stat-bar-inner bg-health" id="bar-health" style="width: 0%"></div></div>
+                                <span class="stat-percent" id="pct-health">0%</span>
+                            </div>
+                        </div>
+
+                        <!-- Text details -->
+                        <div class="report-text">
+                            <div class="summary-card">
+                                <h4><i class="fa-solid fa-sparkles text-accent"></i> 今日運勢總結</h4>
+                                <p id="horo-summary">星象運算中...</p>
+                            </div>
+                            <div class="advice-card">
+                                <h4><i class="fa-solid fa-compass-drafting text-accent"></i> 宇宙幸運指引</h4>
+                                <p>🔮 幸運顏色：<span class="highlight-val" id="lucky-color">-</span></p>
+                                <p>🔢 幸運數字：<span class="highlight-val" id="lucky-number">-</span></p>
+                                <p>⭐ 幸運方位：<span class="highlight-val" id="lucky-dir">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- SECTION 3: DIVINATION -->
+            <section id="mode-divination" class="oracle-section">
+                <div class="section-intro">
+                    <h2>聖境靈籤與擲筊問卜</h2>
+                    <p>秉持虔誠信念，於心中默想祈求之事，點擊「求取靈籤」，接著「擲筊」向神明確認是否為此籤詩。</p>
+                </div>
+
+                <div class="divination-workspace">
+                    <!-- Left: Qian barrel (求籤) -->
+                    <div class="qian-section">
+                        <div class="qian-barrel-container" id="qian-barrel" onclick="shakeQian()">
+                            <div class="qian-barrel">
+                                <div class="qian-stick stick-1"></div>
+                                <div class="qian-stick stick-2"></div>
+                                <div class="qian-stick stick-3"></div>
+                                <div class="qian-stick stick-4"></div>
+                                <div class="qian-stick stick-5"></div>
+                                <div class="qian-stick stick-6"></div>
+                                <div class="qian-stick stick-7"></div>
+                            </div>
+                            <div class="qian-barrel-label">求籤筒</div>
+                        </div>
+                        <button class="btn btn-secondary btn-shake" onclick="shakeQian()" id="btn-shake-qian">
+                            <i class="fa-solid fa-hands-holding"></i> 搖動籤筒求籤
+                        </button>
+                    </div>
+
+                    <!-- Right: Jiao blocks (擲筊) -->
+                    <div class="jiao-section">
+                        <div class="jiao-display-area">
+                            <div class="jiao-block" id="jiao-left">
+                                <div class="jiao-face crescent-flat"></div>
+                                <div class="jiao-face crescent-convex"></div>
+                            </div>
+                            <div class="jiao-block" id="jiao-right">
+                                <div class="jiao-face crescent-flat"></div>
+                                <div class="jiao-face crescent-convex"></div>
+                            </div>
+                        </div>
+                        <div class="jiao-status-hud" id="jiao-status-hud">請先求籤，再擲筊請示神明...</div>
+                        <button class="btn btn-primary" onclick="tossJiao()" id="btn-toss-jiao" disabled>
+                            <i class="fa-solid fa-arrows-spin"></i> 擲筊請示 (擲杯)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fortune Slip modal/card reveal -->
+                <div class="qian-result-card" id="qian-result-card" style="display: none;">
+                    <div class="slip-header">
+                        <h4>觀音靈籤</h4>
+                        <div class="slip-badge" id="slip-type">上上籤</div>
+                    </div>
+                    <div class="slip-body">
+                        <div class="slip-number" id="slip-num">第零籤</div>
+                        
+                        <div class="poem-display" id="slip-poem">
+                            <!-- Poem text in Noto Serif TC -->
+                        </div>
+
+                        <hr class="slip-divider">
+
+                        <div class="slip-meaning">
+                            <p><strong>【詩意解讀】</strong> <span id="slip-poetic-meaning">-</span></p>
+                            <p><strong>【謀望吉凶】</strong> <span id="slip-fortune-meaning">-</span></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Disclaimer Footer -->
+        <footer class="app-disclaimer">
+            <p><strong>星境啟示錄 / Disclaimer</strong></p>
+            <p>本網頁僅作為個人程式開發學習與前端網頁作品集展示使用，無任何商業營利行為。所有占卜結果（包含塔羅牌、星座今日運勢以及求籤擲筊）均基於前端隨機演算法與預設數據資料庫，僅供休閒、舒壓與娛樂參考，請勿過度迷信。</p>
+            <p>This web application is for personal portfolio demonstration and programming practice only. All divination outcomes are generated using pseudo-random heuristics and are intended strictly for lighthearted entertainment. Do not make life-altering decisions based on this application.</p>
+        </footer>
+    </div>
+
+    <!-- Custom Script -->
+    <script src="app.js"></script>
+</body>
+</html>

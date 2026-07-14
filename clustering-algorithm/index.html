@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustering 分群演算法專案 | Gogogo137</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="ink-wash-vignette"></div>
+    <div class="ensemble-bg-artwork"></div>
+    <div class="app-container">
+        <div class="top-nav-bar">
+            <a href="../index-zh.html" class="top-nav-link">
+                <i class="fa-solid fa-arrow-left-long"></i> 返回作品集
+            </a>
+            <span class="top-nav-divider">|</span>
+            <a href="https://github.com/gogogo137-cmyk/Clustering-polit.git" class="top-nav-link" target="_blank">
+                <i class="fa-brands fa-github"></i> GitHub 專案頁面
+            </a>
+        </div>
+
+        <a href="#dialogue" class="dialogue-widget">
+            <span class="dialogue-icon">
+                <i class="fa-solid fa-comments"></i>
+            </span>
+            <span class="dialogue-text">我與 Copilot 對話</span>
+            <span class="dialogue-badge">1</span>
+        </a>
+
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-layer-group logo-icon"></i>
+                <h1>Clustering 分群演算法專案</h1>
+            </div>
+            <p class="subtitle">整理分群算法教學重點，包含 K-Means、K-Medoids、DBSCAN、GMM 與 Spectral Clustering。</p>
+        </header>
+
+        <main class="project-content">
+            <section class="glass-card">
+                <h2>專案說明</h2>
+                <p>本專案以課堂筆記與示意說明為核心，將分群演算法的分類、適用資料型態、優缺點與實務應用清楚呈現。適合當成作品集中的算法分析、機器學習教材整理與複習重點。</p>
+            </section>
+
+            <section class="glass-card" id="dialogue">
+                <h2>我與 Copilot 的對話</h2>
+                <p>以下為本專案開發過程中，使用者與 Copilot 的實際互動紀錄。</p>
+                <div class="dialogue-log">
+                    <p><strong>使用者：</strong>好像不好看耶，背景改成純白的好了。</p>
+                    <p><strong>Copilot：</strong>已將頁面背景改成純白，並移除紙張紋理效果。</p>
+                    <p><strong>使用者：</strong>我跟你的對話，先記錄成 copilot.md，放在 Clustering 演算法資料夾下面。</p>
+                    <p><strong>Copilot：</strong>已建立對話記錄檔並在網頁新增「我與 Copilot 的對話」區塊。</p>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2>分群演算法家族</h2>
+                <div class="grid-3">
+                    <article>
+                        <h3><i class="fa-solid fa-layer-group"></i> Partitioning</h3>
+                        <p>K-Means、K-Medoids、Fuzzy C-Means：使用中心點方式將資料分配到最近群組。</p>
+                    </article>
+                    <article>
+                        <h3><i class="fa-solid fa-tree"></i> Hierarchical</h3>
+                        <p>Agglomerative 層次式分群：由下往上合併資料點，產生樹狀聚合結果。</p>
+                    </article>
+                    <article>
+                        <h3><i class="fa-solid fa-water"></i> Density-based</h3>
+                        <p>DBSCAN：根據鄰域密度識別核心點與雜訊，適合非凸形群聚。</p>
+                    </article>
+                    <article>
+                        <h3><i class="fa-solid fa-bolt"></i> Model-based</h3>
+                        <p>Gaussian Mixture Model（GMM）：假設資料由多個高斯分佈混合而成，以 EM 演算法估計參數。</p>
+                    </article>
+                    <article>
+                        <h3><i class="fa-solid fa-network-wired"></i> Graph-based</h3>
+                        <p>Spectral Clustering：先建立圖結構，再使用圖 Laplacian 的特徵向量進行分群。</p>
+                    </article>
+                    <article>
+                        <h3><i class="fa-solid fa-robot"></i> Deep Clustering</h3>
+                        <p>AutoEncoder + K-Means：先經由自編碼器降維，後續使用 K-Means 作分群。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2>資料模式視覺示意</h2>
+                <p>以下示意圖展示常見分群資料分布，方便理解不同演算法的適用場景。</p>
+                <div class="visual-grid">
+                    <article class="visual-card">
+                        <div class="visual-svg">
+                            <svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
+                                <circle cx="40" cy="30" r="10" fill="#9e2a2b" opacity="0.8" />
+                                <circle cx="70" cy="45" r="10" fill="#9e2a2b" opacity="0.8" />
+                                <circle cx="55" cy="60" r="10" fill="#9e2a2b" opacity="0.8" />
+                                <circle cx="90" cy="20" r="6" fill="#6e530c" opacity="0.9" />
+                                <circle cx="25" cy="55" r="6" fill="#6e530c" opacity="0.9" />
+                            </svg>
+                        </div>
+                        <h3>Gaussian Blobs</h3>
+                        <p>常見於 K-Means / GMM 的圓形群聚資料。</p>
+                    </article>
+                    <article class="visual-card">
+                        <div class="visual-svg">
+                            <svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
+                                <circle cx="40" cy="40" r="18" fill="none" stroke="#9e2a2b" stroke-width="4" />
+                                <circle cx="80" cy="40" r="18" fill="none" stroke="#9e2a2b" stroke-width="4" />
+                                <circle cx="40" cy="40" r="8" fill="#6e530c" />
+                                <circle cx="80" cy="40" r="8" fill="#6e530c" />
+                            </svg>
+                        </div>
+                        <h3>Concentric Circles</h3>
+                        <p>適合 Spectral Clustering，K-Means 不易分離。</p>
+                    </article>
+                    <article class="visual-card">
+                        <div class="visual-svg">
+                            <svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
+                                <path d="M 18 50 Q 40 12 60 48 T 102 52" fill="none" stroke="#9e2a2b" stroke-width="6" stroke-linecap="round" />
+                                <path d="M 18 30 Q 40 70 60 32 T 102 28" fill="none" stroke="#6e530c" stroke-width="6" stroke-linecap="round" />
+                                <circle cx="24" cy="48" r="4" fill="#9e2a2b" />
+                                <circle cx="96" cy="34" r="4" fill="#6e530c" />
+                            </svg>
+                        </div>
+                        <h3>Two Moons</h3>
+                        <p>非凸結構，DBSCAN / Spectral 更適合。</p>
+                    </article>
+                    <article class="visual-card">
+                        <div class="visual-svg">
+                            <svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
+                                <path d="M 20 20 C 40 0 80 0 100 20" fill="none" stroke="#9e2a2b" stroke-width="6" />
+                                <path d="M 20 60 C 40 80 80 80 100 60" fill="none" stroke="#6e530c" stroke-width="6" />
+                                <path d="M 25 20 A 20 20 0 0 1 95 20" fill="none" stroke="#6e530c" stroke-width="4" opacity="0.8" />
+                                <path d="M 25 60 A 20 20 0 0 0 95 60" fill="none" stroke="#9e2a2b" stroke-width="4" opacity="0.8" />
+                            </svg>
+                        </div>
+                        <h3>Spiral</h3>
+                        <p>複雜曲線分群，常為 Spectral / DBSCAN 示範。</p>
+                    </article>
+                    <article class="visual-card">
+                        <div class="visual-svg">
+                            <svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
+                                <ellipse cx="40" cy="40" rx="18" ry="10" fill="none" stroke="#9e2a2b" stroke-width="4" />
+                                <ellipse cx="80" cy="40" rx="18" ry="10" fill="none" stroke="#6e530c" stroke-width="4" />
+                                <circle cx="30" cy="42" r="4" fill="#6e530c" />
+                                <circle cx="87" cy="38" r="4" fill="#9e2a2b" />
+                            </svg>
+                        </div>
+                        <h3>Anisotropic</h3>
+                        <p>橢圓形資料分布，需對資料做縮放或降維。</p>
+                    </article>
+                    <article class="visual-card">
+                        <div class="visual-svg">
+                            <svg viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
+                                <g fill="#9e2a2b" opacity="0.7">
+                                    <circle cx="24" cy="28" r="4" />
+                                    <circle cx="44" cy="16" r="3" />
+                                    <circle cx="66" cy="32" r="4" />
+                                    <circle cx="82" cy="20" r="3" />
+                                    <circle cx="48" cy="56" r="4" />
+                                    <circle cx="30" cy="62" r="3" />
+                                    <circle cx="74" cy="58" r="3" />
+                                    <circle cx="92" cy="48" r="4" />
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>Noise</h3>
+                        <p>雜訊資料示意，DBSCAN 能自動識別核心與噪點。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2>TOP 10 資料分群模式整理</h2>
+                <p>本區整理常見分群資料模式、主要特徵與最適演算法，風格類似 ChatGPT 生成的圖板概覽。</p>
+                <div class="pattern-grid">
+                    <article class="pattern-card">
+                        <div class="pattern-title">Gaussian Blobs</div>
+                        <div class="pattern-meta">Spherical clusters, similar density, easy boundary</div>
+                        <div class="pattern-algos">K-Means / GMM / Spectral</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">Concentric Circles</div>
+                        <div class="pattern-meta">Nested clusters, circular shape, non-linear boundary</div>
+                        <div class="pattern-algos">Spectral / DBSCAN / HDBSCAN</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">Two Moons</div>
+                        <div class="pattern-meta">Interleaving clusters, different densities, non-convex</div>
+                        <div class="pattern-algos">Spectral / DBSCAN / HDBSCAN</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">Spiral Clusters</div>
+                        <div class="pattern-meta">Highly non-linear, complex shape, varying density</div>
+                        <div class="pattern-algos">Spectral / DBSCAN / Deep Clustering</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">Anisotropic Clusters</div>
+                        <div class="pattern-meta">Elliptical shape, rotated orientations, different variances</div>
+                        <div class="pattern-algos">GMM / Spectral / Hierarchical</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">Varying Density</div>
+                        <div class="pattern-meta">Dense and sparse regions, same parameters may not fit all</div>
+                        <div class="pattern-algos">HDBSCAN / OPTICS / DBSCAN</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">Noise & Outliers</div>
+                        <div class="pattern-meta">Scattered noise points, outliers present, robustness needed</div>
+                        <div class="pattern-algos">HDBSCAN / DBSCAN / OPTICS</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">Overlapping Clusters</div>
+                        <div class="pattern-meta">Significant overlap, unclear boundaries, ambiguous points</div>
+                        <div class="pattern-algos">GMM / Fuzzy C-Means / Spectral</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">Imbalanced Sizes</div>
+                        <div class="pattern-meta">Large and small clusters, small clusters may be ignored</div>
+                        <div class="pattern-algos">Hierarchical / GMM / HDBSCAN</div>
+                    </article>
+                    <article class="pattern-card">
+                        <div class="pattern-title">High-Dimensional</div>
+                        <div class="pattern-meta">Many dimensions, sparse distances, curse of dimensionality</div>
+                        <div class="pattern-algos">Spectral (with DR) / Deep Clustering / PCA + K-Means</div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2>K-Means vs K-Medoids</h2>
+                <div class="feature-comparison">
+                    <div>
+                        <h3>K-Means</h3>
+                        <ul>
+                            <li>使用 centroid 平均值作為群心</li>
+                            <li>群心可以不在資料點上</li>
+                            <li>對離群值敏感</li>
+                            <li>適合大量資料、圓形群聚</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>K-Medoids</h3>
+                        <ul>
+                            <li>選取真實資料點作為群心</li>
+                            <li>更耐離群值</li>
+                            <li>計算量較大、適合小資料集</li>
+                            <li>常見實作：PAM</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2>演算法適用資料型態</h2>
+                <p>本專案依據課堂整理與文獻綜整，說明各演算法在常見資料分布下的適合程度。</p>
+                <div class="algorithm-grid">
+                    <article>
+                        <h3>K-Means</h3>
+                        <p>最適合 Gaussian Blobs、High Dimension。對離群值、重疊群、非凸型結構（Two Moons、Spiral）表現較差。</p>
+                    </article>
+                    <article>
+                        <h3>K-Medoids</h3>
+                        <p>適合含雜訊的資料、小資料集與實際資料點中心。較耐離群值，但運算成本較高。</p>
+                    </article>
+                    <article>
+                        <h3>DBSCAN</h3>
+                        <p>擅長 Two Moons、Spiral、Varying Density 與 Noise。對連續密度變化敏感，需調整 eps 與 minPts。</p>
+                    </article>
+                    <article>
+                        <h3>Gaussian Mixture Model</h3>
+                        <p>適合 Gaussian Blobs、Ellipse 等可用高斯分佈描述的群聚。需要預先指定群數，且易受初始值影響。</p>
+                    </article>
+                    <article>
+                        <h3>Spectral Clustering</h3>
+                        <p>對 Circles、Two Moons 等非凸結構效果佳。適合圖形分群與高維降維後的分群任務。</p>
+                    </article>
+                    <article>
+                        <h3>Deep Clustering</h3>
+                        <p>結合 AutoEncoder 與 K-Means，可處理高維資料與非線性結構，常用於影像與嵌入空間分群。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2>星級評分與依據</h2>
+                <p>本頁所用的適配度評分屬於「文獻綜整」而非單一實驗結果，旨在幫助閱讀者理解演算法優勢與侷限。</p>
+                <div class="rating-scale">
+                    <div class="rating-card">
+                        <h4>⭐⭐⭐⭐⭐ Excellent</h4>
+                        <p>多篇高品質文獻與基準測試一致支持，且在代表性資料類型上表現穩定、廣泛被接受。</p>
+                    </div>
+                    <div class="rating-card">
+                        <h4>⭐⭐⭐⭐☆ Good</h4>
+                        <p>大多數情況表現良好，但對參數、資料分布或雜訊較敏感，需要謹慎調整。</p>
+                    </div>
+                    <div class="rating-card">
+                        <h4>⭐⭐⭐☆☆ Fair</h4>
+                        <p>在特定條件下可用，限制較多，需要更細緻的調參或資料預處理。</p>
+                    </div>
+                    <div class="rating-card">
+                        <h4>⭐⭐☆☆☆ Weak</h4>
+                        <p>僅適合少數情境，整體表現有限，不建議作為首選。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2>重點參考文獻</h2>
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>演算法</th>
+                            <th>經典論文 / 來源</th>
+                            <th>典型資料模式</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>K-Means</td>
+                            <td>MacQueen, J. (1967). Some Methods for Classification and Analysis of Multivariate Observations.</td>
+                            <td>Gaussian Blobs, High Dimension</td>
+                        </tr>
+                        <tr>
+                            <td>K-Medoids</td>
+                            <td>Kaufman, L. &amp; Rousseeuw, P. J. (1990). Finding Groups in Data.</td>
+                            <td>Noise, Small Datasets</td>
+                        </tr>
+                        <tr>
+                            <td>DBSCAN</td>
+                            <td>Ester, M., Kriegel, H.-P., Sander, J., &amp; Xu, X. (1996). A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise.</td>
+                            <td>Two Moons, Spiral, Varying Density, Noise</td>
+                        </tr>
+                        <tr>
+                            <td>Spectral Clustering</td>
+                            <td>Ng, A. Y., Jordan, M. I., &amp; Weiss, Y. (2002). On Spectral Clustering: Analysis and an Algorithm.</td>
+                            <td>Circles, Two Moons</td>
+                        </tr>
+                        <tr>
+                            <td>Gaussian Mixture Model</td>
+                            <td>Fraley, C., &amp; Raftery, A. E. (2002). Model-Based Clustering, Discriminant Analysis, and Density Estimation.</td>
+                            <td>Gaussian Blobs, Ellipse</td>
+                        </tr>
+                        <tr>
+                            <td>Survey</td>
+                            <td>Jain, A. K. (2010). Data Clustering: 50 Years Beyond K-Means.; Xu, D. &amp; Tian, Y. (2015). A Comprehensive Survey of Clustering Algorithms.</td>
+                            <td>Clustering Overview</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-top: 14px; color: #5c534c;">提示：若要在報告中使用星級評分，可補註「此表為文獻綜整的質性評價，非單一實驗結果」。</p>
+            </section>
+
+            <section class="glass-card">
+                <h2>Top 10 常見資料分布</h2>
+                <p>本專案整理了常見資料模式，並討論每種模式的演算法適配性。常見模式包括：</p>
+                <ul>
+                    <li>Gaussian Blobs</li>
+                    <li>Concentric Circles</li>
+                    <li>Two Moons</li>
+                    <li>Spiral</li>
+                    <li>Anisotropic</li>
+                    <li>Varying Density</li>
+                    <li>Noise</li>
+                    <li>Overlapping</li>
+                    <li>Imbalanced</li>
+                    <li>High Dimension</li>
+                </ul>
+            </section>
+
+            <section class="glass-card">
+                <h2>專案內容</h2>
+                <p>這個作品集頁面包含：</p>
+                <ul>
+                    <li>演算法分類介紹</li>
+                    <li>K-Means / K-Medoids 比較</li>
+                    <li>演算法適用資料型態分析</li>
+                    <li>常見分群資料模式說明</li>
+                    <li>學習筆記與實作思路整理</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2026 gogogo137-cmyk. 所有權利保留。</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVM支持向量機 3D 互動視覺化 | Gogogo137</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ambient Blur Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="app-layout">
+        <!-- Floating Header -->
+        <header class="app-header">
+            <div class="header-logo">
+                <a href="../index-zh.html" class="back-home-btn" title="返回個人首頁">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div class="logo-icon">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>SVM 3D <span>Interactive Studio</span></h1>
+                    <p>Support Vector Machine & Kernel Trick Visualizer</p>
+                </div>
+            </div>
+            <div class="header-info">
+                <span class="badge"><i class="fa-solid fa-cube"></i> WebGL 3D</span>
+            </div>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <!-- Left Control Panel (Glassmorphism Dashboard) -->
+            <section class="panel control-panel">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-sliders"></i> 控制面版</h2>
+                </div>
+                <div class="panel-body">
+                    <!-- Section 1: Dataset config -->
+                    <div class="control-group">
+                        <h3><i class="fa-solid fa-database"></i> 1. 資料集設定 (Concentric Circles)</h3>
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <label for="num-points">樣本點數量 (Samples)</label>
+                                <span id="num-points-val">200</span>
+                            </div>
+                            <input type="range" id="num-points" min="100" max="400" step="20" value="200">
+                        </div>
+                        <div class="slider-item">
+                            <div class="slider-header">
+                                <label for="noise-level">雜訊干擾度 (Noise)</label>
+                                <span id="noise-level-val">0.05</span>
+                            </div>
+                            <input type="range" id="noise-level" min="0.01" max="0.15" step="0.01" value="0.05">
+                        </div>
+                        <button class="btn btn-secondary" id="regen-btn">
+                            <i class="fa-solid fa-rotate"></i> 重新產生資料
+                        </button>
+                    </div>
+
+                    <!-- Section 2: Kernel Trick Steps -->
+                    <div class="control-group">
+                        <h3><i class="fa-solid fa-wand-magic-sparkles"></i> 2. 機器學習與高維投影步驟</h3>
+                        
+                        <!-- Step 1: 2D Reset -->
+                        <button class="btn step-btn active" id="step-2d-btn" data-step="1">
+                            <span class="step-num">Step 1</span>
+                            <span class="step-title">原始 2D 空間 (線性不可分)</span>
+                        </button>
+
+                        <!-- Step 2: Lift to 3D -->
+                        <button class="btn step-btn" id="step-lift-btn" data-step="2">
+                            <span class="step-num">Step 2</span>
+                            <span class="step-title">Z = X² + Y² 非線性映射</span>
+                        </button>
+
+                        <!-- Step 3: Hyperplane -->
+                        <div class="toggle-item">
+                            <div class="toggle-text">
+                                <span>3D 分類超平面 (Hyperplane)</span>
+                                <p>w₁x + w₂y + w₃z + b = 0</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="hyperplane-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <!-- Step 4: Support Vectors -->
+                        <div class="toggle-item">
+                            <div class="toggle-text">
+                                <span>顯示支持向量 (Support Vectors)</span>
+                                <p>最靠近邊界的關鍵樣本點</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="sv-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <!-- Step 5: Margin -->
+                        <div class="toggle-item">
+                            <div class="toggle-text">
+                                <span>顯示最大邊界間隔 (Margin)</span>
+                                <p>優化目標：Maximizing the Margin</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="margin-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <!-- Step 6: RBF Surface -->
+                        <div class="toggle-item">
+                            <div class="toggle-text">
+                                <span>RBF 徑向基底高斯核函數</span>
+                                <p>K(x, x') = exp(-γ||x-x'||²)</p>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" id="rbf-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <!-- Step 7: Project back to 2D -->
+                        <button class="btn step-btn" id="step-project-btn" data-step="3">
+                            <span class="step-num">Step 3</span>
+                            <span class="step-title">投影回 2D (圓形決策邊界)</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Center Viewport (WebGL Canvas) -->
+            <section class="viewport-container">
+                <div id="canvas3d"></div>
+                <div class="viewport-overlay">
+                    <div class="tip-card"><i class="fa-solid fa-arrows-to-eye"></i> 滑鼠拖曳旋轉 3D 空間，滾輪縮放視角</div>
+                </div>
+            </section>
+
+            <!-- Right Info Panel (Mathematical Explanations) -->
+            <section class="panel info-panel">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-book-open"></i> 學術原理說明</h2>
+                </div>
+                <div class="panel-body">
+                    <!-- Video player placed at the top of the panel to prevent overlap with floating buttons -->
+                    <div class="video-box" style="margin-bottom: 15px; border-bottom: 1px solid var(--panel-border); padding-bottom: 15px;">
+                        <h4 style="font-size: 0.9rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;"><i class="fa-solid fa-film"></i> Manim 概念動畫演示 (Phase 1)</h4>
+                        <video width="100%" controls style="border-radius: 8px; border: 1px solid var(--panel-border); outline: none;">
+                            <source src="./phase1_animation.mp4" type="video/mp4">
+                            您的瀏覽器不支援播放此影片。
+                        </video>
+                    </div>
+                    <div class="info-content" id="info-content">
+                        <!-- Dynamic content injected here -->
+                        <h3>專案介紹</h3>
+                        <p>支持向量機 (Support Vector Machine, SVM) 是一種強大的監督式學習演算法。</p>
+                        <p>當我們遇到<b>線性不可分</b>（無法用一條直線切開）的 2D 資料時，我們通常會使用 <b>Kernel Trick (核函數技巧)</b> 將資料對應到更高維的空間中，使原本複雜的邊界變成線性可分！</p>
+                        <p class="highlight">💡 點選左側面版中的步驟，觀察資料與三維空間的動態互動！</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    <!-- Talk History Floating Button & Modal -->
+    <button class="talk-history-trigger" id="talk-history-trigger" title="Antigravity IDE 的對話紀錄">
+        <i class="fa-solid fa-comments"></i> Antigravity IDE 的對話紀錄
+    </button>
+
+    <div class="talk-history-modal" id="talk-history-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-card">
+            <div class="modal-card-header">
+                <h3>💬 Antigravity IDE 的對話紀錄</h3>
+                <button class="modal-close" id="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-card-body markdown-body" id="modal-card-body">
+                <p style="text-align: center; color: var(--text-secondary);"><i class="fa-solid fa-spinner fa-spin"></i> 正在載入對話紀錄...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDNs -->
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- OrbitControls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Marked.js for parsing markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Talk History dynamic loader -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const trigger = document.getElementById('talk-history-trigger');
+            const modal = document.getElementById('talk-history-modal');
+            const closeBtn = document.getElementById('modal-close');
+            const overlay = document.getElementById('modal-overlay');
+            const body = document.getElementById('modal-card-body');
+            let loaded = false;
+
+            const openModal = async () => {
+                modal.classList.add('active');
+                if (!loaded) {
+                    try {
+                        const response = await fetch('./talk-history.md');
+                        if (!response.ok) throw new Error('Failed to load file');
+                        const markdown = await response.text();
+                        body.innerHTML = marked.parse(markdown);
+                        loaded = true;
+                    } catch (err) {
+                        body.innerHTML = `<p style="color: var(--accent-red); text-align: center;"><i class="fa-solid fa-circle-exclamation"></i> 載入對話紀錄失敗，請稍後再試。</p>`;
+                        console.error(err);
+                    }
+                }
+            };
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+            };
+
+            trigger.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            overlay.addEventListener('click', closeModal);
+            
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+    <!-- App Main Script -->
+    <script src="app.js"></script>
+</body>
+</html>

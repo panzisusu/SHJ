@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧩 啦啦隊女孩拼圖挑戰 | Cheerleader Jigsaw Challenge</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background glow spots -->
+    <div class="glow-spot glow-1"></div>
+    <div class="glow-spot glow-2"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="brand-section">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                </div>
+                <div class="title-group">
+                    <h1>啦啦隊女孩精美拼圖挑戰</h1>
+                    <p>選擇您喜愛的啦啦隊女神，挑戰最快速度拼出她們的完美瞬間 🌟</p>
+                </div>
+            </div>
+            <a href="../gogogo137-cmyk.github.io/index-zh.html" class="back-home-btn">
+                <i class="fa-solid fa-house"></i> 回作品集首頁
+            </a>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <!-- Left Side: Control panel -->
+            <section class="control-panel">
+                <div class="section-title">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>拼圖控制面板</span>
+                </div>
+
+                <!-- 1. Image Selector -->
+                <div class="control-group">
+                    <label class="group-label"><i class="fa-solid fa-image"></i> 選擇拼圖照片：</label>
+                    <div class="image-grid" id="image-selector">
+                        <!-- Loaded dynamically via app.js -->
+                    </div>
+                    <div class="custom-upload-wrapper">
+                        <label for="file-upload" class="upload-btn">
+                            <i class="fa-solid fa-upload"></i> 上傳自己的照片
+                        </label>
+                        <input type="file" id="file-upload" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- 2. Difficulty Selector -->
+                <div class="control-group">
+                    <label class="group-label"><i class="fa-solid fa-border-all"></i> 選擇分割難度：</label>
+                    <div class="difficulty-buttons">
+                        <button class="diff-btn active" data-grid="3">3 x 3 (新手)</button>
+                        <button class="diff-btn" data-grid="4">4 x 4 (普通)</button>
+                        <button class="diff-btn" data-grid="5">5 x 5 (達人)</button>
+                    </div>
+                </div>
+
+                <!-- 3. Statistics -->
+                <div class="stats-card">
+                    <div class="stat-item">
+                        <span class="stat-title">已用時間 (Time)</span>
+                        <span class="stat-value" id="game-timer">00:00</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-title">拖曳步數 (Moves)</span>
+                        <span class="stat-value" id="game-moves">0</span>
+                    </div>
+                </div>
+
+                <!-- 4. Game Controls -->
+                <div class="action-buttons">
+                    <button class="btn-primary" id="btn-start" onclick="startGame()">
+                        <i class="fa-solid fa-play"></i> 重新打亂開始
+                    </button>
+                    <button class="btn-secondary" id="btn-preview">
+                        <i class="fa-solid fa-eye"></i> 顯示完整原圖
+                    </button>
+                </div>
+            </section>
+
+            <!-- Right Side: Game Playground -->
+            <section class="game-playground">
+                <!-- Board: slots to drop pieces -->
+                <div class="board-area">
+                    <div class="puzzle-board" id="puzzle-board">
+                        <!-- Grid cells will be generated dynamically -->
+                    </div>
+                    <!-- Preview Image Overlay -->
+                    <div class="preview-overlay" id="preview-overlay">
+                        <img id="preview-img" src="" alt="拼圖原圖預覽">
+                        <div class="preview-text">預覽中...放開按鈕以返回</div>
+                    </div>
+                    <!-- Empty board alert before start -->
+                    <div class="board-placeholder" id="board-placeholder">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <p>請點擊「重新打亂開始」開啟挑戰！</p>
+                    </div>
+                </div>
+
+                <!-- Pool: pieces to drag -->
+                <div class="pool-area">
+                    <div class="pool-header">
+                        <h3><i class="fa-solid fa-box-open"></i> 拼圖碎片放置區 (拖曳至上方對應網格)</h3>
+                    </div>
+                    <div class="pieces-pool" id="pieces-pool">
+                        <!-- Scrambled pieces will be placed here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Disclaimer Footer -->
+        <footer class="app-disclaimer">
+            <p><strong>免責聲明 / Disclaimer</strong></p>
+            <p>本網頁僅作為個人程式開發學習與前端網頁作品集展示使用，無任何商業營利行為。網頁中所使用之啦啦隊員姓名、隊伍及相關資訊，其肖像權、姓名權及商標權均歸原權利人、經紀公司或所屬球團所有。本網頁之所有啦啦隊成員圖片均為AI人工智慧技術生成模擬，並非真實照片。</p>
+            <p>This website is for personal programming education and portfolio demonstration purposes only. All names, team details, and related likenesses of cheerleaders are properties of their respective owners/clubs. All cheerleader images displayed on this website are simulated illustrations generated by Artificial Intelligence (AI) technology and are not actual photographs.</p>
+        </footer>
+    </div>
+
+    <!-- Victory Modal Overlay -->
+    <div class="modal-overlay" id="victory-modal">
+        <div class="victory-card">
+            <div class="victory-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h2>恭喜通關！🎉</h2>
+            <p>您成功還原了拼圖，表現非常棒！</p>
+            <div class="victory-stats">
+                <div class="v-stat">
+                    <span class="v-title">總花費時間</span>
+                    <span class="v-val" id="v-time">00:00</span>
+                </div>
+                <div class="v-stat">
+                    <span class="v-title">總移動步數</span>
+                    <span class="v-val" id="v-moves">0</span>
+                </div>
+            </div>
+            <button class="btn-victory" onclick="closeVictoryModal()">
+                <i class="fa-solid fa-arrow-rotate-right"></i> 再挑戰一次！
+            </button>
+        </div>
+    </div>
+
+    <!-- Canvas for confetti effects -->
+    <canvas id="confetti-canvas" style="display: none;"></canvas>
+
+    <script src="app.js"></script>
+</body>
+</html>

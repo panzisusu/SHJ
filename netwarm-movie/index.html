@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>經典電影資料庫 | Gogogo137</title>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>經典電影資料庫 | Gogogo137</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+            <a class="back-link" href="../index-zh.html#portfolio">返回作品集</a>
+            <a class="back-link" href="../index-zh.html">胖子叔叔github作品集</a>
+        </div>
+        <div>
+            <p class="eyebrow">Scrape Center Dataset</p>
+            <h1>百大經典電影</h1>
+        </div>
+        <p class="summary">先放上 100 部電影資料，細部互動與後端功能之後可再接上。</p>
+    </header>
+
+    <main>
+        <section class="controls" aria-label="電影搜尋與篩選">
+            <label>
+                <span>搜尋電影、導演、演員</span>
+                <input id="search-input" type="search" placeholder="例如：霸王別姬、宮崎駿、Tom Hanks">
+            </label>
+
+            <label>
+                <span>類型</span>
+                <select id="genre-select">
+                    <option value="">全部類型</option>
+                </select>
+            </label>
+
+            <label>
+                <span>最低評分</span>
+                <select id="score-select">
+                    <option value="0">不限</option>
+                    <option value="9.5">9.5+</option>
+                    <option value="9.0">9.0+</option>
+                    <option value="8.5">8.5+</option>
+                </select>
+            </label>
+        </section>
+
+        <section class="stats" aria-label="資料摘要">
+            <div>
+                <strong id="total-count">0</strong>
+                <span>目前顯示</span>
+            </div>
+            <div>
+                <strong id="genre-count">0</strong>
+                <span>電影類型</span>
+            </div>
+            <div>
+                <strong id="top-score">0.0</strong>
+                <span>最高評分</span>
+            </div>
+        </section>
+
+        <section id="movie-grid" class="movie-grid" aria-live="polite"></section>
+    </main>
+
+    <template id="movie-card-template">
+        <article class="movie-card">
+            <figure class="poster-frame">
+                <img class="movie-poster" alt="">
+                <span class="poster-fallback">Classic Movies</span>
+                <p class="movie-score"></p>
+            </figure>
+            <p class="movie-rank"></p>
+            <h2></h2>
+            <p class="movie-meta"></p>
+            <p class="movie-people"></p>
+            <p class="movie-summary"></p>
+            <a class="detail-link" target="_blank" rel="noopener">原始資料頁</a>
+        </article>
+    </template>
+
+    <!-- Floating Chat Records Link -->
+    <div class="chat-records-widget">
+        <a href="chat.html" target="_blank" class="chat-records-btn">
+            <span class="records-icon">📝</span>
+            <span class="records-text">Gemini 與我的聊天紀錄</span>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

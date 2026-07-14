@@ -1,0 +1,18 @@
+{
+  "short_name": "山海經",
+  "name": "山海經 · 奇獸異誌",
+  "description": "探索《山海經》的神話世界與奇珍異獸",
+  "icons": [
+    {
+      "src": "assets/webp/placeholder_beast.webp",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#f6f3ea",
+  "theme_color": "#8c6b12",
+  "display": "standalone",
+  "orientation": "landscape"
+}

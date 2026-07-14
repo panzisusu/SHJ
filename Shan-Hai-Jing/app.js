@@ -5,7 +5,7 @@
 
 // 1. Mythical Beasts Database
 const BEASTS_DATABASE = [
-    {
+{
         id: "nine-tailed-fox",
         nameCn: "九尾狐",
         zhuyin: "ㄐㄧㄡˇ ㄨㄟˇ ㄏㄨˊ",
@@ -21,9 +21,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 35,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "zhu-long",
         nameCn: "燭龍",
         zhuyin: "ㄓㄨˊ ㄌㄨㄥˊ",
@@ -39,9 +38,8 @@ const BEASTS_DATABASE = [
             spiritual: 98,
             aggression: 15,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "taotie",
         nameCn: "饕餮 (麅鴞)",
         zhuyin: "ㄊㄠ ㄊㄧㄝˋ (ㄆㄠˊ ㄒㄧㄠ)",
@@ -57,9 +55,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 95,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "jingwei",
         nameCn: "精衛",
         zhuyin: "ㄐㄧㄥ ㄨㄟˋ",
@@ -75,9 +72,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 10,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "qilin",
         nameCn: "麒麟",
         zhuyin: "ㄑㄧˊ ㄌㄧㄣˊ",
@@ -93,9 +89,8 @@ const BEASTS_DATABASE = [
             spiritual: 92,
             aggression: 5,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "xing-tian",
         nameCn: "刑天",
         zhuyin: "ㄒㄧㄥˊ ㄊㄧㄢ",
@@ -111,9 +106,8 @@ const BEASTS_DATABASE = [
             spiritual: 90,
             aggression: 98,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "hundun",
         nameCn: "混沌 (帝江)",
         zhuyin: "ㄏㄨㄣˋ ㄉㄨㄣˋ (ㄉㄧˋ ㄐㄧㄤ)",
@@ -129,9 +123,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 45,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "tiangou",
         nameCn: "天狗",
         zhuyin: "ㄊㄧㄢ ㄍㄡˇ",
@@ -147,9 +140,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 30,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "bi-fang",
         nameCn: "畢方",
         zhuyin: "ㄅㄧˋ ㄈㄤ",
@@ -165,9 +157,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 55,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "ling-ling",
         nameCn: "軨軨",
         zhuyin: "ㄌㄧㄥˊ ㄌㄧㄥˊ",
@@ -183,9 +174,8 @@ const BEASTS_DATABASE = [
             spiritual: 78,
             aggression: 70,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "fenghuang",
         nameCn: "鳳凰",
         zhuyin: "ㄈㄥ ㄏㄨㄤˊ",
@@ -201,9 +191,8 @@ const BEASTS_DATABASE = [
             spiritual: 96,
             aggression: 10,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "luwu",
         nameCn: "陸吾",
         zhuyin: "ㄌㄨˋ ㄨˊ",
@@ -219,9 +208,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 90,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "kui",
         nameCn: "夔",
         zhuyin: "ㄎㄨㄟˊ",
@@ -237,9 +225,8 @@ const BEASTS_DATABASE = [
             spiritual: 94,
             aggression: 80,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "yinglong",
         nameCn: "應龍",
         zhuyin: "ㄧㄥˋ ㄌㄨㄥˊ",
@@ -255,9 +242,8 @@ const BEASTS_DATABASE = [
             spiritual: 97,
             aggression: 95,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "bashe",
         nameCn: "巴蛇",
         zhuyin: "ㄅㄚ ㄕㄜˊ",
@@ -273,9 +259,8 @@ const BEASTS_DATABASE = [
             spiritual: 70,
             aggression: 92,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "kaiming",
         nameCn: "開明獸",
         zhuyin: "ㄎㄞ ㄇㄧㄥˊ ㄕㄡˋ",
@@ -291,9 +276,8 @@ const BEASTS_DATABASE = [
             spiritual: 93,
             aggression: 88,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "yingzhao",
         nameCn: "英招",
         zhuyin: "ㄧㄥ ㄓㄠ",
@@ -309,9 +293,8 @@ const BEASTS_DATABASE = [
             spiritual: 92,
             aggression: 70,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "taowu",
         nameCn: "檮杌",
         zhuyin: "ㄊㄠˊ ㄨˋ",
@@ -327,9 +310,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 96,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "qiongqi",
         nameCn: "窮奇",
         zhuyin: "ㄑㄩㄥˊ ㄑㄧˊ",
@@ -345,9 +327,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 97,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "dangkang",
         nameCn: "當康",
         zhuyin: "ㄉㄤ ㄎㄤ",
@@ -363,9 +344,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 10,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "fuzhu",
         nameCn: "夫諸",
         zhuyin: "ㄈㄨ ㄓㄨ",
@@ -381,9 +361,8 @@ const BEASTS_DATABASE = [
             spiritual: 86,
             aggression: 40,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "feiyi",
         nameCn: "肥遺 (蛇)",
         zhuyin: "ㄈㄟˊ ㄧˊ",
@@ -399,9 +378,8 @@ const BEASTS_DATABASE = [
             spiritual: 78,
             aggression: 65,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "mingshe",
         nameCn: "鳴蛇",
         zhuyin: "ㄇㄧㄥˊ ㄕㄜˊ",
@@ -417,9 +395,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 60,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "huashe",
         nameCn: "化蛇",
         zhuyin: "ㄏㄨㄚˋ ㄕㄜˊ",
@@ -435,9 +412,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 75,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "xuanguian",
         nameCn: "旋龜",
         zhuyin: "ㄒㄩㄢˊ ㄍㄨㄟ",
@@ -453,9 +429,8 @@ const BEASTS_DATABASE = [
             spiritual: 84,
             aggression: 15,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "lushu",
         nameCn: "鹿蜀",
         zhuyin: "ㄌㄨˋ ㄕㄨˇ",
@@ -471,9 +446,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 10,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "xingxing",
         nameCn: "狌狌",
         zhuyin: "ㄒㄧㄥ ㄒㄧㄥ",
@@ -489,9 +463,8 @@ const BEASTS_DATABASE = [
             spiritual: 78,
             aggression: 20,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "lei",
         nameCn: "類",
         zhuyin: "ㄌㄟˋ",
@@ -507,9 +480,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 15,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "boyi",
         nameCn: "猼訑",
         zhuyin: "ㄅㄛˊ ㄧˊ",
@@ -525,9 +497,8 @@ const BEASTS_DATABASE = [
             spiritual: 83,
             aggression: 25,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "guanguan",
         nameCn: "灌灌",
         zhuyin: "ㄍㄨㄢˋ ㄍㄨㄢˋ",
@@ -543,9 +514,8 @@ const BEASTS_DATABASE = [
             spiritual: 76,
             aggression: 12,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "chiru",
         nameCn: "赤鱬",
         zhuyin: "ㄔˋ ㄖㄨˊ",
@@ -561,9 +531,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 15,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "lili",
         nameCn: "狸力",
         zhuyin: "ㄌㄧˊ ㄌㄧˋ",
@@ -579,9 +548,8 @@ const BEASTS_DATABASE = [
             spiritual: 79,
             aggression: 30,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "lingyu",
         nameCn: "鴒䳿",
         zhuyin: "ㄌㄧㄥˊ ㄩˊ",
@@ -597,9 +565,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 10,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "quru",
         nameCn: "瞿如",
         zhuyin: "ㄑㄩˊ ㄖㄨˊ",
@@ -615,9 +582,8 @@ const BEASTS_DATABASE = [
             spiritual: 77,
             aggression: 15,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "hujiao",
         nameCn: "虎蛟",
         zhuyin: "ㄏㄨˇ ㄐㄧㄠ",
@@ -633,9 +599,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 65,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "fei",
         nameCn: "蜚",
         zhuyin: "ㄈㄟˇ",
@@ -651,9 +616,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 85,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "yongyong-fish",
         nameCn: "鱅鱅魚",
         zhuyin: "ㄩㄥˊ ㄩㄥˊ ㄩˊ",
@@ -669,9 +633,8 @@ const BEASTS_DATABASE = [
             spiritual: 72,
             aggression: 10,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "xiegou",
         nameCn: "絜鉤",
         zhuyin: "ㄒㄧㄝˊ ㄍㄡ",
@@ -687,9 +650,8 @@ const BEASTS_DATABASE = [
             spiritual: 73,
             aggression: 40,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "shusi",
         nameCn: "數斯",
         zhuyin: "ㄕㄨˋ ㄙ",
@@ -705,9 +667,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 20,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "ranyi-fish",
         nameCn: "冉遺魚",
         zhuyin: "ㄖㄢˇ ㄧˊ ㄩˊ",
@@ -723,9 +684,8 @@ const BEASTS_DATABASE = [
             spiritual: 83,
             aggression: 15,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "bo",
         nameCn: "駁",
         zhuyin: "ㄅㄛˊ",
@@ -741,9 +701,8 @@ const BEASTS_DATABASE = [
             spiritual: 89,
             aggression: 90,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "huan",
         nameCn: "讙",
         zhuyin: "ㄏㄨㄢ",
@@ -759,9 +718,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 35,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "qitu",
         nameCn: "鵸鵌",
         zhuyin: "ㄑㄧˊ ㄊㄨˊ",
@@ -777,9 +735,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 20,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "zhuhuai",
         nameCn: "諸懷",
         zhuyin: "ㄓㄨ ㄏㄨㄞˊ",
@@ -795,9 +752,8 @@ const BEASTS_DATABASE = [
             spiritual: 76,
             aggression: 94,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "liangqu",
         nameCn: "梁渠",
         zhuyin: "ㄌㄧㄤˊ ㄑㄩˊ",
@@ -813,9 +769,8 @@ const BEASTS_DATABASE = [
             spiritual: 78,
             aggression: 80,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "juru",
         nameCn: "狙如",
         zhuyin: "ㄐㄩ ㄖㄨˊ",
@@ -831,9 +786,8 @@ const BEASTS_DATABASE = [
             spiritual: 72,
             aggression: 45,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "aoye",
         nameCn: "獓𢀚",
         zhuyin: "ㄠˊ ㄧㄝˋ",
@@ -849,9 +803,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 95,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "jueru",
         nameCn: "玃如",
         zhuyin: "ㄐㄩㄝˊ ㄖㄨˊ",
@@ -867,9 +820,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 20,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "jufu",
         nameCn: "舉父",
         zhuyin: "ㄐㄩˇ ㄈㄨˋ",
@@ -885,9 +837,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 40,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "shuhu",
         nameCn: "孰湖",
         zhuyin: "ㄕㄨˊ ㄏㄨˊ",
@@ -903,9 +854,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 25,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "songsi",
         nameCn: "竦斯",
         zhuyin: "ㄙㄨㄥˇ ㄙ",
@@ -921,9 +871,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 10,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "lei-bird",
         nameCn: "鸓",
         zhuyin: "ㄌㄟˇ",
@@ -939,9 +888,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 15,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "huan-beast",
         nameCn: "患",
         zhuyin: "ㄏㄨㄢˋ",
@@ -957,9 +905,8 @@ const BEASTS_DATABASE = [
             spiritual: 87,
             aggression: 5,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "tianma",
         nameCn: "天馬",
         zhuyin: "ㄊㄧㄢ ㄇㄚˇ",
@@ -975,9 +922,8 @@ const BEASTS_DATABASE = [
             spiritual: 86,
             aggression: 20,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "chenghuang",
         nameCn: "乘黃",
         zhuyin: "ㄔㄥˊ ㄏㄨㄤˊ",
@@ -993,9 +939,8 @@ const BEASTS_DATABASE = [
             spiritual: 94,
             aggression: 5,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "jiufeng",
         nameCn: "九鳳",
         zhuyin: "ㄐㄧㄡˇ ㄈㄥˋ",
@@ -1011,9 +956,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 75,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "zheng",
         nameCn: "猙",
         zhuyin: "ㄓㄥ",
@@ -1029,9 +973,8 @@ const BEASTS_DATABASE = [
             spiritual: 86,
             aggression: 80,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "jiao",
         nameCn: "狡",
         zhuyin: "ㄐㄧㄠˇ",
@@ -1047,9 +990,8 @@ const BEASTS_DATABASE = [
             spiritual: 83,
             aggression: 40,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "luanniao",
         nameCn: "鸞鳥",
         zhuyin: "ㄌㄨㄢˊ ㄋㄧㄠˇ",
@@ -1065,9 +1007,8 @@ const BEASTS_DATABASE = [
             spiritual: 93,
             aggression: 10,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "yong",
         nameCn: "顒",
         zhuyin: "ㄩㄥˊ",
@@ -1083,9 +1024,8 @@ const BEASTS_DATABASE = [
             spiritual: 77,
             aggression: 55,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gudiao",
         nameCn: "蠱雕",
         zhuyin: "ㄍㄨˇ ㄉㄧㄠ",
@@ -1101,9 +1041,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 93,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "wuzhiqi",
         nameCn: "無支祁",
         zhuyin: "ㄨˊ ㄓ ㄑㄧˊ",
@@ -1119,9 +1058,8 @@ const BEASTS_DATABASE = [
             spiritual: 92,
             aggression: 87,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "boyu",
         nameCn: "薄魚",
         zhuyin: "ㄅㄛˊ ㄩˊ",
@@ -1137,9 +1075,8 @@ const BEASTS_DATABASE = [
             spiritual: 70,
             aggression: 50,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "heyu",
         nameCn: "合窳",
         zhuyin: "ㄏㄜˊ ㄩˇ",
@@ -1155,9 +1092,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 88,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "wenyao-fish",
         nameCn: "文鰩魚",
         zhuyin: "ㄨㄣˊ ㄧㄠˊ ㄩˊ",
@@ -1173,9 +1109,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 10,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "helu-fish",
         nameCn: "何羅魚",
         zhuyin: "ㄏㄜˊ ㄌㄨㄛˊ ㄩˊ",
@@ -1191,9 +1126,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 15,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "manman-bird",
         nameCn: "蠻蠻 (比翼鳥)",
         zhuyin: "ㄇㄢˊ ㄇㄢˊ",
@@ -1209,9 +1143,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 12,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "suanyu",
         nameCn: "酸與",
         zhuyin: "ㄙㄨㄢ ㄩˇ",
@@ -1227,9 +1160,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 60,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "yayu",
         nameCn: "窫窳",
         zhuyin: "ㄧㄚˋ ㄩˇ",
@@ -1245,9 +1177,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 96,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "sanzuwu",
         nameCn: "三足烏",
         zhuyin: "ㄙㄢ ㄗㄨˊ ㄨ",
@@ -1263,9 +1194,8 @@ const BEASTS_DATABASE = [
             spiritual: 98,
             aggression: 30,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "bingyi",
         nameCn: "冰夷",
         zhuyin: "ㄅㄧㄥ ㄧˊ",
@@ -1281,9 +1211,8 @@ const BEASTS_DATABASE = [
             spiritual: 94,
             aggression: 70,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "yushiqie",
         nameCn: "雨師妾",
         zhuyin: "ㄩˇ ㄕ ㄑㄧㄝˋ",
@@ -1299,9 +1228,8 @@ const BEASTS_DATABASE = [
             spiritual: 91,
             aggression: 65,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "pingyi",
         nameCn: "屏翳",
         zhuyin: "ㄆㄧㄥˊ ㄧˋ",
@@ -1317,9 +1245,8 @@ const BEASTS_DATABASE = [
             spiritual: 93,
             aggression: 60,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "nvchou",
         nameCn: "女丑",
         zhuyin: "ㄋㄩˇ ㄔㄡˇ",
@@ -1335,9 +1262,8 @@ const BEASTS_DATABASE = [
             spiritual: 92,
             aggression: 40,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "jiliang",
         nameCn: "吉量",
         zhuyin: "ㄐㄧˊ ㄌㄧㄤˋ",
@@ -1353,9 +1279,8 @@ const BEASTS_DATABASE = [
             spiritual: 92,
             aggression: 5,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "luoyu",
         nameCn: "蠃魚",
         zhuyin: "ㄌㄨㄛˇ ㄩˊ",
@@ -1371,9 +1296,8 @@ const BEASTS_DATABASE = [
             spiritual: 77,
             aggression: 50,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "shangao",
         nameCn: "山膏",
         zhuyin: "ㄕㄢ ㄍㄠ",
@@ -1389,9 +1313,8 @@ const BEASTS_DATABASE = [
             spiritual: 65,
             aggression: 65,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "juji",
         nameCn: "居暨",
         zhuyin: "ㄐㄩ ㄐㄧˋ",
@@ -1407,9 +1330,8 @@ const BEASTS_DATABASE = [
             spiritual: 70,
             aggression: 55,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "changyou",
         nameCn: "長右",
         zhuyin: "ㄔㄤˊ ㄧㄡˋ",
@@ -1425,9 +1347,8 @@ const BEASTS_DATABASE = [
             spiritual: 76,
             aggression: 40,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "huahuai",
         nameCn: "猾褢",
         zhuyin: "ㄏㄨㄚˊ ㄏㄨㄞˊ",
@@ -1443,9 +1364,8 @@ const BEASTS_DATABASE = [
             spiritual: 68,
             aggression: 60,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "zhi",
         nameCn: "彘 (獸)",
         zhuyin: "ㄓˋ",
@@ -1461,9 +1381,8 @@ const BEASTS_DATABASE = [
             spiritual: 70,
             aggression: 92,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "qianyang",
         nameCn: "羬羊",
         zhuyin: "ㄑㄧㄢˊ ㄧㄤˊ",
@@ -1479,9 +1398,8 @@ const BEASTS_DATABASE = [
             spiritual: 78,
             aggression: 10,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "shuyu",
         nameCn: "儵魚",
         zhuyin: "ㄕㄨˊ ㄩˊ",
@@ -1497,9 +1415,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 12,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "luyu",
         nameCn: "鯥",
         zhuyin: "ㄌㄨˋ",
@@ -1515,9 +1432,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 20,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "yuma",
         nameCn: "𩣡馬",
         zhuyin: "ㄩˊ ㄇㄚˇ",
@@ -1533,9 +1449,8 @@ const BEASTS_DATABASE = [
             spiritual: 84,
             aggression: 35,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "tianquan",
         nameCn: "天犬",
         zhuyin: "ㄊㄧㄢ ㄑㄩㄢˇ",
@@ -1551,9 +1466,8 @@ const BEASTS_DATABASE = [
             spiritual: 83,
             aggression: 40,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "lin",
         nameCn: "獜",
         zhuyin: "ㄌㄧㄣˊ",
@@ -1569,9 +1483,8 @@ const BEASTS_DATABASE = [
             spiritual: 70,
             aggression: 60,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "huan-sheep",
         nameCn: "䍺",
         zhuyin: "ㄏㄨㄢˊ",
@@ -1587,9 +1500,8 @@ const BEASTS_DATABASE = [
             spiritual: 86,
             aggression: 5,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "youyou",
         nameCn: "峳峳",
         zhuyin: "ㄧㄡ ㄧㄡ",
@@ -1605,9 +1517,8 @@ const BEASTS_DATABASE = [
             spiritual: 84,
             aggression: 10,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "qiuyu",
         nameCn: "犰狳",
         zhuyin: "ㄑㄧㄡˊ ㄩˊ",
@@ -1623,9 +1534,8 @@ const BEASTS_DATABASE = [
             spiritual: 72,
             aggression: 30,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "zhuyan",
         nameCn: "朱厭",
         zhuyin: "ㄓㄨ ㄧㄢˋ",
@@ -1641,9 +1551,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 95,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "danghu",
         nameCn: "當扈",
         zhuyin: "ㄉㄤ ㄏㄨˋ",
@@ -1659,9 +1568,8 @@ const BEASTS_DATABASE = [
             spiritual: 79,
             aggression: 15,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "ershu",
         nameCn: "耳鼠",
         zhuyin: "ㄦˇ ㄕㄨˇ",
@@ -1677,9 +1585,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 10,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "dijiang-origin",
         nameCn: "帝江 (神鳥)",
         zhuyin: "ㄉㄧˋ ㄐㄧㄤ",
@@ -1695,9 +1602,8 @@ const BEASTS_DATABASE = [
             spiritual: 94,
             aggression: 40,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "feishu",
         nameCn: "飛鼠",
         zhuyin: "ㄈㄟ ㄕㄨˇ",
@@ -1713,9 +1619,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 10,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "linghu",
         nameCn: "領胡",
         zhuyin: "ㄌㄧㄥˇ ㄏㄨˊ",
@@ -1731,9 +1636,8 @@ const BEASTS_DATABASE = [
             spiritual: 79,
             aggression: 30,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "tulou",
         nameCn: "土螻",
         zhuyin: "ㄊㄨˇ ㄌㄡˊ",
@@ -1749,9 +1653,8 @@ const BEASTS_DATABASE = [
             spiritual: 76,
             aggression: 90,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "qinyuan",
         nameCn: "欽原",
         zhuyin: "ㄑㄧㄣ ㄩㄢˊ",
@@ -1767,9 +1670,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 95,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "ti-yu",
         nameCn: "䱱魚",
         zhuyin: "ㄊㄧˊ ㄩˊ",
@@ -1785,9 +1687,8 @@ const BEASTS_DATABASE = [
             spiritual: 78,
             aggression: 10,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "sanshou-nation",
         nameCn: "三首國神",
         zhuyin: "ㄙㄢ ㄕㄡˇ ㄕㄣˊ",
@@ -1803,9 +1704,8 @@ const BEASTS_DATABASE = [
             spiritual: 90,
             aggression: 50,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "yuchan",
         nameCn: "玉蟾",
         zhuyin: "ㄩˋ ㄔㄢˊ",
@@ -1821,9 +1721,8 @@ const BEASTS_DATABASE = [
             spiritual: 93,
             aggression: 5,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "qinglong",
         nameCn: "青龍",
         zhuyin: "ㄑㄧㄥ ㄌㄨㄥˊ",
@@ -1839,9 +1738,8 @@ const BEASTS_DATABASE = [
             spiritual: 99,
             aggression: 90,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "baihu",
         nameCn: "白虎",
         zhuyin: "ㄅㄞˊ ㄏㄨˇ",
@@ -1857,9 +1755,8 @@ const BEASTS_DATABASE = [
             spiritual: 99,
             aggression: 98,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "zhuque",
         nameCn: "朱雀",
         zhuyin: "ㄓㄨ ㄑㄩㄝˋ",
@@ -1875,9 +1772,8 @@ const BEASTS_DATABASE = [
             spiritual: 99,
             aggression: 94,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "xuanwu",
         nameCn: "玄武",
         zhuyin: "ㄒㄩㄢˊ ㄨˇ",
@@ -1893,9 +1789,8 @@ const BEASTS_DATABASE = [
             spiritual: 99,
             aggression: 85,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "wangliang",
         nameCn: "魍魎",
         zhuyin: "ㄨㄤˇ ㄌㄧㄤˇ",
@@ -1911,9 +1806,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 65,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "yuchan-spirit",
         nameCn: "玉兔",
         zhuyin: "ㄩˋ ㄊㄨˋ",
@@ -1929,9 +1823,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 5,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "sanshu-bird",
         nameCn: "三足烏 (精魂)",
         zhuyin: "ㄙㄢ ㄗㄨˊ ㄨ",
@@ -1947,9 +1840,8 @@ const BEASTS_DATABASE = [
             spiritual: 97,
             aggression: 85,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "qilin-lin",
         nameCn: "麒",
         zhuyin: "ㄑㄧˊ",
@@ -1965,9 +1857,8 @@ const BEASTS_DATABASE = [
             spiritual: 93,
             aggression: 10,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "qilin-lin-female",
         nameCn: "麟",
         zhuyin: "ㄌㄧㄣˊ",
@@ -1983,9 +1874,8 @@ const BEASTS_DATABASE = [
             spiritual: 93,
             aggression: 5,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "jiu-bird",
         nameCn: "𩳁",
         zhuyin: "ㄐㄧㄡˇ",
@@ -2001,9 +1891,8 @@ const BEASTS_DATABASE = [
             spiritual: 75,
             aggression: 10,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "chiyan-beast",
         nameCn: "赤眼",
         zhuyin: "ㄔˋ ㄧㄢˇ",
@@ -2019,9 +1908,8 @@ const BEASTS_DATABASE = [
             spiritual: 72,
             aggression: 94,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "shenshen-beast",
         nameCn: "甡甡",
         zhuyin: "ㄕㄣ ㄕㄣ",
@@ -2037,9 +1925,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 35,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "xun-beast",
         nameCn: "𤲞",
         zhuyin: "ㄒㄩㄣˊ",
@@ -2055,9 +1942,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 15,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "youren-beast",
         nameCn: "幽鴳",
         zhuyin: "ㄧㄡ ㄧㄢˋ",
@@ -2073,9 +1959,8 @@ const BEASTS_DATABASE = [
             spiritual: 78,
             aggression: 10,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "tianzhi-bird",
         nameCn: "天之",
         zhuyin: "ㄊㄧㄢ ㄓ",
@@ -2091,9 +1976,8 @@ const BEASTS_DATABASE = [
             spiritual: 76,
             aggression: 8,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "shanjun-beast",
         nameCn: "山君",
         zhuyin: "ㄕㄢ ㄐㄩㄣ",
@@ -2109,9 +1993,8 @@ const BEASTS_DATABASE = [
             spiritual: 91,
             aggression: 90,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "mangcao-beast",
         nameCn: "𢕟𢖵",
         zhuyin: "ㄇㄤˊ ㄘㄠˇ",
@@ -2127,9 +2010,8 @@ const BEASTS_DATABASE = [
             spiritual: 83,
             aggression: 10,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "yingchu-beast",
         nameCn: "嬰處",
         zhuyin: "ㄧㄥ ㄔㄨˋ",
@@ -2145,9 +2027,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 5,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "huodou-beast",
         nameCn: "禍斗",
         zhuyin: "ㄏㄨㄛˋ ㄉㄡˇ",
@@ -2163,9 +2044,8 @@ const BEASTS_DATABASE = [
             spiritual: 78,
             aggression: 85,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "yuzhi-fish",
         nameCn: "䲢魚 (天魚)",
         zhuyin: "ㄊㄥˊ ㄩˊ",
@@ -2181,9 +2061,8 @@ const BEASTS_DATABASE = [
             spiritual: 90,
             aggression: 40,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "chongqu-beast",
         nameCn: "重渠",
         zhuyin: "ㄓㄨㄥˋ ㄑㄩˊ",
@@ -2199,9 +2078,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 25,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "ran-min-giant",
         nameCn: "大人神",
         zhuyin: "ㄉㄚˋ ㄖㄣˊ ㄕㄣˊ",
@@ -2217,9 +2095,8 @@ const BEASTS_DATABASE = [
             spiritual: 91,
             aggression: 60,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "tiandi-god",
         nameCn: "天帝英靈",
         zhuyin: "ㄊㄧㄢ ㄉㄧˋ",
@@ -2235,9 +2112,8 @@ const BEASTS_DATABASE = [
             spiritual: 99,
             aggression: 95,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "chiyou-spirit",
         nameCn: "蚩尤戰魂",
         zhuyin: "ㄔ ㄧㄡˊ",
@@ -2253,9 +2129,8 @@ const BEASTS_DATABASE = [
             spiritual: 96,
             aggression: 99,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "zhaoyang-god",
         nameCn: "朝陽水伯",
         zhuyin: "ㄓㄠ ㄧㄤˊ",
@@ -2271,9 +2146,8 @@ const BEASTS_DATABASE = [
             spiritual: 93,
             aggression: 80,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "sanshu-crow",
         nameCn: "三足烏 (神雛)",
         zhuyin: "ㄙㄢ ㄗㄨˊ ㄨ",
@@ -2289,9 +2163,8 @@ const BEASTS_DATABASE = [
             spiritual: 90,
             aggression: 15,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "jiliang-white",
         nameCn: "縞馬 (吉量)",
         zhuyin: "ㄍㄠˇ ㄇㄚˇ",
@@ -2307,9 +2180,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 5,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "luoyu-spirit",
         nameCn: "蠃魚精魂",
         zhuyin: "ㄌㄨㄛˇ ㄩˊ",
@@ -2325,9 +2197,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 60,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "shangao-cursing",
         nameCn: "火豕 (山膏)",
         zhuyin: "ㄏㄨㄛˇ ㄕˇ",
@@ -2343,9 +2214,8 @@ const BEASTS_DATABASE = [
             spiritual: 70,
             aggression: 80,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "juji-hedgehog",
         nameCn: "針豕 (居暨)",
         zhuyin: "ㄓㄣ ㄕˇ",
@@ -2361,9 +2231,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 70,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "changyou-water",
         nameCn: "四耳禺 (長右)",
         zhuyin: "ㄙˋ ㄦˇ ㄩˊ",
@@ -2379,9 +2248,8 @@ const BEASTS_DATABASE = [
             spiritual: 79,
             aggression: 50,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "huahuai-shaggy",
         nameCn: "硬鬣禺 (猾褢)",
         zhuyin: "ㄧㄥˋ ㄌㄧㄝˋ ㄩˊ",
@@ -2397,9 +2265,8 @@ const BEASTS_DATABASE = [
             spiritual: 71,
             aggression: 70,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "zhi-tiger",
         nameCn: "牛尾虎 (彘)",
         zhuyin: "ㄋㄧㄡˊ ㄨㄟˇ ㄏㄨˇ",
@@ -2415,9 +2282,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 96,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "qianyang-white",
         nameCn: "縞羊 (羬羊)",
         zhuyin: "ㄍㄠˇ ㄧㄤˊ",
@@ -2433,9 +2299,8 @@ const BEASTS_DATABASE = [
             spiritual: 80,
             aggression: 8,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "shuyu-anxiety",
         nameCn: "赤羽魚 (儵魚)",
         zhuyin: "ㄔˋ ㄩˇ ㄩˊ",
@@ -2451,9 +2316,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 10,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "luyu-ox",
         nameCn: "翼牛魚 (鯥)",
         zhuyin: "ㄧˋ ㄋㄧㄡˊ ㄩˊ",
@@ -2469,9 +2333,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 25,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "yuma-gold",
         nameCn: "金睛馬 (𩣡馬)",
         zhuyin: "ㄐㄧㄣ ㄐㄧㄥ ㄇㄚˇ",
@@ -2487,9 +2350,8 @@ const BEASTS_DATABASE = [
             spiritual: 87,
             aggression: 40,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "tianquan-cat",
         nameCn: "白首貍 (天犬)",
         zhuyin: "ㄅㄞˊ ㄕㄡˇ ㄌㄧˊ",
@@ -2505,9 +2367,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 45,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "lin-barren",
         nameCn: "虎紋犬 (獜)",
         zhuyin: "ㄏㄨˇ ㄨㄣˊ ㄑㄩㄢˇ",
@@ -2523,9 +2384,8 @@ const BEASTS_DATABASE = [
             spiritual: 72,
             aggression: 70,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "huan-ram",
         nameCn: "無口羊 (䍺)",
         zhuyin: "ㄨˊ ㄎㄡˇ ㄧㄤˊ",
@@ -2541,9 +2401,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 5,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "youyou-deer",
         nameCn: "馬尾鹿 (峳峳)",
         zhuyin: "ㄇㄚˇ ㄨㄟˇ ㄌㄨˋ",
@@ -2559,9 +2418,8 @@ const BEASTS_DATABASE = [
             spiritual: 86,
             aggression: 8,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "qiuyu-locust",
         nameCn: "兔首鳥喙 (犰狳)",
         zhuyin: "ㄊㄨˋ ㄕㄡˇ ㄋㄧㄠˇ ㄏㄨㄟˋ",
@@ -2577,9 +2435,8 @@ const BEASTS_DATABASE = [
             spiritual: 71,
             aggression: 25,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "zhuyan-war",
         nameCn: "白首赤足 (朱厭)",
         zhuyin: "ㄅㄞˊ ㄕㄡˇ ㄔˋ ㄗㄨˊ",
@@ -2595,9 +2452,8 @@ const BEASTS_DATABASE = [
             spiritual: 82,
             aggression: 97,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "danghu-whisker",
         nameCn: "髯飛鳥 (當扈)",
         zhuyin: "ㄖㄢˊ ㄈㄟ ㄋㄧㄠˇ",
@@ -2613,9 +2469,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 12,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "ershu-flying",
         nameCn: "飛耳鼠 (耳鼠)",
         zhuyin: "ㄈㄟ ㄦˇ ㄕㄨˇ",
@@ -2631,9 +2486,8 @@ const BEASTS_DATABASE = [
             spiritual: 85,
             aggression: 10,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "mizhi",
         nameCn: "朏朏",
         zhuyin: "ㄈㄟˇ ㄈㄟˇ",
@@ -2649,9 +2503,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 75,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "zouyu",
         nameCn: "騶虞",
         zhuyin: "ㄗㄡ ㄩˊ",
@@ -2667,9 +2520,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 30,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "baize-spirit",
         nameCn: "白澤",
         zhuyin: "ㄅㄞˊ ㄗㄜˊ",
@@ -2685,9 +2537,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 82,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "qinggeng",
         nameCn: "青耕",
         zhuyin: "ㄑㄧㄥ ㄍㄥ",
@@ -2703,9 +2554,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 67,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "shengyu",
         nameCn: "勝遇",
         zhuyin: "ㄕㄥˋ ㄩˋ",
@@ -2721,9 +2571,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 11,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "tiangeng-divine",
         nameCn: "天鯁",
         zhuyin: "ㄊㄧㄢ ㄍㄥˇ",
@@ -2739,9 +2588,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 41,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "xianfu-ape",
         nameCn: "䴤",
         zhuyin: "ㄒㄧㄢˊ",
@@ -2757,9 +2605,8 @@ const BEASTS_DATABASE = [
             spiritual: 87,
             aggression: 21,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "hechi",
         nameCn: "獬豸",
         zhuyin: "ㄒㄧㄝˋ ㄓˋ",
@@ -2775,9 +2622,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 53,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "suanni-lion",
         nameCn: "狻猊",
         zhuyin: "ㄙㄨㄢ ㄋㄧˊ",
@@ -2793,9 +2639,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 83,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "bixi-dragon",
         nameCn: "赑屭",
         zhuyin: "ㄅㄧˋ ㄒㄧˋ",
@@ -2811,9 +2656,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 85,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "yazi-sword",
         nameCn: "睚眥",
         zhuyin: "ㄧㄚˊ ㄗˋ",
@@ -2829,9 +2673,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 84,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "pulao-bell",
         nameCn: "蒲牢",
         zhuyin: "ㄆㄨˊ ㄌㄠˊ",
@@ -2847,9 +2690,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 75,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "chiwen-fire",
         nameCn: "螭吻",
         zhuyin: "ㄔ ㄨㄣˇ",
@@ -2865,9 +2707,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 88,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "qiuniu-lute",
         nameCn: "囚牛",
         zhuyin: "ㄑㄧㄡˊ ㄋㄧㄡˊ",
@@ -2883,9 +2724,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 35,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "yaxian-fish",
         nameCn: "鱵魚",
         zhuyin: "ㄓㄣ ㄩˊ",
@@ -2901,11 +2741,10 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 34,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-chiniu-1",
-        nameCn: "赤牛",
+        nameCn: "赤牛(吉)",
         zhuyin: "ㄆ 一 ㄠˊ",
         nameEn: "Spiritual 赤牛",
         category: "auspicious",
@@ -2919,9 +2758,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 41,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-xuanyang-2",
         nameCn: "玄羊",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -2937,9 +2775,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 10,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-baiquan-3",
         nameCn: "白犬",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -2955,9 +2792,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 23,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-jinli-4",
         nameCn: "金貍",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -2973,9 +2809,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 80,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-yudiao-5",
         nameCn: "玉雕",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -2991,9 +2826,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 49,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-feihe-6",
         nameCn: "飛鶴",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -3009,11 +2843,10 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 62,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-jiuque-7",
-        nameCn: "九雀",
+        nameCn: "九雀(吉)",
         zhuyin: "ㄌ 一 ㄠˊ",
         nameEn: "Spiritual 九雀",
         category: "auspicious",
@@ -3027,9 +2860,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 39,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-duyu-8",
         nameCn: "獨魚",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -3045,9 +2877,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 88,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-tianshe-9",
         nameCn: "天蛇",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -3063,9 +2894,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 32,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-leijiao-10",
         nameCn: "雷蛟",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -3081,9 +2911,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 78,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-fengbao-11",
         nameCn: "風豹",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -3099,9 +2928,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 47,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-shuihu-12",
         nameCn: "水虎",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -3117,9 +2945,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 60,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-shanyu-13",
         nameCn: "山禺",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -3135,9 +2962,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 37,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-shenhu-14",
         nameCn: "神狐",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -3153,9 +2979,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 86,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-lingyao-15",
         nameCn: "靈鰩",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -3171,9 +2996,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 19,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-huangfu-16",
         nameCn: "荒鳧",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -3189,9 +3013,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 76,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-youwu-17",
         nameCn: "幽烏",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -3207,9 +3030,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 45,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-bingkun-18",
         nameCn: "冰鵾",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -3225,9 +3047,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 58,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-huodie-19",
         nameCn: "火鰈",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -3243,9 +3064,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 46,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-qingma-20",
         nameCn: "青馬",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -3261,11 +3081,10 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 84,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-redox-21",
-        nameCn: "赤牛",
+        nameCn: "赤牛(水)",
         zhuyin: "ㄅ 一 ㄠˊ",
         nameEn: "Spiritual 赤牛",
         category: "divine",
@@ -3279,9 +3098,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 17,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-xuanyang-22",
         nameCn: "玄羊",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -3297,9 +3115,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 74,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-baiquan-23",
         nameCn: "白犬",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -3315,9 +3132,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 43,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-jinli-24",
         nameCn: "金貍",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -3333,9 +3149,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 56,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-yudiao-25",
         nameCn: "玉雕",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -3351,9 +3166,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 33,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-feihe-26",
         nameCn: "飛鶴",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -3369,11 +3183,10 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 82,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-jiuque-27",
-        nameCn: "九雀",
+        nameCn: "九雀(水)",
         zhuyin: "ㄋ 一 ㄠˊ",
         nameEn: "Spiritual 九雀",
         category: "divine",
@@ -3387,10 +3200,9 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 15,
             rarity: 74
-        }
-    },
-    {
-        id: "gen-獨-魚-28",
+        },
+{
+        id: "gen-duyu-28",
         nameCn: "獨魚",
         zhuyin: "ㄌ 一 ㄠˊ",
         nameEn: "Spiritual 獨魚",
@@ -3400,15 +3212,14 @@ const BEASTS_DATABASE = [
         regionCn: "北山經 (第9卷)",
         classicText: "「北山經 (第9卷)有獸焉，其狀如魚而獨身，其名曰獨魚，見則天下大吉。」",
         description: "獨魚是《山海經》中記載的奇特生物。牠擁有魚的身體輪廓與獨色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-獨-魚-28.webp",
+        image: "assets/webp/gen-duyu-28.webp",
         stats: {
             spiritual: 74,
             aggression: 72,
             rarity: 91
-        }
-    },
-    {
-        id: "gen-天-蛇-29",
+        },
+{
+        id: "gen-tianshe-29",
         nameCn: "天蛇",
         zhuyin: "ㄍ 一 ㄠˊ",
         nameEn: "Spiritual 天蛇",
@@ -3418,15 +3229,14 @@ const BEASTS_DATABASE = [
         regionCn: "中山經 (第10卷)",
         classicText: "「中山經 (第10卷)有異獸，名曰天蛇，其音如雷，見則其邑大水。」",
         description: "天蛇是《山海經》中記載的奇特生物。牠擁有蛇的身體輪廓與天色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-天-蛇-29.webp",
+        image: "assets/webp/gen-tianshe-29.webp",
         stats: {
             spiritual: 81,
             aggression: 52,
             rarity: 78
-        }
-    },
-    {
-        id: "gen-雷-蛟-30",
+        },
+{
+        id: "gen-leijiao-30",
         nameCn: "雷蛟",
         zhuyin: "ㄎ 一 ㄠˊ",
         nameEn: "Spiritual 雷蛟",
@@ -3436,15 +3246,14 @@ const BEASTS_DATABASE = [
         regionCn: "東山經 (第1卷)",
         classicText: "「東山經 (第1卷)有異獸，名曰雷蛟，其音如雷，見則其邑大水。」",
         description: "雷蛟是《山海經》中記載的奇特生物。牠擁有蛟的身體輪廓與雷色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-雷-蛟-30.webp",
+        image: "assets/webp/gen-leijiao-30.webp",
         stats: {
             spiritual: 88,
             aggression: 54,
             rarity: 95
-        }
-    },
-    {
-        id: "gen-風-豹-31",
+        },
+{
+        id: "gen-fengbao-31",
         nameCn: "風豹",
         zhuyin: "ㄏ 一 ㄠˊ",
         nameEn: "Spiritual 風豹",
@@ -3454,15 +3263,14 @@ const BEASTS_DATABASE = [
         regionCn: "南山經 (第2卷)",
         classicText: "「南山經 (第2卷)有獸焉，其狀如豹而風身，其名曰風豹，見則天下大吉。」",
         description: "風豹是《山海經》中記載的奇特生物。牠擁有豹的身體輪廓與風色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-風-豹-31.webp",
+        image: "assets/webp/gen-fengbao-31.webp",
         stats: {
             spiritual: 95,
             aggression: 31,
             rarity: 82
-        }
-    },
-    {
-        id: "gen-水-虎-32",
+        },
+{
+        id: "gen-shuihu-32",
         nameCn: "水虎",
         zhuyin: "ㄐ 一 ㄠˊ",
         nameEn: "Spiritual 水虎",
@@ -3472,15 +3280,14 @@ const BEASTS_DATABASE = [
         regionCn: "西山經 (第3卷)",
         classicText: "「西山經 (第3卷)有異獸，名曰水虎，其音如雷，見則其邑大水。」",
         description: "水虎是《山海經》中記載的奇特生物。牠擁有虎的身體輪廓與水色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-水-虎-32.webp",
+        image: "assets/webp/gen-shuihu-32.webp",
         stats: {
             spiritual: 67,
             aggression: 80,
             rarity: 99
-        }
-    },
-    {
-        id: "gen-山-禺-33",
+        },
+{
+        id: "gen-shanyu-33",
         nameCn: "山禺",
         zhuyin: "ㄑ 一 ㄠˊ",
         nameEn: "Spiritual 山禺",
@@ -3490,15 +3297,14 @@ const BEASTS_DATABASE = [
         regionCn: "北山經 (第4卷)",
         classicText: "「北山經 (第4卷)有異獸，名曰山禺，其音如雷，見則其邑大水。」",
         description: "山禺是《山海經》中記載的奇特生物。牠擁有禺的身體輪廓與山色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-山-禺-33.webp",
+        image: "assets/webp/gen-shanyu-33.webp",
         stats: {
             spiritual: 74,
             aggression: 13,
             rarity: 86
-        }
-    },
-    {
-        id: "gen-神-狐-34",
+        },
+{
+        id: "gen-shenhu-34",
         nameCn: "神狐",
         zhuyin: "ㄒ 一 ㄠˊ",
         nameEn: "Spiritual 神狐",
@@ -3508,15 +3314,14 @@ const BEASTS_DATABASE = [
         regionCn: "中山經 (第5卷)",
         classicText: "「中山經 (第5卷)有獸焉，其狀如狐而神身，其名曰神狐，見則天下大吉。」",
         description: "神狐是《山海經》中記載的奇特生物。牠擁有狐的身體輪廓與神色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-神-狐-34.webp",
+        image: "assets/webp/gen-shenhu-34.webp",
         stats: {
             spiritual: 81,
             aggression: 70,
             rarity: 73
-        }
-    },
-    {
-        id: "gen-靈-鰩-35",
+        },
+{
+        id: "gen-lingyao-35",
         nameCn: "靈鰩",
         zhuyin: "ㄓ 一 ㄠˊ",
         nameEn: "Spiritual 靈鰩",
@@ -3526,15 +3331,14 @@ const BEASTS_DATABASE = [
         regionCn: "東山經 (第6卷)",
         classicText: "「東山經 (第6卷)有異獸，名曰靈鰩，其音如雷，見則其邑大水。」",
         description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-靈-鰩-35.webp",
+        image: "assets/webp/gen-lingyao-35.webp",
         stats: {
             spiritual: 88,
             aggression: 39,
             rarity: 90
-        }
-    },
-    {
-        id: "gen-荒-鳧-36",
+        },
+{
+        id: "gen-huangfu-36",
         nameCn: "荒鳧",
         zhuyin: "ㄔ 一 ㄠˊ",
         nameEn: "Spiritual 荒鳧",
@@ -3544,15 +3348,14 @@ const BEASTS_DATABASE = [
         regionCn: "南山經 (第7卷)",
         classicText: "「南山經 (第7卷)有異獸，名曰荒鳧，其音如雷，見則其邑大水。」",
         description: "荒鳧是《山海經》中記載的奇特生物。牠擁有鳧的身體輪廓與荒色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-荒-鳧-36.webp",
+        image: "assets/webp/gen-huangfu-36.webp",
         stats: {
             spiritual: 95,
             aggression: 52,
             rarity: 77
-        }
-    },
-    {
-        id: "gen-幽-烏-37",
+        },
+{
+        id: "gen-youwu-37",
         nameCn: "幽烏",
         zhuyin: "ㄕ 一 ㄠˊ",
         nameEn: "Spiritual 幽烏",
@@ -3562,15 +3365,14 @@ const BEASTS_DATABASE = [
         regionCn: "西山經 (第8卷)",
         classicText: "「西山經 (第8卷)有獸焉，其狀如烏而幽身，其名曰幽烏，見則天下大吉。」",
         description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-幽-烏-37.webp",
+        image: "assets/webp/gen-youwu-37.webp",
         stats: {
             spiritual: 67,
             aggression: 29,
             rarity: 94
-        }
-    },
-    {
-        id: "gen-冰-鵾-38",
+        },
+{
+        id: "gen-bingkun-38",
         nameCn: "冰鵾",
         zhuyin: "ㄖ 一 ㄠˊ",
         nameEn: "Spiritual 冰鵾",
@@ -3580,15 +3382,14 @@ const BEASTS_DATABASE = [
         regionCn: "北山經 (第9卷)",
         classicText: "「北山經 (第9卷)有異獸，名曰冰鵾，其音如雷，見則其邑大水。」",
         description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-冰-鵾-38.webp",
+        image: "assets/webp/gen-bingkun-38.webp",
         stats: {
             spiritual: 74,
             aggression: 78,
             rarity: 81
-        }
-    },
-    {
-        id: "gen-火-鰈-39",
+        },
+{
+        id: "gen-huodie-39",
         nameCn: "火鰈",
         zhuyin: "ㄗ 一 ㄠˊ",
         nameEn: "Spiritual 火鰈",
@@ -3598,15 +3399,14 @@ const BEASTS_DATABASE = [
         regionCn: "中山經 (第10卷)",
         classicText: "「中山經 (第10卷)有異獸，名曰火鰈，其音如雷，見則其邑大水。」",
         description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-火-鰈-39.webp",
+        image: "assets/webp/gen-huodie-39.webp",
         stats: {
             spiritual: 81,
             aggression: 22,
             rarity: 98
-        }
-    },
-    {
-        id: "gen-青-馬-40",
+        },
+{
+        id: "gen-qingma-40",
         nameCn: "青馬",
         zhuyin: "ㄘ 一 ㄠˊ",
         nameEn: "Spiritual 青馬",
@@ -3616,15 +3416,14 @@ const BEASTS_DATABASE = [
         regionCn: "東山經 (第1卷)",
         classicText: "「東山經 (第1卷)有獸焉，其狀如馬而青身，其名曰青馬，見則天下大吉。」",
         description: "青馬是《山海經》中記載的奇特生物。牠擁有馬的身體輪廓與青色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-青-馬-40.webp",
+        image: "assets/webp/gen-qingma-40.webp",
         stats: {
             spiritual: 88,
             aggression: 68,
             rarity: 85
-        }
-    },
-    {
-        id: "gen-赤-牛-41",
+        },
+{
+        id: "gen-redox-41",
         nameCn: "赤牛",
         zhuyin: "ㄙ 一 ㄠˊ",
         nameEn: "Spiritual 赤牛",
@@ -3634,15 +3433,14 @@ const BEASTS_DATABASE = [
         regionCn: "南山經 (第2卷)",
         classicText: "「南山經 (第2卷)有異獸，名曰赤牛，其音如雷，見則其邑大水。」",
         description: "赤牛是《山海經》中記載的奇特生物。牠擁有牛的身體輪廓與赤色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-赤-牛-41.webp",
+        image: "assets/webp/gen-redox-41.webp",
         stats: {
             spiritual: 95,
             aggression: 37,
             rarity: 72
-        }
-    },
-    {
-        id: "gen-玄-羊-42",
+        },
+{
+        id: "gen-xuanyang-42",
         nameCn: "玄羊",
         zhuyin: "ㄅ 一 ㄠˊ",
         nameEn: "Spiritual 玄羊",
@@ -3652,15 +3450,14 @@ const BEASTS_DATABASE = [
         regionCn: "西山經 (第3卷)",
         classicText: "「西山經 (第3卷)有異獸，名曰玄羊，其音如雷，見則其邑大水。」",
         description: "玄羊是《山海經》中記載的奇特生物。牠擁有羊的身體輪廓與玄色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-玄-羊-42.webp",
+        image: "assets/webp/gen-xuanyang-42.webp",
         stats: {
             spiritual: 67,
             aggression: 50,
             rarity: 89
-        }
-    },
-    {
-        id: "gen-白-犬-43",
+        },
+{
+        id: "gen-baiquan-43",
         nameCn: "白犬",
         zhuyin: "ㄆ 一 ㄠˊ",
         nameEn: "Spiritual 白犬",
@@ -3670,14 +3467,13 @@ const BEASTS_DATABASE = [
         regionCn: "北山經 (第4卷)",
         classicText: "「北山經 (第4卷)有獸焉，其狀如犬而白身，其名曰白犬，見則天下大吉。」",
         description: "白犬是《山海經》中記載的奇特生物。牠擁有犬的身體輪廓與白色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-白-犬-43.webp",
+        image: "assets/webp/gen-baiquan-43.webp",
         stats: {
             spiritual: 74,
             aggression: 27,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-jinli-44",
         nameCn: "金貍",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -3693,9 +3489,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 76,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-45",
         nameCn: "玉雕",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -3711,9 +3506,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 89,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-46",
         nameCn: "飛鶴",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -3729,9 +3523,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 66,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-47",
         nameCn: "九雀",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -3747,9 +3540,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 35,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-48",
         nameCn: "獨魚",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -3765,9 +3557,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 48,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-49",
         nameCn: "天蛇",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -3783,9 +3574,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 36,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-50",
         nameCn: "雷蛟",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -3801,9 +3591,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 74,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-51",
         nameCn: "風豹",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -3819,9 +3608,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 87,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-52",
         nameCn: "水虎",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -3837,9 +3625,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 64,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-53",
         nameCn: "山禺",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -3855,9 +3642,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 33,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-54",
         nameCn: "神狐",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -3873,9 +3659,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 46,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-55",
         nameCn: "靈鰩",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -3891,9 +3676,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 23,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-56",
         nameCn: "荒鳧",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -3909,9 +3693,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 72,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-57",
         nameCn: "幽烏",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -3927,9 +3710,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 85,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-58",
         nameCn: "冰鵾",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -3945,9 +3727,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 62,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-59",
         nameCn: "火鰈",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -3963,9 +3744,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 42,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-60",
         nameCn: "青馬",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -3981,9 +3761,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 44,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "gen-赤-牛-61",
         nameCn: "赤牛",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -3999,9 +3778,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 21,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-玄-羊-62",
         nameCn: "玄羊",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -4017,9 +3795,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 70,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-63",
         nameCn: "白犬",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -4035,9 +3812,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 83,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-64",
         nameCn: "金貍",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -4053,9 +3829,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 60,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-65",
         nameCn: "玉雕",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -4071,9 +3846,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 29,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-feihe-66",
         nameCn: "飛鶴",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -4089,9 +3863,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 42,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-67",
         nameCn: "九雀",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -4107,9 +3880,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 19,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-68",
         nameCn: "獨魚",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -4125,9 +3897,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 68,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-69",
         nameCn: "天蛇",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -4143,9 +3914,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 12,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-70",
         nameCn: "雷蛟",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -4161,9 +3931,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 58,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-71",
         nameCn: "風豹",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -4179,9 +3948,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 27,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-72",
         nameCn: "水虎",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -4197,9 +3965,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 40,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-73",
         nameCn: "山禺",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -4215,9 +3982,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 17,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-74",
         nameCn: "神狐",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -4233,9 +3999,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 66,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-75",
         nameCn: "靈鰩",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -4251,9 +4016,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 79,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-76",
         nameCn: "荒鳧",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -4269,9 +4033,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 56,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-77",
         nameCn: "幽烏",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -4287,9 +4050,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 25,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-78",
         nameCn: "冰鵾",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -4305,9 +4067,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 38,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-79",
         nameCn: "火鰈",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -4323,9 +4084,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 26,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-80",
         nameCn: "青馬",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -4341,9 +4101,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 64,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-赤-牛-81",
         nameCn: "赤牛",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -4359,9 +4118,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 77,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-玄-羊-82",
         nameCn: "玄羊",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -4377,9 +4135,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 54,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-83",
         nameCn: "白犬",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -4395,9 +4152,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 23,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-84",
         nameCn: "金貍",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -4413,9 +4169,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 36,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-85",
         nameCn: "玉雕",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -4431,9 +4186,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 13,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-86",
         nameCn: "飛鶴",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -4449,9 +4203,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 62,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-87",
         nameCn: "九雀",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -4467,9 +4220,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 75,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "gen-duyu-88",
         nameCn: "獨魚",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -4485,9 +4237,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 52,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-89",
         nameCn: "天蛇",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -4503,9 +4254,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 32,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-90",
         nameCn: "雷蛟",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -4521,9 +4271,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 34,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-91",
         nameCn: "風豹",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -4539,9 +4288,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 11,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-92",
         nameCn: "水虎",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -4557,9 +4305,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 60,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-93",
         nameCn: "山禺",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -4575,9 +4322,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 73,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-94",
         nameCn: "神狐",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -4593,9 +4339,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 50,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-95",
         nameCn: "靈鰩",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -4611,9 +4356,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 19,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-96",
         nameCn: "荒鳧",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -4629,9 +4373,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 32,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-97",
         nameCn: "幽烏",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -4647,9 +4390,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 89,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-98",
         nameCn: "冰鵾",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -4665,9 +4407,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 58,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-99",
         nameCn: "火鰈",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -4683,9 +4424,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 82,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-100",
         nameCn: "青馬",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -4701,9 +4441,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 48,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-chiniu-101",
         nameCn: "赤牛",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -4719,9 +4458,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 17,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-玄-羊-102",
         nameCn: "玄羊",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -4737,9 +4475,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 30,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-103",
         nameCn: "白犬",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -4755,9 +4492,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 87,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-104",
         nameCn: "金貍",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -4773,9 +4509,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 56,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-105",
         nameCn: "玉雕",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -4791,9 +4526,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 69,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-106",
         nameCn: "飛鶴",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -4809,9 +4543,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 46,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-107",
         nameCn: "九雀",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -4827,9 +4560,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 15,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-108",
         nameCn: "獨魚",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -4845,9 +4577,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 28,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-109",
         nameCn: "天蛇",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -4863,9 +4594,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 16,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-110",
         nameCn: "雷蛟",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -4881,9 +4611,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 54,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-fengbao-111",
         nameCn: "風豹",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -4899,9 +4628,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 67,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-112",
         nameCn: "水虎",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -4917,9 +4645,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 44,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-113",
         nameCn: "山禺",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -4935,9 +4662,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 13,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-114",
         nameCn: "神狐",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -4953,9 +4679,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 26,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-115",
         nameCn: "靈鰩",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -4971,9 +4696,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 83,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-116",
         nameCn: "荒鳧",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -4989,9 +4713,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 52,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-117",
         nameCn: "幽烏",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -5007,9 +4730,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 65,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-118",
         nameCn: "冰鵾",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -5025,9 +4747,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 42,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-119",
         nameCn: "火鰈",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -5043,9 +4764,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 22,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-120",
         nameCn: "青馬",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -5061,9 +4781,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 24,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "gen-chiniu-121",
         nameCn: "赤牛",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -5079,9 +4798,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 81,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-玄-羊-122",
         nameCn: "玄羊",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -5097,9 +4815,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 50,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-123",
         nameCn: "白犬",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -5115,9 +4832,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 63,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-124",
         nameCn: "金貍",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -5133,9 +4849,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 40,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-125",
         nameCn: "玉雕",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -5151,9 +4866,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 89,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-126",
         nameCn: "飛鶴",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -5169,9 +4883,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 22,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-127",
         nameCn: "九雀",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -5187,9 +4900,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 79,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-128",
         nameCn: "獨魚",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -5205,9 +4917,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 48,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-129",
         nameCn: "天蛇",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -5223,9 +4934,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 72,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-130",
         nameCn: "雷蛟",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -5241,9 +4951,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 38,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-131",
         nameCn: "風豹",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -5259,9 +4968,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 87,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-132",
         nameCn: "水虎",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -5277,9 +4985,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 20,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-shanyu-133",
         nameCn: "山禺",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -5295,9 +5002,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 77,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-134",
         nameCn: "神狐",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -5313,9 +5019,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 46,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-135",
         nameCn: "靈鰩",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -5331,9 +5036,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 59,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-136",
         nameCn: "荒鳧",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -5349,9 +5053,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 36,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-137",
         nameCn: "幽烏",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -5367,9 +5070,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 85,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-138",
         nameCn: "冰鵾",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -5385,9 +5087,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 18,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-139",
         nameCn: "火鰈",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -5403,9 +5104,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 86,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-140",
         nameCn: "青馬",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -5421,9 +5121,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 44,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-chiniu-141",
         nameCn: "赤牛",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -5439,9 +5138,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 57,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-玄-羊-142",
         nameCn: "玄羊",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -5457,9 +5155,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 34,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-143",
         nameCn: "白犬",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -5475,9 +5172,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 83,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-144",
         nameCn: "金貍",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -5493,9 +5189,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 16,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-145",
         nameCn: "玉雕",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -5511,9 +5206,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 73,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-146",
         nameCn: "飛鶴",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -5529,9 +5223,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 42,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-147",
         nameCn: "九雀",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -5547,9 +5240,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 55,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-148",
         nameCn: "獨魚",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -5565,9 +5257,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 32,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-149",
         nameCn: "天蛇",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -5583,9 +5274,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 12,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-150",
         nameCn: "雷蛟",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -5601,9 +5291,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 14,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-151",
         nameCn: "風豹",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -5619,9 +5308,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 71,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-152",
         nameCn: "水虎",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -5637,9 +5325,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 40,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-153",
         nameCn: "山禺",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -5655,9 +5342,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 53,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-154",
         nameCn: "神狐",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -5673,9 +5359,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 30,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-lingyao-155",
         nameCn: "靈鰩",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -5691,9 +5376,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 79,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-156",
         nameCn: "荒鳧",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -5709,9 +5393,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 12,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-157",
         nameCn: "幽烏",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -5727,9 +5410,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 69,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-158",
         nameCn: "冰鵾",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -5745,9 +5427,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 38,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-159",
         nameCn: "火鰈",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -5763,9 +5444,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 62,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-160",
         nameCn: "青馬",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -5781,9 +5461,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 28,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-chiniu-161",
         nameCn: "赤牛",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -5799,9 +5478,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 77,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-玄-羊-162",
         nameCn: "玄羊",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -5817,9 +5495,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 10,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-163",
         nameCn: "白犬",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -5835,9 +5512,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 67,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-164",
         nameCn: "金貍",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -5853,9 +5529,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 36,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-165",
         nameCn: "玉雕",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -5871,9 +5546,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 49,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-166",
         nameCn: "飛鶴",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -5889,9 +5563,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 26,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-167",
         nameCn: "九雀",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -5907,9 +5580,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 75,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-168",
         nameCn: "獨魚",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -5925,9 +5597,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 88,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-169",
         nameCn: "天蛇",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -5943,9 +5614,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 76,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-170",
         nameCn: "雷蛟",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -5961,9 +5631,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 34,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-171",
         nameCn: "風豹",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -5979,9 +5648,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 47,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-172",
         nameCn: "水虎",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -5997,9 +5665,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 24,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-173",
         nameCn: "山禺",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -6015,9 +5682,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 73,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-174",
         nameCn: "神狐",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -6033,9 +5699,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 86,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-175",
         nameCn: "靈鰩",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -6051,9 +5716,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 63,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-176",
         nameCn: "荒鳧",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -6069,9 +5733,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 32,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-youwu-177",
         nameCn: "幽烏",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -6087,9 +5750,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 45,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-178",
         nameCn: "冰鵾",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -6105,9 +5767,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 22,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-179",
         nameCn: "火鰈",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -6123,9 +5784,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 82,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-180",
         nameCn: "青馬",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -6141,9 +5801,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 84,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "gen-chiniu-181",
         nameCn: "赤牛",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -6159,9 +5818,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 61,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-玄-羊-182",
         nameCn: "玄羊",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -6177,9 +5835,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 30,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-183",
         nameCn: "白犬",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -6195,9 +5852,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 43,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-184",
         nameCn: "金貍",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -6213,9 +5869,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 20,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-185",
         nameCn: "玉雕",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -6231,9 +5886,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 69,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-186",
         nameCn: "飛鶴",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -6249,9 +5903,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 82,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-187",
         nameCn: "九雀",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -6267,9 +5920,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 59,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-188",
         nameCn: "獨魚",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -6285,9 +5937,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 28,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-189",
         nameCn: "天蛇",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -6303,9 +5954,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 52,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-190",
         nameCn: "雷蛟",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -6321,9 +5971,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 18,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-191",
         nameCn: "風豹",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -6339,9 +5988,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 67,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-192",
         nameCn: "水虎",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -6357,9 +6005,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 80,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-193",
         nameCn: "山禺",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -6375,9 +6022,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 57,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-194",
         nameCn: "神狐",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -6393,9 +6039,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 26,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-195",
         nameCn: "靈鰩",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -6411,9 +6056,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 39,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-196",
         nameCn: "荒鳧",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -6429,9 +6073,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 16,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-197",
         nameCn: "幽烏",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -6447,9 +6090,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 65,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-198",
         nameCn: "冰鵾",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -6465,9 +6107,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 78,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-huodie-199",
         nameCn: "火鰈",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -6483,9 +6124,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 66,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-200",
         nameCn: "青馬",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -6501,9 +6141,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 24,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-赤-牛-201",
         nameCn: "赤牛",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -6519,9 +6158,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 37,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-xuanyang-202",
         nameCn: "玄羊",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -6537,9 +6175,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 14,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-203",
         nameCn: "白犬",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -6555,9 +6192,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 63,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-204",
         nameCn: "金貍",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -6573,9 +6209,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 76,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-205",
         nameCn: "玉雕",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -6591,9 +6226,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 53,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-206",
         nameCn: "飛鶴",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -6609,9 +6243,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 22,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-207",
         nameCn: "九雀",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -6627,9 +6260,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 35,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-208",
         nameCn: "獨魚",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -6645,9 +6277,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 12,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-209",
         nameCn: "天蛇",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -6663,9 +6294,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 72,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-210",
         nameCn: "雷蛟",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -6681,9 +6311,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 74,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-211",
         nameCn: "風豹",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -6699,9 +6328,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 51,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-212",
         nameCn: "水虎",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -6717,9 +6345,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 20,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-213",
         nameCn: "山禺",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -6735,9 +6362,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 33,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-214",
         nameCn: "神狐",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -6753,9 +6379,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 10,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-215",
         nameCn: "靈鰩",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -6771,9 +6396,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 59,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-216",
         nameCn: "荒鳧",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -6789,9 +6413,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 72,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-217",
         nameCn: "幽烏",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -6807,9 +6430,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 49,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-218",
         nameCn: "冰鵾",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -6825,9 +6447,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 18,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-219",
         nameCn: "火鰈",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -6843,9 +6464,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 42,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-220",
         nameCn: "青馬",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -6861,9 +6481,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 88,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-赤-牛-221",
         nameCn: "赤牛",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -6879,9 +6498,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 57,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-xuanyang-222",
         nameCn: "玄羊",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -6897,9 +6515,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 70,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-223",
         nameCn: "白犬",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -6915,9 +6532,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 47,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-224",
         nameCn: "金貍",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -6933,9 +6549,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 16,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-225",
         nameCn: "玉雕",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -6951,9 +6566,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 29,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-226",
         nameCn: "飛鶴",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -6969,9 +6583,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 86,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-227",
         nameCn: "九雀",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -6987,9 +6600,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 55,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-228",
         nameCn: "獨魚",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -7005,9 +6617,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 68,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-229",
         nameCn: "天蛇",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -7023,9 +6634,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 56,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-230",
         nameCn: "雷蛟",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -7041,9 +6651,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 14,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-231",
         nameCn: "風豹",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -7059,9 +6668,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 27,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-232",
         nameCn: "水虎",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -7077,9 +6685,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 84,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-233",
         nameCn: "山禺",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -7095,9 +6702,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 53,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-234",
         nameCn: "神狐",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -7113,9 +6719,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 66,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-235",
         nameCn: "靈鰩",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -7131,9 +6736,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 43,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-236",
         nameCn: "荒鳧",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -7149,9 +6753,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 12,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-237",
         nameCn: "幽烏",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -7167,9 +6770,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 25,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-238",
         nameCn: "冰鵾",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -7185,9 +6787,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 82,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-239",
         nameCn: "火鰈",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -7203,9 +6804,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 62,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-240",
         nameCn: "青馬",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -7221,9 +6821,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 64,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "gen-赤-牛-241",
         nameCn: "赤牛",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -7239,9 +6838,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 41,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-xuanyang-242",
         nameCn: "玄羊",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -7257,9 +6855,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 10,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-243",
         nameCn: "白犬",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -7275,9 +6872,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 23,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-244",
         nameCn: "金貍",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -7293,9 +6889,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 80,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-245",
         nameCn: "玉雕",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -7311,9 +6906,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 49,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-246",
         nameCn: "飛鶴",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -7329,9 +6923,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 62,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-247",
         nameCn: "九雀",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -7347,9 +6940,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 39,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-248",
         nameCn: "獨魚",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -7365,9 +6957,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 88,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-249",
         nameCn: "天蛇",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -7383,9 +6974,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 32,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-250",
         nameCn: "雷蛟",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -7401,9 +6991,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 78,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-251",
         nameCn: "風豹",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -7419,9 +7008,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 47,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-252",
         nameCn: "水虎",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -7437,9 +7025,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 60,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-253",
         nameCn: "山禺",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -7455,9 +7042,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 37,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-254",
         nameCn: "神狐",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -7473,9 +7059,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 86,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-255",
         nameCn: "靈鰩",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -7491,9 +7076,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 19,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-256",
         nameCn: "荒鳧",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -7509,9 +7093,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 76,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-257",
         nameCn: "幽烏",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -7527,9 +7110,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 45,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-258",
         nameCn: "冰鵾",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -7545,9 +7127,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 58,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-259",
         nameCn: "火鰈",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -7563,9 +7144,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 46,
             rarity: 88
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-260",
         nameCn: "青馬",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -7581,9 +7161,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 84,
             rarity: 75
-        }
-    },
-    {
+        },
+{
         id: "gen-赤-牛-261",
         nameCn: "赤牛",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -7599,9 +7178,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 17,
             rarity: 92
-        }
-    },
-    {
+        },
+{
         id: "gen-xuanyang-262",
         nameCn: "玄羊",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -7617,9 +7195,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 74,
             rarity: 79
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-263",
         nameCn: "白犬",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -7635,9 +7212,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 43,
             rarity: 96
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-264",
         nameCn: "金貍",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -7653,9 +7229,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 56,
             rarity: 83
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-265",
         nameCn: "玉雕",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -7671,9 +7246,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 33,
             rarity: 70
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-266",
         nameCn: "飛鶴",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -7689,9 +7263,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 82,
             rarity: 87
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-267",
         nameCn: "九雀",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -7707,9 +7280,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 15,
             rarity: 74
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-268",
         nameCn: "獨魚",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -7725,9 +7297,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 72,
             rarity: 91
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-269",
         nameCn: "天蛇",
         zhuyin: "ㄖ 一 ㄠˊ",
@@ -7743,9 +7314,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 52,
             rarity: 78
-        }
-    },
-    {
+        },
+{
         id: "gen-雷-蛟-270",
         nameCn: "雷蛟",
         zhuyin: "ㄗ 一 ㄠˊ",
@@ -7761,9 +7331,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 54,
             rarity: 95
-        }
-    },
-    {
+        },
+{
         id: "gen-風-豹-271",
         nameCn: "風豹",
         zhuyin: "ㄘ 一 ㄠˊ",
@@ -7779,9 +7348,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 31,
             rarity: 82
-        }
-    },
-    {
+        },
+{
         id: "gen-水-虎-272",
         nameCn: "水虎",
         zhuyin: "ㄙ 一 ㄠˊ",
@@ -7797,9 +7365,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 80,
             rarity: 99
-        }
-    },
-    {
+        },
+{
         id: "gen-山-禺-273",
         nameCn: "山禺",
         zhuyin: "ㄅ 一 ㄠˊ",
@@ -7815,9 +7382,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 13,
             rarity: 86
-        }
-    },
-    {
+        },
+{
         id: "gen-神-狐-274",
         nameCn: "神狐",
         zhuyin: "ㄆ 一 ㄠˊ",
@@ -7833,9 +7399,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 70,
             rarity: 73
-        }
-    },
-    {
+        },
+{
         id: "gen-靈-鰩-275",
         nameCn: "靈鰩",
         zhuyin: "ㄇ 一 ㄠˊ",
@@ -7851,9 +7416,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 39,
             rarity: 90
-        }
-    },
-    {
+        },
+{
         id: "gen-荒-鳧-276",
         nameCn: "荒鳧",
         zhuyin: "ㄈ 一 ㄠˊ",
@@ -7869,9 +7433,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 52,
             rarity: 77
-        }
-    },
-    {
+        },
+{
         id: "gen-幽-烏-277",
         nameCn: "幽烏",
         zhuyin: "ㄉ 一 ㄠˊ",
@@ -7887,9 +7450,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 29,
             rarity: 94
-        }
-    },
-    {
+        },
+{
         id: "gen-冰-鵾-278",
         nameCn: "冰鵾",
         zhuyin: "ㄊ 一 ㄠˊ",
@@ -7905,9 +7467,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 78,
             rarity: 81
-        }
-    },
-    {
+        },
+{
         id: "gen-火-鰈-279",
         nameCn: "火鰈",
         zhuyin: "ㄋ 一 ㄠˊ",
@@ -7923,9 +7484,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 22,
             rarity: 98
-        }
-    },
-    {
+        },
+{
         id: "gen-青-馬-280",
         nameCn: "青馬",
         zhuyin: "ㄌ 一 ㄠˊ",
@@ -7941,9 +7501,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 68,
             rarity: 85
-        }
-    },
-    {
+        },
+{
         id: "gen-赤-牛-281",
         nameCn: "赤牛",
         zhuyin: "ㄍ 一 ㄠˊ",
@@ -7959,9 +7518,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 37,
             rarity: 72
-        }
-    },
-    {
+        },
+{
         id: "gen-xuanyang-282",
         nameCn: "玄羊",
         zhuyin: "ㄎ 一 ㄠˊ",
@@ -7977,9 +7535,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 50,
             rarity: 89
-        }
-    },
-    {
+        },
+{
         id: "gen-白-犬-283",
         nameCn: "白犬",
         zhuyin: "ㄏ 一 ㄠˊ",
@@ -7995,9 +7552,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 27,
             rarity: 76
-        }
-    },
-    {
+        },
+{
         id: "gen-金-貍-284",
         nameCn: "金貍",
         zhuyin: "ㄐ 一 ㄠˊ",
@@ -8013,9 +7569,8 @@ const BEASTS_DATABASE = [
             spiritual: 81,
             aggression: 76,
             rarity: 93
-        }
-    },
-    {
+        },
+{
         id: "gen-玉-雕-285",
         nameCn: "玉雕",
         zhuyin: "ㄑ 一 ㄠˊ",
@@ -8031,9 +7586,8 @@ const BEASTS_DATABASE = [
             spiritual: 88,
             aggression: 89,
             rarity: 80
-        }
-    },
-    {
+        },
+{
         id: "gen-飛-鶴-286",
         nameCn: "飛鶴",
         zhuyin: "ㄒ 一 ㄠˊ",
@@ -8049,9 +7603,8 @@ const BEASTS_DATABASE = [
             spiritual: 95,
             aggression: 66,
             rarity: 97
-        }
-    },
-    {
+        },
+{
         id: "gen-九-雀-287",
         nameCn: "九雀",
         zhuyin: "ㄓ 一 ㄠˊ",
@@ -8067,9 +7620,8 @@ const BEASTS_DATABASE = [
             spiritual: 67,
             aggression: 35,
             rarity: 84
-        }
-    },
-    {
+        },
+{
         id: "gen-獨-魚-288",
         nameCn: "獨魚",
         zhuyin: "ㄔ 一 ㄠˊ",
@@ -8085,9 +7637,8 @@ const BEASTS_DATABASE = [
             spiritual: 74,
             aggression: 48,
             rarity: 71
-        }
-    },
-    {
+        },
+{
         id: "gen-天-蛇-289",
         nameCn: "天蛇",
         zhuyin: "ㄕ 一 ㄠˊ",
@@ -8104,7 +7655,7 @@ const BEASTS_DATABASE = [
             aggression: 36,
             rarity: 88
         }
-    }
+
 ];
 
 // 2. Lore Database

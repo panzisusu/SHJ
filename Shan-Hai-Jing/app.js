@@ -3138,7 +3138,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-神-狐-14",
+        id: "gen-shenhu-14",
         nameCn: "神狐",
         zhuyin: "ㄓ 一 ㄠˊ",
         nameEn: "Spiritual 神狐",
@@ -3148,7 +3148,7 @@ const BEASTS_DATABASE = [
         regionCn: "中山經 (第5卷)",
         classicText: "「中山經 (第5卷)有異獸，名曰神狐，其音如雷，見則其邑大水。」",
         description: "神狐是《山海經》中記載的奇特生物。牠擁有狐的身體輪廓與神色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-神-狐-14.webp",
+        image: "assets/webp/gen-shenhu-14.webp",
         stats: {
             spiritual: 81,
             aggression: 86,
@@ -3156,7 +3156,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-靈-鰩-15",
+        id: "gen-lingyao-15",
         nameCn: "靈鰩",
         zhuyin: "ㄔ 一 ㄠˊ",
         nameEn: "Spiritual 靈鰩",
@@ -3166,7 +3166,7 @@ const BEASTS_DATABASE = [
         regionCn: "東山經 (第6卷)",
         classicText: "「東山經 (第6卷)有異獸，名曰靈鰩，其音如雷，見則其邑大水。」",
         description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-靈-鰩-15.webp",
+        image: "assets/webp/gen-lingyao-15.webp",
         stats: {
             spiritual: 88,
             aggression: 19,
@@ -3174,7 +3174,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-荒-鳧-16",
+        id: "gen-huangfu-16",
         nameCn: "荒鳧",
         zhuyin: "ㄕ 一 ㄠˊ",
         nameEn: "Spiritual 荒鳧",
@@ -3184,7 +3184,7 @@ const BEASTS_DATABASE = [
         regionCn: "南山經 (第7卷)",
         classicText: "「南山經 (第7卷)有獸焉，其狀如鳧而荒身，其名曰荒鳧，見則天下大吉。」",
         description: "荒鳧是《山海經》中記載的奇特生物。牠擁有鳧的身體輪廓與荒色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-荒-鳧-16.webp",
+        image: "assets/webp/gen-huangfu-16.webp",
         stats: {
             spiritual: 95,
             aggression: 76,
@@ -3192,7 +3192,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-幽-烏-17",
+        id: "gen-youwu-17",
         nameCn: "幽烏",
         zhuyin: "ㄖ 一 ㄠˊ",
         nameEn: "Spiritual 幽烏",
@@ -3202,7 +3202,7 @@ const BEASTS_DATABASE = [
         regionCn: "西山經 (第8卷)",
         classicText: "「西山經 (第8卷)有異獸，名曰幽烏，其音如雷，見則其邑大水。」",
         description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-幽-烏-17.webp",
+        image: "assets/webp/gen-youwu-17.webp",
         stats: {
             spiritual: 67,
             aggression: 45,
@@ -5676,7 +5676,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-靈-鰩-155",
+        id: "gen-lingyao-155",
         nameCn: "靈鰩",
         zhuyin: "ㄍ 一 ㄠˊ",
         nameEn: "Spiritual 靈鰩",
@@ -5686,7 +5686,7 @@ const BEASTS_DATABASE = [
         regionCn: "東山經 (第6卷)",
         classicText: "「東山經 (第6卷)有異獸，名曰靈鰩，其音如雷，見則其邑大水。」",
         description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-靈-鰩-155.webp",
+        image: "assets/webp/gen-lingyao-155.webp",
         stats: {
             spiritual: 88,
             aggression: 79,
@@ -6072,7 +6072,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-幽-烏-177",
+        id: "gen-youwu-177",
         nameCn: "幽烏",
         zhuyin: "ㄎ 一 ㄠˊ",
         nameEn: "Spiritual 幽烏",
@@ -6082,7 +6082,7 @@ const BEASTS_DATABASE = [
         regionCn: "西山經 (第8卷)",
         classicText: "「西山經 (第8卷)有異獸，名曰幽烏，其音如雷，見則其邑大水。」",
         description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-幽-烏-177.webp",
+        image: "assets/webp/gen-youwu-177.webp",
         stats: {
             spiritual: 67,
             aggression: 45,

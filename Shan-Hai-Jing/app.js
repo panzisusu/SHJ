@@ -3210,7 +3210,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-冰-鵾-18",
+        id: "gen-bingkun-18",
         nameCn: "冰鵾",
         zhuyin: "ㄗ 一 ㄠˊ",
         nameEn: "Spiritual 冰鵾",
@@ -3220,7 +3220,7 @@ const BEASTS_DATABASE = [
         regionCn: "北山經 (第9卷)",
         classicText: "「北山經 (第9卷)有異獸，名曰冰鵾，其音如雷，見則其邑大水。」",
         description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-冰-鵾-18.webp",
+        image: "assets/webp/gen-bingkun-18.webp",
         stats: {
             spiritual: 74,
             aggression: 58,
@@ -3246,7 +3246,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-青-馬-20",
+        id: "gen-qingma-20",
         nameCn: "青馬",
         zhuyin: "ㄙ 一 ㄠˊ",
         nameEn: "Spiritual 青馬",
@@ -3256,7 +3256,7 @@ const BEASTS_DATABASE = [
         regionCn: "東山經 (第1卷)",
         classicText: "「東山經 (第1卷)有異獸，名曰青馬，其音如雷，見則其邑大水。」",
         description: "青馬是《山海經》中記載的奇特生物。牠擁有馬的身體輪廓與青色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-青-馬-20.webp",
+        image: "assets/webp/gen-qingma-20.webp",
         stats: {
             spiritual: 88,
             aggression: 84,
@@ -3264,7 +3264,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-赤-牛-21",
+        id: "gen-redox-21",
         nameCn: "赤牛",
         zhuyin: "ㄅ 一 ㄠˊ",
         nameEn: "Spiritual 赤牛",
@@ -3274,7 +3274,7 @@ const BEASTS_DATABASE = [
         regionCn: "南山經 (第2卷)",
         classicText: "「南山經 (第2卷)有異獸，名曰赤牛，其音如雷，見則其邑大水。」",
         description: "赤牛是《山海經》中記載的奇特生物。牠擁有牛的身體輪廓與赤色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-赤-牛-21.webp",
+        image: "assets/webp/gen-redox-21.webp",
         stats: {
             spiritual: 95,
             aggression: 17,
@@ -3300,7 +3300,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-白-犬-23",
+        id: "gen-baiquan-23",
         nameCn: "白犬",
         zhuyin: "ㄇ 一 ㄠˊ",
         nameEn: "Spiritual 白犬",
@@ -3310,7 +3310,7 @@ const BEASTS_DATABASE = [
         regionCn: "北山經 (第4卷)",
         classicText: "「北山經 (第4卷)有異獸，名曰白犬，其音如雷，見則其邑大水。」",
         description: "白犬是《山海經》中記載的奇特生物。牠擁有犬的身體輪廓與白色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-白-犬-23.webp",
+        image: "assets/webp/gen-baiquan-23.webp",
         stats: {
             spiritual: 74,
             aggression: 43,
@@ -3318,7 +3318,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-金-貍-24",
+        id: "gen-jinli-24",
         nameCn: "金貍",
         zhuyin: "ㄈ 一 ㄠˊ",
         nameEn: "Spiritual 金貍",
@@ -3328,7 +3328,7 @@ const BEASTS_DATABASE = [
         regionCn: "中山經 (第5卷)",
         classicText: "「中山經 (第5卷)有異獸，名曰金貍，其音如雷，見則其邑大水。」",
         description: "金貍是《山海經》中記載的奇特生物。牠擁有貍的身體輪廓與金色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-金-貍-24.webp",
+        image: "assets/webp/gen-jinli-24.webp",
         stats: {
             spiritual: 81,
             aggression: 56,
@@ -3336,7 +3336,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-玉-雕-25",
+        id: "gen-yudiao-25",
         nameCn: "玉雕",
         zhuyin: "ㄉ 一 ㄠˊ",
         nameEn: "Spiritual 玉雕",
@@ -3346,7 +3346,7 @@ const BEASTS_DATABASE = [
         regionCn: "東山經 (第6卷)",
         classicText: "「東山經 (第6卷)有獸焉，其狀如雕而玉身，其名曰玉雕，見則天下大吉。」",
         description: "玉雕是《山海經》中記載的奇特生物。牠擁有雕的身體輪廓與玉色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-玉-雕-25.webp",
+        image: "assets/webp/gen-yudiao-25.webp",
         stats: {
             spiritual: 88,
             aggression: 33,
@@ -3354,7 +3354,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-飛-鶴-26",
+        id: "gen-feihe-26",
         nameCn: "飛鶴",
         zhuyin: "ㄊ 一 ㄠˊ",
         nameEn: "Spiritual 飛鶴",
@@ -3364,7 +3364,7 @@ const BEASTS_DATABASE = [
         regionCn: "南山經 (第7卷)",
         classicText: "「南山經 (第7卷)有異獸，名曰飛鶴，其音如雷，見則其邑大水。」",
         description: "飛鶴是《山海經》中記載的奇特生物。牠擁有鶴的身體輪廓與飛色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-飛-鶴-26.webp",
+        image: "assets/webp/gen-feihe-26.webp",
         stats: {
             spiritual: 95,
             aggression: 82,
@@ -3372,7 +3372,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-九-雀-27",
+        id: "gen-jiuque-27",
         nameCn: "九雀",
         zhuyin: "ㄋ 一 ㄠˊ",
         nameEn: "Spiritual 九雀",
@@ -3382,7 +3382,7 @@ const BEASTS_DATABASE = [
         regionCn: "西山經 (第8卷)",
         classicText: "「西山經 (第8卷)有異獸，名曰九雀，其音如雷，見則其邑大水。」",
         description: "九雀是《山海經》中記載的奇特生物。牠擁有雀的身體輪廓與九色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-九-雀-27.webp",
+        image: "assets/webp/gen-jiuque-27.webp",
         stats: {
             spiritual: 67,
             aggression: 15,

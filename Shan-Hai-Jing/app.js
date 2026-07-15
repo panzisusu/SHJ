@@ -8536,16 +8536,67 @@ function renderBeasts() {
         beastGrid.innerHTML = `
             <div class="no-results">
                 <i class="fa-solid fa-ghost"></i>
-                <p>此方經脈暫無對應異獸出沒...</p>
+                <p>未找到符合條件的奇獸...</p>
                 <button class="reset-filter-btn" id="reset-filters">重置篩選</button>
             </div>
         `;
         document.getElementById("reset-filters").addEventListener("click", resetAllFilters);
-        filterStatusText.innerText = "沒有找到匹配的異獸";
+        filterStatusText.innerText = "沒有匹配奇獸";
+        
+        // Hide scroll jump buttons if no beasts matched
+        const jumpStandardBtn = document.getElementById("jump-to-standard-btn");
+        const jumpDerivedBtn = document.getElementById("jump-to-derived-btn");
+        if (jumpStandardBtn) jumpStandardBtn.style.display = "none";
+        if (jumpDerivedBtn) jumpDerivedBtn.style.display = "none";
+        
         return;
     }
     
+    // Count standard (index < 161) and derived (starts with 'gen-') beasts in current view
+    const standardBeasts = filteredBeasts.filter(beast => !beast.id.startsWith("gen-"));
+    const derivedBeasts = filteredBeasts.filter(beast => beast.id.startsWith("gen-"));
+    const standardCount = standardBeasts.length;
+    const derivedCount = derivedBeasts.length;
+    
+    // Toggle Jump buttons visibility based on counts
+    const jumpStandardBtn = document.getElementById("jump-to-standard-btn");
+    const jumpDerivedBtn = document.getElementById("jump-to-derived-btn");
+    if (jumpStandardBtn) {
+        jumpStandardBtn.style.display = standardCount > 0 ? "inline-flex" : "none";
+    }
+    if (jumpDerivedBtn) {
+        jumpDerivedBtn.style.display = derivedCount > 0 ? "inline-flex" : "none";
+    }
+    
+    let standardHeaderInserted = false;
+    let dividerInserted = false;
+    
     filteredBeasts.forEach(beast => {
+        const isDerived = beast.id.startsWith("gen-");
+        
+        // Render Standard beasts header at the very beginning of the loop
+        if (!isDerived && !standardHeaderInserted) {
+            const header = document.createElement("div");
+            header.id = "standard-beasts-header";
+            header.className = "beast-grid-header";
+            header.innerText = "本卷神獸";
+            beastGrid.appendChild(header);
+            standardHeaderInserted = true;
+        }
+        
+        // If we transition to derived beasts, and there is at least one standard beast in the current view, insert divider
+        if (isDerived && !dividerInserted) {
+            const hasStandard = filteredBeasts.some(b => !b.id.startsWith("gen-"));
+            if (hasStandard) {
+                const divider = document.createElement("div");
+                divider.id = "derived-beasts-header";
+                divider.className = "beast-grid-divider";
+                divider.innerText = "衍伸神獸";
+                beastGrid.appendChild(divider);
+            }
+            dividerInserted = true;
+        }
+        
         const card = document.createElement("div");
         card.className = "beast-card";
         card.setAttribute("data-id", beast.id);
@@ -8569,7 +8620,7 @@ function renderBeasts() {
                     </div>
                 </div>
                 <p class="beast-classic-extract">${beast.classicText}</p>
-                <button class="view-details-btn" data-id="${beast.id}"><i class="fa-solid fa-eye"></i> 觀看異誌</button>
+                <button class="view-details-btn" data-id="${beast.id}"><i class="fa-solid fa-eye"></i> 觀看詳情</button>
             </div>
         `;
         
@@ -8583,7 +8634,26 @@ function renderBeasts() {
         });
     });
     
-    filterStatusText.innerText = `正在展示：屬性【${getCategoryLabel(currentCategory)}】，地域【${getRegionLabel(currentRegion)}】 (共 ${filteredBeasts.length} 隻)`;
+    // Set up Jump scroll listener click actions
+    if (jumpStandardBtn) {
+        jumpStandardBtn.onclick = () => {
+            const target = document.getElementById("standard-beasts-header");
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        };
+    }
+    if (jumpDerivedBtn) {
+        jumpDerivedBtn.onclick = () => {
+            const target = document.getElementById("derived-beasts-header");
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        };
+    }
+    
+    // Update the status label text as requested (衍生神獸 instead of 衍生獸)
+    filterStatusText.innerText = `正在展示山海經本卷神獸 ${standardCount} 隻，及衍生神獸 ${derivedCount} 隻。`;
 }
 
 // 8. Tab Navigation

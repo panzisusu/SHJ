@@ -2919,3 +2919,104 @@ body {
     align-items: center;
     gap: 15px;
 }
+
+
+/* Card Grid Headers & Dividers styling */
+.beast-grid-header {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--gold-primary);
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    margin: 30px 0 25px 0;
+    font-family: 'Noto Serif TC', serif;
+    user-select: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0.9;
+}
+
+.beast-grid-header::before,
+.beast-grid-header::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+    max-width: 250px;
+}
+
+.beast-grid-divider {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--gold-primary);
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    margin: 50px 0 30px 0;
+    font-family: 'Noto Serif TC', serif;
+    user-select: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border-top: 1px dashed var(--gold-border);
+    padding-top: 35px;
+    opacity: 0.9;
+}
+
+.beast-grid-divider::before,
+.beast-grid-divider::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold-primary), transparent);
+    max-width: 250px;
+}
+
+/* Status wrapper container and jump navigation buttons styling */
+.filter-status-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 15px;
+    flex-direction: row; /* Ensure text is left, buttons are right */
+}
+
+.filter-status {
+    order: 1; /* Forces text to render on the left */
+}
+
+.jump-buttons {
+    display: flex;
+    gap: 10px;
+    order: 2; /* Forces buttons to render on the right */
+}
+
+.jump-btn {
+    background: var(--bg-glass);
+    border: 1px solid var(--gold-border);
+    color: var(--gold-primary);
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition-smooth);
+}
+
+.jump-btn:hover {
+    background: var(--gold-primary);
+    color: #fff;
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 10px var(--gold-glow);
+}

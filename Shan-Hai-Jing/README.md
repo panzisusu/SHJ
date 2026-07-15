@@ -203,6 +203,9 @@ Shan-Hai-Jing/
 139. **赑屭** (bixi-dragon) - 神獸
 140. **睚眥** (yazi-sword) - 凶獸
 141. **蒲牢** (pulao-bell) - 瑞獸
+142. **螭吻** (chiwen-fire) - 瑞獸
+143. **囚牛** (qiuniu-lute) - 瑞獸
+144. **鱵魚** (yaxian-fish) - 瑞獸
 
 *(其餘 300+ 隻異獸目前加載默認的 `placeholder_beast.png` 黑色九尾狐剪影，專屬插圖正由 AI 陸續繪製中...)*
 

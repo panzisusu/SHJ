@@ -2913,7 +2913,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第2卷)",
         classicText: "「南山經 (第2卷)有獸焉，其狀如牛而赤身，其名曰赤牛，見則天下大吉。」",
-        description: "赤牛是《山海經》中記載的奇特生物。牠擁有牛的身體輪廓與赤色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "赤牛是《山海經》中記載的奇特生物。牠擁有牛的身體輪廓與赤色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【窫窳】）",
         image: "assets/webp/gen-chiniu-1.webp",
         stats: {
             spiritual: 80,
@@ -2931,7 +2931,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第2卷)",
         classicText: "「南山經 (第2卷)有異獸，名曰赤牛，其音如雷，見則其邑大水。」",
-        description: "赤牛是《山海經》中記載的奇特生物。牠擁有牛的身體輪廓與赤色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "赤牛是《山海經》中記載的奇特生物。牠擁有牛的身體輪廓與赤色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【窫窳】）",
         image: "assets/webp/gen-redox-41.webp",
         stats: {
             spiritual: 40,
@@ -2949,7 +2949,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第2卷)",
         classicText: "「南山經 (第2卷)有神獸焉，其狀如牛而五彩，其名曰赤牛，能禦凶辟邪。」",
-        description: "赤牛是《山海經》中記載的奇特生物。牠擁有牛的身體輪廓與赤色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "赤牛是《山海經》中記載的奇特生物。牠擁有牛的身體輪廓與赤色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【窫窳】）",
         image: "assets/webp/gen-redox-21.webp",
         stats: {
             spiritual: 95,
@@ -2967,7 +2967,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第8卷)",
         classicText: "「西山經 (第8卷)有獸焉，其狀如雀而九色身，其名曰九雀，見則天下大吉。」",
-        description: "九雀是《山海經》中記載的奇特生物。牠擁有雀的身體輪廓與九色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "九雀是《山海經》中記載的奇特生物。牠擁有雀的身體輪廓與九色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【九鳳】）",
         image: "assets/webp/gen-jiuque-7.webp",
         stats: {
             spiritual: 80,
@@ -2985,7 +2985,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第8卷)",
         classicText: "「西山經 (第8卷)有異獸，名曰九雀，其音如雷，見則其邑大水。」",
-        description: "九雀是《山海經》中記載的奇特生物。牠擁有雀的身體輪廓與九色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "九雀是《山海經》中記載的奇特生物。牠擁有雀的身體輪廓與九色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【九鳳】）",
         image: "assets/webp/gen-jiuque-47.webp",
         stats: {
             spiritual: 40,
@@ -3003,7 +3003,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第8卷)",
         classicText: "「西山經 (第8卷)有神獸焉，其狀如雀而五彩，其名曰九雀，能禦凶辟邪。」",
-        description: "九雀是《山海經》中記載的奇特生物。牠擁有雀的身體輪廓與九色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "九雀是《山海經》中記載的奇特生物。牠擁有雀的身體輪廓與九色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【九鳳】）",
         image: "assets/webp/gen-jiuque-27.webp",
         stats: {
             spiritual: 95,
@@ -3021,7 +3021,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第9卷)",
         classicText: "「北山經 (第9卷)有獸焉，其狀如魚而獨色身，其名曰獨魚，見則天下大吉。」",
-        description: "獨魚是《山海經》中記載的奇特生物。牠擁有魚的身體輪廓與獨色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "獨魚是《山海經》中記載的奇特生物。牠擁有魚的身體輪廓與獨色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【赤鱬】）",
         image: "assets/webp/gen-duyu-28.webp",
         stats: {
             spiritual: 80,
@@ -3039,7 +3039,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第9卷)",
         classicText: "「北山經 (第9卷)有異獸，名曰獨魚，其音如雷，見則其邑大水。」",
-        description: "獨魚是《山海經》中記載的奇特生物。牠擁有魚的身體輪廓與獨色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "獨魚是《山海經》中記載的奇特生物。牠擁有魚的身體輪廓與獨色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【赤鱬】）",
         image: "assets/webp/gen-duyu-8.webp",
         stats: {
             spiritual: 40,
@@ -3057,7 +3057,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第9卷)",
         classicText: "「北山經 (第9卷)有神獸焉，其狀如魚而五彩，其名曰獨魚，能禦凶辟邪。」",
-        description: "獨魚是《山海經》中記載的奇特生物。牠擁有魚的身體輪廓與獨色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "獨魚是《山海經》中記載的奇特生物。牠擁有魚的身體輪廓與獨色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【赤鱬】）",
         image: "assets/webp/gen-duyu-48.webp",
         stats: {
             spiritual: 95,
@@ -3075,7 +3075,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第10卷)",
         classicText: "「中山經 (第10卷)有獸焉，其狀如蛇而天色身，其名曰天蛇，見則天下大吉。」",
-        description: "天蛇是《山海經》中記載的奇特生物。牠擁有蛇的身體輪廓與天色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "天蛇是《山海經》中記載的奇特生物。牠擁有蛇的身體輪廓與天色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【化蛇】）",
         image: "assets/webp/gen-tianshe-29.webp",
         stats: {
             spiritual: 80,
@@ -3093,7 +3093,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第10卷)",
         classicText: "「中山經 (第10卷)有異獸，名曰天蛇，其音如雷，見則其邑大水。」",
-        description: "天蛇是《山海經》中記載的奇特生物。牠擁有蛇的身體輪廓與天色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "天蛇是《山海經》中記載的奇特生物。牠擁有蛇的身體輪廓與天色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【化蛇】）",
         image: "assets/webp/gen-tianshe-49.webp",
         stats: {
             spiritual: 40,
@@ -3111,7 +3111,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第10卷)",
         classicText: "「中山經 (第10卷)有神獸焉，其狀如蛇而五彩，其名曰天蛇，能禦凶辟邪。」",
-        description: "天蛇是《山海經》中記載的奇特生物。牠擁有蛇的身體輪廓與天色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "天蛇是《山海經》中記載的奇特生物。牠擁有蛇的身體輪廓與天色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【化蛇】）",
         image: "assets/webp/gen-tianshe-9.webp",
         stats: {
             spiritual: 95,
@@ -3129,7 +3129,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第11卷)",
         classicText: "「東山經 (第11卷)有獸焉，其狀如蛟而雷色身，其名曰雷蛟，見則天下大吉。」",
-        description: "雷蛟是《山海經》中記載的奇特生物。牠擁有蛟的身體輪廓與雷色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "雷蛟是《山海經》中記載的奇特生物。牠擁有蛟的身體輪廓與雷色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【夔】）",
         image: "assets/webp/gen-leijiao-10.webp",
         stats: {
             spiritual: 80,
@@ -3147,7 +3147,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第11卷)",
         classicText: "「東山經 (第11卷)有異獸，名曰雷蛟，其音如雷，見則其邑大水。」",
-        description: "雷蛟是《山海經》中記載的奇特生物。牠擁有蛟的身體輪廓與雷色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "雷蛟是《山海經》中記載的奇特生物。牠擁有蛟的身體輪廓與雷色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【夔】）",
         image: "assets/webp/gen-leijiao-50.webp",
         stats: {
             spiritual: 40,
@@ -3165,7 +3165,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第11卷)",
         classicText: "「東山經 (第11卷)有神獸焉，其狀如蛟而五彩，其名曰雷蛟，能禦凶辟邪。」",
-        description: "雷蛟是《山海經》中記載的奇特生物。牠擁有蛟的身體輪廓與雷色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "雷蛟是《山海經》中記載的奇特生物。牠擁有蛟的身體輪廓與雷色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【夔】）",
         image: "assets/webp/gen-leijiao-30.webp",
         stats: {
             spiritual: 95,
@@ -3183,7 +3183,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第12卷)",
         classicText: "「南山經 (第12卷)有獸焉，其狀如豹而風色身，其名曰風豹，見則天下大吉。」",
-        description: "風豹是《山海經》中記載的奇特生物。牠擁有豹的身體輪廓與風色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "風豹是《山海經》中記載的奇特生物。牠擁有豹的身體輪廓與風色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【猙】）",
         image: "assets/webp/gen-fengbao-31.webp",
         stats: {
             spiritual: 80,
@@ -3201,7 +3201,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第12卷)",
         classicText: "「南山經 (第12卷)有異獸，名曰風豹，其音如雷，見則其邑大水。」",
-        description: "風豹是《山海經》中記載的奇特生物。牠擁有豹的身體輪廓與風色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "風豹是《山海經》中記載的奇特生物。牠擁有豹的身體輪廓與風色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【猙】）",
         image: "assets/webp/gen-fengbao-11.webp",
         stats: {
             spiritual: 40,
@@ -3219,7 +3219,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第12卷)",
         classicText: "「南山經 (第12卷)有神獸焉，其狀如豹而五彩，其名曰風豹，能禦凶辟邪。」",
-        description: "風豹是《山海經》中記載的奇特生物。牠擁有豹的身體輪廓與風色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "風豹是《山海經》中記載的奇特生物。牠擁有豹的身體輪廓與風色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【猙】）",
         image: "assets/webp/gen-fengbao-51.webp",
         stats: {
             spiritual: 95,
@@ -3237,7 +3237,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第13卷)",
         classicText: "「西山經 (第13卷)有獸焉，其狀如虎而水色身，其名曰水虎，見則天下大吉。」",
-        description: "水虎是《山海經>中記載的奇特生物。牠擁有虎的身體輪廓與水色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "水虎是《山海經》中記載的奇特生物。牠擁有虎的身體輪廓與水色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【虎蛟】）",
         image: "assets/webp/gen-shuihu-32.webp",
         stats: {
             spiritual: 80,
@@ -3255,7 +3255,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第13卷)",
         classicText: "「西山經 (第13卷)有異獸，名曰水虎，其音如雷，見則其邑大水。」",
-        description: "水虎是《山海經>中記載的奇特生物。牠擁有虎的身體輪廓與水色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "水虎是《山海經》中記載的奇特生物。牠擁有虎的身體輪廓與水色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【虎蛟】）",
         image: "assets/webp/gen-shuihu-52.webp",
         stats: {
             spiritual: 40,
@@ -3273,7 +3273,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第13卷)",
         classicText: "「西山經 (第13卷)有神獸焉，其狀如虎而五彩，其名曰水虎，能禦凶辟邪。」",
-        description: "水虎是《山海經>中記載的奇特生物。牠擁有虎的身體輪廓與水色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "水虎是《山海經》中記載的奇特生物。牠擁有虎的身體輪廓與水色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【虎蛟】）",
         image: "assets/webp/gen-shuihu-12.webp",
         stats: {
             spiritual: 95,
@@ -3291,7 +3291,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第14卷)",
         classicText: "「北山經 (第14卷)有獸焉，其狀如禺而山色身，其名曰山禺，見則天下大吉。」",
-        description: "山禺是《山海經》中記載的奇特生物。牠擁有禺的身體輪廓與山色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "山禺是《山海經》中記載的奇特生物。牠擁有禺的身體輪廓與山色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【狌狌】）",
         image: "assets/webp/gen-shanyu-53.webp",
         stats: {
             spiritual: 80,
@@ -3309,7 +3309,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第14卷)",
         classicText: "「北山經 (第14卷)有異獸，名曰山禺，其音如雷，見則其邑大水。」",
-        description: "山禺是《山海經》中記載的奇特生物。牠擁有禺的身體輪廓與山色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "山禺是《山海經》中記載的奇特生物。牠擁有禺的身體輪廓與山色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【狌狌】）",
         image: "assets/webp/gen-shanyu-13.webp",
         stats: {
             spiritual: 40,
@@ -3327,7 +3327,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第14卷)",
         classicText: "「北山經 (第14卷)有神獸焉，其狀如禺而五彩，其名曰山禺，能禦凶辟邪。」",
-        description: "山禺是《山海經》中記載的奇特生物。牠擁有禺的身體輪廓與山色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "山禺是《山海經》中記載的奇特生物。牠擁有禺的身體輪廓與山色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【狌狌】）",
         image: "assets/webp/gen-shanyu-33.webp",
         stats: {
             spiritual: 95,
@@ -3345,7 +3345,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第15卷)",
         classicText: "「中山經 (第15卷)有獸焉，其狀如狐而神色身，其名曰神狐，見則天下大吉。」",
-        description: "神狐是《山海經》中記載的奇特生物。牠擁有狐的身體輪廓與神色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "神狐是《山海經》中記載的奇特生物。牠擁有狐的身體輪廓與神色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【九尾狐】）",
         image: "assets/webp/gen-shenhu-34.webp",
         stats: {
             spiritual: 80,
@@ -3363,7 +3363,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第15卷)",
         classicText: "「中山經 (第15卷)有異獸，名曰神狐，其音如雷，見則其邑大水。」",
-        description: "神狐是《山海經》中記載的奇特生物。牠擁有狐的身體輪廓與神色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "神狐是《山海經》中記載的奇特生物。牠擁有狐的身體輪廓與神色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【九尾狐】）",
         image: "assets/webp/gen-shenhu-14.webp",
         stats: {
             spiritual: 40,
@@ -3381,7 +3381,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第15卷)",
         classicText: "「中山經 (第15卷)有神獸焉，其狀如狐而五彩，其名曰神狐，能禦凶辟邪。」",
-        description: "神狐是《山海經》中記載的奇特生物。牠擁有狐的身體輪廓與神色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "神狐是《山海經》中記載的奇特生物。牠擁有狐的身體輪廓與神色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【九尾狐】）",
         image: "assets/webp/gen-shenhu-54.webp",
         stats: {
             spiritual: 95,
@@ -3399,7 +3399,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第16卷)",
         classicText: "「東山經 (第16卷)有獸焉，其狀如鰩而靈色身，其名曰靈鰩，見則天下大吉。」",
-        description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【文鰩魚】）",
         image: "assets/webp/gen-lingyao-35.webp",
         stats: {
             spiritual: 80,
@@ -3417,7 +3417,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第16卷)",
         classicText: "「東山經 (第16卷)有異獸，名曰靈鰩，其音如雷，見則其邑大水。」",
-        description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【文鰩魚】）",
         image: "assets/webp/gen-lingyao-15.webp",
         stats: {
             spiritual: 40,
@@ -3435,7 +3435,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第16卷)",
         classicText: "「東山經 (第16卷)有神獸焉，其狀如鰩而五彩，其名曰靈鰩，能禦凶辟邪。」",
-        description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【文鰩魚】）",
         image: "assets/webp/gen-lingyao-55.webp",
         stats: {
             spiritual: 95,
@@ -3453,7 +3453,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第17卷)",
         classicText: "「南山經 (第17卷)有獸焉，其狀如鳧而荒色身，其名曰荒鳧，見則天下大吉。」",
-        description: "荒鳧是《山海經》中記載的奇特生物。牠擁有鳧的身體輪廓與荒色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "荒鳧是《山海經》中記載的奇特生物。牠擁有鳧的身體輪廓與荒色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【酸與】）",
         image: "assets/webp/gen-huangfu-16.webp",
         stats: {
             spiritual: 80,
@@ -3471,7 +3471,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第17卷)",
         classicText: "「南山經 (第17卷)有異獸，名曰荒鳧，其音如雷，見則其邑大水。」",
-        description: "荒鳧是《山海經》中記載的奇特生物。牠擁有鳧的身體輪廓與荒色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "荒鳧是《山海經》中記載的奇特生物。牠擁有鳧的身體輪廓與荒色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【酸與】）",
         image: "assets/webp/gen-huangfu-56.webp",
         stats: {
             spiritual: 40,
@@ -3489,7 +3489,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第17卷)",
         classicText: "「南山經 (第17卷)有神獸焉，其狀如鳧而五彩，其名曰荒鳧，能禦凶辟邪。」",
-        description: "荒鳧是《山海經》中記載的奇特生物。牠擁有鳧的身體輪廓與荒色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "荒鳧是《山海經》中記載的奇特生物。牠擁有鳧的身體輪廓與荒色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【酸與】）",
         image: "assets/webp/gen-huangfu-36.webp",
         stats: {
             spiritual: 95,
@@ -3507,7 +3507,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第18卷)",
         classicText: "「西山經 (第18卷)有獸焉，其狀如烏而幽色身，其名曰幽烏，見則天下大吉。」",
-        description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【三足烏】）",
         image: "assets/webp/gen-youwu-37.webp",
         stats: {
             spiritual: 80,
@@ -3525,7 +3525,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第18卷)",
         classicText: "「西山經 (第18卷)有異獸，名曰幽烏，其音如雷，見則其邑大水。」",
-        description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【三足烏】）",
         image: "assets/webp/gen-youwu-17.webp",
         stats: {
             spiritual: 40,
@@ -3543,7 +3543,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第18卷)",
         classicText: "「西山經 (第18卷)有神獸焉，其狀如烏而五彩，其名曰幽烏，能禦凶辟邪。」",
-        description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "幽烏是《山海經》中記載的奇特生物。牠擁有烏的身體輪廓與幽色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【三足烏】）",
         image: "assets/webp/gen-youwu-57.webp",
         stats: {
             spiritual: 95,
@@ -3561,7 +3561,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第19卷)",
         classicText: "「北山經 (第19卷)有獸焉，其狀如鵾而冰色身，其名曰冰鵾，見則天下大吉。」",
-        description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【鯤】）",
         image: "assets/webp/gen-bingkun-38.webp",
         stats: {
             spiritual: 80,
@@ -3579,7 +3579,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第19卷)",
         classicText: "「北山經 (第19卷)有異獸，名曰冰鵾，其音如雷，見則其邑大水。」",
-        description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【鯤】）",
         image: "assets/webp/gen-bingkun-58.webp",
         stats: {
             spiritual: 40,
@@ -3597,7 +3597,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第19卷)",
         classicText: "「北山經 (第19卷)有神獸焉，其狀如鵾而五彩，其名曰冰鵾，能禦凶辟邪。」",
-        description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【鯤】）",
         image: "assets/webp/gen-bingkun-18.webp",
         stats: {
             spiritual: 95,
@@ -3615,7 +3615,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第20卷)",
         classicText: "「中山經 (第20卷)有獸焉，其狀如鰈而火色身，其名曰火鰈，見則天下大吉。」",
-        description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【儵魚】）",
         image: "assets/webp/gen-huodie-19.webp",
         stats: {
             spiritual: 80,
@@ -3633,7 +3633,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第20卷)",
         classicText: "「中山經 (第20卷)有異獸，名曰火鰈，其音如雷，見則其邑大水。」",
-        description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【儵魚】）",
         image: "assets/webp/gen-huodie-59.webp",
         stats: {
             spiritual: 40,
@@ -3651,7 +3651,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第20卷)",
         classicText: "「中山經 (第20卷)有神獸焉，其狀如鰈而五彩，其名曰火鰈，能禦凶辟邪。」",
-        description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "火鰈是《山海經》中記載的奇特生物。牠擁有鰈的身體輪廓與火色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【儵魚】）",
         image: "assets/webp/gen-huodie-39.webp",
         stats: {
             spiritual: 95,
@@ -3669,7 +3669,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第21卷)",
         classicText: "「東山經 (第21卷)有獸焉，其狀如馬而青色身，其名曰青馬，見則天下大吉。」",
-        description: "青馬是《山海經》中記載的奇特生物。牠擁有馬的身體輪廓與青色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "青馬是《山海經》中記載的奇特生物。牠擁有馬的身體輪廓與青色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【天馬】）",
         image: "assets/webp/gen-qingma-40.webp",
         stats: {
             spiritual: 80,
@@ -3687,7 +3687,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第21卷)",
         classicText: "「東山經 (第21卷)有異獸，名曰青馬，其音如雷，見則其邑大水。」",
-        description: "青馬是《山海經》中記載的奇特生物。牠擁有馬的身體輪廓與青色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "青馬是《山海經》中記載的奇特生物。牠擁有馬的身體輪廓與青色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【天馬】）",
         image: "assets/webp/gen-qingma-20.webp",
         stats: {
             spiritual: 40,
@@ -3705,7 +3705,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第21卷)",
         classicText: "「東山經 (第21卷)有神獸焉，其狀如馬而五彩，其名曰青馬，能禦凶辟邪。」",
-        description: "青馬是《山海經》中記載的奇特生物。牠擁有馬的身體輪廓與青色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "青馬是《山海經》中記載的奇特生物。牠擁有馬的身體輪廓與青色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【天馬】）",
         image: "assets/webp/gen-qingma-60.webp",
         stats: {
             spiritual: 95,
@@ -3723,7 +3723,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第3卷)",
         classicText: "「西山經 (第3卷)有獸焉，其狀如羊而玄色身，其名曰玄羊，見則天下大吉。」",
-        description: "玄羊是《山海經》中記載的奇特生物。牠擁有羊的身體輪廓與玄色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "玄羊是《山海經》中記載的奇特生物。牠擁有羊的身體輪廓與玄色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【羬羊】）",
         image: "assets/webp/gen-xuanyang-22.webp",
         stats: {
             spiritual: 80,
@@ -3741,7 +3741,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第3卷)",
         classicText: "「西山經 (第3卷)有異獸，名曰玄羊，其音如雷，見則其邑大水。」",
-        description: "玄羊是《山海經》中記載的奇特生物。牠擁有羊的身體輪廓與玄色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "玄羊是《山海經》中記載的奇特生物。牠擁有羊的身體輪廓與玄色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【羬羊】）",
         image: "assets/webp/gen-xuanyang-2.webp",
         stats: {
             spiritual: 40,
@@ -3759,7 +3759,7 @@ const BEASTS_DATABASE = [
         region: "west",
         regionCn: "西山經 (第3卷)",
         classicText: "「西山經 (第3卷)有神獸焉，其狀如羊而五彩，其名曰玄羊，能禦凶辟邪。」",
-        description: "玄羊是《山海經》中記載的奇特生物。牠擁有羊的身體輪廓與玄色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "玄羊是《山海經》中記載的奇特生物。牠擁有羊的身體輪廓與玄色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【羬羊】）",
         image: "assets/webp/gen-xuanyang-42.webp",
         stats: {
             spiritual: 95,
@@ -3777,7 +3777,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第4卷)",
         classicText: "「北山經 (第4卷)有獸焉，其狀如犬而白色身，其名曰白犬，見則天下大吉。」",
-        description: "白犬是《山海經》中記載的奇特生物。牠擁有犬的身體輪廓與白色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "白犬是《山海經》中記載的奇特生物。牠擁有犬的身體輪廓與白色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【天狗】）",
         image: "assets/webp/gen-baiquan-43.webp",
         stats: {
             spiritual: 80,
@@ -3795,7 +3795,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第4卷)",
         classicText: "「北山經 (第4卷)有異獸，名曰白犬，其音如雷，見則其邑大水。」",
-        description: "白犬是《山海經》中記載的奇特生物。牠擁有犬的身體輪廓與白色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "白犬是《山海經》中記載的奇特生物。牠擁有犬的身體輪廓與白色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【天狗】）",
         image: "assets/webp/gen-baiquan-23.webp",
         stats: {
             spiritual: 40,
@@ -3813,7 +3813,7 @@ const BEASTS_DATABASE = [
         region: "north",
         regionCn: "北山經 (第4卷)",
         classicText: "「北山經 (第4卷)有神獸焉，其狀如犬而五彩，其名曰白犬，能禦凶辟邪。」",
-        description: "白犬是《山海經》中記載的奇特生物。牠擁有犬的身體輪廓與白色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "白犬是《山海經》中記載的奇特生物。牠擁有犬的身體輪廓與白色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【天狗】）",
         image: "assets/webp/gen-baiquan-3.webp",
         stats: {
             spiritual: 95,
@@ -3831,7 +3831,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第5卷)",
         classicText: "「中山經 (第5卷)有獸焉，其狀如貍而金色身，其名曰金貍，見則天下大吉。」",
-        description: "金貍是《山海經》中記載的奇特生物。牠擁有貍的身體輪廓與金色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "金貍是《山海經》中記載的奇特生物。牠擁有貍的身體輪廓與金色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【朏朏】）",
         image: "assets/webp/gen-jinli-4.webp",
         stats: {
             spiritual: 80,
@@ -3849,7 +3849,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第5卷)",
         classicText: "「中山經 (第5卷)有異獸，名曰金貍，其音如雷，見則其邑大水。」",
-        description: "金貍是《山海經》中記載的奇特生物。牠擁有貍的身體輪廓與金色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "金貍是《山海經》中記載的奇特生物。牠擁有貍的身體輪廓與金色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【朏朏】）",
         image: "assets/webp/gen-jinli-44.webp",
         stats: {
             spiritual: 40,
@@ -3867,7 +3867,7 @@ const BEASTS_DATABASE = [
         region: "central",
         regionCn: "中山經 (第5卷)",
         classicText: "「中山經 (第5卷)有神獸焉，其狀如貍而五彩，其名曰金貍，能禦凶辟邪。」",
-        description: "金貍是《山海經》中記載的奇特生物。牠擁有貍的身體輪廓與金色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "金貍是《山海經》中記載的奇特生物。牠擁有貍的身體輪廓與金色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【朏朏】）",
         image: "assets/webp/gen-jinli-24.webp",
         stats: {
             spiritual: 95,
@@ -3885,7 +3885,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第6卷)",
         classicText: "「東山經 (第6卷)有獸焉，其狀如雕而玉色身，其名曰玉雕，見則天下大吉。」",
-        description: "玉雕是《山海經》中記載的奇特生物。牠擁有雕的身體輪廓與玉色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "玉雕是《山海經》中記載的奇特生物。牠擁有雕的身體輪廓與玉色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【蠱雕】）",
         image: "assets/webp/gen-yudiao-25.webp",
         stats: {
             spiritual: 80,
@@ -3903,7 +3903,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第6卷)",
         classicText: "「東山經 (第6卷)有異獸，名曰玉雕，其音如雷，見則其邑大水。」",
-        description: "玉雕是《山海經》中記載的奇特生物。牠擁有雕的身體輪廓與玉色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "玉雕是《山海經》中記載的奇特生物。牠擁有雕的身體輪廓與玉色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【蠱雕】）",
         image: "assets/webp/gen-yudiao-5.webp",
         stats: {
             spiritual: 40,
@@ -3921,7 +3921,7 @@ const BEASTS_DATABASE = [
         region: "east",
         regionCn: "東山經 (第6卷)",
         classicText: "「東山經 (第6卷)有神獸焉，其狀如雕而五彩，其名曰玉雕，能禦凶辟邪。」",
-        description: "玉雕是《山海經》中記載的奇特生物。牠擁有雕的身體輪廓與玉色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "玉雕是《山海經》中記載的奇特生物。牠擁有雕的身體輪廓與玉色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【蠱雕】）",
         image: "assets/webp/gen-yudiao-45.webp",
         stats: {
             spiritual: 95,
@@ -3939,7 +3939,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第7卷)",
         classicText: "「南山經 (第7卷)有獸焉，其狀如鶴而飛色身，其名曰飛鶴，見則天下大吉。」",
-        description: "飛鶴是《山海經》中記載的奇特生物。牠擁有鶴的身體輪廓與飛色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "飛鶴是《山海經》中記載的奇特生物。牠擁有鶴的身體輪廓與飛色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【畢方】）",
         image: "assets/webp/gen-feihe-26.webp",
         stats: {
             spiritual: 80,
@@ -3957,7 +3957,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第7卷)",
         classicText: "「南山經 (第7卷)有異獸，名曰飛鶴，其音如雷，見則其邑大水。」",
-        description: "飛鶴是《山海經》中記載的奇特生物。牠擁有鶴的身體輪廓與飛色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "飛鶴是《山海經》中記載的奇特生物。牠擁有鶴的身體輪廓與飛色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【畢方】）",
         image: "assets/webp/gen-feihe-46.webp",
         stats: {
             spiritual: 40,
@@ -3975,7 +3975,7 @@ const BEASTS_DATABASE = [
         region: "south",
         regionCn: "南山經 (第7卷)",
         classicText: "「南山經 (第7卷)有神獸焉，其狀如鶴而五彩，其名曰飛鶴，能禦凶辟邪。」",
-        description: "飛鶴是《山海經》中記載的奇特生物。牠擁有鶴的身體輪廓與飛色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
+        description: "飛鶴是《山海經》中記載的奇特生物。牠擁有鶴的身體輪廓與飛色的特殊花紋，生性獨特，在古代神話中具有象徵意義。（源自本卷神獸【畢方】）",
         image: "assets/webp/gen-feihe-6.webp",
         stats: {
             spiritual: 95,

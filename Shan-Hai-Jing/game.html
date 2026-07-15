@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="山海經 · 奇獸對決卡牌對戰遊戲。">
+    <title>山海經 · 奇獸對決 | Shan-Hai-Jing Card Game</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;600&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Standalone Game Page Optimizations */
+        body {
+            background-color: var(--bg-dark-gray);
+            background-image: url('assets/webp/ink_wash_bg.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .game-wrapper {
+            max-width: 1200px;
+            width: 95%;
+            margin: 40px auto;
+            flex-grow: 1;
+        }
+        .game-page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .game-page-header h1 {
+            font-family: 'Noto Serif TC', serif;
+            color: var(--vermilion);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .game-page-header p {
+            font-family: 'Noto Serif TC', serif;
+            color: var(--gold-primary);
+            font-size: 1.1rem;
+        }
+        .back-to-encyclopedia {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Noto Serif TC', serif;
+            margin-bottom: 20px;
+            transition: var(--transition-smooth);
+        }
+        .back-to-encyclopedia:hover {
+            color: var(--vermilion);
+            transform: translateX(-4px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Canvas for Spiritual Particle Dust -->
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="game-wrapper">
+        <a href="index.html" class="back-to-encyclopedia">
+            <i class="fa-solid fa-arrow-left-long"></i> 返回山海經百獸百科
+        </a>
+        
+        <header class="game-page-header">
+            <h1>山海經 · 奇獸對決</h1>
+            <p>戰略卡牌闖關對抗遊戲</p>
+        </header>
+
+        <main>
+            <!-- Game Content Area (tab-cardgame section extracted from index.html) -->
+            <div id="tab-cardgame" class="tab-pane active" style="display: block;">
+                
+                <!-- Environment Selection Banner (Universal top banner) -->
+                <div class="env-banner-section" style="margin-bottom: 25px; padding: 15px; background: rgba(140, 107, 18, 0.05); border: 1px solid rgba(140, 107, 18, 0.2); border-radius: 8px; box-shadow: var(--shadow-sm);">
+                    <div class="env-selector-wrapper" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px;">
+                        <label for="env-select" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); font-size: 1.1rem; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.5);"><i class="fa-solid fa-cloud-sun"></i> 戰場環境 Environment：</label>
+                        <select id="env-select" style="background: var(--paper-bg); color: var(--ink-dark); border: 1px solid var(--ancient-gold); padding: 6px 15px; font-family: 'Noto Serif TC', serif; font-size: 1rem; border-radius: 4px; cursor: pointer; font-weight: bold; outline: none; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
+                            <option value="mountain" selected>【山中環境】山經異獸護甲提升 20%（例如：九尾狐、陸吾、猙、朏朏）</option>
+                            <option value="water">【水中環境】海經/澤經異獸攻擊提升 20%（例如：巴蛇、玄龜、旋龜、鱵魚）</option>
+                            <option value="heaven">【天界環境】神獸最大生命與攻擊額外提升 15%（例如：燭龍、鳳凰、麒麟）</option>
+                        </select>
+                    </div>
+                    <div class="env-display-bar" id="env-display-bar" style="text-align: center; font-size: 0.95rem; font-family: 'Noto Serif TC', serif; color: var(--ink-light); font-weight: 500;">
+                        當前環境：<span id="env-current-name" style="color: var(--vermilion-red); font-weight: bold;">【山中環境】</span> - 幽深山林，怪石嶙峋。山經屬性異獸護甲額外提升 20%。
+                    </div>
+                </div>
+
+                <div class="game-parallel-container">
+                    <!-- Original Board (Layout 1) -->
+                    <div class="game-layout layout-original">
+                        <h3 class="layout-title" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); text-align: center; margin-top: 0; margin-bottom: 15px; font-size: 1.25rem; border-bottom: 1px solid rgba(140,107,18,0.2); padding-bottom: 8px;"><i class="fa-solid fa-chess-board"></i> 佈局 A：經典神話戰局 (Classic Layout)</h3>
+                        <div class="game-board-area">
+                            <!-- Stage & Level Selector Header -->
+                            <div class="game-header">
+                                <div class="campaign-selector-wrapper" style="margin-bottom: 20px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                    <label for="campaign-select" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); font-size: 1.1rem; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.5);"><i class="fa-solid fa-scroll"></i> 選擇戰役 Campaign：</label>
+                                    <select id="campaign-select" style="background: var(--paper-bg); color: var(--ink-dark); border: 1px solid var(--ancient-gold); padding: 6px 15px; font-family: 'Noto Serif TC', serif; font-size: 1rem; border-radius: 4px; cursor: pointer; font-weight: bold; outline: none; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
+                                        <option value="fiends">四大凶獸戰役 (混沌、窮奇、檮杌、饕餮)</option>
+                                        <option value="sacreds">四大神獸戰役 (玄武、朱雀、白虎、青龍)</option>
+                                        <option value="disasters">四大災獸戰役 (猾褢、蠻蠻、肥遺、蜚)</option>
+                                        <option value="auspicious">四大瑞獸戰役 (騶虞、白澤、鳳凰、麒麟)</option>
+                                    </select>
+                                </div>
+                                <div class="level-progress">
+                                    <div class="level-node active" data-level="1" id="node-level-1">
+                                        <div class="node-circle">一</div>
+                                        <span class="node-name">混沌</span>
+                                    </div>
+                                    <div class="level-line" id="line-level-1"></div>
+                                    <div class="level-node" data-level="2" id="node-level-2">
+                                        <div class="node-circle">二</div>
+                                        <span class="node-name">窮奇</span>
+                                    </div>
+                                    <div class="level-line" id="line-level-2"></div>
+                                    <div class="level-node" data-level="3" id="node-level-3">
+                                        <div class="node-circle">三</div>
+                                        <span class="node-name">檮杌</span>
+                                    </div>
+                                    <div class="level-line" id="line-level-3"></div>
+                                    <div class="level-node" data-level="4" id="node-level-4">
+                                        <div class="node-circle">四</div>
+                                        <span class="node-name">饕餮</span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Main Battlefield Grid -->
+                            <div class="battlefield-container">
+                                <!-- Boss Area -->
+                                <div class="boss-section">
+                                    <div class="boss-card-container">
+                                        <img id="boss-avatar" src="assets/webp/hundun.webp" alt="魔王">
+                                        <div class="boss-info-panel">
+                                            <h3 id="boss-name">四大惡神：混沌</h3>
+                                            <div class="boss-hp-bar">
+                                                <div id="boss-hp-fill" class="hp-fill" style="width: 100%;"></div>
+                                                <span id="boss-hp-text">150 / 150</span>
+                                            </div>
+                                            <p id="boss-skill-desc" class="boss-skill-text">【混沌初開】每回合結束時，隨機降低玩家場上一張卡牌 20% 攻擊力。</p>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- 5 Direction Battle Slots -->
+                                <div class="slots-section">
+                                    <!-- Slot headers representing the 5 directions -->
+                                    <div class="slots-header">
+                                        <span class="slot-title">東山經 (木)</span>
+                                        <span class="slot-title">南山經 (火)</span>
+                                        <span class="slot-title">西山經 (金)</span>
+                                        <span class="slot-title">北山經 (水)</span>
+                                        <span class="slot-title">中山經 (土)</span>
+                                    </div>
+                                    
+                                    <!-- Enemy Card Slots -->
+                                    <div class="enemy-slots">
+                                        <div class="card-slot enemy-slot" data-direction="east" id="enemy-slot-east"></div>
+                                        <div class="card-slot enemy-slot" data-direction="south" id="enemy-slot-south"></div>
+                                        <div class="card-slot enemy-slot" data-direction="west" id="enemy-slot-west"></div>
+                                        <div class="card-slot enemy-slot" data-direction="north" id="enemy-slot-north"></div>
+                                    </div>
+        
+                                    <!-- Clash Indicators / Battle Lines -->
+                                    <div class="clash-indicators">
+                                        <div class="clash-line" id="clash-east"><i class="fa-solid fa-swords"></i></div>
+                                        <div class="clash-line" id="clash-south"><i class="fa-solid fa-swords"></i></div>
+                                        <div class="clash-line" id="clash-west"><i class="fa-solid fa-swords"></i></div>
+                                        <div class="clash-line" id="clash-north"><i class="fa-solid fa-swords"></i></div>
+                                    </div>
+        
+                                    <!-- Player Card Slots -->
+                                    <div class="player-slots">
+                                        <div class="card-slot player-slot" data-direction="east" id="player-slot-east"></div>
+                                        <div class="card-slot player-slot" data-direction="south" id="player-slot-south"></div>
+                                        <div class="card-slot player-slot" data-direction="west" id="player-slot-west"></div>
+                                        <div class="card-slot player-slot" data-direction="north" id="player-slot-north"></div>
+                                    </div>
+                                </div>
+        
+                                <!-- Player Hand & Status Area -->
+                                <div class="player-control-panel">
+                                    <div class="player-stats-panel">
+                                        <div class="player-health">
+                                            <span class="label"><i class="fa-solid fa-heart"></i> 玩家生命</span>
+                                            <div class="hp-bar-small">
+                                                <div id="player-hp-fill" class="hp-fill-player" style="width: 100%;"></div>
+                                            </div>
+                                            <span id="player-hp-text" class="hp-text">100 / 100</span>
+                                        </div>
+                                        <div class="player-mana">
+                                            <span class="label"><i class="fa-solid fa-fire-flame-simple"></i> 靈力值</span>
+                                            <div class="mana-bubbles" id="mana-bubbles-container">
+                                                <!-- mana bubbles will render here dynamically -->
+                                            </div>
+                                            <span id="player-mana-text" class="mana-text">3 / 3</span>
+                                        </div>
+                                        <div class="action-buttons">
+                                            <button class="game-btn primary-game-btn" id="start-clash-btn">開始對決 (Battle)</button>
+                                            <button class="game-btn secondary-game-btn" id="restart-level-btn">重新挑戰</button>
+                                        </div>
+                                    </div>
+        
+                                    <!-- Hand Cards -->
+                                    <div class="player-hand-container">
+                                        <div class="hand-label">手牌區 (點擊手牌再點擊戰場插槽部署)</div>
+                                        <div class="player-hand" id="player-hand-cards">
+                                            <!-- Hand cards rendered here dynamically -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- End of .game-board-area -->
+                    </div>
+
+                    <!-- New Mobile Landscape Board (Layout 2) -->
+                    <div class="game-layout layout-mobile-landscape">
+                        <h3 class="layout-title" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); text-align: center; margin-top: 0; margin-bottom: 15px; font-size: 1.25rem; border-bottom: 1px solid rgba(140,107,18,0.2); padding-bottom: 8px;"><i class="fa-solid fa-mobile-screen-button"></i> 佈局 B：手機橫屏對決模擬器 (Landscape Layout)</h3>
+                        
+                        <div class="phone-frame-container">
+                            <div class="phone-screen" id="phone-screen-env">
+                                <!-- Top Environment Status Overlay -->
+                                <div class="phone-top-status">
+                                    <span class="phone-env-tag"><i class="fa-solid fa-earth-asia"></i> 戰場環境：<span id="phone-env-text">山中</span></span>
+                                    <span class="phone-time-tag">山海奇獸對決模式 · 橫屏</span>
+                                </div>
+                                
+                                <div class="screen-content">
+                                    <!-- Left Half (我方 Player Side) -->
+                                    <div class="screen-side player-side">
+                                        <div class="side-title">我方陣地 (Player Side)</div>
+                                        <div class="landscape-grid">
+                                            <!-- Slot 1: Hand & HP Stats -->
+                                            <div class="landscape-slot slot-stats" id="landscape-slot-1">
+                                                <div class="slot-label">【1】持有卡牌與生命</div>
+                                                <div class="phone-hp-bar">
+                                                    <span class="hp-label"><i class="fa-solid fa-heart"></i> HP:</span>
+                                                    <div class="hp-track"><div id="new-player-hp-fill" class="hp-fill-player" style="width: 100%;"></div></div>
+                                                    <span id="new-player-hp-text" class="stat-num-text">100/100</span>
+                                                </div>
+                                                <div class="phone-mana-bar">
+                                                    <span class="mana-label"><i class="fa-solid fa-fire-flame-simple"></i> 靈力:</span>
+                                                    <span id="new-player-mana-text" class="stat-num-text">3/3</span>
+                                                </div>
+                                                <div class="phone-hand-container">
+                                                    <div class="hand-cards-mini" id="new-player-hand-cards">
+                                                        <!-- mini hand cards dynamic render -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Slot 2: Player Hero -->
+                                            <div class="landscape-slot slot-hero" id="landscape-slot-2">
+                                                <div class="slot-label">【2】我方英雄</div>
+                                                <div class="hero-card-compact">
+                                                    <img class="hero-avatar" src="assets/webp/qilin.webp" alt="我方英雄">
+                                                    <div class="hero-info">
+                                                        <div class="hero-name">軒轅黃帝</div>
+                                                        <div class="hero-sub">守護獸：麒麟</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Slot 3: Center Top (East) -->
+                                            <div class="landscape-slot card-slot player-slot" data-direction="east" id="new-player-slot-east">
+                                                <div class="slot-num">3 (東山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot 4: Center Bottom (South) -->
+                                            <div class="landscape-slot card-slot player-slot" data-direction="south" id="new-player-slot-south">
+                                                <div class="slot-num">4 (南山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot 5: Right Top (West) -->
+                                            <div class="landscape-slot card-slot player-slot" data-direction="west" id="new-player-slot-west">
+                                                <div class="slot-num">5 (西山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot 6: Right Bottom (North) -->
+                                            <div class="landscape-slot card-slot player-slot" data-direction="north" id="new-player-slot-north">
+                                                <div class="slot-num">6 (北山經)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Middle Divider line -->
+                                    <div class="screen-divider-line"></div>
+
+                                    <!-- Right Half (敵方 Enemy Side) -->
+                                    <div class="screen-side enemy-side">
+                                        <div class="side-title">敵方陣地 (Enemy Side)</div>
+                                        <div class="landscape-grid">
+                                            <!-- Slot A: Left Top (West) -->
+                                            <div class="landscape-slot card-slot enemy-slot" data-direction="west" id="new-enemy-slot-west">
+                                                <div class="slot-num">A (西山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot B: Left Bottom (North) -->
+                                            <div class="landscape-slot card-slot enemy-slot" data-direction="north" id="new-enemy-slot-north">
+                                                <div class="slot-num">B (北山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot C: Center Top (East) -->
+                                            <div class="landscape-slot card-slot enemy-slot" data-direction="east" id="new-enemy-slot-east">
+                                                <div class="slot-num">C (東山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot D: Center Bottom (South) -->
+                                            <div class="landscape-slot card-slot enemy-slot" data-direction="south" id="new-enemy-slot-south">
+                                                <div class="slot-num">D (南山經)</div>
+                                            </div>
+                                            
+                                            <!-- Slot E: Enemy Hero -->
+                                            <div class="landscape-slot slot-hero" id="landscape-slot-E">
+                                                <div class="slot-label">【E】敵方英雄</div>
+                                                <div class="hero-card-compact boss">
+                                                    <img class="hero-avatar" id="new-boss-avatar" src="assets/webp/hundun.webp" alt="敵方英雄">
+                                                    <div class="hero-info">
+                                                        <div class="hero-name" id="new-boss-name-mob">混沌</div>
+                                                        <div class="hero-sub">四大惡神</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Slot F: Enemy Stats & HP -->
+                                            <div class="landscape-slot slot-stats" id="landscape-slot-F">
+                                                <div class="slot-label">【F】敵方生命與卡牌</div>
+                                                <div class="phone-hp-bar boss">
+                                                    <span class="hp-label"><i class="fa-solid fa-skull"></i> HP:</span>
+                                                    <div class="hp-track"><div id="new-boss-hp-fill" class="hp-fill" style="width: 100%;"></div></div>
+                                                    <span id="new-boss-hp-text" class="stat-num-text">150/150</span>
+                                                </div>
+                                                <div class="phone-mana-bar">
+                                                    <span class="mana-label"><i class="fa-solid fa-layer-group"></i> 牌數:</span>
+                                                    <span id="new-enemy-deck-count" class="stat-num-text">8 張</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+                    <!-- New Desktop Full-width Landscape Board (Layout C) -->
+                    <div class="game-layout layout-desktop-landscape">
+                        <h3 class="layout-title" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); text-align: center; margin-top: 30px; margin-bottom: 15px; font-size: 1.25rem; border-bottom: 1px solid rgba(140,107,18,0.2); padding-bottom: 8px;"><i class="fa-solid fa-desktop"></i> 佈局 C：電腦版寬屏對決戰場 (Desktop Landscape)</h3>
+                        
+                        <div class="desktop-board-container" id="desktop-board-env">
+                            <!-- Top Environment Status Overlay -->
+                            <div class="desktop-top-status">
+                                <span class="desktop-env-tag"><i class="fa-solid fa-earth-asia"></i> 戰場環境：<span id="desktop-env-text">山中</span></span>
+                                <span class="desktop-time-tag">山海奇獸對決模式 · 電腦寬屏大視野</span>
+                            </div>
+                            
+                            <div class="desktop-screen-content">
+                                <!-- Left Half (我方 Player Side) -->
+                                <div class="desktop-screen-side player-side">
+                                    <div class="side-title">我方陣地 (Player Side)</div>
+                                    <div class="desktop-landscape-grid">
+                                        <!-- Slot 1: Hand & HP Stats -->
+                                        <div class="desktop-landscape-slot slot-stats" id="desktop-slot-1">
+                                            <div class="slot-label">【1】持有卡牌與生命</div>
+                                            <div class="desktop-hp-bar">
+                                                <span class="hp-label"><i class="fa-solid fa-heart"></i> HP:</span>
+                                                <div class="hp-track"><div id="new-pc-player-hp-fill" class="hp-fill-player" style="width: 100%;"></div></div>
+                                                <span id="new-pc-player-hp-text" class="stat-num-text">100/100</span>
+                                            </div>
+                                            <div class="desktop-mana-bar">
+                                                <span class="mana-label"><i class="fa-solid fa-fire-flame-simple"></i> 靈力:</span>
+                                                <span id="new-pc-player-mana-text" class="stat-num-text">3/3</span>
+                                            </div>
+                                            <div class="desktop-hand-container">
+                                                <div class="hand-cards-pc-mini" id="new-pc-player-hand-cards">
+                                                    <!-- PC hand cards render dynamically -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Slot 2: Player Hero -->
+                                        <div class="desktop-landscape-slot slot-hero" id="desktop-slot-2">
+                                            <div class="slot-label">【2】我方英雄</div>
+                                            <div class="hero-card-compact-large">
+                                                <img class="hero-avatar-large" src="assets/webp/qilin.webp" alt="我方英雄">
+                                                <div class="hero-info-large">
+                                                    <div class="hero-name-large">軒轅黃帝</div>
+                                                    <div class="hero-sub-large">守護獸：麒麟</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Slot 3: Center Top (East) -->
+                                        <div class="desktop-landscape-slot card-slot player-slot" data-direction="east" id="new-pc-player-slot-east">
+                                            <div class="slot-num">3 (東山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot 4: Center Bottom (South) -->
+                                        <div class="desktop-landscape-slot card-slot player-slot" data-direction="south" id="new-pc-player-slot-south">
+                                            <div class="slot-num">4 (南山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot 5: Right Top (West) -->
+                                        <div class="desktop-landscape-slot card-slot player-slot" data-direction="west" id="new-pc-player-slot-west">
+                                            <div class="slot-num">5 (西山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot 6: Right Bottom (North) -->
+                                        <div class="desktop-landscape-slot card-slot player-slot" data-direction="north" id="new-pc-player-slot-north">
+                                            <div class="slot-num">6 (北山經)</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Middle Divider line -->
+                                <div class="desktop-screen-divider-line"></div>
+
+                                <!-- Right Half (敵方 Enemy Side) -->
+                                <div class="desktop-screen-side enemy-side">
+                                    <div class="side-title">敵方陣地 (Enemy Side)</div>
+                                    <div class="desktop-landscape-grid">
+                                        <!-- Slot A: Left Top (West) -->
+                                        <div class="desktop-landscape-slot card-slot enemy-slot" data-direction="west" id="new-pc-enemy-slot-west">
+                                            <div class="slot-num">A (西山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot B: Left Bottom (North) -->
+                                        <div class="desktop-landscape-slot card-slot enemy-slot" data-direction="north" id="new-pc-enemy-slot-north">
+                                            <div class="slot-num">B (北山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot C: Center Top (East) -->
+                                        <div class="desktop-landscape-slot card-slot enemy-slot" data-direction="east" id="new-pc-enemy-slot-east">
+                                            <div class="slot-num">C (東山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot D: Center Bottom (South) -->
+                                        <div class="desktop-landscape-slot card-slot enemy-slot" data-direction="south" id="new-pc-enemy-slot-south">
+                                            <div class="slot-num">D (南山經)</div>
+                                        </div>
+                                        
+                                        <!-- Slot E: Enemy Hero -->
+                                        <div class="desktop-landscape-slot slot-hero" id="desktop-slot-E">
+                                            <div class="slot-label">【E】敵方英雄</div>
+                                            <div class="hero-card-compact-large boss">
+                                                <img class="hero-avatar-large" id="new-pc-boss-avatar" src="assets/webp/hundun.webp" alt="敵方英雄">
+                                                <div class="hero-info-large">
+                                                    <div class="hero-name-large" id="new-pc-boss-name-mob">混沌</div>
+                                                    <div class="hero-sub-large">四大惡神</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Slot F: Enemy Stats & HP -->
+                                        <div class="desktop-landscape-slot slot-stats" id="desktop-slot-F">
+                                            <div class="slot-label">【F】敵方生命與卡牌</div>
+                                            <div class="desktop-hp-bar boss">
+                                                <span class="hp-label"><i class="fa-solid fa-skull"></i> HP:</span>
+                                                <div class="hp-track"><div id="new-pc-boss-hp-fill" class="hp-fill" style="width: 100%;"></div></div>
+                                                <span id="new-pc-boss-hp-text" class="stat-num-text">150/150</span>
+                                            </div>
+                                            <div class="desktop-mana-bar">
+                                                <span class="mana-label"><i class="fa-solid fa-layer-group"></i> 牌數:</span>
+                                                <span id="new-pc-enemy-deck-count" class="stat-num-text">8 張</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- New Hand-drawn Board (Layout 4) -->
+                    <div class="game-layout layout-sketch">
+                        <h3 class="layout-title" style="font-family: 'Noto Serif TC', serif; color: var(--ancient-gold); text-align: center; margin-top: 30px; margin-bottom: 15px; font-size: 1.25rem; border-bottom: 1px solid rgba(140,107,18,0.2); padding-bottom: 8px;"><i class="fa-solid fa-pen-clip"></i> 佈局 4：期末專案·手繪原子筆草圖版面 (Layout 4 - Hand-drawn Sketch)</h3>
+                        
+                        <div class="sketch-board-container" id="sketch-board-env">
+                            <!-- Top Info -->
+                            <div class="sketch-top-bar">
+                                <!-- Player segments -->
+                                <div class="sketch-segments-bar">
+                                    <div class="sketch-segment"></div>
+                                    <div class="sketch-segment"></div>
+                                    <div class="sketch-segment"></div>
+                                    <div class="sketch-segment"></div>
+                                    <div class="sketch-segment"></div>
+                                    <div class="sketch-segment"></div>
+                                    <div class="sketch-segment"></div>
+                                    <div class="sketch-segment"></div>
+                                </div>
+                                
+                                <!-- Central battlefield status -->
+                                <div class="sketch-center-status">
+                                    【山海共鳴 · 戰場中央事件大長條】
+                                </div>
+                                
+                                <!-- Boss status -->
+                                <div class="sketch-boss-status-bar">
+                                    【魔王血量/狀態】
+                                </div>
+                            </div>
+                            
+                            <!-- Main Arena -->
+                            <div class="sketch-arena">
+                                <!-- Left Side: Player -->
+                                <div class="sketch-side player-side">
+                                    <!-- 3 Left Buttons -->
+                                    <div class="sketch-left-buttons">
+                                        <div class="sketch-btn-item">主動技能 A</div>
+                                        <div class="sketch-btn-item">主動技能 B</div>
+                                        <div class="sketch-btn-item">主動技能 C</div>
+                                    </div>
+                                    
+                                    <!-- 2x2 Grid -->
+                                    <div class="sketch-grid">
+                                        <div class="sketch-card-slot"><div class="slot-text">前排·東</div></div>
+                                        <div class="sketch-card-slot"><div class="slot-text">前排·西</div></div>
+                                        <div class="sketch-card-slot"><div class="slot-text">後排·南</div></div>
+                                        <div class="sketch-card-slot"><div class="slot-text">後排·北</div></div>
+                                    </div>
+                                    
+                                    <!-- Hero Avatar Left Bottom -->
+                                    <div class="sketch-hero-avatar player">
+                                        <div class="avatar-icon"><i class="fa-solid fa-user-ninja"></i></div>
+                                        <div class="avatar-label">我方角色</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Center line -->
+                                <div class="sketch-divider"></div>
+                                
+                                <!-- Right Side: Enemy -->
+                                <div class="sketch-side enemy-side">
+                                    <!-- 2x2 Grid -->
+                                    <div class="sketch-grid">
+                                        <div class="sketch-card-slot"><div class="slot-text">前排·木</div></div>
+                                        <div class="sketch-card-slot"><div class="slot-text">前排·火</div></div>
+                                        <div class="sketch-card-slot"><div class="slot-text">後排·金</div></div>
+                                        <div class="sketch-card-slot"><div class="slot-text">後排·水</div></div>
+                                    </div>
+                                    
+                                    <!-- 3 Right Buttons & Boss Avatar -->
+                                    <div class="sketch-right-buttons-container">
+                                        <!-- Boss Avatar top -->
+                                        <div class="sketch-hero-avatar boss">
+                                            <div class="avatar-icon"><i class="fa-solid fa-spider"></i></div>
+                                            <div class="avatar-label">魔王四大凶獸</div>
+                                        </div>
+                                        
+                                        <!-- 3 Buttons -->
+                                        <div class="sketch-right-buttons">
+                                            <div class="sketch-btn-item">魔王意圖</div>
+                                            <div class="sketch-btn-item">魔王怒氣</div>
+                                            <div class="sketch-btn-item">魔王絕招</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Win/Loss Overlay Modal -->
+                <div class="game-overlay-modal" id="game-result-modal">
+                    <div class="game-modal-content">
+                        <h2 id="game-result-title">對決勝利</h2>
+                        <p id="game-result-desc">您成功擊敗了混沌！</p>
+                        <button class="game-btn primary-game-btn" id="game-result-action-btn">挑戰下一關</button>
+                    </div>
+                </div>
+            
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="database.js"></script>
+    <script src="card-game.js"></script>
+    
+    <!-- Particle canvas background animation script -->
+    <script>
+        const canvas = document.getElementById('particles-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+            
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = Math.random() * 0.2 - 0.1;
+                    this.speedY = Math.random() * -0.3 - 0.1;
+                    this.alpha = Math.random() * 0.5 + 0.2;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.y < 0) {
+                        this.y = height;
+                        this.x = Math.random() * width;
+                    }
+                    if (this.x < 0 || this.x > width) {
+                        this.x = Math.random() * width;
+                    }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.alpha;
+                    ctx.fillStyle = '#8c6b12';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+            
+            const particles = Array.from({ length: 40 }, () => new Particle());
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+    </script>
+</body>
+</html>

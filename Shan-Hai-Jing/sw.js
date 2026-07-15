@@ -1,10 +1,13 @@
-const CACHE_NAME = "shanhaijing-cache-v32";
+const CACHE_NAME = "shanhaijing-cache-v33";
 
 const ASSETS_TO_CACHE = [
   "./",
   "index.html",
+  "game.html",
   "styles.css",
+  "database.js",
   "app.js",
+  "card-game.js",
   "manifest.json",
   "assets/webp/placeholder_beast.webp"
 ];

@@ -3714,7 +3714,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-飛-鶴-46",
+        id: "gen-feihe-26",
         nameCn: "飛鶴",
         zhuyin: "ㄉ 一 ㄠˊ",
         nameEn: "Spiritual 飛鶴",
@@ -3724,7 +3724,7 @@ const BEASTS_DATABASE = [
         regionCn: "南山經 (第7卷)",
         classicText: "「南山經 (第7卷)有獸焉，其狀如鶴而飛身，其名曰飛鶴，見則天下大吉。」",
         description: "飛鶴是《山海經》中記載的奇特生物。牠擁有鶴的身體輪廓與飛色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-飛-鶴-46.webp",
+        image: "assets/webp/gen-feihe-26.webp",
         stats: {
             spiritual: 95,
             aggression: 66,
@@ -3768,7 +3768,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-天-蛇-49",
+        id: "gen-tianshe-29",
         nameCn: "天蛇",
         zhuyin: "ㄌ 一 ㄠˊ",
         nameEn: "Spiritual 天蛇",
@@ -3778,7 +3778,7 @@ const BEASTS_DATABASE = [
         regionCn: "中山經 (第10卷)",
         classicText: "「中山經 (第10卷)有獸焉，其狀如蛇而天身，其名曰天蛇，見則天下大吉。」",
         description: "天蛇是《山海經》中記載的奇特生物。牠擁有蛇的身體輪廓與天色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-天-蛇-49.webp",
+        image: "assets/webp/gen-tianshe-29.webp",
         stats: {
             spiritual: 81,
             aggression: 36,
@@ -3822,7 +3822,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-水-虎-52",
+        id: "gen-shuihu-32",
         nameCn: "水虎",
         zhuyin: "ㄏ 一 ㄠˊ",
         nameEn: "Spiritual 水虎",
@@ -3832,7 +3832,7 @@ const BEASTS_DATABASE = [
         regionCn: "西山經 (第3卷)",
         classicText: "「西山經 (第3卷)有獸焉，其狀如虎而水身，其名曰水虎，見則天下大吉。」",
         description: "水虎是《山海經》中記載的奇特生物。牠擁有虎的身體輪廓與水色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-水-虎-52.webp",
+        image: "assets/webp/gen-shuihu-32.webp",
         stats: {
             spiritual: 67,
             aggression: 64,
@@ -3876,7 +3876,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-靈-鰩-55",
+        id: "gen-lingyao-35",
         nameCn: "靈鰩",
         zhuyin: "ㄒ 一 ㄠˊ",
         nameEn: "Spiritual 靈鰩",
@@ -3886,7 +3886,7 @@ const BEASTS_DATABASE = [
         regionCn: "東山經 (第6卷)",
         classicText: "「東山經 (第6卷)有獸焉，其狀如鰩而靈身，其名曰靈鰩，見則天下大吉。」",
         description: "靈鰩是《山海經》中記載的奇特生物。牠擁有鰩的身體輪廓與靈色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-靈-鰩-55.webp",
+        image: "assets/webp/gen-lingyao-35.webp",
         stats: {
             spiritual: 88,
             aggression: 23,
@@ -3930,7 +3930,7 @@ const BEASTS_DATABASE = [
         }
     },
     {
-        id: "gen-冰-鵾-58",
+        id: "gen-bingkun-38",
         nameCn: "冰鵾",
         zhuyin: "ㄕ 一 ㄠˊ",
         nameEn: "Spiritual 冰鵾",
@@ -3940,7 +3940,7 @@ const BEASTS_DATABASE = [
         regionCn: "北山經 (第9卷)",
         classicText: "「北山經 (第9卷)有獸焉，其狀如鵾而冰身，其名曰冰鵾，見則天下大吉。」",
         description: "冰鵾是《山海經》中記載的奇特生物。牠擁有鵾的身體輪廓與冰色的特殊花紋，生性獨特，在古代神話中具有象徵意義。",
-        image: "assets/webp/gen-冰-鵾-58.webp",
+        image: "assets/webp/gen-bingkun-38.webp",
         stats: {
             spiritual: 74,
             aggression: 62,

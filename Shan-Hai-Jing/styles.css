@@ -3020,3 +3020,18 @@ body {
     border-color: var(--gold-primary);
     box-shadow: 0 0 10px var(--gold-glow);
 }
+
+/* Clickable beast inline links inside details modal */
+.beast-link-inline {
+    text-decoration: underline;
+    cursor: pointer;
+    color: var(--gold-primary);
+    font-weight: bold;
+    transition: var(--transition-smooth);
+    display: inline-block;
+}
+
+.beast-link-inline:hover {
+    color: var(--gold-dark);
+    transform: scale(1.05);
+}

@@ -4757,6 +4757,13 @@ function resetAllFilters() {
 }
 
 // 11. Modal Logic
+window.openBeastByName = function(name) {
+    const targetBeast = BEASTS_DATABASE.find(b => b.nameCn === name);
+    if (targetBeast) {
+        openBeastModal(targetBeast.id);
+    }
+};
+
 function openBeastModal(beastId) {
     activeBeastId = beastId;
     const beast = BEASTS_DATABASE.find(b => b.id === beastId);
@@ -4788,8 +4795,16 @@ function openBeastModal(beastId) {
     
     modalName.innerHTML = `${beast.nameCn} <span class="modal-zhuyin">(${beast.zhuyin})</span>`;
     modalEnglish.innerText = beast.nameEn;
-    modalClassic.innerHTML = beast.classicText;
-    modalDesc.innerText = beast.description;
+    
+    // Make <u>Name</u> clickable links
+    let classicHtml = beast.classicText;
+    classicHtml = classicHtml.replace(/<u>(.*?)<\/u>/g, `<span class="beast-link-inline" onclick="window.openBeastByName('$1')">$1</span>`);
+    modalClassic.innerHTML = classicHtml;
+    
+    // Make 【Name】 clickable links
+    let descHtml = beast.description;
+    descHtml = descHtml.replace(/【(.*?)】/g, `【<span class="beast-link-inline" onclick="window.openBeastByName('$1')">$1</span>】`);
+    modalDesc.innerHTML = descHtml;
     
     // Stats Bars Animations
     setTimeout(() => {

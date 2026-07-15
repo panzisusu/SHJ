@@ -2906,7 +2906,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-chiniu-1",
         nameCn: "赤牛",
-        zhuyin: "ㄙ 一 ㄠˊ",
+        zhuyin: "ㄔˋ ㄋㄧㄡˊ",
         nameEn: "Auspicious Chiniu",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -2924,7 +2924,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-redox-41",
         nameCn: "赤牛",
-        zhuyin: "ㄙ 一 ㄠˊ",
+        zhuyin: "ㄔˋ ㄋㄧㄡˊ",
         nameEn: "Perilous Chiniu",
         category: "perilous",
         categoryCn: "凶獸",
@@ -2942,7 +2942,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-redox-21",
         nameCn: "赤牛",
-        zhuyin: "ㄙ 一 ㄠˊ",
+        zhuyin: "ㄔˋ ㄋㄧㄡˊ",
         nameEn: "Divine Chiniu",
         category: "divine",
         categoryCn: "神獸",
@@ -2960,7 +2960,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-jiuque-7",
         nameCn: "九雀",
-        zhuyin: "ㄐ 一 ㄡˇ ㄑ ㄩ ㄝˋ",
+        zhuyin: "ㄐㄧㄡˇ ㄑㄩㄝˋ",
         nameEn: "Auspicious Jiuque",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -2978,7 +2978,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-jiuque-47",
         nameCn: "九雀",
-        zhuyin: "ㄐ 一 ㄡˇ ㄑ ㄩ ㄝˋ",
+        zhuyin: "ㄐㄧㄡˇ ㄑㄩㄝˋ",
         nameEn: "Perilous Jiuque",
         category: "perilous",
         categoryCn: "凶獸",
@@ -2996,7 +2996,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-jiuque-27",
         nameCn: "九雀",
-        zhuyin: "ㄐ 一 ㄡˇ ㄑ ㄩ ㄝˋ",
+        zhuyin: "ㄐㄧㄡˇ ㄑㄩㄝˋ",
         nameEn: "Divine Jiuque",
         category: "divine",
         categoryCn: "神獸",
@@ -3014,7 +3014,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-duyu-28",
         nameCn: "獨魚",
-        zhuyin: "ㄅ 一 ㄠˊ",
+        zhuyin: "ㄉㄨˊ ㄩˊ",
         nameEn: "Auspicious Duyu",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3032,7 +3032,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-duyu-8",
         nameCn: "獨魚",
-        zhuyin: "ㄅ 一 ㄠˊ",
+        zhuyin: "ㄉㄨˊ ㄩˊ",
         nameEn: "Perilous Duyu",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3050,7 +3050,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-duyu-48",
         nameCn: "獨魚",
-        zhuyin: "ㄅ 一 ㄠˊ",
+        zhuyin: "ㄉㄨˊ ㄩˊ",
         nameEn: "Divine Duyu",
         category: "divine",
         categoryCn: "神獸",
@@ -3068,7 +3068,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-tianshe-29",
         nameCn: "天蛇",
-        zhuyin: "ㄆ 一 ㄠˊ",
+        zhuyin: "ㄊㄧㄢ ㄕㄜˊ",
         nameEn: "Auspicious Tianshe",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3086,7 +3086,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-tianshe-49",
         nameCn: "天蛇",
-        zhuyin: "ㄆ 一 ㄠˊ",
+        zhuyin: "ㄊㄧㄢ ㄕㄜˊ",
         nameEn: "Perilous Tianshe",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3104,7 +3104,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-tianshe-9",
         nameCn: "天蛇",
-        zhuyin: "ㄆ 一 ㄠˊ",
+        zhuyin: "ㄊㄧㄢ ㄕㄜˊ",
         nameEn: "Divine Tianshe",
         category: "divine",
         categoryCn: "神獸",
@@ -3122,7 +3122,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-leijiao-10",
         nameCn: "雷蛟",
-        zhuyin: "ㄉ ㄧ ㄢˋ",
+        zhuyin: "ㄌㄟˊ ㄐㄧㄠ",
         nameEn: "Auspicious Leijiao",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3140,7 +3140,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-leijiao-50",
         nameCn: "雷蛟",
-        zhuyin: "ㄉ ㄧ ㄢˋ",
+        zhuyin: "ㄌㄟˊ ㄐㄧㄠ",
         nameEn: "Perilous Leijiao",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3158,7 +3158,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-leijiao-30",
         nameCn: "雷蛟",
-        zhuyin: "ㄉ ㄧ ㄢˋ",
+        zhuyin: "ㄌㄟˊ ㄐㄧㄠ",
         nameEn: "Divine Leijiao",
         category: "divine",
         categoryCn: "神獸",
@@ -3176,7 +3176,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-fengbao-31",
         nameCn: "風豹",
-        zhuyin: "ㄈ ㄥ",
+        zhuyin: "ㄈㄥ ㄅㄠˋ",
         nameEn: "Auspicious Fengbao",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3194,7 +3194,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-fengbao-11",
         nameCn: "風豹",
-        zhuyin: "ㄈ ㄥ",
+        zhuyin: "ㄈㄥ ㄅㄠˋ",
         nameEn: "Perilous Fengbao",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3212,7 +3212,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-fengbao-51",
         nameCn: "風豹",
-        zhuyin: "ㄈ ㄥ",
+        zhuyin: "ㄈㄥ ㄅㄠˋ",
         nameEn: "Divine Fengbao",
         category: "divine",
         categoryCn: "神獸",
@@ -3230,7 +3230,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shuihu-32",
         nameCn: "水虎",
-        zhuyin: "ㄩˇ",
+        zhuyin: "ㄕㄨㄟˇ ㄏㄨˇ",
         nameEn: "Auspicious Shuihu",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3248,7 +3248,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shuihu-52",
         nameCn: "水虎",
-        zhuyin: "ㄩˇ",
+        zhuyin: "ㄕㄨㄟˇ ㄏㄨˇ",
         nameEn: "Perilous Shuihu",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3266,7 +3266,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shuihu-12",
         nameCn: "水虎",
-        zhuyin: "ㄩˇ",
+        zhuyin: "ㄕㄨㄟˇ ㄏㄨˇ",
         nameEn: "Divine Shuihu",
         category: "divine",
         categoryCn: "神獸",
@@ -3284,7 +3284,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shanyu-53",
         nameCn: "山禺",
-        zhuyin: "ㄌ ㄟˊ",
+        zhuyin: "ㄕㄢ ㄩˊ",
         nameEn: "Auspicious Shanyu",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3302,7 +3302,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shanyu-13",
         nameCn: "山禺",
-        zhuyin: "ㄌ ㄟˊ",
+        zhuyin: "ㄕㄢ ㄩˊ",
         nameEn: "Perilous Shanyu",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3320,7 +3320,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shanyu-33",
         nameCn: "山禺",
-        zhuyin: "ㄌ ㄟˊ",
+        zhuyin: "ㄕㄢ ㄩˊ",
         nameEn: "Divine Shanyu",
         category: "divine",
         categoryCn: "神獸",
@@ -3338,7 +3338,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shenhu-34",
         nameCn: "神狐",
-        zhuyin: "ㄒ ㄧ ㄤ",
+        zhuyin: "ㄕㄣˊ ㄏㄨˊ",
         nameEn: "Auspicious Shenhu",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3356,7 +3356,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shenhu-14",
         nameCn: "神狐",
-        zhuyin: "ㄒ ㄧ ㄤ",
+        zhuyin: "ㄕㄣˊ ㄏㄨˊ",
         nameEn: "Perilous Shenhu",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3374,7 +3374,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-shenhu-54",
         nameCn: "神狐",
-        zhuyin: "ㄒ ㄧ ㄤ",
+        zhuyin: "ㄕㄣˊ ㄏㄨˊ",
         nameEn: "Divine Shenhu",
         category: "divine",
         categoryCn: "神獸",
@@ -3392,7 +3392,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-lingyao-35",
         nameCn: "靈鰩",
-        zhuyin: "ㄩˋ",
+        zhuyin: "ㄌㄧㄥˊ ㄧㄠˊ",
         nameEn: "Auspicious Lingyao",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3410,7 +3410,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-lingyao-15",
         nameCn: "靈鰩",
-        zhuyin: "ㄩˋ",
+        zhuyin: "ㄌㄧㄥˊ ㄧㄠˊ",
         nameEn: "Perilous Lingyao",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3428,7 +3428,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-lingyao-55",
         nameCn: "靈鰩",
-        zhuyin: "ㄩˋ",
+        zhuyin: "ㄌㄧㄥˊ ㄧㄠˊ",
         nameEn: "Divine Lingyao",
         category: "divine",
         categoryCn: "神獸",
@@ -3446,7 +3446,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-huangfu-16",
         nameCn: "荒鳧",
-        zhuyin: "ㄗ ㄞ",
+        zhuyin: "ㄏㄨㄤ ㄈㄨˊ",
         nameEn: "Auspicious Huangfu",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3464,7 +3464,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-huangfu-56",
         nameCn: "荒鳧",
-        zhuyin: "ㄗ ㄞ",
+        zhuyin: "ㄏㄨㄤ ㄈㄨˊ",
         nameEn: "Perilous Huangfu",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3482,7 +3482,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-huangfu-36",
         nameCn: "荒鳧",
-        zhuyin: "ㄗ ㄞ",
+        zhuyin: "ㄏㄨㄤ ㄈㄨˊ",
         nameEn: "Divine Huangfu",
         category: "divine",
         categoryCn: "神獸",
@@ -3500,7 +3500,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-youwu-37",
         nameCn: "幽烏",
-        zhuyin: "ㄏ ㄨㄛˇ",
+        zhuyin: "ㄧㄡ ㄨ",
         nameEn: "Auspicious Youwu",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3518,7 +3518,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-youwu-17",
         nameCn: "幽烏",
-        zhuyin: "ㄏ ㄨㄛˇ",
+        zhuyin: "ㄧㄡ ㄨ",
         nameEn: "Perilous Youwu",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3536,7 +3536,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-youwu-57",
         nameCn: "幽烏",
-        zhuyin: "ㄏ ㄨㄛˇ",
+        zhuyin: "ㄧㄡ ㄨ",
         nameEn: "Divine Youwu",
         category: "divine",
         categoryCn: "神獸",
@@ -3554,7 +3554,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-bingkun-38",
         nameCn: "冰鵾",
-        zhuyin: "ㄕ ㄨㄟˇ",
+        zhuyin: "ㄅㄧㄥ ㄎㄨㄣ",
         nameEn: "Auspicious Bingkun",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3572,7 +3572,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-bingkun-58",
         nameCn: "冰鵾",
-        zhuyin: "ㄕ ㄨㄟˇ",
+        zhuyin: "ㄅㄧㄥ ㄎㄨㄣ",
         nameEn: "Perilous Bingkun",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3590,7 +3590,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-bingkun-18",
         nameCn: "冰鵾",
-        zhuyin: "ㄕ ㄨㄟˇ",
+        zhuyin: "ㄅㄧㄥ ㄎㄨㄣ",
         nameEn: "Divine Bingkun",
         category: "divine",
         categoryCn: "神獸",
@@ -3608,7 +3608,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-huodie-19",
         nameCn: "火鰈",
-        zhuyin: "ㄈ ㄥˊ",
+        zhuyin: "ㄏㄨㄛˇ ㄉㄧㄝˊ",
         nameEn: "Auspicious Huodie",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3626,7 +3626,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-huodie-59",
         nameCn: "火鰈",
-        zhuyin: "ㄈ ㄥˊ",
+        zhuyin: "ㄏㄨㄛˇ ㄉㄧㄝˊ",
         nameEn: "Perilous Huodie",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3644,7 +3644,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-huodie-39",
         nameCn: "火鰈",
-        zhuyin: "ㄈ ㄥˊ",
+        zhuyin: "ㄏㄨㄛˇ ㄉㄧㄝˊ",
         nameEn: "Divine Huodie",
         category: "divine",
         categoryCn: "神獸",
@@ -3662,7 +3662,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-qingma-40",
         nameCn: "青馬",
-        zhuyin: "ㄐ ㄧˊ",
+        zhuyin: "ㄑㄧㄥ ㄇㄚˇ",
         nameEn: "Auspicious Qingma",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3680,7 +3680,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-qingma-20",
         nameCn: "青馬",
-        zhuyin: "ㄐ ㄧˊ",
+        zhuyin: "ㄑㄧㄥ ㄇㄚˇ",
         nameEn: "Perilous Qingma",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3698,7 +3698,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-qingma-60",
         nameCn: "青馬",
-        zhuyin: "ㄐ ㄧˊ",
+        zhuyin: "ㄑㄧㄥ ㄇㄚˇ",
         nameEn: "Divine Qingma",
         category: "divine",
         categoryCn: "神獸",
@@ -3716,7 +3716,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-xuanyang-22",
         nameCn: "玄羊",
-        zhuyin: "ㄔ 一 ㄠˊ",
+        zhuyin: "ㄒㄩㄢ ㄧㄤˊ",
         nameEn: "Auspicious Xuanyang",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3734,7 +3734,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-xuanyang-2",
         nameCn: "玄羊",
-        zhuyin: "ㄔ 一 ㄠˊ",
+        zhuyin: "ㄒㄩㄢ ㄧㄤˊ",
         nameEn: "Perilous Xuanyang",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3752,7 +3752,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-xuanyang-42",
         nameCn: "玄羊",
-        zhuyin: "ㄔ 一 ㄠˊ",
+        zhuyin: "ㄒㄩㄢ ㄧㄤˊ",
         nameEn: "Divine Xuanyang",
         category: "divine",
         categoryCn: "神獸",
@@ -3770,7 +3770,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-baiquan-43",
         nameCn: "白犬",
-        zhuyin: "ㄕ 一 ㄠˊ",
+        zhuyin: "ㄅㄞˊ ㄑㄩㄢˇ",
         nameEn: "Auspicious Baiquan",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3788,7 +3788,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-baiquan-23",
         nameCn: "白犬",
-        zhuyin: "ㄕ 一 ㄠˊ",
+        zhuyin: "ㄅㄞˊ ㄑㄩㄢˇ",
         nameEn: "Perilous Baiquan",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3806,7 +3806,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-baiquan-3",
         nameCn: "白犬",
-        zhuyin: "ㄕ 一 ㄠˊ",
+        zhuyin: "ㄅㄞˊ ㄑㄩㄢˇ",
         nameEn: "Divine Baiquan",
         category: "divine",
         categoryCn: "神獸",
@@ -3824,7 +3824,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-jinli-4",
         nameCn: "金貍",
-        zhuyin: "ㄖ 一 ㄠˊ",
+        zhuyin: "ㄐㄧㄣ ㄌㄧˊ",
         nameEn: "Auspicious Jinli",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3842,7 +3842,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-jinli-44",
         nameCn: "金貍",
-        zhuyin: "ㄖ 一 ㄠˊ",
+        zhuyin: "ㄐㄧㄣ ㄌㄧˊ",
         nameEn: "Perilous Jinli",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3860,7 +3860,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-jinli-24",
         nameCn: "金貍",
-        zhuyin: "ㄖ 一 ㄠˊ",
+        zhuyin: "ㄐㄧㄣ ㄌㄧˊ",
         nameEn: "Divine Jinli",
         category: "divine",
         categoryCn: "神獸",
@@ -3878,7 +3878,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-yudiao-25",
         nameCn: "玉雕",
-        zhuyin: "ㄗ 一 ㄠˊ",
+        zhuyin: "ㄩˋ ㄉㄧㄠ",
         nameEn: "Auspicious Yudiao",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3896,7 +3896,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-yudiao-5",
         nameCn: "玉雕",
-        zhuyin: "ㄗ 一 ㄠˊ",
+        zhuyin: "ㄩˋ ㄉㄧㄠ",
         nameEn: "Perilous Yudiao",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3914,7 +3914,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-yudiao-45",
         nameCn: "玉雕",
-        zhuyin: "ㄗ 一 ㄠˊ",
+        zhuyin: "ㄩˋ ㄉㄧㄠ",
         nameEn: "Divine Yudiao",
         category: "divine",
         categoryCn: "神獸",
@@ -3932,7 +3932,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-feihe-26",
         nameCn: "飛鶴",
-        zhuyin: "ㄘ 一 ㄠˊ",
+        zhuyin: "ㄈㄟ ㄏㄜˋ",
         nameEn: "Auspicious Feihe",
         category: "auspicious",
         categoryCn: "瑞獸",
@@ -3950,7 +3950,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-feihe-46",
         nameCn: "飛鶴",
-        zhuyin: "ㄘ 一 ㄠˊ",
+        zhuyin: "ㄈㄟ ㄏㄜˋ",
         nameEn: "Perilous Feihe",
         category: "perilous",
         categoryCn: "凶獸",
@@ -3968,7 +3968,7 @@ const BEASTS_DATABASE = [
     {
         id: "gen-feihe-6",
         nameCn: "飛鶴",
-        zhuyin: "ㄘ 一 ㄠˊ",
+        zhuyin: "ㄈㄟ ㄏㄜˋ",
         nameEn: "Divine Feihe",
         category: "divine",
         categoryCn: "神獸",

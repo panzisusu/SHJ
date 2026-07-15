@@ -8518,12 +8518,56 @@ function initParticles() {
 }
 
 // 7. Helper to get currently filtered beasts list
+// Set of all synthesized beast image filenames existing on disk
+const SYNTHESIZED_IMAGES = new Set([
+    "gen-baiquan-23.webp", "gen-baiquan-3.webp", "gen-baiquan-43.webp",
+    "gen-bingkun-18.webp", "gen-bingkun-38.webp", "gen-chiniu-1.webp",
+    "gen-duyu-28.webp", "gen-duyu-8.webp", "gen-feihe-26.webp",
+    "gen-feihe-6.webp", "gen-fengbao-11.webp", "gen-fengbao-31.webp",
+    "gen-huangfu-16.webp", "gen-huangfu-36.webp", "gen-huodie-19.webp",
+    "gen-huodie-39.webp", "gen-jinli-24.webp", "gen-jinli-4.webp",
+    "gen-jiuque-27.webp", "gen-jiuque-7.webp", "gen-leijiao-10.webp",
+    "gen-leijiao-30.webp", "gen-lingyao-15.webp", "gen-lingyao-35.webp",
+    "gen-qingma-20.webp", "gen-qingma-40.webp", "gen-redox-21.webp",
+    "gen-redox-41.webp", "gen-shanyu-13.webp", "gen-shanyu-33.webp",
+    "gen-shenhu-14.webp", "gen-shenhu-34.webp", "gen-shuihu-12.webp",
+    "gen-shuihu-32.webp", "gen-tianshe-29.webp", "gen-tianshe-9.webp",
+    "gen-xuanyang-2.webp", "gen-xuanyang-22.webp", "gen-xuanyang-42.webp",
+    "gen-youwu-17.webp", "gen-youwu-37.webp", "gen-yudiao-25.webp",
+    "gen-yudiao-5.webp"
+]);
+
 function getFilteredBeasts() {
-    return BEASTS_DATABASE.filter(beast => {
+    // 1. Filter based on category and region
+    const filtered = BEASTS_DATABASE.filter(beast => {
         const matchesCategory = currentCategory === "all" || beast.category === currentCategory;
         const matchesRegion = currentRegion === "all" || beast.region === currentRegion;
-        return matchesCategory && matchesRegion;
+        if (!matchesCategory || !matchesRegion) return false;
+        
+        // Filter: If it is a derived beast, only show if it has a synthesized image on disk
+        if (beast.id.startsWith("gen-")) {
+            const imgFilename = beast.image.split("/").pop();
+            return SYNTHESIZED_IMAGES.has(imgFilename);
+        }
+        return true;
     });
+
+    // 2. Sort derived beasts: group same-name cards together
+    const standardPart = filtered.filter(beast => !beast.id.startsWith("gen-"));
+    const derivedPart = filtered.filter(beast => beast.id.startsWith("gen-"));
+    
+    derivedPart.sort((a, b) => {
+        // Group by base name (first 2 characters)
+        const baseA = a.nameCn.substring(0, 2);
+        const baseB = b.nameCn.substring(0, 2);
+        if (baseA !== baseB) {
+            return baseA.localeCompare(baseB, "zh-Hans-CN");
+        }
+        // Within same name, sort by ID to maintain stability
+        return a.id.localeCompare(b.id);
+    });
+    
+    return [...standardPart, ...derivedPart];
 }
 
 // Render Beasts Cards

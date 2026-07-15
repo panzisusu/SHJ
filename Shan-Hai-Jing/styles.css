@@ -2989,13 +2989,13 @@ body {
 }
 
 .filter-status {
-    order: 1; /* Forces text to render on the left */
+    order: 2; /* Forces text to render on the right */
 }
 
 .jump-buttons {
     display: flex;
     gap: 10px;
-    order: 2; /* Forces buttons to render on the right */
+    order: 1; /* Forces buttons to render on the left */
 }
 
 .jump-btn {

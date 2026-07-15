@@ -3063,3 +3063,37 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px var(--vermilion-glow);
 }
+
+/* Floating Back to Top Button */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--vermilion);
+    color: var(--bg-dark-gray);
+    border: 1px solid var(--vermilion);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(158, 42, 43, 0.3);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+}
+
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top-btn:hover {
+    background: var(--gold-primary);
+    border-color: var(--gold-primary);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px var(--gold-glow);
+}

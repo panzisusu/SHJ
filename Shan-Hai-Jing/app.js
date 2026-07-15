@@ -680,3 +680,38 @@ function setupModalListeners() {
         }, { passive: true });
     }
 }
+
+// 13. Back to Top Functionality
+function setupBackToTop() {
+    const backToTopBtn = document.getElementById("back-to-top");
+    const footerBackToTop = document.getElementById("footer-back-to-top");
+    
+    if (backToTopBtn) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        });
+        
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+    
+    if (footerBackToTop) {
+        footerBackToTop.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
+}
+
+// Call the function
+setupBackToTop();

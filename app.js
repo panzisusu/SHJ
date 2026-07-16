@@ -18,7 +18,7 @@ createApp({
                     link: './Shan-Hai-Jing/index.html',
                     color: '#d4af37',
                     bgStyle: {
-                        background: 'linear-gradient(rgba(253, 252, 247, 0.25), rgba(253, 252, 247, 0.8)), url("./Shan-Hai-Jing/assets/ink_wash_bg.png") center/cover no-repeat'
+                        background: 'linear-gradient(rgba(253, 252, 247, 0.25), rgba(253, 252, 247, 0.8)), url("./Shan-Hai-Jing/assets/webp/ink_wash_bg.webp") center/cover no-repeat'
                     }
                 },
                 {

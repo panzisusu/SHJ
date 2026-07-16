@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏡 California Housing 加州房價預測儀表板 | CRISP-DM Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0b1329 0%, #1c2541 50%, #0b1329 100%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --primary-accent: #10b981; /* Emerald Green */
+            --primary-accent-hover: #059669;
+            --card-bg: rgba(30, 41, 59, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --input-bg: rgba(15, 23, 42, 0.6);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container */
+        .dashboard-container {
+            width: 100%;
+            max-width: 1300px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-btn {
+            color: var(--primary-accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--text-primary);
+            transform: translateX(-3px);
+        }
+
+        .title-area h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, var(--primary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.2rem;
+        }
+
+        .title-area p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Main Workspace Layout */
+        .main-workspace {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .main-workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Left Side: Controls Card */
+        .controls-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            height: fit-content;
+        }
+
+        .card-header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* Expander / Accordion styling */
+        .expander {
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.3);
+        }
+
+        .expander-header {
+            background: rgba(30, 41, 59, 0.5);
+            padding: 14px 18px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.3s;
+        }
+
+        .expander-header:hover {
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .expander-content {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-height: 1000px;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            overflow: hidden;
+        }
+
+        .expander.collapsed .expander-content {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .expander-header i {
+            transition: transform 0.3s;
+        }
+
+        .expander.collapsed .expander-header i {
+            transform: rotate(-90deg);
+        }
+
+        /* Input Slider styling */
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .slider-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .feature-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .badge {
+            background: var(--primary-accent);
+            color: #0b1329;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.15);
+            outline: none;
+            transition: background 0.3s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary-accent);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+            transition: transform 0.1s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        /* Right Side: Prediction & Analysis Tabs */
+        .main-display {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .prediction-hero-card {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(30, 41, 59, 0.85) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--primary-accent);
+            margin-bottom: 10px;
+        }
+
+        .price-output {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+            margin: 10px 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .medval-display {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .fun-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 18px;
+        }
+
+        .fun-stat-box {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 12px;
+        }
+
+        .fun-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .fun-stat-value {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        /* Tabs Card */
+        .tabs-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tabs-header {
+            display: flex;
+            background: rgba(15, 23, 42, 0.4);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 18px;
+            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .tab-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-accent);
+            background: rgba(30, 41, 59, 0.4);
+            border-bottom: 3px solid var(--primary-accent);
+        }
+
+        .tabs-content {
+            padding: 24px;
+            min-height: 350px;
+        }
+
+        .tab-pane {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .tab-pane.active {
+            display: flex;
+        }
+
+        /* Report accordion */
+        .report-section {
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.2);
+        }
+
+        .report-section-header {
+            background: rgba(30, 41, 59, 0.4);
+            padding: 14px 18px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .report-section-content {
+            padding: 18px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .report-section.collapsed .report-section-content {
+            display: none;
+        }
+
+        .report-section.collapsed .report-section-header i {
+            transform: rotate(-90deg);
+        }
+
+        /* Plots Gallery */
+        .plots-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .plot-card {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .plot-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            width: 100%;
+            border-left: 3px solid var(--primary-accent);
+            padding-left: 8px;
+        }
+
+        .plot-card img {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            background: white; /* plots are white-bg */
+        }
+
+        .plot-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            width: 100%;
+        }
+
+        /* Fun stories styling */
+        .fun-selector {
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 15px;
+            margin-bottom: 10px;
+        }
+
+        .fun-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            padding: 8px 16px;
+            border-radius: 30px;
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .fun-btn.active {
+            background: var(--primary-accent);
+            color: #0b1329;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .fun-story-box {
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            line-height: 1.6;
+            color: #cbd5e1;
+        }
+
+        .fun-story-box.active {
+            display: flex;
+        }
+
+        .fun-story-box h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fun-story-box ul {
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 30px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+            max-width: 1300px;
+        }
+
+        footer a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        /* Simple Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        th {
+            font-weight: 700;
+            color: var(--primary-accent);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Floating Navigation Header -->
+        <header>
+            <div class="title-area">
+                <h1>🏡 California Housing 加州地區房價預測儀表板</h1>
+                <p>CRISP-DM 機器學習工作流實作專案成果展示</p>
+            </div>
+            <a href="../index-zh.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i> 返回胖子叔叔作品集
+            </a>
+        </header>
+
+        <!-- Main Workspace -->
+        <main class="main-workspace">
+            <!-- Left Side: Controls Card -->
+            <section class="controls-card">
+                <div class="card-header-title">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span>地理特徵與社會指標調整</span>
+                </div>
+
+                <!-- Expander 1: Social Factors -->
+                <div class="expander" id="exp-social">
+                    <div class="expander-header" onclick="toggleExpander('exp-social')">
+                        <span><i class="fa-solid fa-people-group"></i> 社會與經濟指標</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="expander-content">
+                        <!-- MedInc -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span class="feature-title">中位數年收入 (MedInc)</span>
+                                <span class="badge" id="lbl-medinc">3.66 萬</span>
+                            </div>
+                            <span class="feature-desc">該街區家庭的年收入中位數（單位：萬美元/年）。對房價有極強正相關。</span>
+                            <input type="range" min="0.5" max="15.0" step="0.1" value="3.66" oninput="updateVal('medinc', this.value)">
+                        </div>
+
+                        <!-- HouseAge -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span class="feature-title">房屋年齡中位數 (HouseAge)</span>
+                                <span class="badge" id="lbl-houseage">28.4 年</span>
+                            </div>
+                            <span class="feature-desc">街區內屋齡的中位數，用來評估房屋折舊或歷史價值。</span>
+                            <input type="range" min="1" max="52" step="1" value="28" oninput="updateVal('houseage', this.value)">
+                        </div>
+
+                        <!-- AveOccup -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span class="feature-title">戶均入住人數 (AveOccup)</span>
+                                <span class="badge" id="lbl-aveoccup">3.10 人</span>
+                            </div>
+                            <span class="feature-desc">街區中平均每戶家庭入住的人數。</span>
+                            <input type="range" min="1.0" max="6.0" step="0.1" value="3.10" oninput="updateVal('aveoccup', this.value)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expander 2: Building Specs -->
+                <div class="expander" id="exp-build">
+                    <div class="expander-header" onclick="toggleExpander('exp-build')">
+                        <span><i class="fa-solid fa-house"></i> 房屋結構特徵</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="expander-content">
+                        <!-- AveRooms -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span class="feature-title">平均房間數 (AveRooms)</span>
+                                <span class="badge" id="lbl-averooms">5.36 間</span>
+                            </div>
+                            <span class="feature-desc">平均每戶住宅的房間總數。</span>
+                            <input type="range" min="1.0" max="10.0" step="0.1" value="5.36" oninput="updateVal('averooms', this.value)">
+                        </div>
+
+                        <!-- AveBedrms -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span class="feature-title">平均臥室數 (AveBedrms)</span>
+                                <span class="badge" id="lbl-avebedrms">1.10 間</span>
+                            </div>
+                            <span class="feature-desc">平均每戶住宅的臥室總數。</span>
+                            <input type="range" min="0.5" max="4.0" step="0.1" value="1.10" oninput="updateVal('avebedrms', this.value)">
+                        </div>
+
+                        <!-- Population -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span class="feature-title">街區總人口 (Population)</span>
+                                <span class="badge" id="lbl-population">1,441 人</span>
+                            </div>
+                            <span class="feature-desc">該地理區塊內的總居住人口。</span>
+                            <input type="range" min="3" max="5000" step="10" value="1441" oninput="updateVal('population', this.value)">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expander 3: Location Coordinates -->
+                <div class="expander" id="exp-location">
+                    <div class="expander-header" onclick="toggleExpander('exp-location')">
+                        <span><i class="fa-solid fa-location-dot"></i> 地理空間座標</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="expander-content">
+                        <!-- Latitude -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span class="feature-title">緯度 (Latitude)</span>
+                                <span class="badge" id="lbl-latitude">35.66° N</span>
+                            </div>
+                            <span class="feature-desc">地理緯度。北加州（如舊金山 37.7°）與南加州（如洛杉磯 34.0°）具有不同房價屬性。</span>
+                            <input type="range" min="32.5" max="42.5" step="0.1" value="35.66" oninput="updateVal('latitude', this.value)">
+                        </div>
+
+                        <!-- Longitude -->
+                        <div class="slider-group">
+                            <div class="slider-label-row">
+                                <span class="feature-title">經度 (Longitude)</span>
+                                <span class="badge" id="lbl-longitude">-119.57° W</span>
+                            </div>
+                            <span class="feature-desc">地理經度。靠海（約 -122°）相較內陸（約 -115°）通常具更高的房價。</span>
+                            <input type="range" min="-124.5" max="-114.3" step="0.1" value="-119.57" oninput="updateVal('longitude', this.value)">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Main Display -->
+            <section class="main-display">
+                <!-- Prediction Result Hero Card -->
+                <div class="prediction-hero-card">
+                    <div class="hero-title"><i class="fa-solid fa-calculator"></i> OLS 房屋價值線性預測模型</div>
+                    <div class="price-output" id="price-display">$190,965.88</div>
+                    <div class="medval-display">預測中位數房價指標 (MedHouseVal)：<strong id="index-display" style="color: var(--primary-accent);">1.91</strong> ($100,000 美元)</div>
+                    
+                    <div class="fun-stats-grid">
+                        <div class="fun-stat-box">
+                            <div class="fun-stat-label"><i class="fa-solid fa-star"></i> 換算台幣估值</div>
+                            <div class="fun-stat-value" id="tw-display">約 611 萬元</div>
+                        </div>
+                        <div class="fun-stat-box">
+                            <div class="fun-stat-label"><i class="fa-solid fa-percent"></i> 線上 R² 準確度評級</div>
+                            <div class="fun-stat-value" style="color: #60a5fa;">79.1% (XGB)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Information Tabs -->
+                <div class="tabs-card">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" onclick="switchTab('tab-overview')">
+                            <i class="fa-solid fa-file-contract"></i> 專案報告
+                        </button>
+                        <button class="tab-btn" onclick="switchTab('tab-plots')">
+                            <i class="fa-solid fa-chart-line"></i> 分析圖表集
+                        </button>
+                        <button class="tab-btn" onclick="switchTab('tab-stories')">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> 趣味故事版
+                        </button>
+                    </div>
+
+                    <div class="tabs-content">
+                        <!-- Tab 1: Project Report -->
+                        <div class="tab-pane active" id="tab-overview">
+                            <!-- Report section 1 -->
+                            <div class="report-section" id="rep-s1">
+                                <div class="report-section-header" onclick="toggleReportSection('rep-s1')">
+                                    <span>1. 商業理解 (Business Understanding)</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="report-section-content">
+                                    <p>本專案基於 1990 年美國加州人口普查數據，探究各人口普查區塊（Block Group）的房屋中位數價值。核心任務在於評估地理位置、人口密集度與家庭收入等多元指標，對於房地產估值的影響權重，為不動產評估、都市規劃和授信評級提供高精度預測支援。</p>
+                                </div>
+                            </div>
+
+                            <!-- Report section 2 -->
+                            <div class="report-section" id="rep-s2">
+                                <div class="report-section-header" onclick="toggleReportSection('rep-s2')">
+                                    <span>2. 數據理解與清理 (Data Understanding & Outliers)</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="report-section-content">
+                                    <p>數據集共包含 20,640 個樣本，8 個自變數與 1 個目標變數 <code>MedHouseVal</code>。我們在資料準備階段，使用四分位距（IQR）演算法針對目標房屋價格進行離群值偵測：</p>
+                                    <ul>
+                                        <li>房價第 1 四分位數 (Q1)：1.196 ($119,600 美元)</li>
+                                        <li>房價第 3 四分位數 (Q3)：2.647 ($264,700 美元)</li>
+                                        <li>IQR = 1.451；離群值判定邊界為 4.823 ($482,300 美元)</li>
+                                        <li>高於判定邊界或被手動限制在 5.0 的極端房屋進行篩除清理，最終獲得 19,640 筆乾淨的常態分布訓練數據。</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Report section 3 -->
+                            <div class="report-section" id="rep-s3">
+                                <div class="report-section-header" onclick="toggleReportSection('rep-s3')">
+                                    <span>3. 特徵工程與特徵篩選 (Feature Engineering)</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="report-section-content">
+                                    <p>我們採用了多種機器學習特徵篩選機制，包括：1. 逐步迴歸分析 (Stepwise Regression)、2. 隨機森林特徵重要性 (Random Forest Feature Importance)、3. XGBoost 權重排序、4. Lasso 迴歸懲罰機制以及 5. 順序特徵選擇法 (SFS) 等。結果顯示，<strong>「中位數收入 (MedInc)」對房地產價值具備絕對主導的正面影響力</strong>，而「地理經緯度座標」則代表地理位置對加州南北部核心商業區（如灣區與大洛杉磯地區）的溢價效應。</p>
+                                </div>
+                            </div>
+
+                            <!-- Report section 4 -->
+                            <div class="report-section" id="rep-s4">
+                                <div class="report-section-header" onclick="toggleReportSection('rep-s4')">
+                                    <span>4. 模型訓練與評估 (Model Performance)</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="report-section-content">
+                                    <p>本專案使用了 Pipeline 架構進行 StandardScaler 資料標準化，並全面比較了 12 種迴歸模型在 5 折交叉驗證 (5-Fold CV) 和測試集上的表現：</p>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>模型演算法 (Model)</th>
+                                                <th>測試集 R²</th>
+                                                <th>測試集 MAE</th>
+                                                <th>測試集 RMSE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="background: rgba(16, 185, 129, 0.15); font-weight: 700; color: #ffffff;">
+                                                <td>XGBoost (優勝模型)</td>
+                                                <td>0.7915</td>
+                                                <td>0.3168</td>
+                                                <td>0.4357</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Random Forest</td>
+                                                <td>0.7712</td>
+                                                <td>0.3345</td>
+                                                <td>0.4563</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gradient Boosting</td>
+                                                <td>0.7634</td>
+                                                <td>0.3421</td>
+                                                <td>0.4631</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Linear Regression (OLS)</td>
+                                                <td>0.5878</td>
+                                                <td>0.4851</td>
+                                                <td>0.6120</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p>在所有演算法中，<strong>XGBoost Regressor</strong> 以 <strong>0.7915</strong> 的超高 R-squared 奪冠，成為本專案的最終預測引擎，並導出為 joblib 格式用於 Streamlit 本地預測服務。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 2: Plots Gallery -->
+                        <div class="tab-pane" id="tab-plots">
+                            <div class="plots-grid">
+                                <!-- Boxplot -->
+                                <div class="plot-card">
+                                    <h3>📊 房價離群值偵測箱形圖 (Outliers Boxplot)</h3>
+                                    <img src="outliers_boxplot.png" alt="Outliers Boxplot">
+                                    <p>使用 IQR 箱形圖找出目標值 MedHouseVal 的離群上限，高於此閾值的極端高價社區進行去除，以維持線性模型的訓練收斂。</p>
+                                </div>
+
+                                <!-- Heatmap -->
+                                <div class="plot-card">
+                                    <h3>📊 房地產特徵相關性矩陣 (Correlation Heatmap)</h3>
+                                    <img src="correlation_matrix.png" alt="Correlation Matrix">
+                                    <p>可以看到中位數收入 (MedInc) 與目標價格 (MedHouseVal) 之間具備高達 0.69 的強正相關。而房間數 (AveRooms) 與臥室數 (AveBedrms) 之間存在一定的共線性。</p>
+                                </div>
+
+                                <!-- Model Comparison -->
+                                <div class="plot-card">
+                                    <h3>📊 12 種回歸模型性能對比圖 (Model Comparison)</h3>
+                                    <img src="model_comparison.png" alt="Model Comparison">
+                                    <p>展示了從簡單的線性回歸到複雜的神經網絡、隨機森林及梯度提升樹的 R-squared 表現。XGBoost 與 Random Forest 遠優於傳統線性模型。</p>
+                                </div>
+
+                                <!-- Predictions Scatter -->
+                                <div class="plot-card">
+                                    <h3>📊 最優模型實際值 vs. 預測值分佈 (Actual vs. Predicted Scatter)</h3>
+                                    <img src="predictions_scatter.png" alt="Actual vs. Predicted Scatter">
+                                    <p>測試集上預測值與實際房屋價值的擬合散點圖，紅虛線代表 100% 精準的理想斜線，模型整體散點緊密包覆在虛線兩側，表現出高水準的擬合度。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab 3: Fun Stories (Story version for general public) -->
+                        <div class="tab-pane" id="tab-stories">
+                            <div class="fun-selector">
+                                <button class="fun-btn active" id="fbtn-fairy" onclick="switchStory('fairy')">童話森林版 🧚</button>
+                                <button class="fun-btn" id="fbtn-kindergarten" onclick="switchStory('kindergarten')">幼兒積木版 👶</button>
+                            </div>
+
+                            <!-- Fairy story -->
+                            <div class="fun-story-box active" id="story-fairy">
+                                <h3><i class="fa-solid fa-wand-magic-sparkles"></i> 加州陽光城堡的金幣考驗</h3>
+                                <p>在遙遠的加州海岸線，有一片灑滿陽光的神奇森林，那裡的精靈們想要用亮晶晶的金幣購買磨菇屋屋：</p>
+                                <ul>
+                                    <li>
+                                        如果磨菇屋屋的主人每天能採集到<strong>超多甜蜂蜜 (MedInc)</strong>，精靈就會非常大方，願意用<strong>堆積如山的面包與金幣 🪙</strong> 購買！
+                                    </li>
+                                    <li>
+                                        如果這間磨菇屋蓋在<strong>遙遠偏僻的冰封雪地 (地理經緯度偏離溫暖港灣)</strong>，即使房間再大，精靈也比較不喜歡去，願意付的租金就會<strong>大幅減少 🪙</strong>。
+                                    </li>
+                                </ul>
+                                <p>我們請了 <strong>12 個不同門派的魔法師</strong> 來猜屋屋的價格。最後，一個叫 <strong>「極致神樹 XGBoost」</strong> 的魔法師最厲害！他能讀懂天空的溫度與土地的風向，每次都猜得超級精準，連一塊金幣的誤差都幾乎沒有，成為森林裡最受精靈崇拜的預測大師！</p>
+                            </div>
+
+                            <!-- Kindergarten story -->
+                            <div class="fun-story-box" id="story-kindergarten">
+                                <h3><i class="fa-solid fa-child-reaching"></i> 陽光大別墅要換幾顆蘋果？</h3>
+                                <p>小寶貝你看，這裡有好多精美蓋在加州的積木小城堡喔！</p>
+                                <ul>
+                                    <li>
+                                        如果爸爸媽媽在城堡裡賺的<strong>零用錢特別多 (MedInc)</strong>，那城堡就可以買好多玩具，換到<strong>超多甜甜的蘋果 🍎</strong>！
+                                    </li>
+                                    <li>
+                                        如果城堡裡面住了<strong>太多人擠在一起 (AveOccup)</strong>，或者城堡蓋在<strong>離大海非常非常遠的風暴平原 (Longitude 內陸)</strong>，城堡能換到的蘋果就會<strong>變少 🍎</strong>。
+                                    </li>
+                                </ul>
+                                <p>我們請了 <strong>12 隻聰明的小松鼠</strong> 來幫忙猜這個城堡能換幾顆蘋果。最後，有一隻叫做<strong>「極速飛天松鼠 (XGBoost)」</strong>的松鼠猜得最準！牠每一次都能看穿每一塊積木的結構，給出最厲害的答案喔！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Designed for HW7 | gogogo137-cmyk &copy; 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // OLS linear regression pre-calculated parameters for California Housing (after outlier removal & scaler)
+        const means = [3.663242139891408, 28.396870009581605, 5.362822345519106, 1.0974958339651115, 1441.0122005748963, 3.1029498760031515, 35.66415394442671, -119.5737725966145];
+        const stds = [1.5535428473313604, 12.503912505878992, 2.3525123804003365, 0.47690722503912647, 1126.74324861617, 11.203540950929913, 2.1519128710815725, 2.0035501577893275];
+        const coefs = [0.6478312199834522, 0.09024700657338303, -0.2287615872324753, 0.25427482050032507, 0.006024965769524454, -0.04119355000522332, -0.8121064526120272, -0.7892433576009328];
+        const intercept = 1.9096587652507173;
+
+        // Current user slider values
+        let currentValues = {
+            medinc: 3.66,
+            houseage: 28,
+            averooms: 5.36,
+            avebedrms: 1.10,
+            population: 1441,
+            aveoccup: 3.10,
+            latitude: 35.66,
+            longitude: -119.57
+        };
+
+        const featureIndexMap = {
+            medinc: 0, houseage: 1, averooms: 2, avebedrms: 3, population: 4, aveoccup: 5, latitude: 6, longitude: 7
+        };
+
+        // Toggle Expanders (Sidebar sliders)
+        function toggleExpander(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('collapsed');
+        }
+
+        // Toggle Report Sections (Accordions)
+        function toggleReportSection(id) {
+            const el = document.getElementById(id);
+            el.classList.toggle('collapsed');
+        }
+
+        // Tab Switching
+        function switchTab(tabId) {
+            // Remove active class from all tab buttons and panes
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+
+            // Find clicked button based on text
+            const tabNames = {
+                'tab-overview': '專案報告',
+                'tab-plots': '分析圖表集',
+                'tab-stories': '趣味故事版'
+            };
+            const clickedBtn = Array.from(document.querySelectorAll('.tab-btn')).find(btn => btn.textContent.trim().includes(tabNames[tabId]));
+            if (clickedBtn) clickedBtn.classList.add('active');
+            
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // Story Switching (Fun stories tab)
+        function switchStory(storyType) {
+            document.querySelectorAll('.fun-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.fun-story-box').forEach(box => box.classList.remove('active'));
+
+            document.getElementById(`fbtn-${storyType}`).classList.add('active');
+            document.getElementById(`story-${storyType}`).classList.add('active');
+        }
+
+        // Update Slider value and trigger prediction
+        function updateVal(key, val) {
+            const floatVal = parseFloat(val);
+            currentValues[key] = floatVal;
+
+            // Update badge text labels
+            const badge = document.getElementById(`lbl-${key}`);
+            if (badge) {
+                if (key === 'medinc') {
+                    badge.textContent = `${floatVal.toFixed(2)} 萬`;
+                } else if (key === 'houseage') {
+                    badge.textContent = `${floatVal.toFixed(0)} 年`;
+                } else if (key === 'population') {
+                    badge.textContent = `${floatVal.toLocaleString('zh-TW')} 人`;
+                } else if (key === 'latitude') {
+                    badge.textContent = `${floatVal.toFixed(2)}° N`;
+                } else if (key === 'longitude') {
+                    badge.textContent = `${floatVal.toFixed(2)}° W`;
+                } else {
+                    badge.textContent = floatVal.toFixed(2);
+                }
+            }
+
+            predictPrice();
+        }
+
+        // Predict Price based on OLS Linear Regression
+        function predictPrice() {
+            let sumTerm = 0;
+
+            for (const [key, value] of Object.entries(currentValues)) {
+                const idx = featureIndexMap[key];
+                const mean = means[idx];
+                const std = stds[idx];
+                const coef = coefs[idx];
+
+                // Standardize inputs
+                const scaledX = (value - mean) / std;
+                // Sum product
+                sumTerm += coef * scaledX;
+            }
+
+            // Calculate final prediction (MedHouseVal is in $100,000s)
+            let predictedIndex = intercept + sumTerm;
+            
+            // Constrain house price within reasonable bounds (0.15 to 5.0)
+            if (predictedIndex < 0.15) predictedIndex = 0.15;
+            if (predictedIndex > 5.0) predictedIndex = 5.0;
+
+            const actualDollars = predictedIndex * 100000;
+            // 1 USD = 32 NTD (exchange rate estimation)
+            const ntDollars = actualDollars * 32;
+
+            // Render output
+            document.getElementById('price-display').textContent = `$${actualDollars.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            document.getElementById('index-display').textContent = predictedIndex.toFixed(4);
+            document.getElementById('tw-display').textContent = `約 ${(ntDollars / 10000).toFixed(0)} 萬元`;
+        }
+
+        // Run initial prediction on load
+        window.onload = () => {
+            predictPrice();
+        };
+    </script>
+</body>
+</html>

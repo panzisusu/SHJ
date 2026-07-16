@@ -1,0 +1,9 @@
+Rank,Pearson,Spearman,F-test,Mutual Info,RFE,SFS (Fwd),SBS (Bwd),Lasso (L1),Random Forest
+Rank 1,MedInc,MedInc,MedInc,Longitude,Latitude,MedInc,MedInc,Latitude,MedInc
+Rank 2,AveRooms,AveRooms,AveRooms,MedInc,Longitude,HouseAge,Latitude,Longitude,AveOccup
+Rank 3,Latitude,AveOccup,Latitude,Latitude,MedInc,Latitude,Longitude,MedInc,Latitude
+Rank 4,HouseAge,Latitude,HouseAge,AveRooms,AveBedrms,Longitude,HouseAge,AveBedrms,Longitude
+Rank 5,AveBedrms,AveBedrms,AveBedrms,AveOccup,AveRooms,AveBedrms,AveBedrms,AveRooms,HouseAge
+Rank 6,Longitude,Longitude,Longitude,HouseAge,HouseAge,AveRooms,AveRooms,HouseAge,AveRooms
+Rank 7,Population,HouseAge,Population,Population,AveOccup,AveOccup,AveOccup,AveOccup,Population
+Rank 8,AveOccup,Population,AveOccup,AveBedrms,Population,Population,Population,Population,AveBedrms

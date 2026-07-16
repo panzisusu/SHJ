@@ -1,4 +1,4 @@
-const CACHE_NAME = "shanhaijing-cache-v34";
+const CACHE_NAME = "shanhaijing-cache-v43";
 
 const ASSETS_TO_CACHE = [
   "./",
@@ -9,7 +9,8 @@ const ASSETS_TO_CACHE = [
   "app.js",
   "card-game.js",
   "manifest.json",
-  "assets/webp/placeholder_beast.webp"
+  "assets/webp/placeholder_beast.webp",
+  "assets/webp/shj_cover_v3.webp"
 ];
 
 // Install Service Worker and cache core assets

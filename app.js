@@ -202,7 +202,7 @@ createApp({
                     description: 'CRISP-DM methodology application on analyzing 50 startup business ventures.',
                     descriptionZh: '應用 CRISP-DM 方法論分析五十大新創企業的商業指標與數據探勘報告。',
                     icon: 'fa-chart-pie',
-                    link: 'https://github.com/gogogo137-cmyk/stratup50',
+                    link: './stratup50/report.html',
                     color: '#f59e0b'
                 },
                 {

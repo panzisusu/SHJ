@@ -46,46 +46,6 @@ createApp({
                     color: '#2563eb'
                 },
                 {
-                    id: 'joke-generator',
-                    name: 'Random Joke Generator',
-                    nameZh: '歡樂隨機笑話產生器',
-                    description: 'Break the ice! An interactive web app to generate witty puns, jokes, and computer science memes.',
-                    descriptionZh: '打破尷尬！一鍵產生精選程式開發梗、冷笑話與冷知識的互動式小工具。',
-                    icon: 'fa-face-laugh-squint',
-                    link: './joke-generator/index.html',
-                    color: '#ff6b6b'
-                },
-                {
-                    id: 'nonsense-selector',
-                    name: 'Nonsense Random Selector',
-                    nameZh: '隨選幹話金句全集機',
-                    description: 'A cyber-neon selector generating classic Taiwanese nonsense sayings, with mock metrics and philosophical analyses.',
-                    descriptionZh: '霓虹電競風格的台灣經典幹話金句產生器，附帶趣味指標與一本正經的偽科學賞析。',
-                    icon: 'fa-face-laugh-wink',
-                    link: './nonsense/index.html',
-                    color: '#bc13fe'
-                },
-                {
-                    id: 'cheerleader-selector',
-                    name: 'Cheerleader加權隨機應援機',
-                    nameZh: '啦啦隊員加權隨選應援機',
-                    description: 'A professional sporty selector that dynamically filters cheerleaders from CPBL, TPBL, and TVL, and calculates square root popularity weights.',
-                    descriptionZh: '高質感職業啦啦隊篩選器，支援職棒、職籃、職排與多國籍篩選，並以人氣開根號加權演算法隨機隨選應援。',
-                    icon: 'fa-ranking-star',
-                    link: './cheerleader/index.html',
-                    color: '#ff007f'
-                },
-                {
-                    id: 'jigsaw-puzzle',
-                    name: 'Cheerleader Jigsaw Puzzle',
-                    nameZh: '啦啦隊女孩精美拼圖挑戰',
-                    description: 'Interactive responsive jigsaw puzzle game using dynamic CSS variables, PointerEvents drag-and-drop, and custom canvas confetti victory animations.',
-                    descriptionZh: '高質感互動拼圖遊戲。採用響應式 CSS 變數切割與 PointerEvents 拖曳定位，拼圖成功後可觸發粒子紙花慶祝特效，並支援相片上傳。',
-                    icon: 'fa-puzzle-piece',
-                    link: './jigsaw-puzzle/index.html',
-                    color: '#00f0ff'
-                },
-                {
                     id: 'clustering-algorithm-gemini',
                     name: 'Clustering Algorithm Showcase (Gemini)',
                     nameZh: 'Clustering 分群演算法專案 Gemini版本',
@@ -111,6 +71,46 @@ createApp({
                     bgStyle: {
                         background: 'linear-gradient(135deg, #fff8d7 0%, #fff2b2 100%)'
                     }
+                },
+                {
+                    id: 'cheerleader-selector',
+                    name: 'Cheerleader加權隨機應援機',
+                    nameZh: '啦啦隊員加權隨選應援機',
+                    description: 'A professional sporty selector that dynamically filters cheerleaders from CPBL, TPBL, and TVL, and calculates square root popularity weights.',
+                    descriptionZh: '高質感職業啦啦隊篩選器，支援職棒、職籃、職排與多國籍篩選，並以人氣開根號加權演算法隨機隨選應援。',
+                    icon: 'fa-ranking-star',
+                    link: './cheerleader/index.html',
+                    color: '#ff007f'
+                },
+                {
+                    id: 'jigsaw-puzzle',
+                    name: 'Cheerleader Jigsaw Puzzle',
+                    nameZh: '啦啦隊女孩精美拼圖挑戰',
+                    description: 'Interactive responsive jigsaw puzzle game using dynamic CSS variables, PointerEvents drag-and-drop, and custom canvas confetti victory animations.',
+                    descriptionZh: '高質感互動拼圖遊戲。採用響應式 CSS 變數切割與 PointerEvents 拖曳定位，拼圖成功後可觸發粒子紙花慶祝特效，並支援相片上傳。',
+                    icon: 'fa-puzzle-piece',
+                    link: './jigsaw-puzzle/index.html',
+                    color: '#00f0ff'
+                },
+                {
+                    id: 'joke-generator',
+                    name: 'Random Joke Generator',
+                    nameZh: '歡樂隨機笑話產生器',
+                    description: 'Break the ice! An interactive web app to generate witty puns, jokes, and computer science memes.',
+                    descriptionZh: '打破尷尬！一鍵產生精選程式開發梗、冷笑話與冷知識的互動式小工具。',
+                    icon: 'fa-face-laugh-squint',
+                    link: './joke-generator/index.html',
+                    color: '#ff6b6b'
+                },
+                {
+                    id: 'nonsense-selector',
+                    name: 'Nonsense Random Selector',
+                    nameZh: '隨選幹話金句全集機',
+                    description: 'A cyber-neon selector generating classic Taiwanese nonsense sayings, with mock metrics and philosophical analyses.',
+                    descriptionZh: '霓虹電競風格的台灣經典幹話金句產生器，附帶趣味指標與一本正經的偽科學賞析。',
+                    icon: 'fa-face-laugh-wink',
+                    link: './nonsense/index.html',
+                    color: '#bc13fe'
                 },
                 {
                     id: 'mcdonalds',
@@ -209,7 +209,7 @@ createApp({
                     description: 'Algorithmic homework showcasing dataset processing and metrics compilation.',
                     descriptionZh: '精細資料集處理、核心指標計算與演算法效能評估作業。',
                     icon: 'fa-terminal',
-                    link: '../HW5/index.html',
+                    link: './HW5/index.html',
                     color: '#ec4899'
                 },
                 {
@@ -219,7 +219,7 @@ createApp({
                     description: 'Interactive simulator illustrating Bayes Theorem, conditional feature independence, Laplace smoothing, and a real-time spam email filter.',
                     descriptionZh: '高質感互動式貝氏分類器。支援自定義訓練表格、事前與條件機率分解，並包含一個採用拉普拉斯平滑的即時垃圾郵件過濾器。',
                     icon: 'fa-brain',
-                    link: '../Naive-Bayesian/index.html',
+                    link: './Naive-Bayesian/index.html',
                     color: '#6366f1'
                 }
             ]

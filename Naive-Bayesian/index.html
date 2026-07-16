@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naive-Bayesian單純貝葉欣分類法 | Interactive Playground</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="glass-bg-glow"></div>
+    <div class="glass-bg-glow secondary"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-brain glow-icon"></i>
+                <h1>Naive-Bayesian單純貝葉欣分類法</h1>
+            </div>
+            <p class="subtitle">互動式機器學習模擬器 — 探究貝氏定理與特徵條件獨立的魔力</p>
+            
+            <!-- Navigation Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('tabular')">
+                    <i class="fa-solid fa-table"></i> 📊 表格數據分類器
+                </button>
+                <button class="tab-btn" onclick="switchTab('text')">
+                    <i class="fa-solid fa-envelope"></i> ✉️ 垃圾郵件過濾器
+                </button>
+                <button class="tab-btn" onclick="switchTab('math')">
+                    <i class="fa-solid fa-square-root-variable"></i> 📐 演算法與數學公式
+                </button>
+            </div>
+        </header>
+
+        <!-- Tab 1: Tabular Classifier -->
+        <section id="tabular-tab" class="tab-content active">
+            <div class="grid-layout">
+                <!-- Left Column: Dataset Editor -->
+                <div class="panel glass-card">
+                    <div class="panel-header">
+                        <h2><i class="fa-solid fa-database text-blue"></i> 訓練數據集 (Training Dataset)</h2>
+                        <span class="badge" id="data-count">14 筆數據</span>
+                    </div>
+                    <p class="panel-desc">這是經典的「玩球決策 (Play Golf)」資料集。您可以點擊欄位直接修改數據，或是新增一列。</p>
+                    
+                    <div class="table-container">
+                        <table id="dataset-table">
+                            <thead>
+                                <tr>
+                                    <th>編號</th>
+                                    <th>天氣 (Outlook)</th>
+                                    <th>溫度 (Temp)</th>
+                                    <th>濕度 (Humidity)</th>
+                                    <th>有風 (Windy)</th>
+                                    <th>玩球 (Play)</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dataset-body">
+                                <!-- Generated Dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="panel-actions">
+                        <button class="btn btn-secondary" onclick="addRow()">
+                            <i class="fa-solid fa-plus"></i> 新增一筆數據
+                        </button>
+                        <button class="btn btn-outline" onclick="resetDataset()">
+                            <i class="fa-solid fa-rotate-left"></i> 重設預設值
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Predictor & Math Breakdown -->
+                <div class="panel-group">
+                    <!-- Predictor Panel -->
+                    <div class="panel glass-card card-glow-blue">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-wand-magic-sparkles text-cyan"></i> 即時分類預測</h2>
+                        </div>
+                        <p class="panel-desc">選擇要預測的新資料特徵，系統將動態重算機率並輸出預測結果。</p>
+                        
+                        <div class="selector-grid">
+                            <div class="form-group">
+                                <label for="sel-outlook">天氣 (Outlook)</label>
+                                <select id="sel-outlook" onchange="runPrediction()">
+                                    <option value="Sunny">晴天 (Sunny)</option>
+                                    <option value="Overcast">陰天 (Overcast)</option>
+                                    <option value="Rainy">雨天 (Rainy)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel-temp">溫度 (Temp)</label>
+                                <select id="sel-temp" onchange="runPrediction()">
+                                    <option value="Hot">炎熱 (Hot)</option>
+                                    <option value="Mild">溫暖 (Mild)</option>
+                                    <option value="Cool">涼爽 (Cool)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel-humidity">濕度 (Humidity)</label>
+                                <select id="sel-humidity" onchange="runPrediction()">
+                                    <option value="High">高濕度 (High)</option>
+                                    <option value="Normal">正常 (Normal)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel-windy">有風 (Windy)</label>
+                                <select id="sel-windy" onchange="runPrediction()">
+                                    <option value="False">無風 (False)</option>
+                                    <option value="True">有風 (True)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Prediction Outcome Display -->
+                        <div class="result-showcase" id="prediction-result">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Step-by-Step Probability Breakdown -->
+                    <div class="panel glass-card">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-calculator text-magenta"></i> 貝氏公式計算分解</h2>
+                        </div>
+                        <div class="step-breakdown" id="math-breakdown">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Text Classifier -->
+        <section id="text-tab" class="tab-content">
+            <div class="grid-layout">
+                <!-- Left Column: Word Frequency Database -->
+                <div class="panel glass-card">
+                    <div class="panel-header">
+                        <h2><i class="fa-solid fa-spell-check text-cyan"></i> 關鍵字機率資料庫</h2>
+                        <span class="badge badge-accent">Laplace Smoothing (+1) 啟用</span>
+                    </div>
+                    <p class="panel-desc">這是垃圾郵件（Spam）與正常郵件（Ham）的單字出現次數統計。可以用來決定新輸入句子的屬性。</p>
+
+                    <div class="table-container text-db-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>關鍵單字</th>
+                                    <th>垃圾郵件次數 (Spam)</th>
+                                    <th>正常郵件次數 (Ham)</th>
+                                    <th>P(字 | Spam)</th>
+                                    <th>P(字 | Ham)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="word-db-body">
+                                <!-- Injected dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="info-note">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <span>使用拉普拉斯平滑（Laplace Smoothing）可避免因為某單字在某類別出現次數為 0，而使乘積後的機率直接歸零。</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Text Input & Dynamic Classifier -->
+                <div class="panel-group">
+                    <div class="panel glass-card card-glow-pink">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-envelope-open-text text-magenta"></i> 郵件特徵即時過濾</h2>
+                        </div>
+                        <p class="panel-desc">請在下方欄位中輸入英文郵件內容，系統會進行分詞並即時評估其為垃圾郵件的機率。</p>
+
+                        <div class="form-group">
+                            <textarea id="email-input" placeholder="例如：Win free money cash prize click here now! 或 Hello friend, let's meet for lunch today..." oninput="runTextClassification()"></textarea>
+                        </div>
+
+                        <!-- Text Prediction Results -->
+                        <div class="result-showcase" id="text-result">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Text Calculation breakdown -->
+                    <div class="panel glass-card">
+                        <div class="panel-header">
+                            <h2><i class="fa-solid fa-diagram-next text-blue"></i> 文本分詞機率乘積 breakdown</h2>
+                        </div>
+                        <div class="step-breakdown" id="text-math-breakdown">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Math and Algorithm Theory -->
+        <section id="math-tab" class="tab-content">
+            <div class="panel glass-card math-theory-panel">
+                <h2><i class="fa-solid fa-graduation-cap text-yellow"></i> 貝氏分類器演算法解析</h2>
+                
+                <div class="math-intro-grid">
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-square-root-variable text-cyan"></i> 核心定理：貝氏定理</h3>
+                        <p>貝氏定理（Bayes' Theorem）說明了在已知某些條件下，某事件發生的機率：</p>
+                        <div class="math-block">
+                            $$P(C | X) = \frac{P(X | C) \cdot P(C)}{P(X)}$$
+                        </div>
+                        <ul>
+                            <li><strong>$P(C | X)$</strong>：事後機率 (Posterior Probability) —— 在觀察到特徵 $X$ 的情況下，屬於類別 $C$ 的機率。</li>
+                            <li><strong>$P(X | C)$</strong>：概似度 (Likelihood / Conditional Probability) —— 在給定類別 $C$ 下，觀察到特徵 $X$ 的機率。</li>
+                            <li><strong>$P(C)$</strong>：事前機率 (Prior Probability) —— 在沒有觀察到任何特徵前，某類別發生的機率。</li>
+                            <li><strong>$P(X)$</strong>：邊際似然度 (Marginal Likelihood) —— 特徵 $X$ 的總機率，常用於標準化。</li>
+                        </ul>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-microchip text-magenta"></i> 為什麼叫「單純 (Naive)」？</h3>
+                        <p>「單純」之處在於它假設：<strong>所有輸入的特徵在給定輸出類別的條件下，彼此完全獨立、互不影響。</strong></p>
+                        <div class="math-block">
+                            $$P(X_1, X_2, \dots, X_n | C) = P(X_1 | C) \cdot P(X_2 | C) \cdots P(X_n | C)$$
+                        </div>
+                        <p>雖然在現實中（例如天氣中的濕度常跟溫度相關）這個假設極難成立，但在實務應用中，這種簡化大幅降低了運算複雜度，且分類精準度仍然非常高！</p>
+                    </div>
+
+                    <div class="theory-card">
+                        <h3><i class="fa-solid fa-wave-square text-green"></i> 拉普拉斯平滑 (Laplace Smoothing)</h3>
+                        <p>若某個特徵（例如單字「免費」）在「正常郵件」中從未出現過，其 $P(\text{"免費"} | \text{Ham}) = 0$。在相乘時會使整體 $P(\text{Ham} | X)$ 直接變為 $0$，抹殺了其他所有特徵提供的資訊。</p>
+                        <p>拉普拉斯平滑在分母加上字彙庫大小 $V$，並在分子加 $1$ 來解決此問題：</p>
+                        <div class="math-block">
+                            $$P(w_i | C) = \frac{count(w_i, C) + 1}{\sum count(w, C) + V}$$
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 gogogo137-cmyk. Built for learning machine learning concepts.</p>
+        </footer>
+    </div>
+
+    <!-- JS Logic -->
+    <script src="app.js"></script>
+</body>
+</html>

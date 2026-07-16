@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍔 金黃選餐隨機機 (麥當勞版)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-decor">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo-area">
+                <span class="m-logo">M</span>
+                <h1>金黃選餐隨機機</h1>
+            </div>
+            <p class="tagline">價格越貴，抽中機率越低！省錢吃飽好幫手 🍟</p>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="dashboard">
+            <!-- Left Panel: Randomizer Console -->
+            <section class="console-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-dice"></i> 決定命運的瞬間</h2>
+                    <div class="toggle-container">
+                        <span class="toggle-label active" id="label-weighted">價格權重模式</span>
+                        <label class="switch">
+                            <input type="checkbox" id="mode-toggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="toggle-label" id="label-equal">等機率模式</span>
+                    </div>
+                </div>
+
+                <!-- Picker Wheel/Shuffle Display -->
+                <div class="picker-display-wrapper">
+                    <div class="picker-display" id="picker-display">
+                        <div class="placeholder-content">
+                            <i class="fa-solid fa-burger burger-spin"></i>
+                            <p>準備好要吃什麼了嗎？</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btn-spin" class="btn btn-primary btn-large">
+                        <i class="fa-solid fa-utensils"></i> 開始選餐！
+                    </button>
+                </div>
+            </section>
+
+            <!-- Right Panel: Menu Management -->
+            <section class="menu-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-list-ul"></i> 主餐選單與機率</h2>
+                    <button id="btn-reset" class="btn btn-outline btn-small">
+                        <i class="fa-solid fa-rotate-left"></i> 重設預設
+                    </button>
+                </div>
+
+                <!-- Add Item Form -->
+                <form id="add-item-form" class="add-item-form">
+                    <div class="input-group">
+                        <input type="text" id="new-item-name" placeholder="餐點名稱 (例如：大麥克)" required>
+                    </div>
+                    <div class="input-group price-input">
+                        <span class="currency">$</span>
+                        <input type="number" id="new-item-price" placeholder="價格" min="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-accent">
+                        <i class="fa-solid fa-plus"></i> 新增
+                    </button>
+                </form>
+
+                <!-- Menu Table/List -->
+                <div class="menu-list-wrapper">
+                    <div class="list-stats">
+                        <span id="total-items-count">共 0 項餐點</span>
+                        <span id="average-price">平均價格: NT$ 0</span>
+                    </div>
+                    <div class="menu-list-header">
+                        <div class="col-name">餐點名稱</div>
+                        <div class="col-price">價格</div>
+                        <div class="col-prob">中籤率</div>
+                        <div class="col-actions"></div>
+                    </div>
+                    <div class="menu-list" id="menu-list-items">
+                        <!-- Dynamic items loaded here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Win Modal -->
+    <div class="modal-overlay" id="win-modal">
+        <div class="modal-card">
+            <div class="modal-confetti" id="confetti-container"></div>
+            <div class="modal-body">
+                <div class="win-badge"><i class="fa-solid fa-crown"></i> 今日精選</div>
+                <div class="win-icon-wrapper">
+                    <i class="fa-solid fa-burger"></i>
+                </div>
+                <h3 id="win-name">餐點名稱</h3>
+                <div class="win-price-tag">NT$ <span id="win-price">0</span></div>
+                
+                <div class="win-details">
+                    <div class="detail-box">
+                        <span class="detail-label">抽中機率</span>
+                        <span class="detail-value" id="win-probability">0%</span>
+                    </div>
+                    <div class="detail-box">
+                        <span class="detail-label">CP值評語</span>
+                        <span class="detail-value remark" id="win-remark">正在評估...</span>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="btn-modal-close">太棒了，就吃這個！</button>
+                    <button class="btn btn-secondary" id="btn-modal-retry">不滿意，再抽一次</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

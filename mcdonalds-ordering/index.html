@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍔 麥當勞選餐隨機機 | 專案展示入口</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --primary-accent: #ffc72c; /* McDonald's Gold */
+            --secondary-accent: #da291c; /* McDonald's Red */
+            --glass-bg: rgba(30, 27, 75, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --card-glow: rgba(255, 199, 44, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 2rem 1rem;
+        }
+
+        /* Decorative background elements */
+        .decor-blur {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        .decor-1 {
+            top: 10%;
+            left: 15%;
+            background: var(--primary-accent);
+        }
+        .decor-2 {
+            bottom: 15%;
+            right: 10%;
+            background: var(--secondary-accent);
+        }
+
+        /* Container */
+        .portal-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            z-index: 1;
+        }
+
+        /* Premium Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-box {
+            background: linear-gradient(135deg, var(--secondary-accent), #ff5722);
+            color: var(--primary-accent);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(218, 41, 28, 0.4);
+            border: 2px solid var(--primary-accent);
+        }
+
+        .title-group h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, var(--primary-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .title-group p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 0.2rem;
+        }
+
+        .status-panel {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .badge-live {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .badge-live i {
+            animation: pulse 1.8s infinite;
+        }
+
+        .badge-github a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .badge-github a:hover {
+            color: #fff;
+            text-shadow: 0 0 8px var(--primary-accent);
+        }
+
+        /* Main Showcase Area */
+        .showcase-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 
+                        0 0 40px var(--card-glow);
+            padding: 12px;
+            overflow: hidden;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .showcase-card:hover {
+            border-color: rgba(255, 199, 44, 0.3);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 
+                        0 0 50px rgba(255, 199, 44, 0.25);
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 850px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        footer a {
+            color: var(--primary-accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.3; transform: scale(0.9); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.2rem;
+            }
+            .status-panel {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .iframe-wrapper {
+                height: 1250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decor-blur decor-1"></div>
+    <div class="decor-blur decor-2"></div>
+
+    <div class="portal-container">
+        <!-- Premium Portal Header -->
+        <header>
+            <div class="brand-info">
+                <div class="logo-box">M</div>
+                <div class="title-group">
+                    <h1>麥當勞選餐隨機機</h1>
+                    <p>HW3 作業展示入口網站</p>
+                </div>
+            </div>
+            <div class="status-panel">
+                <span class="badge badge-live">
+                    <i class="fa-solid fa-circle"></i> Live 運行中
+                </span>
+                <span class="badge badge-github">
+                    <a href="https://github.com/gogogo137-cmyk/HW3-choice-Mc" target="_blank">
+                        <i class="fa-brands fa-github"></i> 專案原始碼
+                    </a>
+                </span>
+            </div>
+        </header>
+
+        <!-- Live App Showcase (A Choice - Iframe Embedding) -->
+        <main class="showcase-card">
+            <div class="iframe-wrapper">
+                <!-- Pointing directly to app.html located in the same root directory -->
+                <iframe 
+                    src="app.html" 
+                    title="金黃選餐隨機機 (麥當勞版)" 
+                    allow="clipboard-write">
+                </iframe>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Designed for HW3 | gogogo137-cmyk &copy; 2026</p>
+            <p>本專案使用前端技術 (HTML, CSS, Vanilla JS) 構建，透過反比價格權重演算法決定選餐機率。</p>
+        </footer>
+    </div>
+</body>
+</html>

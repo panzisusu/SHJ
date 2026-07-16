@@ -119,7 +119,7 @@ createApp({
                     description: 'A smart randomizer solving McDonald\'s decision paralysis using weight-based algorithms.',
                     descriptionZh: '利用價格反比權重演算法，解決麥當勞選擇困難症的智慧選餐系統。',
                     icon: 'fa-burger',
-                    link: 'https://gogogo137-cmyk.github.io/HW3-choice-Mc/',
+                    link: './mcdonalds-ordering/index.html',
                     color: '#ffc72c'
                 },
                 {

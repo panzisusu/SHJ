@@ -73,14 +73,17 @@ createApp({
                     }
                 },
                 {
-                    id: 'cheerleader-selector',
-                    name: 'Cheerleader加權隨機應援機',
-                    nameZh: '啦啦隊員加權隨選應援機',
-                    description: 'A professional sporty selector that dynamically filters cheerleaders from CPBL, TPBL, and TVL, and calculates square root popularity weights.',
-                    descriptionZh: '高質感職業啦啦隊篩選器，支援職棒、職籃、職排與多國籍篩選，並以人氣開根號加權演算法隨機隨選應援。',
-                    icon: 'fa-ranking-star',
-                    link: './cheerleader/index.html',
-                    color: '#ff007f'
+                    id: 'fortune-telling',
+                    name: 'Cosmic Divination Oracle',
+                    nameZh: '星境啟示錄占卜坊',
+                    description: 'A premium mystical oracle application offering Tarot draws, daily horoscopes, and traditional throw-jiao divination.',
+                    descriptionZh: '高質感神秘學占卜系統。整合大阿爾克那塔羅牌三牌啟示、每日星象運勢度量衡，以及經典求籤與擲筊互動問卜。',
+                    icon: 'fa-wand-magic-sparkles',
+                    link: './fortune-telling/index.html',
+                    color: '#a855f7',
+                    bgStyle: {
+                        background: 'linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.85)), url("./fortune-telling/assets/webp/divination_bg.webp") center/cover no-repeat'
+                    }
                 },
                 {
                     id: 'jigsaw-puzzle',
@@ -133,14 +136,14 @@ createApp({
                     color: '#8b5cf6'
                 },
                 {
-                    id: 'fortune-telling',
-                    name: 'Cosmic Divination Oracle',
-                    nameZh: '星境啟示錄占卜坊',
-                    description: 'A premium mystical oracle application offering Tarot draws, daily horoscopes, and traditional throw-jiao divination.',
-                    descriptionZh: '高質感神秘學占卜系統。整合大阿爾克那塔羅牌三牌啟示、每日星象運勢度量衡，以及經典求籤與擲筊互動問卜。',
-                    icon: 'fa-wand-magic-sparkles',
-                    link: './fortune-telling/index.html',
-                    color: '#a855f7'
+                    id: 'cheerleader-selector',
+                    name: 'Cheerleader加權隨機應援機',
+                    nameZh: '啦啦隊員加權隨選應援機',
+                    description: 'A professional sporty selector that dynamically filters cheerleaders from CPBL, TPBL, and TVL, and calculates square root popularity weights.',
+                    descriptionZh: '高質感職業啦啦隊篩選器，支援職棒、職籃、職排與多國籍篩選，並以人氣開根號加權演算法隨機隨選應援。',
+                    icon: 'fa-ranking-star',
+                    link: './cheerleader/index.html',
+                    color: '#ff007f'
                 },
                 {
                     id: 'svm-visualizer',

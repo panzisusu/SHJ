@@ -156,13 +156,14 @@ createApp({
                     color: '#10b981'
                 },
                 {
-                    id: 'netwarm-movie',
-                    name: 'Classic Movie Database',
-                    nameZh: '經典電影資料庫互動展示',
-                    description: 'A static portfolio version of a scraped classic movie dataset with search, filtering, ratings, genres, and plot summaries.',
-                    descriptionZh: '將爬蟲整理出的 100 部經典電影資料放上作品集，先以靜態頁面呈現搜尋、類型篩選、評分與劇情摘要。',
+                    id: 'hw09-netwarm-movie',
+                    name: 'HW09 netwarm-movie',
+                    nameZh: 'HW09 netwarm-movie 電影爬蟲與資料庫',
+                    description: 'A scraped classic movie database containing 100 curated classic films from Scrape Center, featuring full-stack search, filtering, AI chat integrations, and database analytics.',
+                    descriptionZh: '精美電影爬蟲與資料庫系統（資料源自 ssr1.scrape.center 經典百部電影）。支援全端智慧搜尋、類型過濾、Gemini AI 對話導覽，以及完整的 Python 爬蟲與 SQLite 後端架構。',
                     icon: 'fa-film',
-                    link: './netwarm-movie/index.html',
+                    link: './HW09 netwarm-movie/index.html',
+                    github: 'https://github.com/panzisusu/HW09-netwarm-movie',
                     color: '#14b8a6'
                 },
                 {

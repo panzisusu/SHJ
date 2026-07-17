@@ -21,7 +21,7 @@ function normalizeMovie(raw, index) {
         duration: raw["片長(分鐘)"] || "",
         releaseDate: raw["上映日期"] || "",
         score: Number.parseFloat(raw["評分"]) || 0,
-        localCoverUrl: `https://netwarm-movie.vercel.app/covers/cover_${raw.ID || index + 1}.jpg`,
+        localCoverUrl: `./covers/cover_${raw.ID || index + 1}.jpg`,
         coverUrl: raw["封面連結"] || "",
         directors: raw["導演"] || "",
         actors: raw["演員"] || "",

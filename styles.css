@@ -443,29 +443,51 @@ nav {
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
 }
 
+.gallery-item-overlay .project-links-wrapper {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    transform: translateY(15px);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
 .gallery-item-overlay .view-project-btn {
     display: inline-block;
-    padding: 8px 18px;
+    padding: 8px 14px;
     background-color: var(--accent-color);
     color: white;
     text-decoration: none;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    transform: translateY(15px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+    transition: all 0.2s ease-in-out;
 }
 
 .gallery-item-overlay .view-project-btn:hover {
     background-color: var(--accent-hover);
-    transform: translateY(15px) scale(1.05);
+    transform: scale(1.05);
+}
+
+.gallery-item-overlay .view-project-btn.demo {
+    background-color: #ff4b4b;
+}
+.gallery-item-overlay .view-project-btn.demo:hover {
+    background-color: #e03e3e;
+}
+
+.gallery-item-overlay .view-project-btn.github {
+    background-color: #24292e;
+}
+.gallery-item-overlay .view-project-btn.github:hover {
+    background-color: #1b1f23;
 }
 
 .gallery-item:hover .gallery-item-overlay h3,
 .gallery-item:hover .gallery-item-overlay p,
-.gallery-item:hover .gallery-item-overlay .view-project-btn {
+.gallery-item:hover .gallery-item-overlay .project-links-wrapper {
     transform: translateY(0);
 }
 

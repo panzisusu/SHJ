@@ -1318,12 +1318,19 @@ function delay(ms) {
 
 // 全域啟動
 document.addEventListener("DOMContentLoaded", () => {
-    const cardGameTab = document.querySelector('[data-target="tab-cardgame"]');
-    if (cardGameTab) {
-        cardGameTab.addEventListener("click", () => {
-            if (gameState.playerDeck.length === 0) {
-                initCardGame();
-            }
-        });
+    // 檢查是否是在 standalone 遊戲頁面 (有 game-wrapper 或是 game.html)
+    const isStandaloneGamePage = document.querySelector('.game-wrapper') !== null || window.location.pathname.includes('game.html');
+    
+    if (isStandaloneGamePage) {
+        initCardGame();
+    } else {
+        const cardGameTab = document.querySelector('[data-target="tab-cardgame"]');
+        if (cardGameTab) {
+            cardGameTab.addEventListener("click", () => {
+                if (gameState.playerDeck.length === 0) {
+                    initCardGame();
+                }
+            });
+        }
     }
 });

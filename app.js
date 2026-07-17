@@ -193,6 +193,7 @@ createApp({
                     descriptionZh: '多變數地理迴歸分析，針對加利福尼亞州不同地區的房屋價值預測模型。',
                     icon: 'fa-map-location-dot',
                     link: './HW7-califonia/index.html',
+                    github: 'https://github.com/panzisusu/HW7-califonia',
                     color: '#10b981'
                 },
                 {
@@ -203,6 +204,8 @@ createApp({
                     descriptionZh: '應用 CRISP-DM 方法論分析五十大新創企業的商業指標與數據探勘報告。',
                     icon: 'fa-chart-pie',
                     link: './stratup50/report.html',
+                    github: 'https://github.com/panzisusu/stratup50',
+                    demo: 'https://stratup50-35hjkzmfzrwhwpcf22ruhg.streamlit.app/',
                     color: '#f59e0b'
                 },
                 {

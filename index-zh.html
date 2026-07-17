@@ -72,7 +72,18 @@
                     <div class="gallery-item-overlay">
                         <h3>{{ project.nameZh }}</h3>
                         <p>{{ project.descriptionZh }}</p>
-                        <a :href="project.link" class="view-project-btn" target="_blank">開啟專案</a>
+                        <div class="project-links-wrapper">
+                            <a :href="project.link" class="view-project-btn" target="_blank">
+                                <span v-if="project.github || project.demo">專案報告</span>
+                                <span v-else>開啟專案</span>
+                            </a>
+                            <a v-if="project.demo" :href="project.demo" class="view-project-btn demo" target="_blank">
+                                <i class="fa-solid fa-rocket"></i> 線上 Demo
+                            </a>
+                            <a v-if="project.github" :href="project.github" class="view-project-btn github" target="_blank">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

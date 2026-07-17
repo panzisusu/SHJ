@@ -60,13 +60,13 @@ createApp({
                     }
                 },
                 {
-                    id: 'clustering-algorithm',
-                    name: 'Clustering Algorithm Showcase',
-                    nameZh: 'Clustering 分群演算法專案 copilte版本',
+                    id: 'clustering-algorithm-copilot',
+                    name: 'Clustering Algorithm Showcase (Copilot)',
+                    nameZh: 'Clustering 分群演算法專案 Copilot版本',
                     description: 'A study of clustering algorithms with practical comparisons and learning notes.',
                     descriptionZh: '收錄分群演算法學習分析，整理 K-Means、K-Medoids、DBSCAN、GMM 與 Spectral Clustering 的適用情境與重點。',
                     icon: 'fa-layer-group',
-                    link: './clustering-algorithm/index.html',
+                    link: './clustering-algorithm-copilot/index.html',
                     color: '#c084fc',
                     bgStyle: {
                         background: 'linear-gradient(135deg, #fff8d7 0%, #fff2b2 100%)'

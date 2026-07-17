@@ -397,13 +397,13 @@ nav {
     letter-spacing: 0.5px;
 }
 
-.card-img-placeholder.clustering-algorithm,
+.card-img-placeholder.clustering-algorithm-copilot,
 .card-img-placeholder.clustering-algorithm-gemini {
     color: #1f1f1f;
 }
 
-.card-img-placeholder.clustering-algorithm i,
-.card-img-placeholder.clustering-algorithm span,
+.card-img-placeholder.clustering-algorithm-copilot i,
+.card-img-placeholder.clustering-algorithm-copilot span,
 .card-img-placeholder.clustering-algorithm-gemini i,
 .card-img-placeholder.clustering-algorithm-gemini span {
     color: #1f1f1f;

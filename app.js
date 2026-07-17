@@ -278,7 +278,7 @@ createApp({
                 delay: 0.6, 
                 ease: "power3.out" 
             });
-            gsap.to('.hero-content .cta-button', { 
+            gsap.to('.hero-actions', { 
                 opacity: 1, 
                 y: 0, 
                 duration: 1, 

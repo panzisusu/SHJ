@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>經典電影資料庫 | Gogogo137</title>
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>經典電影資料庫 | Gogogo137</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -19,7 +13,7 @@
     <header class="topbar">
         <div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-start;">
             <a class="back-link" href="../index-zh.html#portfolio">返回作品集</a>
-            <a class="back-link" href="../index-zh.html">胖子叔叔github作品集</a>
+            <a class="back-link" href="https://github.com/panzisusu/HW09-netwarm-movie" target="_blank">GitHub 文字說明</a>
         </div>
         <div>
             <p class="eyebrow">Scrape Center Dataset</p>
@@ -86,6 +80,51 @@
             <a class="detail-link" target="_blank" rel="noopener">原始資料頁</a>
         </article>
     </template>
+
+    <!-- Floating Chatbot Widget -->
+    <div id="chatbot-widget" class="chatbot-widget">
+        <button id="chatbot-toggle" class="chatbot-toggle-btn">
+            <span class="chat-icon">💬</span>
+            <span class="chat-text">電影 AI 助手</span>
+        </button>
+        
+        <div id="chatbot-window" class="chatbot-window" style="display: none;">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <span>🤖</span>
+                    <h3>電影 AI 助手</h3>
+                </div>
+                <div class="chatbot-header-actions" style="display: flex; gap: 8px; align-items: center;">
+                    <button id="key-config-btn" title="設定 Gemini API Key" style="background: none; border: none; font-size: 1.1rem; cursor: pointer; padding: 4px;">🔑</button>
+                    <button id="close-chatbot" class="close-chat-btn" style="line-height: 1;">✕</button>
+                </div>
+            </div>
+            
+            <!-- Gemini API Key configuration panel -->
+            <div id="key-config-panel" style="display: none; flex-direction: column; gap: 8px; padding: 12px; border-bottom: 2px solid var(--line); background: var(--panel); font-size: 0.85rem;">
+                <p style="margin: 0; font-weight: 700; color: var(--ink);">設定您的 Gemini API Key：</p>
+                <div style="display: flex; gap: 6px;">
+                    <input type="password" id="gemini-key-input" placeholder="貼上您的 Gemini API 金鑰..." style="flex: 1; padding: 6px 10px; border: 2px solid var(--line); border-radius: 8px; font-size: 0.8rem; background: var(--bg); color: var(--ink);">
+                    <button id="save-key-btn" style="padding: 6px 12px; background: var(--teal); border: 2px solid var(--line); border-radius: 8px; color: white; font-weight: bold; cursor: pointer;">儲存</button>
+                </div>
+                <p style="margin: 0; font-size: 0.75rem; color: var(--muted);">* 金鑰儲存在您本地瀏覽器的 localStorage，安全且不會傳送到任何伺服器。無金鑰時會使用本地規則庫回答。</p>
+            </div>
+            
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="message bot-message">
+                    <p>您好！我是電影 AI 助手。您可以問我關於這 100 部經典電影的問題。例如：<br>
+                    • <i>評分最高的是哪幾部電影？</i><br>
+                    • <i>有哪些香港或台灣電影？</i><br>
+                    • <i>哪一部電影電影適合全家一起觀看？</i></p>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-area">
+                <input type="text" id="chatbot-input" placeholder="輸入您的電影問題...">
+                <button id="send-chat" class="send-chat-btn">傳送</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Floating Chat Records Link -->
     <div class="chat-records-widget">

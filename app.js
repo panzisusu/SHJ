@@ -209,6 +209,17 @@ createApp({
                     color: '#f59e0b'
                 },
                 {
+                    id: 'hw10-weather',
+                    name: 'CWA Weather Real-time Observation Platform',
+                    nameZh: '台灣 CWA 即時氣象與降雨觀測平台',
+                    description: 'A real-time weather and rainfall dashboard for Taiwan using Central Weather Administration APIs.',
+                    descriptionZh: '利用中央氣象署 API 開發的台灣即時氣象與降雨觀測儀表板，支援測站地圖與歷史趨勢預測。',
+                    icon: 'fa-cloud-showers-water',
+                    link: 'https://cwa-weather-nu.vercel.app',
+                    github: 'https://github.com/panzisusu/cwa-weather',
+                    color: '#0ea5e9'
+                },
+                {
                     id: 'hw5',
                     name: 'Top 10 ML Algorithms',
                     nameZh: '機器學習十大必學演算法',

@@ -39,7 +39,7 @@ createApp({
                 {
                     id: 'cwa-weather-dashboard',
                     name: 'Taiwan CWA Weather Archive (2026/07/08)',
-                    nameZh: '台灣氣象觀測歷史存檔儀表板 (7/8 紀錄版)',
+                    nameZh: '台灣氣象觀測歷史存檔儀表板 (只有7/17的數據)',
                     description: 'A historical snapshot of the full-stack weather system frozen on July 8, featuring compiled SQLite observations and static historical trends.',
                     descriptionZh: '歷史存檔版天氣儀表板。靜態封裝了 2026 年 7 月 8 日以前的氣象觀測與 SQLite 歷史紀錄，適合作為歷史數據之回溯與展示。',
                     icon: 'fa-box-archive',
@@ -49,7 +49,7 @@ createApp({
                 {
                     id: 'hw10-weather',
                     name: 'Taiwan CWA Weather Live (Cloud-Synced)',
-                    nameZh: '台灣 CWA 即時雲端同步觀測平台',
+                    nameZh: '台灣氣象即時雲端同步觀測平台(即時性測試中)',
                     description: 'A live weather monitoring dashboard utilizing real-time CWA APIs and synced with a PostgreSQL cloud database for persistent trend tracking.',
                     descriptionZh: '即時雲端同步版天氣儀表板。整合氣象署實時 API 並透過 PostgreSQL 外部雲端資料庫儲存，可隨時點擊更新以獲取最新的天氣觀測與變化趨勢。',
                     icon: 'fa-cloud-sun-rain',

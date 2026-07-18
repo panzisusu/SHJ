@@ -54,7 +54,7 @@ createApp({
                     descriptionZh: '即時雲端同步版天氣儀表板。整合氣象署實時 API 並透過 PostgreSQL 外部雲端資料庫儲存，可隨時點擊更新以獲取最新的天氣觀測與變化趨勢。',
                     icon: 'fa-cloud-sun-rain',
                     link: './cwa-weather-live/index.html',
-                    github: 'https://github.com/panzisusu/panzisusu-portfolio',
+                    github: 'https://github.com/panzisusu/cwa-weather',
                     color: '#0ea5e9'
                 },
                 {

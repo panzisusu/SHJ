@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣 CWA 氣象即時觀測 & AI 預測儀表板</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Custom Style CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Typhoon Alert Banner (Hidden by default, shown if active typhoon exists) -->
+        <div id="typhoon-banner" class="typhoon-banner hidden">
+            <div class="typhoon-content">
+                <i class="fa-solid fa-triangle-exclamation warning-icon-flash"></i>
+                <span id="typhoon-title">最新颱風消息：讀取中...</span>
+                <button id="btn-show-typhoon" class="btn btn-warning-sm">
+                    <i class="fa-solid fa-hurricane"></i> 點此查看路徑預測圖
+                </button>
+            </div>
+            <button id="btn-close-typhoon" class="btn-close-banner"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Glassmorphic Header -->
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-cloud-sun-rain header-icon"></i>
+                <div class="logo-text">
+                    <h1>CWA Weather AI</h1>
+                    <span>台灣即時氣象觀測 & 趨勢預報系統</span>
+                </div>
+                <div class="header-links">
+                    <a href="../index-zh.html" class="header-link">
+                        <i class="fa-solid fa-graduation-cap"></i> 胖子叔叔作品集
+                    </a>
+                    <a href="https://github.com/panzisusu/cwa-weather" target="_blank" class="header-link">
+                        <i class="fa-brands fa-github"></i> GITHUB文字內容
+                    </a>
+                </div>
+            </div>
+            <div class="header-controls">
+                <span class="status-indicator">
+                    <span class="status-dot green"></span>
+                    <span id="update-time-text">資料更新時間：讀取中...</span>
+                </span>
+                <button id="btn-typhoon" class="btn btn-typhoon-alert">
+                    <i class="fa-solid fa-hurricane"></i> 颱風特報
+                </button>
+                <button id="btn-update" class="btn btn-primary">
+                    <i class="fa-solid fa-arrows-rotate"></i> 更新觀測資料
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Content Grid -->
+        <main class="dashboard-grid">
+            
+            <!-- Left Side: Map & Station Finder -->
+            <section class="left-panel card">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-map-location-dot"></i> 全台氣象與雨量測站地圖</h2>
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="station-search" placeholder="搜尋觀測站或縣市...">
+                    </div>
+                </div>
+                <div class="filter-row">
+                    <select id="county-filter">
+                        <option value="">全部縣市</option>
+                    </select>
+                    <button id="btn-county-forecast" class="btn btn-county-forecast">
+                        <i class="fa-solid fa-calendar-week"></i> 一週預報
+                    </button>
+                    <span class="station-count" id="station-count-label">載入中...</span>
+                </div>
+                <div id="map-container">
+                    <div id="map"></div>
+                </div>
+                <div class="left-panel-footer">
+                    <a href="https://github.com/panzisusu/cwa-weather/blob/main/weather-his.md" target="_blank" class="chat-history-link">
+                        <i class="fa-solid fa-comments"></i> 我與GEMINI的對話
+                    </a>
+                    <span class="link-separator">|</span>
+                    <a href="https://github.com/panzisusu/cwa-weather/blob/main/11.pdf" target="_blank" class="chat-history-link">
+                        <i class="fa-solid fa-file-pdf"></i> 我與chatGPT的對話
+                    </a>
+                </div>
+            </section>
+
+            <!-- Right Side: Station Info, Current Stats & Plotly Charts -->
+            <section class="right-panel">
+                
+                <!-- Station Details Header -->
+                <div class="station-details-card card" id="no-station-selected">
+                    <div class="empty-state">
+                        <i class="fa-solid fa-location-crosshairs empty-icon"></i>
+                        <h3>請選擇觀測站 / 雨量站</h3>
+                        <p>在左側地圖上點選任何一個氣象或雨量觀測站，或使用搜尋功能，以查看即時觀測數據、24小時歷史趨勢、7天預報趨勢及 AI 預測分析。</p>
+                    </div>
+                </div>
+
+                <div class="station-dashboard-content hidden" id="station-dashboard">
+                    <!-- Current Station Title and Info -->
+                    <div class="station-info-header card">
+                        <div class="info-title">
+                            <h2 id="current-station-name">台北 (C0A9F0)</h2>
+                            <p id="current-station-meta">台北市 中正區 | 海拔: 5.0m</p>
+                        </div>
+                        <div class="prediction-badge-container">
+                            <button id="btn-predict" class="btn btn-secondary">
+                                <i class="fa-solid fa-brain"></i> AI 趨勢預測
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Current Weather Quick Stats Grid -->
+                    <div class="stats-grid">
+                        <!-- Temp Card -->
+                        <div class="stat-card card">
+                            <div class="stat-icon temp-bg"><i class="fa-solid fa-temperature-half"></i></div>
+                            <div class="stat-data">
+                                <h3>氣溫</h3>
+                                <p class="stat-value"><span id="stat-temp">--</span> <span class="unit">°C</span></p>
+                            </div>
+                        </div>
+                        <!-- Humidity Card -->
+                        <div class="stat-card card">
+                            <div class="stat-icon humidity-bg"><i class="fa-solid fa-droplet"></i></div>
+                            <div class="stat-data">
+                                <h3>相對濕度</h3>
+                                <p class="stat-value"><span id="stat-humidity">--</span> <span class="unit">%</span></p>
+                            </div>
+                        </div>
+                        <!-- Rainfall Card (Enhanced with hourly intervals) -->
+                        <div class="stat-card card">
+                            <div class="stat-icon rain-bg"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
+                            <div class="stat-data">
+                                <h3>降雨量 (日累積)</h3>
+                                <p class="stat-value"><span id="stat-rain">--</span> <span class="unit">mm</span></p>
+                                <span class="stat-sub" id="stat-rain-detail">1H: -- mm | 3H: -- mm</span>
+                            </div>
+                        </div>
+                        <!-- Wind Card -->
+                        <div class="stat-card card">
+                            <div class="stat-icon wind-bg"><i class="fa-solid fa-wind"></i></div>
+                            <div class="stat-data">
+                                <h3>風速/風向</h3>
+                                <p class="stat-value"><span id="stat-wind">--</span> <span class="unit">m/s</span></p>
+                                <span class="stat-sub" id="stat-wind-dir">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Prediction Popover/Card (Collapsible) -->
+                    <div id="ai-prediction-card" class="card ai-card hidden">
+                        <div class="ai-header">
+                            <h3><i class="fa-solid fa-microchip-ai"></i> AI 趨勢預測分析結果</h3>
+                            <button id="btn-close-ai" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="ai-body">
+                            <p class="ai-desc">基於該站最近 3 小時的觀測趨勢，模型預估接下來 1 小時的天氣參數如下：</p>
+                            <div class="ai-grid">
+                                <div class="ai-stat-item">
+                                    <span class="ai-label">預估氣溫</span>
+                                    <span class="ai-val" id="ai-pred-temp">-- °C</span>
+                                </div>
+                                <div class="ai-stat-item">
+                                    <span class="ai-label">預估相對濕度</span>
+                                    <span class="ai-val" id="ai-pred-humidity">-- %</span>
+                                </div>
+                                <div class="ai-stat-item">
+                                    <span class="ai-label">預估降雨量</span>
+                                    <span class="ai-val" id="ai-pred-rain">-- mm</span>
+                                </div>
+                                <div class="ai-stat-item">
+                                    <span class="ai-label">預估風速</span>
+                                    <span class="ai-val" id="ai-pred-wind">-- m/s</span>
+                                </div>
+                            </div>
+                            <div class="ai-footer">
+                                <span class="ai-badge">演算法模型: Naive Moving Average (3h)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7-Day Forecast Section (Future Trend) -->
+                    <div class="forecast-section card" id="forecast-card-section">
+                        <div class="forecast-header">
+                            <h3><i class="fa-solid fa-calendar-week"></i> 未來 7 天預報趨勢 (<span id="forecast-county-label">--</span>)</h3>
+                            <span class="forecast-tip">逐 12 小時預測</span>
+                        </div>
+                        <div class="forecast-container" id="forecast-container">
+                            <!-- Dynamic forecast items go here -->
+                        </div>
+                    </div>
+
+                    <!-- Plotly Charts Section -->
+                    <div class="charts-card card">
+                        <div class="charts-header">
+                            <h3><i class="fa-solid fa-chart-line"></i> 歷史觀測變化趨勢 (過去 24 小時)</h3>
+                        </div>
+                        <div class="chart-wrapper">
+                            <div id="temp-humidity-chart"></div>
+                        </div>
+                        <div class="chart-wrapper margin-top">
+                            <div id="rain-wind-chart"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2026 panzisusu. Classical Ink-wash Web Portfolio &copy; All Rights Reserved.</p>
+        </footer>
+    </div>
+
+
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+    <!-- Custom JS Logic -->
+    <script src="app.js"></script>
+</body>
+</html>

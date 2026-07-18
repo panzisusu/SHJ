@@ -1,0 +1,6 @@
+requests
+pandas
+fastapi
+uvicorn
+beautifulsoup4
+psycopg2-binary

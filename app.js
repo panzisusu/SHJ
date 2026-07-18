@@ -34,17 +34,27 @@ createApp({
                     color: '#8c6b12',
                     bgStyle: {
                         background: 'url(\'data:image/svg+xml;utf8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%20width=%22100%22%20height=%22100%22%3E%20%20%20%3Cstyle%3E%20%20%20%20%20.line%20{%20stroke:%20%23d8d3c5;%20stroke-width:%201.1px;%20fill:%20none;%20stroke-dasharray:%202,2;%20}%20%20%20%20%20.solid-line%20{%20stroke:%20%23d8d3c5;%20stroke-width:%201.1px;%20fill:%20none;%20}%20%20%20%20%20.node%20{%20fill:%20%23d8d3c5;%20}%20%20%20%20%20.ring%20{%20stroke:%20%23d8d3c5;%20stroke-width:%200.8px;%20fill:%20none;%20opacity:%200.5;%20}%20%20%20%3C/style%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2250%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2250%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2250%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2250%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2015%2050%20L%2030%2050%20L%2045%2025%20L%2055%2025%22%20/%3E%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2030%2050%20L%2055%2050%22%20/%3E%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2015%2050%20L%2030%2050%20L%2045%2075%20L%2055%2075%22%20/%3E%20%20%20%20%20%20%3Cpath%20class=%22line%22%20d=%22M%2055%2025%20L%2070%2025%20L%2080%2050%20M%2055%2050%20L%2080%2050%20M%2055%2075%20L%2070%2075%20L%2080%2050%20L%2085%2050%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2215%22%20cy=%2250%22%20r=%222.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2215%22%20cy=%2250%22%20r=%225%22%20class=%22ring%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2225%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2250%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2275%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2285%22%20cy=%2250%22%20r=%223%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2285%22%20cy=%2250%22%20r=%226%22%20class=%22ring%22%20/%3E%20%3C/svg%3E\') left top/80px 80px repeat, linear-gradient(135deg, #fdfcf7 0%, #f5f0e3 100%)'
-                    }
                 },
                 {
                     id: 'cwa-weather-dashboard',
-                    name: 'Taiwan CWA Weather AI Visualization',
-                    nameZh: '台灣氣象觀測 AI 視覺化互動儀表板',
-                    description: 'A full-stack weather system using CWA API, SQLite history tracking, FastAPI backend, and Leaflet + Plotly dynamic charts.',
-                    descriptionZh: '高質感全端天氣儀表板。整合氣象署觀測 API、SQLite 歷史紀錄，並以 FastAPI 後端結合 Leaflet 地圖及 Plotly 互動式圖表動態呈現。',
-                    icon: 'fa-cloud-sun-rain',
+                    name: 'Taiwan CWA Weather Archive (2026/07/08)',
+                    nameZh: '台灣氣象觀測歷史存檔儀表板 (7/8 紀錄版)',
+                    description: 'A historical snapshot of the full-stack weather system frozen on July 8, featuring compiled SQLite observations and static historical trends.',
+                    descriptionZh: '歷史存檔版天氣儀表板。靜態封裝了 2026 年 7 月 8 日以前的氣象觀測與 SQLite 歷史紀錄，適合作為歷史數據之回溯與展示。',
+                    icon: 'fa-box-archive',
                     link: 'https://cwa-weather-nu.vercel.app/',
-                    color: '#2563eb'
+                    color: '#64748b'
+                },
+                {
+                    id: 'hw10-weather',
+                    name: 'Taiwan CWA Weather Live (Cloud-Synced)',
+                    nameZh: '台灣 CWA 即時雲端同步觀測平台',
+                    description: 'A live weather monitoring dashboard utilizing real-time CWA APIs and synced with a PostgreSQL cloud database for persistent trend tracking.',
+                    descriptionZh: '即時雲端同步版天氣儀表板。整合氣象署實時 API 並透過 PostgreSQL 外部雲端資料庫儲存，可隨時點擊更新以獲取最新的天氣觀測與變化趨勢。',
+                    icon: 'fa-cloud-sun-rain',
+                    link: './cwa-weather-live/index.html',
+                    github: 'https://github.com/panzisusu/panzisusu-portfolio',
+                    color: '#0ea5e9'
                 },
                 {
                     id: 'clustering-algorithm-gemini',
@@ -137,16 +147,6 @@ createApp({
                     color: '#8b5cf6'
                 },
                 {
-                    id: 'cheerleader-selector',
-                    name: 'Cheerleader加權隨機應援機',
-                    nameZh: '啦啦隊員加權隨選應援機',
-                    description: 'A professional sporty selector that dynamically filters cheerleaders from CPBL, TPBL, and TVL, and calculates square root popularity weights.',
-                    descriptionZh: '高質感職業啦啦隊篩選器，支援職棒、職籃、職排與多國籍篩選，並以人氣開根號加權演算法隨機隨選應援。',
-                    icon: 'fa-ranking-star',
-                    link: './cheerleader/index.html',
-                    color: '#ff007f'
-                },
-                {
                     id: 'svm-visualizer',
                     name: 'SVM 3D Interactive Visualizer',
                     nameZh: 'SVM 支持向量機 3D 視覺化互動器',
@@ -210,17 +210,7 @@ createApp({
                     demo: 'https://stratup50-35hjkzmfzrwhwpcf22ruhg.streamlit.app/',
                     color: '#f59e0b'
                 },
-                {
-                    id: 'hw10-weather',
-                    name: 'CWA Weather Real-time Observation Platform',
-                    nameZh: '台灣 CWA 即時氣象與降雨觀測平台',
-                    description: 'A real-time weather and rainfall dashboard for Taiwan using Central Weather Administration APIs.',
-                    descriptionZh: '利用中央氣象署 API 開發的台灣即時氣象與降雨觀測儀表板，支援測站地圖與歷史趨勢預測。',
-                    icon: 'fa-cloud-showers-water',
-                    link: 'https://cwa-weather-nu.vercel.app',
-                    github: 'https://github.com/panzisusu/cwa-weather',
-                    color: '#0ea5e9'
-                },
+
                 {
                     id: 'hw5',
                     name: 'Top 10 ML Algorithms',

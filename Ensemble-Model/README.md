@@ -99,6 +99,17 @@
 
 ---
 
+## 📊 實戰數據背景：UCI Adult Census Income (年收入預測)
+
+本專案在研究與調試 AdaBoost 與 SVM 演算法時，主要參考了經典的 **UCI Adult Census Income** 數據集：
+* **任務目標：** 二元分類。預測一個人的年收入是否超過 **$50,000 美元**（分類標籤為 `>50K` 或 `<=50K`）。
+* **數據規模：** 約 48,842 筆樣本（通常按 32,561 筆訓練集、16,281 筆測試集進行劃分）。
+* **核心特徵：** 包含年齡 (age)、教育年限 (education-num)、婚姻狀況 (marital-status)、職業 (occupation)、資本利得 (capital-gain)、每週工作時數 (hours-per-week) 等 14 個個人特徵。
+
+> 💡 關於此數據集的前處理、AdaBoost 與 SVM 建模比較以及詳細的超參數調參心得，請參閱：[Adult_Census_Income_Notes.md](./Adult_Census_Income_Notes.md)。
+
+---
+
 ## 📝 待補充與後續實驗清單 (To-do List)
 
 - [x] **Random Forest (隨機森林)：** 經典的 Bagging 應用，在沙盤中已實現節點特徵隨機抽樣。
@@ -113,6 +124,7 @@
 ---
 
 ## 📂 相關學習文件 (Documents)
+- 📄 **實戰數據集與模型筆記 (AdaBoost & SVM)：** [Adult_Census_Income_Notes.md](./Adult_Census_Income_Notes.md)
 - 📄 **ChatGPT 學習對話紀錄：** [Ensemble-chatGPT.pdf](./Ensemble-chatGPT.pdf)
 - 📄 **本機對話與操作歷程：** [Ens-his.md](./Ens-his.md)
 

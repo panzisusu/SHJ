@@ -1,6 +1,10 @@
 Shan-Hai-Jing/assets/png/
 fortune-telling/assets/png/
-assets/png/
+assets/png/
 
 .vercel
 .env*
+
+# Local debug and verification recordings
+Shan-Hai-Jing/verification_recording.webp
+Shan-Hai-Jing/debug_user_input.json

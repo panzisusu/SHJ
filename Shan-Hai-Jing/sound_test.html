@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>山海經卡牌遊戲 - 斬擊音效測試</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #2c1e14 0%, #0f0a07 100%);
+            color: #e6dfd3;
+            font-family: 'Noto Serif TC', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: rgba(30, 20, 15, 0.85);
+            border: 2px solid #b89f72;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 15px rgba(184, 159, 114, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+        h1 {
+            color: #d4af37;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        p {
+            color: #b8a68d;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        button {
+            background: linear-gradient(135deg, #8a1f1f 0%, #5c1111 100%);
+            border: 1px solid #d4af37;
+            color: #f7ebc6;
+            padding: 15px 25px;
+            font-size: 1.2rem;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        button:hover {
+            background: linear-gradient(135deg, #a82e2e 0%, #7d1c1c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(184, 159, 114, 0.3);
+        }
+        button:active {
+            transform: translateY(1px);
+        }
+        .btn-metal {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+        }
+        .btn-metal:hover {
+            background: linear-gradient(135deg, #718096 0%, #4a5568 100%);
+        }
+        .btn-magic {
+            background: linear-gradient(135deg, #805ad5 0%, #553c9a 100%);
+        }
+        .btn-magic:hover {
+            background: linear-gradient(135deg, #b794f4 0%, #805ad5 100%);
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #706253;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>⚔️ 斬擊音效測試</h1>
+    <p>點擊下方按鈕試聽不同風格的「砍擊」與「打擊」音效。<br>使用 Web Audio API 即時合成，無須任何外部音檔！</p>
+    
+    <div class="btn-group">
+        <button onclick="playLightSlash()">🪓 1. 輕快揮砍 (空氣風聲)</button>
+        <button onclick="playHeavySlash()">⚔️ 2. 重劈斬擊 (帶打擊感)</button>
+        <button onclick="playMetalClash()" class="btn-metal">🛡️ 3. 金屬碰撞 (劍擊/招架)</button>
+        <button onclick="playFlameSlash()" class="btn-magic">🔥 4. 火焰/魔幻斬擊 (爆裂感)</button>
+    </div>
+    
+    <div class="footer">
+        山海經 · 奇獸對決 專用音效調校頁面
+    </div>
+</div>
+
+<script>
+    // 確保 AudioContext 初始化
+    let audioCtx = null;
+    function getAudioContext() {
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+        }
+        return audioCtx;
+    }
+
+    // 1. 輕快揮砍：白噪音經過帶通濾波器，配合頻率與音量包絡
+    function playLightSlash() {
+        const ctx = getAudioContext();
+        
+        // 創建白噪音緩衝區
+        const bufferSize = ctx.sampleRate * 0.15; // 0.15 秒
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+            data[i] = Math.random() * 2 - 1;
+        }
+        
+        const noiseNode = ctx.createBufferSource();
+        noiseNode.buffer = buffer;
+        
+        // 帶通濾波器模擬風聲
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.Q.value = 3.0;
+        
+        // 頻率從高到低滑動
+        filter.frequency.setValueAtTime(3000, ctx.currentTime);
+        filter.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.15);
+        
+        // 音量衰減
+        const gainNode = ctx.createGain();
+        gainNode.gain.setValueAtTime(0.6, ctx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+        
+        noiseNode.connect(filter);
+        filter.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        
+        noiseNode.start();
+    }
+
+    // 2. 重劈斬擊：空氣砍擊聲 + 低頻肉體打擊感
+    function playHeavySlash() {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        
+        // --- 1. 揮刀風聲 (與輕砍類似但略重) ---
+        const bufferSize = ctx.sampleRate * 0.2;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+        
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.Q.value = 2.0;
+        filter.frequency.setValueAtTime(2000, now);
+        filter.frequency.exponentialRampToValueAtTime(500, now + 0.18);
+        
+        const noiseGain = ctx.createGain();
+        noiseGain.gain.setValueAtTime(0.4, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.01, now + 0.18);
+        
+        noise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+        noise.start(now);
+
+        // --- 2. 鈍擊/肉體碰撞聲 ---
+        // 稍微延遲 0.03 秒觸發打擊點
+        const hitOsc = ctx.createOscillator();
+        const hitGain = ctx.createGain();
+        
+        hitOsc.type = 'triangle';
+        hitOsc.frequency.setValueAtTime(160, now + 0.03);
+        hitOsc.frequency.exponentialRampToValueAtTime(30, now + 0.2);
+        
+        hitGain.gain.setValueAtTime(0, now);
+        hitGain.gain.setValueAtTime(0.8, now + 0.03); // 打擊點音量最大
+        hitGain.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+        
+        hitOsc.connect(hitGain);
+        hitGain.connect(ctx.destination);
+        hitOsc.start(now + 0.03);
+        hitOsc.stop(now + 0.2);
+    }
+
+    // 3. 金屬碰撞：高頻正弦波疊加諧振，模擬刀劍相交
+    function playMetalClash() {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        
+        // 使用三個不同高頻正弦波模擬金屬泛音
+        const freqs = [880, 1200, 1500];
+        const release = 0.3; // 餘音時間
+        
+        freqs.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            
+            osc.type = 'sine';
+            osc.frequency.value = freq;
+            
+            // 每個頻率稍微做微小的調變增加金屬質感
+            if (idx === 1) {
+                osc.frequency.setValueAtTime(freq, now);
+                osc.frequency.linearRampToValueAtTime(freq - 50, now + release);
+            }
+            
+            gain.gain.setValueAtTime(0.25, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + release);
+            
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + release);
+        });
+
+        // 加上一個極短促的敲擊聲作為衝擊感
+        const clickOsc = ctx.createOscillator();
+        const clickGain = ctx.createGain();
+        clickOsc.type = 'triangle';
+        clickOsc.frequency.setValueAtTime(600, now);
+        clickOsc.frequency.setValueAtTime(100, now + 0.05);
+        clickGain.gain.setValueAtTime(0.5, now);
+        clickGain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+        
+        clickOsc.connect(clickGain);
+        clickGain.connect(ctx.destination);
+        clickOsc.start(now);
+        clickOsc.stop(now + 0.05);
+    }
+
+    // 4. 火焰/魔幻斬擊：揮砍配上震盪頻率，模擬火焰爆裂
+    function playFlameSlash() {
+        const ctx = getAudioContext();
+        const now = ctx.currentTime;
+        const duration = 0.35;
+        
+        // 1. 基礎風聲
+        const bufferSize = ctx.sampleRate * duration;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        
+        const noise = ctx.createBufferSource();
+        noise.buffer = buffer;
+        
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'peaking';
+        filter.Q.value = 4.0;
+        // 讓濾波器頻率上下快速震盪，像火焰劈啪聲
+        filter.frequency.setValueAtTime(1200, now);
+        filter.frequency.linearRampToValueAtTime(400, now + duration * 0.5);
+        filter.frequency.linearRampToValueAtTime(1000, now + duration);
+        
+        const noiseGain = ctx.createGain();
+        noiseGain.gain.setValueAtTime(0.4, now);
+        noiseGain.gain.exponentialRampToValueAtTime(0.01, now + duration);
+        
+        noise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(ctx.destination);
+        noise.start(now);
+
+        // 2. 低頻魔法火焰燃燒感
+        const flameOsc = ctx.createOscillator();
+        const flameGain = ctx.createGain();
+        flameOsc.type = 'sawtooth';
+        flameOsc.frequency.setValueAtTime(90, now);
+        flameOsc.frequency.linearRampToValueAtTime(50, now + duration);
+        
+        // 用低通濾波器濾掉鋸齒波的高頻，留下溫暖的低頻燃燒感
+        const flameFilter = ctx.createBiquadFilter();
+        flameFilter.type = 'lowpass';
+        flameFilter.frequency.value = 180;
+        
+        flameGain.gain.setValueAtTime(0.3, now);
+        flameGain.gain.exponentialRampToValueAtTime(0.01, now + duration);
+        
+        flameOsc.connect(flameFilter);
+        flameFilter.connect(flameGain);
+        flameGain.connect(ctx.destination);
+        
+        flameOsc.start(now);
+        flameOsc.stop(now + duration);
+    }
+</script>
+</body>
+</html>

@@ -35,7 +35,7 @@ const CAMPAIGNS_CONFIG = {
             1: {
                 id: "hundun",
                 name: "混沌 (第一關)",
-                avatar: "assets/hundun.png",
+                avatar: "assets/webp/hundun.webp",
                 maxHp: 150,
                 hp: 150,
                 skillName: "混沌初開",
@@ -45,7 +45,7 @@ const CAMPAIGNS_CONFIG = {
             2: {
                 id: "qiongqi",
                 name: "窮奇 (第二關)",
-                avatar: "assets/qiongqi.png",
+                avatar: "assets/webp/qiongqi.webp",
                 maxHp: 200,
                 hp: 200,
                 skillName: "懲善揚惡",
@@ -55,7 +55,7 @@ const CAMPAIGNS_CONFIG = {
             3: {
                 id: "taowu",
                 name: "檮杌 (第三關)",
-                avatar: "assets/taowu.png",
+                avatar: "assets/webp/taowu.webp",
                 maxHp: 250,
                 hp: 250,
                 skillName: "頑固難馴",
@@ -65,7 +65,7 @@ const CAMPAIGNS_CONFIG = {
             4: {
                 id: "taotie",
                 name: "饕餮 (第四關 - 終極魔王)",
-                avatar: "assets/taotie.png",
+                avatar: "assets/webp/taotie.webp",
                 maxHp: 350,
                 hp: 350,
                 skillName: "貪食無厭",
@@ -80,7 +80,7 @@ const CAMPAIGNS_CONFIG = {
             1: {
                 id: "xuanwu",
                 name: "玄武 (第一關)",
-                avatar: "assets/xuanwu.png",
+                avatar: "assets/webp/xuanwu.webp",
                 maxHp: 180,
                 hp: 180,
                 skillName: "玄冥盾甲",
@@ -90,7 +90,7 @@ const CAMPAIGNS_CONFIG = {
             2: {
                 id: "zhuque",
                 name: "朱雀 (第二關)",
-                avatar: "assets/zhuque.png",
+                avatar: "assets/webp/zhuque.webp",
                 maxHp: 220,
                 hp: 220,
                 skillName: "南明離火",
@@ -100,7 +100,7 @@ const CAMPAIGNS_CONFIG = {
             3: {
                 id: "white-tiger",
                 name: "白虎 (第三關)",
-                avatar: "assets/white-tiger.png",
+                avatar: "assets/webp/white-tiger.webp",
                 maxHp: 260,
                 hp: 260,
                 skillName: "西天殺伐",
@@ -110,7 +110,7 @@ const CAMPAIGNS_CONFIG = {
             4: {
                 id: "qinglong",
                 name: "青龍 (第四關 - 終極神獸)",
-                avatar: "assets/qinglong.png",
+                avatar: "assets/webp/qinglong.webp",
                 maxHp: 360,
                 hp: 360,
                 skillName: "九天雷動",
@@ -125,7 +125,7 @@ const CAMPAIGNS_CONFIG = {
             1: {
                 id: "huahuai",
                 name: "猾褢 (第一關)",
-                avatar: "assets/huahuai.png",
+                avatar: "assets/webp/huahuai.webp",
                 maxHp: 160,
                 hp: 160,
                 skillName: "兵燹之役",
@@ -135,7 +135,7 @@ const CAMPAIGNS_CONFIG = {
             2: {
                 id: "manman-bird",
                 name: "蠻蠻 (第二關)",
-                avatar: "assets/manman-bird.png",
+                avatar: "assets/webp/manman-bird.webp",
                 maxHp: 200,
                 hp: 200,
                 skillName: "比翼洪水",
@@ -145,7 +145,7 @@ const CAMPAIGNS_CONFIG = {
             3: {
                 id: "feiyi",
                 name: "肥遺 (第三關)",
-                avatar: "assets/feiyi.png",
+                avatar: "assets/webp/feiyi.webp",
                 maxHp: 250,
                 hp: 250,
                 skillName: "赤地千里",
@@ -155,7 +155,7 @@ const CAMPAIGNS_CONFIG = {
             4: {
                 id: "fei",
                 name: "蜚 (第四關 - 終極災獸)",
-                avatar: "assets/fei.png",
+                avatar: "assets/webp/fei.webp",
                 maxHp: 320,
                 hp: 320,
                 skillName: "太山大疫",
@@ -170,7 +170,7 @@ const CAMPAIGNS_CONFIG = {
             1: {
                 id: "zouyu",
                 name: "騶虞 (第一關)",
-                avatar: "assets/zouyu.png",
+                avatar: "assets/webp/zouyu.webp",
                 maxHp: 180,
                 hp: 180,
                 skillName: "仁慈不噬",
@@ -180,7 +180,7 @@ const CAMPAIGNS_CONFIG = {
             2: {
                 id: "baize-spirit",
                 name: "白澤 (第二關)",
-                avatar: "assets/baize-spirit.png",
+                avatar: "assets/webp/baize-spirit.webp",
                 maxHp: 220,
                 hp: 220,
                 skillName: "萬物避邪",
@@ -190,7 +190,7 @@ const CAMPAIGNS_CONFIG = {
             3: {
                 id: "fenghuang",
                 name: "鳳凰 (第三關)",
-                avatar: "assets/fenghuang.png",
+                avatar: "assets/webp/fenghuang.webp",
                 maxHp: 280,
                 hp: 280,
                 skillName: "浴火涅槃",
@@ -200,7 +200,7 @@ const CAMPAIGNS_CONFIG = {
             4: {
                 id: "qilin",
                 name: "麒麟 (第四關 - 終極瑞獸)",
-                avatar: "assets/qilin.png",
+                avatar: "assets/webp/qilin.webp",
                 maxHp: 350,
                 hp: 350,
                 skillName: "天下太平",

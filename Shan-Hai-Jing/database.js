@@ -3786,6 +3786,24 @@ const BEASTS_DATABASE = [
         }
     },
     {
+        id: "gen-jinli-44",
+        nameCn: "金貍",
+        zhuyin: "ㄐㄧㄣ ㄌㄧˊ",
+        nameEn: "Auspicious Jinli",
+        category: "auspicious",
+        categoryCn: "瑞獸",
+        region: "center",
+        regionCn: "中山經 (第5卷)",
+        classicText: "從<u>朏朏</u>衍伸，『霍山...有獸焉，其狀如貍，而白尾有鬣，名曰朏朏，養之可以已憂。』",
+        description: "金貍是霍山中朏朏（fěi fěi）一族的變異瑞獸。牠全身覆蓋著如黃金般閃耀的毛髮，特別喜歡趴在古老青松的枝頭上，探頭探腦地觀察著路過的人類。據說豢養牠能讓人忘卻世間所有的憂愁與煩惱，帶來無盡的歡樂與祥和。（源自本卷瑞獸【朏朏】）",
+        image: "assets/webp/gen-jinli-44.webp",
+        stats: {
+            spiritual: 85,
+            aggression: 25,
+            rarity: 80
+        }
+    },
+    {
         id: "gen-baiquan-23",
         nameCn: "白犬",
         zhuyin: "ㄅㄞˊ ㄑㄩㄢˇ",

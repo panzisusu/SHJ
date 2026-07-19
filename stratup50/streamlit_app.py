@@ -87,7 +87,10 @@ st.markdown("""
 # 1. Load Data
 @st.cache_data
 def load_data():
-    df = pd.read_csv('50_Startups.csv')
+    import os
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(current_dir, '50_Startups.csv')
+    df = pd.read_csv(csv_path)
     return df
 
 df_raw = load_data()

@@ -208,7 +208,7 @@ createApp({
                     icon: 'fa-chart-pie',
                     link: './stratup50/report.html',
                     github: 'https://github.com/panzisusu/stratup50',
-                    demo: 'https://stratup50-35hjkzmfzrwhwpcf22ruhg.streamlit.app/',
+                    demo: 'https://vojnut4glwgqwaoc9vufxz.streamlit.app/',
                     color: '#f59e0b'
                 },
 

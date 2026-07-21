@@ -1058,8 +1058,8 @@ async function startBattleClash() {
         drawCard();
         drawCard();
 
-        gameState.isClashing = false;
-        document.getElementById("start-clash-btn").disabled = false;
+        const clashBtn = document.getElementById("start-clash-btn") || document.getElementById("prem-clash-btn");
+        if (clashBtn) clashBtn.disabled = false;
         if (sketchStatus) sketchStatus.innerText = "【回合結束，重整戰線與靈力】";
         
         renderPlayerHand();

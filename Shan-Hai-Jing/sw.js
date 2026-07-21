@@ -1,4 +1,4 @@
-const CACHE_NAME = "shanhaijing-cache-v71";
+const CACHE_NAME = "shanhaijing-cache-v72";
 
 const ASSETS_TO_CACHE = [
   "./",
@@ -52,8 +52,9 @@ self.addEventListener("fetch", (event) => {
   }
 
   const isHtmlRequest = event.request.headers.get("accept")?.includes("text/html") || event.request.url.endsWith(".html");
+  const isJsRequest = event.request.url.endsWith(".js") || event.request.url.includes(".js?");
 
-  if (isHtmlRequest) {
+  if (isHtmlRequest || isJsRequest) {
     event.respondWith(
       fetch(event.request).then((networkResponse) => {
         if (networkResponse && networkResponse.status === 200) {

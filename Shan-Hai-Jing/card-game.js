@@ -223,8 +223,9 @@ let gameState = {
     currentLevel: 1,
     playerHp: 100,
     playerMaxHp: 100,
-    playerMana: 3,
-    playerMaxMana: 3,
+    playerMaxHp: 100,
+    playerMana: 10,
+    playerMaxMana: 10,
     playerDeck: [],
     playerHand: [],
     playerSlots: { east: null, south: null, west: null, north: null, central: null },
@@ -272,8 +273,9 @@ function loadLevel(levelNum) {
     const bossConfig = getBossConfig(levelNum);
     
     gameState.playerHp = 100;
-    gameState.playerMana = 3;
-    gameState.playerMaxMana = 3;
+    gameState.playerMaxHp = 100;
+    gameState.playerMana = 10;
+    gameState.playerMaxMana = 10;
     gameState.bossHp = bossConfig.maxHp;
     gameState.bossMaxHp = bossConfig.maxHp;
     gameState.selectedHandCardIndex = null;
@@ -335,8 +337,8 @@ function convertToCard(beast) {
     const aggression = beast.stats?.aggression || 50;
     const rarity = beast.stats?.rarity || 50;
 
-    // 靈力消耗 (Cost) - 1~8
-    const cost = Math.max(1, Math.min(8, Math.round((spiritual + aggression + rarity) / 30)));
+    // 靈力消耗 (Cost) - 1~5（平衡調整：降低費用讓遊戲可以進行）
+    const cost = Math.max(1, Math.min(5, Math.round((spiritual + aggression + rarity) / 55)));
     
     // 戰力 (ATK)
     const atk = Math.max(10, Math.round(aggression * 0.8 + spiritual * 0.2));

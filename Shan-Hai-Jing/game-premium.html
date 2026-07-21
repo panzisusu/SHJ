@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="山海經 · 奇獸對決 Premium 卡牌對戰遊戲。">
+    <title>山海經 · 奇獸對決 (Premium) | Shan-Hai-Jing Card Game</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;600&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Standalone Game Page Optimizations */
+        body {
+            background-color: #0d0b08;
+            background-image: radial-gradient(circle at center, rgba(30, 20, 10, 0.8) 0%, rgba(5, 4, 2, 0.98) 100%), url('assets/webp/ink_wash_bg.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #f7f4eb;
+            margin: 0;
+            padding: 0;
+        }
+        .game-wrapper {
+            max-width: 1200px;
+            width: 95%;
+            margin: 20px auto;
+            flex-grow: 1;
+        }
+        .game-page-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .game-page-header h1 {
+            font-family: 'Noto Serif TC', serif;
+            color: #d4af37;
+            font-size: 2.2rem;
+            margin: 0 0 6px 0;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+        .game-page-header p {
+            font-family: 'Noto Serif TC', serif;
+            color: rgba(212, 175, 55, 0.8);
+            font-size: 1rem;
+            margin: 0;
+        }
+        .back-to-encyclopedia {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Noto Serif TC', serif;
+            margin-bottom: 15px;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+        }
+        .back-to-encyclopedia:hover {
+            color: #e74c3c;
+            transform: translateX(-4px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Canvas for Spiritual Particle Dust -->
+    <canvas id="particles-canvas"></canvas>
+
+    <div class="game-wrapper">
+        <a href="index.html" class="back-to-encyclopedia">
+            <i class="fa-solid fa-arrow-left-long"></i> 返回山海經百獸百科
+        </a>
+        
+        <header class="game-page-header">
+            <h1>山海經 · 奇獸對決</h1>
+            <p>全新 Premium 戰略卡牌對戰模式</p>
+        </header>
+
+        <main>
+            <div id="tab-cardgame" class="tab-pane active" style="display: block;">
+                <!-- ============================================================ -->
+                <!-- 佈局 P：Premium 橫向對戰介面 (全新獨占版本)                  -->
+                <!-- ============================================================ -->
+                <div class="layout-premium-wrapper">
+                    <h3 class="layout-title" style="font-family:'Noto Serif TC',serif;color:var(--ancient-gold);text-align:center;margin-top:0;margin-bottom:15px;font-size:1.25rem;border-bottom:1px solid rgba(140,107,18,0.2);padding-bottom:8px;">
+                        <i class="fa-solid fa-dragon"></i> 主對戰介面：山海奇獸對決 (Premium)
+                    </h3>
+
+                    <!-- 事件日誌橫條 -->
+                    <div class="prem-event-bar">
+                        <i class="fa-solid fa-scroll"></i>
+                        <span id="prem-event-text">【準備就緒】從手牌選擇異獸，部署到戰場格位，再點擊「開始對決」！</span>
+                    </div>
+
+                    <!-- 主對戰區 -->
+                    <div class="prem-main">
+
+                        <!-- 左側：玩家面板 -->
+                        <div class="prem-player-panel">
+                            <div class="prem-player-avatar-wrap">
+                                <img src="assets/webp/nine-tailed-fox.webp" id="prem-player-avatar" alt="我方">
+                                <span class="prem-player-label">我方</span>
+                            </div>
+                            <div class="prem-status-bars">
+                                <div class="prem-bar-row">
+                                    <span class="prem-bar-label"><i class="fa-solid fa-heart"></i> 血量</span>
+                                    <div class="prem-bar-track">
+                                        <div class="prem-bar-fill prem-hp-fill" id="prem-player-hp-fill" style="width:100%"></div>
+                                    </div>
+                                    <span class="prem-bar-num" id="prem-player-hp-text">100/100</span>
+                                </div>
+                                <div class="prem-bar-row">
+                                    <span class="prem-bar-label"><i class="fa-solid fa-fire-flame-simple"></i> 魔力</span>
+                                    <div class="prem-bar-track">
+                                        <div class="prem-bar-fill prem-mana-fill" id="prem-player-mana-fill" style="width:37.5%"></div>
+                                    </div>
+                                    <span class="prem-bar-num" id="prem-player-mana-text">3/8</span>
+                                </div>
+                            </div>
+                            <div class="prem-skill-buttons">
+                                <button class="prem-skill-btn" id="prem-skill-a" title="主動技能 A - 施展元素爆發">
+                                    <i class="fa-solid fa-fire"></i> 技能 A
+                                </button>
+                                <button class="prem-skill-btn" id="prem-skill-b" title="主動技能 B - 召喚護盾">
+                                    <i class="fa-solid fa-shield-halved"></i> 技能 B
+                                </button>
+                                <button class="prem-skill-btn" id="prem-skill-c" title="主動技能 C - 群體治療">
+                                    <i class="fa-solid fa-bolt"></i> 技能 C
+                                </button>
+                            </div>
+                            <button class="prem-clash-btn" id="prem-clash-btn">
+                                <i class="fa-solid fa-swords"></i> 開始對決
+                            </button>
+                            <button class="prem-restart-btn" id="prem-restart-btn">
+                                <i class="fa-solid fa-rotate-right"></i> 重新挑戰
+                            </button>
+                        </div>
+
+                        <!-- 中央：手牌 + 戰場 -->
+                        <div class="prem-center">
+                            <!-- 手牌區（上方橫列） -->
+                            <div class="prem-hand-area">
+                                <div class="prem-hand-label">手牌 <span id="prem-hand-count">0</span>/5　<small>（點擊手牌 → 點擊格位部署）</small></div>
+                                <div class="prem-hand-cards" id="prem-hand-cards"></div>
+                            </div>
+
+                            <!-- 戰場（山水背景 2x4 格位） -->
+                            <div class="prem-battlefield" id="prem-battlefield-bg">
+                                <!-- 敵方列 -->
+                                <div class="prem-enemy-row">
+                                    <div class="prem-slot prem-enemy-slot" data-direction="east"  id="prem-enemy-slot-east"><div class="slot-empty-hint">空格</div></div>
+                                    <div class="prem-slot prem-enemy-slot" data-direction="south" id="prem-enemy-slot-south"><div class="slot-empty-hint">空格</div></div>
+                                    <div class="prem-slot prem-enemy-slot" data-direction="west"  id="prem-enemy-slot-west"><div class="slot-empty-hint">空格</div></div>
+                                    <div class="prem-slot prem-enemy-slot" data-direction="north" id="prem-enemy-slot-north"><div class="slot-empty-hint">空格</div></div>
+                                </div>
+                                <!-- 分隔線 -->
+                                <div class="prem-battle-divider">
+                                    <span id="prem-clash-indicator"><i class="fa-solid fa-swords"></i> 對決中</span>
+                                </div>
+                                <!-- 我方列 -->
+                                <div class="prem-player-row">
+                                    <div class="prem-slot prem-player-slot player-slot" data-direction="east"  id="prem-player-slot-east"><div class="slot-empty-hint">空格</div></div>
+                                    <div class="prem-slot prem-player-slot player-slot" data-direction="south" id="prem-player-slot-south"><div class="slot-empty-hint">空格</div></div>
+                                    <div class="prem-slot prem-player-slot player-slot" data-direction="west"  id="prem-player-slot-west"><div class="slot-empty-hint">空格</div></div>
+                                    <div class="prem-slot prem-player-slot player-slot" data-direction="north" id="prem-player-slot-north"><div class="slot-empty-hint">空格</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 右側：魔王面板 -->
+                        <div class="prem-boss-panel">
+                            <div class="prem-boss-header">
+                                <img src="assets/webp/hundun.webp" id="prem-boss-avatar" alt="魔王">
+                                <div>
+                                    <div class="prem-boss-name" id="prem-boss-name">混沌</div>
+                                    <div class="prem-bar-row" style="margin-top:4px;">
+                                        <span class="prem-bar-label" style="color:#ff6b6b;"><i class="fa-solid fa-skull"></i></span>
+                                        <div class="prem-bar-track" style="width:90px;">
+                                            <div class="prem-bar-fill prem-boss-hp-fill" id="prem-boss-hp-fill" style="width:100%;background:linear-gradient(90deg,#7b0000,#c0392b);"></div>
+                                        </div>
+                                        <span class="prem-bar-num" id="prem-boss-hp-text">150/150</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="prem-boss-status-label" id="prem-boss-status">狀態：待機</div>
+                            <div class="prem-boss-buttons">
+                                <button class="prem-boss-btn" id="prem-boss-intent-btn">
+                                    <i class="fa-solid fa-eye"></i> 魔王意圖
+                                </button>
+                                <button class="prem-boss-btn" id="prem-boss-rage-btn">
+                                    <i class="fa-solid fa-face-angry"></i> 魔王怒氣
+                                </button>
+                                <button class="prem-boss-btn prem-boss-ultimate" id="prem-boss-ultimate-btn">
+                                    <i class="fa-solid fa-star-of-david"></i> 魔王絕招
+                                </button>
+                            </div>
+                            <div class="prem-boss-skill-desc" id="prem-boss-skill-desc">
+                                【混沌初開】每回合對決前，隨機降低玩家場上一張卡牌 20% 攻擊力。
+                            </div>
+                        </div>
+
+                    </div><!-- end prem-main -->
+                </div><!-- end layout-premium-wrapper -->
+
+                <!-- 戰場環境選擇 -->
+                <div style="margin-bottom:12px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                    <label for="env-select" style="font-family:'Noto Serif TC',serif;color:var(--ancient-gold);font-size:0.95rem;font-weight:bold;"><i class="fa-solid fa-cloud-sun"></i> 戰場環境：</label>
+                    <select id="env-select" style="background:rgba(30,20,10,0.9);color:var(--ancient-gold);border:1px solid rgba(140,107,18,0.4);padding:4px 12px;font-family:'Noto Serif TC',serif;font-size:0.9rem;border-radius:4px;cursor:pointer;outline:none;">
+                        <option value="mountain" selected>【山中】山經異獸護甲 +20%</option>
+                        <option value="water">【水中】海經/澤經異獸攻擊 +20%</option>
+                        <option value="heaven">【天界】神獸生命與攻擊 +15%</option>
+                    </select>
+                    <span id="env-current-name" style="color:var(--vermilion-red);font-size:0.8rem;font-family:'Noto Serif TC',serif;">【山中環境】</span>
+                </div>
+
+                <!-- Win/Loss Overlay Modal -->
+                <div class="game-overlay-modal" id="game-result-modal">
+                    <div class="game-modal-content">
+                        <h2 id="game-result-title">對決勝利</h2>
+                        <p id="game-result-desc">您成功擊敗了混沌！</p>
+                        <button class="game-btn primary-game-btn" id="game-result-action-btn">挑戰下一關</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="database.js"></script>
+    <script src="card-game.js"></script>
+    
+    <!-- Particle canvas background animation script -->
+    <script>
+        const canvas = document.getElementById('particles-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+            
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = Math.random() * 0.2 - 0.1;
+                    this.speedY = Math.random() * -0.3 - 0.1;
+                    this.alpha = Math.random() * 0.5 + 0.2;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.y < 0) {
+                        this.y = height;
+                        this.x = Math.random() * width;
+                    }
+                    if (this.x < 0 || this.x > width) {
+                        this.x = Math.random() * width;
+                    }
+                }
+                draw() {
+                    ctx.save();
+                    ctx.globalAlpha = this.alpha;
+                    ctx.fillStyle = '#8c6b12';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+            }
+            
+            const particles = Array.from({ length: 40 }, () => new Particle());
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+    </script>
+</body>
+</html>

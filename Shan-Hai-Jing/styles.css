@@ -1667,15 +1667,22 @@ body {
     justify-content: center;
 }
 
-.card-name {
-    font-size: 0.75rem;
+.card-element-badge {
+    font-size: 0.65rem;
     font-weight: bold;
     font-family: 'Noto Serif TC', serif;
+    padding: 1px 5px;
+    border-radius: 8px;
+    border: 1px solid currentColor;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 65px;
 }
+
+/* 五行屬性配色 */
+.elem-wood  { color: #2d6b4f; background: #e8f5e9; }
+.elem-fire  { color: #9e2a2b; background: #fdecea; }
+.elem-metal { color: #6b5500; background: #fff8e1; }
+.elem-water { color: #1a4e6e; background: #e3f2fd; }
+.elem-earth { color: #5d4037; background: #f3e5ab; }
 
 .card-type-dot {
     width: 8px;
@@ -1714,6 +1721,37 @@ body {
     font-size: 0.55rem;
     padding: 1px 4px;
     border-radius: 2px;
+}
+
+/* 卡牌名字疊加在插圖上 */
+.card-name-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: #fff;
+    font-size: 0.65rem;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: bold;
+    padding: 6px 3px 2px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 空格位提示 */
+.slot-empty-hint {
+    color: rgba(140,107,18,0.4);
+    font-size: 0.7rem;
+    font-family: 'Noto Serif TC', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border: 1.5px dashed rgba(140,107,18,0.25);
+    border-radius: 4px;
 }
 
 /* 卡牌數值 */
@@ -3208,4 +3246,779 @@ body {
     border-color: var(--gold-primary);
     transform: translateY(-5px);
     box-shadow: 0 6px 16px var(--gold-glow);
+}
+
+/* ================================================================
+   佈局 P：Premium 橫向對戰介面
+   ================================================================ */
+
+.layout-premium-wrapper {
+    background: rgba(10, 8, 5, 0.85);
+    border: 1px solid var(--gold-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+}
+
+/* 事件日誌橫條 */
+.prem-event-bar {
+    background: rgba(30, 20, 10, 0.9);
+    border: 1px solid rgba(140, 107, 18, 0.3);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.85rem;
+    color: var(--gold-primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 36px;
+}
+
+/* 主佈局：左 + 中 + 右 三欄 */
+.prem-main {
+    display: grid;
+    grid-template-columns: 160px 1fr 160px;
+    gap: 12px;
+    min-height: 420px;
+}
+
+/* ---- 左側玩家面板 ---- */
+.prem-player-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(20, 15, 8, 0.8);
+    border: 1px solid rgba(140, 107, 18, 0.25);
+    border-radius: 8px;
+    padding: 12px 10px;
+}
+
+.prem-player-avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.prem-player-avatar-wrap img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold-primary);
+    box-shadow: 0 0 12px rgba(140,107,18,0.4);
+}
+.prem-player-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.7rem;
+    color: var(--gold-primary);
+    letter-spacing: 2px;
+}
+
+/* 血量/魔力列 */
+.prem-status-bars { display: flex; flex-direction: column; gap: 6px; }
+.prem-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+}
+.prem-bar-label {
+    color: rgba(200,180,140,0.8);
+    width: 36px;
+    flex-shrink: 0;
+    font-family: 'Noto Serif TC', serif;
+}
+.prem-bar-track {
+    flex: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.prem-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+.prem-hp-fill   { background: linear-gradient(90deg, #8b0000, #e74c3c); }
+.prem-mana-fill { background: linear-gradient(90deg, #1a3a6b, #2e86de); }
+.prem-bar-num {
+    font-size: 0.6rem;
+    color: rgba(200,180,140,0.8);
+    width: 48px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* 技能按鈕 */
+.prem-skill-buttons { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.prem-skill-btn {
+    background: rgba(40, 30, 15, 0.9);
+    border: 1px solid rgba(140, 107, 18, 0.5);
+    color: var(--gold-primary);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.72rem;
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.prem-skill-btn:hover {
+    background: rgba(140,107,18,0.25);
+    border-color: var(--gold-primary);
+    transform: translateX(2px);
+}
+
+/* 開始對決 / 重新挑戰 按鈕 */
+.prem-clash-btn {
+    background: linear-gradient(135deg, #7b0000, #c0392b);
+    border: 1px solid #e74c3c;
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: auto;
+}
+.prem-clash-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(192,57,43,0.5);
+}
+.prem-restart-btn {
+    background: transparent;
+    border: 1px solid rgba(140,107,18,0.3);
+    color: rgba(200,180,140,0.6);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.7rem;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+.prem-restart-btn:hover {
+    border-color: var(--gold-primary);
+    color: var(--gold-primary);
+}
+
+/* ---- 中央：手牌 + 戰場 ---- */
+.prem-center {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 手牌區 */
+.prem-hand-area {
+    background: rgba(20, 15, 8, 0.7);
+    border: 1px solid rgba(140,107,18,0.2);
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+.prem-hand-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.7rem;
+    color: rgba(200,180,140,0.6);
+    margin-bottom: 6px;
+}
+.prem-hand-label small { opacity: 0.7; }
+.prem-hand-cards {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    min-height: 120px;
+    align-items: flex-start;
+}
+.prem-hand-cards .game-card {
+    flex-shrink: 0;
+    width: 90px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.prem-hand-cards .game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(140,107,18,0.5);
+}
+.prem-hand-cards .game-card.selected {
+    transform: translateY(-12px);
+    border-color: var(--vermilion);
+    box-shadow: 0 0 16px var(--vermilion-glow);
+}
+
+/* 戰場 */
+.prem-battlefield {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background-image: url('assets/webp/ink_wash_bg.webp');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(140,107,18,0.3);
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
+}
+.prem-battlefield::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 4, 2, 0.55);
+}
+
+.prem-enemy-row,
+.prem-player-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.prem-slot {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(140,107,18,0.2);
+    border-radius: 6px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+}
+.prem-player-slot {
+    cursor: pointer;
+}
+.prem-player-slot:hover {
+    border-color: rgba(140,107,18,0.6);
+    background: rgba(140,107,18,0.07);
+}
+.prem-player-slot.active-target {
+    border-color: var(--vermilion);
+    background: rgba(158,42,43,0.12);
+    animation: pulse-slot 0.8s ease-in-out infinite alternate;
+}
+.prem-enemy-slot {
+    border-color: rgba(192,57,43,0.15);
+}
+
+@keyframes pulse-slot {
+    from { box-shadow: 0 0 0 0 rgba(158,42,43,0.4); }
+    to   { box-shadow: 0 0 0 6px rgba(158,42,43,0); }
+}
+
+/* 中間分隔線 */
+.prem-battle-divider {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 0;
+}
+.prem-battle-divider::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background: rgba(140,107,18,0.3);
+}
+.prem-battle-divider span {
+    background: rgba(10,8,5,0.8);
+    border: 1px solid rgba(140,107,18,0.3);
+    color: rgba(200,180,140,0.5);
+    font-size: 0.65rem;
+    font-family: 'Noto Serif TC', serif;
+    padding: 2px 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* 格位內卡牌縮放適應 */
+.prem-slot .game-card {
+    width: 100%;
+    height: 100%;
+    min-height: 95px;
+    font-size: 0.72rem;
+    cursor: default;
+}
+
+/* ---- 右側魔王面板 ---- */
+.prem-boss-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(20, 8, 8, 0.85);
+    border: 1px solid rgba(192, 57, 43, 0.3);
+    border-radius: 8px;
+    padding: 12px 10px;
+}
+
+/* ================================================================
+   佈局 P：Premium 橫向對戰介面 (全新獨占版本)
+   ================================================================ */
+
+.layout-premium-wrapper {
+    background: rgba(10, 8, 5, 0.92);
+    border: 1px solid var(--gold-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+}
+
+/* 事件日誌橫條 */
+.prem-event-bar {
+    background: rgba(30, 20, 10, 0.9);
+    border: 1px solid rgba(140, 107, 18, 0.3);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.85rem;
+    color: var(--gold-primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 36px;
+}
+
+/* 主佈局：左 + 中 + 右 三欄 */
+.prem-main {
+    display: grid;
+    grid-template-columns: 160px 1fr 160px;
+    gap: 12px;
+    min-height: 420px;
+}
+
+/* ---- 左側玩家面板 ---- */
+.prem-player-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(20, 15, 8, 0.85);
+    border: 1px solid rgba(140, 107, 18, 0.25);
+    border-radius: 8px;
+    padding: 12px 10px;
+}
+
+.prem-player-avatar-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.prem-player-avatar-wrap img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gold-primary);
+    box-shadow: 0 0 12px rgba(140,107,18,0.4);
+}
+.prem-player-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.7rem;
+    color: var(--gold-primary);
+    letter-spacing: 2px;
+}
+
+/* 血量/魔力列 */
+.prem-status-bars { display: flex; flex-direction: column; gap: 6px; }
+.prem-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+}
+.prem-bar-label {
+    color: rgba(200,180,140,0.8);
+    width: 36px;
+    flex-shrink: 0;
+    font-family: 'Noto Serif TC', serif;
+}
+.prem-bar-track {
+    flex: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.prem-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+.prem-hp-fill   { background: linear-gradient(90deg, #8b0000, #e74c3c); }
+.prem-mana-fill { background: linear-gradient(90deg, #1a3a6b, #2e86de); }
+.prem-bar-num {
+    font-size: 0.6rem;
+    color: rgba(200,180,140,0.8);
+    width: 48px;
+    text-align: right;
+    flex-shrink: 0;
+}
+
+/* 技能按鈕 */
+.prem-skill-buttons { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+.prem-skill-btn {
+    background: rgba(40, 30, 15, 0.9);
+    border: 1px solid rgba(140, 107, 18, 0.5);
+    color: var(--gold-primary);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.72rem;
+    padding: 6px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.prem-skill-btn:hover {
+    background: rgba(140,107,18,0.25);
+    border-color: var(--gold-primary);
+    transform: translateX(2px);
+}
+
+/* 開始對決 / 重新挑戰 按鈕 */
+.prem-clash-btn {
+    background: linear-gradient(135deg, #7b0000, #c0392b);
+    border: 1px solid #e74c3c;
+    color: #fff;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: auto;
+}
+.prem-clash-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(192,57,43,0.5);
+}
+.prem-restart-btn {
+    background: transparent;
+    border: 1px solid rgba(140,107,18,0.3);
+    color: rgba(200,180,140,0.6);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.7rem;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+.prem-restart-btn:hover {
+    border-color: var(--gold-primary);
+    color: var(--gold-primary);
+}
+
+/* ---- 中央：手牌 + 戰場 ---- */
+.prem-center {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* 手牌區 */
+.prem-hand-area {
+    background: rgba(20, 15, 8, 0.7);
+    border: 1px solid rgba(140,107,18,0.2);
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+.prem-hand-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.7rem;
+    color: rgba(200,180,140,0.6);
+    margin-bottom: 6px;
+}
+.prem-hand-label small { opacity: 0.7; }
+.prem-hand-cards {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    min-height: 120px;
+    align-items: flex-start;
+}
+.prem-hand-cards .game-card {
+    flex-shrink: 0;
+    width: 90px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.prem-hand-cards .game-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(140,107,18,0.5);
+}
+.prem-hand-cards .game-card.selected {
+    transform: translateY(-12px);
+    border-color: var(--vermilion);
+    box-shadow: 0 0 16px var(--vermilion-glow);
+}
+
+/* 戰場 */
+.prem-battlefield {
+    flex: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background-image: url('assets/webp/ink_wash_bg.webp');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(140,107,18,0.3);
+    display: flex;
+    flex-direction: column;
+    min-height: 240px;
+}
+.prem-battlefield::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 4, 2, 0.55);
+}
+
+.prem-enemy-row,
+.prem-player-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.prem-slot {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(140,107,18,0.2);
+    border-radius: 6px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+    position: relative;
+}
+.prem-player-slot {
+    cursor: pointer;
+}
+.prem-player-slot:hover {
+    border-color: rgba(140,107,18,0.6);
+    background: rgba(140,107,18,0.07);
+}
+.prem-player-slot.active-target {
+    border-color: var(--vermilion);
+    background: rgba(158,42,43,0.12);
+    animation: pulse-slot 0.8s ease-in-out infinite alternate;
+}
+.prem-enemy-slot {
+    border-color: rgba(192,57,43,0.15);
+}
+
+@keyframes pulse-slot {
+    from { box-shadow: 0 0 0 0 rgba(158,42,43,0.4); }
+    to   { box-shadow: 0 0 0 6px rgba(158,42,43,0); }
+}
+
+/* 中間分隔線 */
+.prem-battle-divider {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 0;
+}
+.prem-battle-divider::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background: rgba(140,107,18,0.3);
+}
+.prem-battle-divider span {
+    background: rgba(10,8,5,0.8);
+    border: 1px solid rgba(140,107,18,0.3);
+    color: rgba(200,180,140,0.5);
+    font-size: 0.65rem;
+    font-family: 'Noto Serif TC', serif;
+    padding: 2px 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* 格位內卡牌縮放適應 */
+.prem-slot .game-card {
+    width: 100%;
+    height: 100%;
+    min-height: 95px;
+    font-size: 0.72rem;
+    cursor: default;
+}
+
+/* ---- 右側魔王面板 ---- */
+.prem-boss-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: rgba(20, 8, 8, 0.85);
+    border: 1px solid rgba(192, 57, 43, 0.3);
+    border-radius: 8px;
+    padding: 12px 10px;
+}
+
+.prem-boss-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.prem-boss-header img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(192,57,43,0.6);
+    box-shadow: 0 0 12px rgba(192,57,43,0.4);
+    flex-shrink: 0;
+}
+.prem-boss-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 2px;
+}
+
+.prem-boss-status-label {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.7rem;
+    color: rgba(255, 100, 100, 0.7);
+    background: rgba(100,0,0,0.2);
+    border: 1px solid rgba(192,57,43,0.2);
+    border-radius: 4px;
+    padding: 4px 8px;
+    text-align: center;
+}
+
+.prem-boss-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.prem-boss-btn {
+    background: rgba(40, 10, 10, 0.9);
+    border: 1px solid rgba(192, 57, 43, 0.4);
+    color: rgba(255,180,160,0.9);
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.72rem;
+    padding: 7px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-align: left;
+}
+.prem-boss-btn:hover {
+    background: rgba(192,57,43,0.2);
+    border-color: #e74c3c;
+    transform: translateX(-2px);
+}
+.prem-boss-ultimate {
+    border-color: rgba(212, 175, 55, 0.5);
+    color: var(--gold-primary);
+    background: rgba(30, 20, 5, 0.9);
+}
+.prem-boss-ultimate:hover {
+    background: rgba(140,107,18,0.2);
+    border-color: var(--gold-primary);
+}
+
+.prem-boss-skill-desc {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.68rem;
+    color: rgba(200,160,140,0.7);
+    line-height: 1.5;
+    border-top: 1px solid rgba(192,57,43,0.15);
+    padding-top: 8px;
+    margin-top: auto;
+}
+
+/* 響應式：中窄螢幕 (Tablet / Split-screen / Mobile) 彈性排版，絕不隱藏任何控制面板與按鈕 */
+@media (max-width: 960px) {
+    .prem-main {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .prem-player-panel,
+    .prem-boss-panel {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+    }
+    .prem-status-bars {
+        flex: 1;
+        min-width: 200px;
+    }
+    .prem-skill-buttons,
+    .prem-boss-buttons {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .prem-skill-btn,
+    .prem-boss-btn {
+        padding: 6px 12px;
+        font-size: 0.78rem;
+    }
+    .prem-clash-btn,
+    .prem-restart-btn {
+        margin-top: 0;
+        padding: 8px 16px;
+    }
+    .prem-boss-skill-desc {
+        width: 100%;
+        border-top: 1px dashed rgba(192,57,43,0.3);
+        margin-top: 6px;
+        padding-top: 6px;
+    }
 }

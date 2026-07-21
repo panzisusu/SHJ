@@ -1,16 +1,22 @@
-const CACHE_NAME = "shanhaijing-cache-v45";
+const CACHE_NAME = "shanhaijing-cache-v48";
 
 const ASSETS_TO_CACHE = [
   "./",
   "index.html",
   "game.html",
+  "game-premium.html",
+  "game-legacy.html",
   "styles.css",
   "database.js",
   "app.js",
   "card-game.js",
   "manifest.json",
   "assets/webp/placeholder_beast.webp",
-  "assets/webp/shj_cover_v3.webp"
+  "assets/webp/shj_cover_v3.webp",
+  "assets/layout_a_capture.png",
+  "assets/layout_b_capture.png",
+  "assets/layout_c_capture.png",
+  "assets/layout_sketch_capture.png"
 ];
 
 // Install Service Worker and cache core assets

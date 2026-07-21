@@ -239,6 +239,7 @@ let gameState = {
 function initCardGame() {
     console.log("Initializing Card Game Module...");
     setupGameDomListeners();
+    setupPremListeners();
     setupCampaignSelector();
     loadLevel(1);
 }
@@ -344,6 +345,16 @@ function convertToCard(beast) {
     const hasManyEyes = /目|眼|視|看|窺/.test(beast.description + beast.classicText);
     const insight = hasManyEyes;
 
+    // 地域 → 五行屬性映射
+    const elementMap = {
+        east: { cn: "木", emoji: "🌿", cls: "elem-wood" },
+        south: { cn: "火", emoji: "🔥", cls: "elem-fire" },
+        west: { cn: "金", emoji: "⚙️", cls: "elem-metal" },
+        north: { cn: "水", emoji: "💧", cls: "elem-water" },
+        central: { cn: "土", emoji: "🟤", cls: "elem-earth" }
+    };
+    const element = elementMap[beast.region] || elementMap["central"];
+
     return {
         id: beast.id,
         nameCn: beast.nameCn,
@@ -351,6 +362,7 @@ function convertToCard(beast) {
         categoryCn: beast.categoryCn,
         region: beast.region,
         regionCn: beast.regionCn,
+        element: element,
         image: beast.image,
         cost: cost,
         atk: atk,
@@ -401,14 +413,18 @@ function updateLevelIndicators() {
 // 10. 更新魔王面板
 function updateBossPanel() {
     const boss = getBossConfig(gameState.currentLevel);
-    document.getElementById("boss-avatar").src = boss.avatar;
-    document.getElementById("boss-name").innerText = `四大魔王/守護獸：${boss.name}`;
-    document.getElementById("boss-skill-desc").innerHTML = `<strong>【${boss.skillName}】</strong>${boss.skillDesc}`;
-    
-    // 更新 HP 條
     const percent = Math.max(0, (gameState.bossHp / gameState.bossMaxHp) * 100);
-    document.getElementById("boss-hp-fill").style.width = `${percent}%`;
-    document.getElementById("boss-hp-text").innerText = `${gameState.bossHp} / ${gameState.bossMaxHp}`;
+
+    const bossAvatar = document.getElementById("boss-avatar");
+    if (bossAvatar) bossAvatar.src = boss.avatar;
+    const bossName = document.getElementById("boss-name");
+    if (bossName) bossName.innerText = `四大魔王/守護獸：${boss.name}`;
+    const bossSkillDesc = document.getElementById("boss-skill-desc");
+    if (bossSkillDesc) bossSkillDesc.innerHTML = `<strong>【${boss.skillName}】</strong>${boss.skillDesc}`;
+    const bossHpFill = document.getElementById("boss-hp-fill");
+    if (bossHpFill) bossHpFill.style.width = `${percent}%`;
+    const bossHpText = document.getElementById("boss-hp-text");
+    if (bossHpText) bossHpText.innerText = `${gameState.bossHp} / ${gameState.bossMaxHp}`;
 
     // 同步更新橫屏手機佈局魔王面版
     const newBossHpFill = document.getElementById("new-boss-hp-fill");
@@ -452,27 +468,35 @@ function updateBossPanel() {
     if (sketchBossUltimate) {
         sketchBossUltimate.innerText = gameState.bossHp < gameState.bossMaxHp * 0.4 ? "絕招：準備就緒" : "絕招：蓄勢中";
     }
+
+    // 同步更新 Premium 主介面魔王面板
+    updatePremBossPanel();
 }
 
 // 11. 更新玩家面板狀態
 function updatePlayerStatus() {
     // HP
     const hpPercent = Math.max(0, (gameState.playerHp / gameState.playerMaxHp) * 100);
-    document.getElementById("player-hp-fill").style.width = `${hpPercent}%`;
-    document.getElementById("player-hp-text").innerText = `${gameState.playerHp} / ${gameState.playerMaxHp}`;
+    const playerHpFill = document.getElementById("player-hp-fill");
+    if (playerHpFill) playerHpFill.style.width = `${hpPercent}%`;
+    const playerHpText = document.getElementById("player-hp-text");
+    if (playerHpText) playerHpText.innerText = `${gameState.playerHp} / ${gameState.playerMaxHp}`;
 
     // Mana
-    document.getElementById("player-mana-text").innerText = `${gameState.playerMana} / ${gameState.playerMaxMana}`;
+    const playerManaText = document.getElementById("player-mana-text");
+    if (playerManaText) playerManaText.innerText = `${gameState.playerMana} / ${gameState.playerMaxMana}`;
     
     const bubblesContainer = document.getElementById("mana-bubbles-container");
-    bubblesContainer.innerHTML = "";
-    for (let i = 1; i <= gameState.playerMaxMana; i++) {
-        const bubble = document.createElement("div");
-        bubble.classList.add("mana-bubble");
-        if (i <= gameState.playerMana) {
-            bubble.classList.add("filled");
+    if (bubblesContainer) {
+        bubblesContainer.innerHTML = "";
+        for (let i = 1; i <= gameState.playerMaxMana; i++) {
+            const bubble = document.createElement("div");
+            bubble.classList.add("mana-bubble");
+            if (i <= gameState.playerMana) {
+                bubble.classList.add("filled");
+            }
+            bubblesContainer.appendChild(bubble);
         }
-        bubblesContainer.appendChild(bubble);
     }
 
     // 同步更新手機橫屏佈局玩家狀態
@@ -496,6 +520,9 @@ function updatePlayerStatus() {
     if (sketchPlayerHpText) sketchPlayerHpText.innerText = `${gameState.playerHp}/${gameState.playerMaxHp}`;
     const sketchPlayerManaText = document.getElementById("sketch-player-mana-text");
     if (sketchPlayerManaText) sketchPlayerManaText.innerText = `${gameState.playerMana}/${gameState.playerMaxMana}`;
+
+    // 同步更新 Premium 主介面玩家狀態
+    updatePremPlayerStatus();
 }
 
 // 12. 渲染玩家手牌
@@ -503,7 +530,7 @@ function renderPlayerHand() {
     const handContainer = document.getElementById("player-hand-cards");
     const newHandContainer = document.getElementById("new-player-hand-cards");
     const newPcHandContainer = document.getElementById("new-pc-player-hand-cards");
-    handContainer.innerHTML = "";
+    if (handContainer) handContainer.innerHTML = "";
     if (newHandContainer) newHandContainer.innerHTML = "";
     if (newPcHandContainer) newPcHandContainer.innerHTML = "";
 
@@ -516,15 +543,16 @@ function renderPlayerHand() {
         // 屬性配色類別
         const typeClass = card.category; // divine, auspicious, perilous
         
+        const elemData = card.element || { cn: "土", emoji: "🟤", cls: "elem-earth" };
         cardEl.innerHTML = `
             <div class="card-header">
                 <span class="card-cost">${card.cost}</span>
-                <span class="card-name">${card.nameCn}</span>
+                <span class="card-element-badge ${elemData.cls}">${elemData.emoji}${elemData.cn}</span>
                 <span class="card-type-dot ${typeClass}"></span>
             </div>
             <div class="card-img-wrap">
                 <img src="${card.image}" alt="${card.nameCn}" onerror="this.onerror=null; this.src='assets/placeholder_beast.png';">
-                <span class="card-region-badge">${card.regionCn.split(" ")[0]}</span>
+                <span class="card-name-overlay">${card.nameCn}</span>
             </div>
             <div class="card-stats">
                 <span class="stat-item atk"><i class="fa-solid fa-swords"></i> ${card.atk}</span>
@@ -573,6 +601,9 @@ function renderPlayerHand() {
             newPcHandContainer.appendChild(miniCardEl);
         }
     });
+
+    // 同步更新 Premium 手牌
+    renderPremHand();
 }
 
 // 13. 更新可部署槽位高亮
@@ -606,8 +637,10 @@ function renderBattlefield() {
         const sketchEnemySlot = document.getElementById(`sketch-enemy-slot-${dir}`);
 
         // 1. 玩家卡槽渲染 (經典佈局)
-        playerSlot.innerHTML = "";
-        playerSlot.classList.remove("resonance");
+        if (playerSlot) {
+            playerSlot.innerHTML = "";
+            playerSlot.classList.remove("resonance");
+        }
         
         // 2. 玩家卡槽渲染 (橫屏手機佈局)
         if (newPlayerSlot) {
@@ -661,35 +694,16 @@ function renderBattlefield() {
                 }
             }
         } else {
-            if (newPlayerSlot) {
-                let dirLabel = "";
-                if (dir === "east") dirLabel = "3 (東山經)";
-                if (dir === "south") dirLabel = "4 (南山經)";
-                if (dir === "west") dirLabel = "5 (西山經)";
-                if (dir === "north") dirLabel = "6 (北山經)";
-                newPlayerSlot.innerHTML = `<div class="slot-num">${dirLabel}</div>`;
-            }
-            if (newPcPlayerSlot) {
-                let dirLabel = "";
-                if (dir === "east") dirLabel = "3 (東山經)";
-                if (dir === "south") dirLabel = "4 (南山經)";
-                if (dir === "west") dirLabel = "5 (西山經)";
-                if (dir === "north") dirLabel = "6 (北山經)";
-                newPcPlayerSlot.innerHTML = `<div class="slot-num">${dirLabel}</div>`;
-            }
-            if (sketchPlayerSlot) {
-                let dirLabel = "";
-                if (dir === "east") dirLabel = "前排·木";
-                if (dir === "south") dirLabel = "前排·火";
-                if (dir === "west") dirLabel = "後排·金";
-                if (dir === "north") dirLabel = "後排·水";
-                sketchPlayerSlot.innerHTML = `<div class="slot-text">${dirLabel}</div>`;
-            }
+            if (newPlayerSlot) newPlayerSlot.innerHTML = `<div class="slot-empty-hint">空格</div>`;
+            if (newPcPlayerSlot) newPcPlayerSlot.innerHTML = `<div class="slot-empty-hint">空格</div>`;
+            if (sketchPlayerSlot) sketchPlayerSlot.innerHTML = `<div class="slot-empty-hint">空格</div>`;
         }
 
         // 3. 敵方卡槽渲染 (經典佈局)
-        enemySlot.innerHTML = "";
-        enemySlot.classList.remove("resonance");
+        if (enemySlot) {
+            enemySlot.innerHTML = "";
+            enemySlot.classList.remove("resonance");
+        }
 
         // 4. 敵方卡槽渲染 (橫屏手機佈局)
         if (newEnemySlot) {
@@ -742,32 +756,14 @@ function renderBattlefield() {
                 }
             }
         } else {
-            if (newEnemySlot) {
-                let dirLabel = "";
-                if (dir === "east") dirLabel = "C (東山經)";
-                if (dir === "south") dirLabel = "D (南山經)";
-                if (dir === "west") dirLabel = "A (西山經)";
-                if (dir === "north") dirLabel = "B (北山經)";
-                newEnemySlot.innerHTML = `<div class="slot-num">${dirLabel}</div>`;
-            }
-            if (newPcEnemySlot) {
-                let dirLabel = "";
-                if (dir === "east") dirLabel = "C (東山經)";
-                if (dir === "south") dirLabel = "D (南山經)";
-                if (dir === "west") dirLabel = "A (西山經)";
-                if (dir === "north") dirLabel = "B (北山經)";
-                newPcEnemySlot.innerHTML = `<div class="slot-num">${dirLabel}</div>`;
-            }
-            if (sketchEnemySlot) {
-                let dirLabel = "";
-                if (dir === "east") dirLabel = "前排·木";
-                if (dir === "south") dirLabel = "前排·火";
-                if (dir === "west") dirLabel = "後排·金";
-                if (dir === "north") dirLabel = "後排·水";
-                sketchEnemySlot.innerHTML = `<div class="slot-text">${dirLabel}</div>`;
-            }
+            if (newEnemySlot) newEnemySlot.innerHTML = `<div class="slot-empty-hint">空格</div>`;
+            if (newPcEnemySlot) newPcEnemySlot.innerHTML = `<div class="slot-empty-hint">空格</div>`;
+            if (sketchEnemySlot) sketchEnemySlot.innerHTML = `<div class="slot-empty-hint">空格</div>`;
         }
     });
+
+    // 同步更新 Premium 戰場
+    renderPremBattlefield();
 }
 
 // 輔助：建立卡牌 DOM
@@ -782,15 +778,16 @@ function createCardHtml(card) {
     if (card.shield) traits += `<span style="color:#2d6b4f;" title="堅壁嘲諷">🛡️</span>`;
     if (card.insight) traits += `<span style="color:#9e2a2b;" title="多眼洞悉">👁️</span>`;
 
+    const elemData = card.element || { cn: "土", emoji: "🟤", cls: "elem-earth" };
     cardEl.innerHTML = `
         <div class="card-header">
             <span class="card-cost">${card.cost}</span>
-            <span class="card-name">${card.nameCn} ${traits}</span>
+            <span class="card-element-badge ${elemData.cls}">${elemData.emoji}${elemData.cn}</span>
             <span class="card-type-dot ${typeClass}"></span>
         </div>
         <div class="card-img-wrap">
             <img src="${card.image}" alt="${card.nameCn}" onerror="this.onerror=null; this.src='assets/placeholder_beast.png';">
-            <span class="card-region-badge">${card.regionCn.split(" ")[0]}</span>
+            <span class="card-name-overlay">${card.nameCn} ${traits}</span>
         </div>
         <div class="card-stats">
             <span class="stat-item atk"><i class="fa-solid fa-swords"></i> ${card.atk}</span>
@@ -850,33 +847,43 @@ function setupGameDomListeners() {
     });
 
     // 開始對決按鈕
-    document.getElementById("start-clash-btn").addEventListener("click", () => {
-        if (gameState.isClashing) return;
-        startBattleClash();
-    });
+    const startClashBtn = document.getElementById("start-clash-btn");
+    if (startClashBtn) {
+        startClashBtn.addEventListener("click", () => {
+            if (gameState.isClashing) return;
+            startBattleClash();
+        });
+    }
 
     // 重新挑戰按鈕
-    document.getElementById("restart-level-btn").addEventListener("click", () => {
-        loadLevel(gameState.currentLevel);
-    });
+    const restartBtn = document.getElementById("restart-level-btn");
+    if (restartBtn) {
+        restartBtn.addEventListener("click", () => {
+            loadLevel(gameState.currentLevel);
+        });
+    }
 
     // 彈窗挑戰下一關/重來按鈕
-    document.getElementById("game-result-action-btn").addEventListener("click", () => {
-        document.getElementById("game-result-modal").style.display = "none";
-        
-        if (gameState.playerHp <= 0) {
-            // 失敗重新載入本關
-            loadLevel(gameState.currentLevel);
-        } else {
-            // 成功進入下一關
-            if (gameState.currentLevel < 4) {
-                loadLevel(gameState.currentLevel + 1);
+    const gameResultBtn = document.getElementById("game-result-action-btn");
+    if (gameResultBtn) {
+        gameResultBtn.addEventListener("click", () => {
+            const modal = document.getElementById("game-result-modal");
+            if (modal) modal.style.display = "none";
+            
+            if (gameState.playerHp <= 0) {
+                // 失敗重新載入本關
+                loadLevel(gameState.currentLevel);
             } else {
-                // 通關，回到第一關
-                loadLevel(1);
+                // 成功進入下一關
+                if (gameState.currentLevel < 4) {
+                    loadLevel(gameState.currentLevel + 1);
+                } else {
+                    // 通關，回到第一關
+                    loadLevel(1);
+                }
             }
-        }
-    });
+        });
+    }
 
     // 戰場環境選擇監聽
     const envSelect = document.getElementById("env-select");
@@ -1429,3 +1436,240 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+/* ================================================================
+   佈局 P (Premium) 同步更新函式
+   ================================================================ */
+
+// 渲染 Premium 手牌
+function renderPremHand() {
+    const container = document.getElementById("prem-hand-cards");
+    const countEl = document.getElementById("prem-hand-count");
+    if (!container) return;
+    container.innerHTML = "";
+    if (countEl) countEl.textContent = gameState.playerHand.length;
+
+    gameState.playerHand.forEach((card, index) => {
+        const cardEl = createCardHtml(card);
+        cardEl.setAttribute("data-index", index);
+        if (gameState.selectedHandCardIndex === index) {
+            cardEl.classList.add("selected");
+        }
+        cardEl.addEventListener("click", () => {
+            if (gameState.isClashing) return;
+            gameState.selectedHandCardIndex = (gameState.selectedHandCardIndex === index) ? null : index;
+            renderPremHand();
+            updatePremSlotsHighlight();
+        });
+        container.appendChild(cardEl);
+    });
+}
+
+// 更新可部署格位高亮
+function updatePremSlotsHighlight() {
+    document.querySelectorAll(".prem-player-slot").forEach(slot => {
+        slot.classList.remove("active-target");
+        if (gameState.selectedHandCardIndex !== null) {
+            const dir = slot.getAttribute("data-direction");
+            const card = gameState.playerHand[gameState.selectedHandCardIndex];
+            if (!gameState.playerSlots[dir] && gameState.playerMana >= card.cost) {
+                slot.classList.add("active-target");
+            }
+        }
+    });
+}
+
+// 渲染 Premium 戰場格位
+function renderPremBattlefield() {
+    const dirs = ["east", "south", "west", "north"];
+    dirs.forEach(dir => {
+        const pSlot = document.getElementById(`prem-player-slot-${dir}`);
+        const eSlot = document.getElementById(`prem-enemy-slot-${dir}`);
+
+        // 我方格位
+        if (pSlot) {
+            pSlot.innerHTML = "";
+            pSlot.classList.remove("resonance");
+            const playerCard = gameState.playerSlots[dir];
+            if (playerCard) {
+                pSlot.appendChild(createCardHtml(playerCard));
+                if (isResonance(playerCard, dir)) pSlot.classList.add("resonance");
+            } else {
+                pSlot.innerHTML = `<div class="slot-empty-hint">空格</div>`;
+            }
+        }
+
+        // 敵方格位
+        if (eSlot) {
+            eSlot.innerHTML = "";
+            eSlot.classList.remove("resonance");
+            const enemyCard = gameState.enemySlots[dir];
+            if (enemyCard) {
+                eSlot.appendChild(createCardHtml(enemyCard));
+                if (isResonance(enemyCard, dir)) eSlot.classList.add("resonance");
+            } else {
+                eSlot.innerHTML = `<div class="slot-empty-hint">空格</div>`;
+            }
+        }
+    });
+}
+
+// 更新 Premium 玩家狀態
+function updatePremPlayerStatus() {
+    const hpPct = Math.max(0, (gameState.playerHp / gameState.playerMaxHp) * 100);
+    const manaPct = Math.max(0, (gameState.playerMana / 8) * 100);
+
+    const hpFill = document.getElementById("prem-player-hp-fill");
+    if (hpFill) hpFill.style.width = `${hpPct}%`;
+    const hpText = document.getElementById("prem-player-hp-text");
+    if (hpText) hpText.textContent = `${gameState.playerHp}/${gameState.playerMaxHp}`;
+
+    const manaFill = document.getElementById("prem-player-mana-fill");
+    if (manaFill) manaFill.style.width = `${manaPct}%`;
+    const manaText = document.getElementById("prem-player-mana-text");
+    if (manaText) manaText.textContent = `${gameState.playerMana}/${gameState.playerMaxMana}`;
+}
+
+// 更新 Premium 魔王面板
+function updatePremBossPanel() {
+    const boss = getBossConfig(gameState.currentLevel);
+    const pct = Math.max(0, (gameState.bossHp / gameState.bossMaxHp) * 100);
+
+    const bossHpFill = document.getElementById("prem-boss-hp-fill");
+    if (bossHpFill) bossHpFill.style.width = `${pct}%`;
+    const bossHpText = document.getElementById("prem-boss-hp-text");
+    if (bossHpText) bossHpText.textContent = `${gameState.bossHp}/${gameState.bossMaxHp}`;
+    const bossAvatar = document.getElementById("prem-boss-avatar");
+    if (bossAvatar) bossAvatar.src = boss.avatar;
+    const bossName = document.getElementById("prem-boss-name");
+    if (bossName) bossName.textContent = boss.name.split(" ")[0];
+    const bossSkill = document.getElementById("prem-boss-skill-desc");
+    if (bossSkill) bossSkill.innerHTML = `【${boss.skillName}】${boss.skillDesc}`;
+
+    // 怒氣進度
+    const rageText = gameState.bossHp < gameState.bossMaxHp * 0.4 ? "狀態：激怒（HP < 40%）" : "狀態：待機";
+    const statusEl = document.getElementById("prem-boss-status");
+    if (statusEl) statusEl.textContent = rageText;
+}
+
+// 設定 Premium 佈局的 DOM 監聽
+function setupPremListeners() {
+    // 格位點擊部署
+    document.querySelectorAll(".prem-player-slot").forEach(slot => {
+        slot.addEventListener("click", () => {
+            if (gameState.isClashing) return;
+            const dir = slot.getAttribute("data-direction");
+
+            if (gameState.selectedHandCardIndex === null) {
+                // 沒選手牌 → 點格位可收回已部署的卡
+                const card = gameState.playerSlots[dir];
+                if (card) {
+                    gameState.playerMana += card.cost;
+                    gameState.playerHand.push(card);
+                    gameState.playerSlots[dir] = null;
+                    renderPremHand();
+                    renderPremBattlefield();
+                    updatePremPlayerStatus();
+                }
+                return;
+            }
+
+            const card = gameState.playerHand[gameState.selectedHandCardIndex];
+            if (!gameState.playerSlots[dir] && gameState.playerMana >= card.cost) {
+                gameState.playerMana -= card.cost;
+                gameState.playerSlots[dir] = card;
+                gameState.playerHand.splice(gameState.selectedHandCardIndex, 1);
+                gameState.selectedHandCardIndex = null;
+                renderPremHand();
+                renderPremBattlefield();
+                updatePremPlayerStatus();
+                updatePremSlotsHighlight();
+
+                // 同步更新事件欄
+                const evBar = document.getElementById("prem-event-text");
+                if (evBar) evBar.textContent = `【部署】${card.nameCn} 出陣！（靈力剩餘 ${gameState.playerMana}）`;
+            }
+        });
+    });
+
+    // 開始對決按鈕
+    const clashBtn = document.getElementById("prem-clash-btn");
+    if (clashBtn) {
+        clashBtn.addEventListener("click", () => {
+            if (!gameState.isClashing) {
+                const evBar = document.getElementById("prem-event-text");
+                if (evBar) evBar.textContent = "【對決開始！】雙方隨從正面交鋒！";
+                startBattleClash();
+            }
+        });
+    }
+
+    // 重新挑戰
+    const restartBtn = document.getElementById("prem-restart-btn");
+    if (restartBtn) {
+        restartBtn.addEventListener("click", () => {
+            loadLevel(gameState.currentLevel);
+            const evBar = document.getElementById("prem-event-text");
+            if (evBar) evBar.textContent = "【重新挑戰】牌局重置，再次備戰！";
+        });
+    }
+
+    // 魔王資訊彈出提示
+    const intentBtn = document.getElementById("prem-boss-intent-btn");
+    if (intentBtn) {
+        intentBtn.addEventListener("click", () => {
+            const boss = getBossConfig(gameState.currentLevel);
+            const evBar = document.getElementById("prem-event-text");
+            if (evBar) evBar.textContent = `【魔王意圖】${boss.name} 準備施展【${boss.skillName}】：${boss.skillDesc}`;
+        });
+    }
+    const rageBtn = document.getElementById("prem-boss-rage-btn");
+    if (rageBtn) {
+        rageBtn.addEventListener("click", () => {
+            const ragePct = Math.round((1 - gameState.bossHp / gameState.bossMaxHp) * 100);
+            const evBar = document.getElementById("prem-event-text");
+            if (evBar) evBar.textContent = `【魔王怒氣】當前怒氣值 ${ragePct}%。血量越低，怒氣越高！`;
+        });
+    }
+    const ultimateBtn = document.getElementById("prem-boss-ultimate-btn");
+    if (ultimateBtn) {
+        ultimateBtn.addEventListener("click", () => {
+            const evBar = document.getElementById("prem-event-text");
+            const isReady = gameState.bossHp < gameState.bossMaxHp * 0.4;
+            if (evBar) evBar.textContent = isReady ? "【絕招警告！】魔王即將發動絕招，做好準備！" : "【絕招蓄勢】魔王血量尚未低於 40%，絕招還未就緒。";
+        });
+    }
+}
+
+// 呼叫初始化 Premium 佈局
+(function initPremiumLayout() {
+    // 等待主遊戲初始化完成後再初始化 Premium 佈局
+    const origInit = window.initCardGame;
+    window.initCardGame = function () {
+        if (origInit) origInit();
+        setupPremListeners();
+    };
+
+    // 攔截 updatePlayerStatus / updateBossPanel / renderPlayerHand / renderBattlefield
+    const _origUpdatePlayer = window.updatePlayerStatus;
+    const _origUpdateBoss   = window.updateBossPanel;
+    const _origRenderHand   = window.renderPlayerHand;
+    const _origRenderField  = window.renderBattlefield;
+
+    window.updatePlayerStatus = function () {
+        if (_origUpdatePlayer) _origUpdatePlayer();
+        updatePremPlayerStatus();
+    };
+    window.updateBossPanel = function () {
+        if (_origUpdateBoss) _origUpdateBoss();
+        updatePremBossPanel();
+    };
+    window.renderPlayerHand = function () {
+        if (_origRenderHand) _origRenderHand();
+        renderPremHand();
+    };
+    window.renderBattlefield = function () {
+        if (_origRenderField) _origRenderField();
+        renderPremBattlefield();
+    };
+})();

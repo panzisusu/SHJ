@@ -333,14 +333,8 @@
     /* Player 4 slots (Left, 2x2 grid) */
     .gp-player-side, .gp-enemy-side {
         display: flex; flex-direction: column; gap: 6px;
-        position: relative; z-index: 1;
+        position: relative; z-index: 1; flex: 1;
     }
-    .gp-side-title {
-        font-size: 0.78rem; font-weight: bold; text-align: center;
-        padding: 2px 8px; border-radius: 4px; font-family: 'Noto Serif TC', serif;
-    }
-    .gp-player-side .gp-side-title { color: var(--text-gold); background: #fdecea; border: 1px solid var(--gold-primary); }
-    .gp-enemy-side .gp-side-title  { color: var(--vermilion); background: #fdecea; border: 1px solid var(--vermilion); }
 
     .gp-player-row-grid, .gp-enemy-row-grid {
         display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1;
@@ -349,7 +343,7 @@
     .gp-slot {
         background: rgba(253, 252, 247, 0.95);
         border: 2px dashed var(--gold-primary);
-        border-radius: 6px; min-height: 96px;
+        border-radius: 6px; min-height: 108px;
         display: flex; align-items: center; justify-content: center;
         font-size: 0.82rem; font-weight: bold; color: var(--text-secondary);
         transition: all 0.2s; position: relative;
@@ -577,7 +571,6 @@
                 
                 <!-- Left: Player 4 Slots -->
                 <div class="gp-player-side">
-                    <div class="gp-side-title"><i class="fa-solid fa-shield-halved"></i> 我方陣地</div>
                     <div class="gp-player-row-grid">
                         <div class="gp-slot gp-player-slot player-slot" id="prem-player-slot-east"  data-direction="east">空格</div>
                         <div class="gp-slot gp-player-slot player-slot" id="prem-player-slot-south" data-direction="south">空格</div>
@@ -593,7 +586,6 @@
 
                 <!-- Right: Enemy 4 Slots -->
                 <div class="gp-enemy-side">
-                    <div class="gp-side-title"><i class="fa-solid fa-skull"></i> 魔王陣地</div>
                     <div class="gp-enemy-row-grid">
                         <div class="gp-slot gp-enemy-slot" id="prem-enemy-slot-east"  data-direction="east">空格</div>
                         <div class="gp-slot gp-enemy-slot" id="prem-enemy-slot-south" data-direction="south">空格</div>

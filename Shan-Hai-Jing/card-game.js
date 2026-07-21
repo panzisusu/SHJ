@@ -235,6 +235,17 @@ let gameState = {
     isClashing: false
 };
 
+function applyEnvironment(env) {
+    window.currentEnvironment = env || "mountain";
+    const envCurName = document.getElementById("env-current-name");
+    const names = {
+        mountain: "【山中環境】",
+        water: "【水中環境】",
+        heaven: "【天界環境】"
+    };
+    if (envCurName) envCurName.textContent = names[window.currentEnvironment] || "【山中環境】";
+}
+
 // 4. 初始化卡牌對戰
 function initCardGame() {
     console.log("Initializing Card Game Module...");
@@ -572,8 +583,10 @@ function renderPlayerHand() {
             updateTargetSlotsHighlight();
         };
 
-        cardEl.addEventListener("click", cardClickHandler);
-        handContainer.appendChild(cardEl);
+        if (handContainer) {
+            cardEl.addEventListener("click", cardClickHandler);
+            handContainer.appendChild(cardEl);
+        }
 
         // 12.2 渲染橫向手機版迷你手牌
         if (newHandContainer) {
@@ -808,6 +821,7 @@ function setupGameDomListeners() {
     // 部署到槽位點擊監聽
     const playerSlots = document.querySelectorAll(".player-slot");
     playerSlots.forEach(slot => {
+        if (!slot) return;
         slot.addEventListener("click", () => {
             if (gameState.isClashing) return;
             if (gameState.selectedHandCardIndex === null) {
@@ -898,8 +912,8 @@ function setupGameDomListeners() {
 // 16. 開始對局回合結算 (Battle Phase)
 // 16. 開始對局回合結算 (Battle Phase)
 async function startBattleClash() {
-    gameState.isClashing = true;
-    document.getElementById("start-clash-btn").disabled = true;
+    const clashBtn = document.getElementById("start-clash-btn") || document.getElementById("prem-clash-btn");
+    if (clashBtn) clashBtn.disabled = true;
 
     const sketchStatus = document.getElementById("sketch-battle-status");
     if (sketchStatus) sketchStatus.innerText = "【對決開始！魔王回合開始】";
@@ -1099,7 +1113,9 @@ function applyBossPassiveBeforeClash() {
 }
 
 // 18.5 戰場環境變數狀態與計算
-let currentEnvironment = "mountain";
+if (typeof window.currentEnvironment === "undefined") {
+    window.currentEnvironment = "mountain";
+}
 
 function getCardEnvironmentType(card) {
     if (!card) return "mountain";
@@ -1421,7 +1437,7 @@ function delay(ms) {
 // 全域啟動
 document.addEventListener("DOMContentLoaded", () => {
     // 檢查是否是在 standalone 遊戲頁面 (有 game-wrapper 或是 game.html)
-    const isStandaloneGamePage = document.querySelector('.game-wrapper') !== null || window.location.pathname.includes('game.html');
+    const isStandaloneGamePage = document.querySelector('.game-wrapper') !== null || document.querySelector('.gp-wrapper') !== null || window.location.pathname.includes('game');
     
     if (isStandaloneGamePage) {
         initCardGame();
@@ -1643,33 +1659,20 @@ function setupPremListeners() {
 
 // 呼叫初始化 Premium 佈局
 (function initPremiumLayout() {
-    // 等待主遊戲初始化完成後再初始化 Premium 佈局
-    const origInit = window.initCardGame;
-    window.initCardGame = function () {
-        if (origInit) origInit();
+    function startPrem() {
+        if (typeof initCardGame === "function") {
+            initCardGame();
+        }
         setupPremListeners();
-    };
-
-    // 攔截 updatePlayerStatus / updateBossPanel / renderPlayerHand / renderBattlefield
-    const _origUpdatePlayer = window.updatePlayerStatus;
-    const _origUpdateBoss   = window.updateBossPanel;
-    const _origRenderHand   = window.renderPlayerHand;
-    const _origRenderField  = window.renderBattlefield;
-
-    window.updatePlayerStatus = function () {
-        if (_origUpdatePlayer) _origUpdatePlayer();
-        updatePremPlayerStatus();
-    };
-    window.updateBossPanel = function () {
-        if (_origUpdateBoss) _origUpdateBoss();
-        updatePremBossPanel();
-    };
-    window.renderPlayerHand = function () {
-        if (_origRenderHand) _origRenderHand();
         renderPremHand();
-    };
-    window.renderBattlefield = function () {
-        if (_origRenderField) _origRenderField();
         renderPremBattlefield();
-    };
+        updatePremPlayerStatus();
+        updatePremBossPanel();
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startPrem);
+    } else {
+        startPrem();
+    }
 })();

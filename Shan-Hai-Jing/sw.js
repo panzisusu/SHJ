@@ -1,4 +1,4 @@
-const CACHE_NAME = "shanhaijing-cache-v48";
+const CACHE_NAME = "shanhaijing-cache-v68";
 
 const ASSETS_TO_CACHE = [
   "./",
@@ -45,10 +45,24 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Fetch event: Serve cached assets if available, else fetch and dynamic-cache them
+// Fetch event: Network-first for HTML pages so latest code applies instantly; cache-first for assets
 self.addEventListener("fetch", (event) => {
-  // Only handle GET requests and local/HTTP origins
   if (event.request.method !== "GET" || !event.request.url.startsWith(self.location.origin)) {
+    return;
+  }
+
+  const isHtmlRequest = event.request.headers.get("accept")?.includes("text/html") || event.request.url.endsWith(".html");
+
+  if (isHtmlRequest) {
+    event.respondWith(
+      fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+        }
+        return networkResponse;
+      }).catch(() => caches.match(event.request))
+    );
     return;
   }
 
@@ -59,7 +73,6 @@ self.addEventListener("fetch", (event) => {
       }
 
       return fetch(event.request).then((networkResponse) => {
-        // Cache newly fetched assets dynamically (like beast illustrations)
         if (networkResponse && networkResponse.status === 200) {
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
@@ -68,8 +81,7 @@ self.addEventListener("fetch", (event) => {
         }
         return networkResponse;
       }).catch(() => {
-        // Offline fallback for images
-        if (event.request.url.match(/\.(png|jpg|jpeg|gif|svg)$/)) {
+        if (event.request.url.match(/\.(png|jpg|jpeg|gif|svg|webp)$/)) {
           return caches.match("assets/webp/placeholder_beast.webp");
         }
       });

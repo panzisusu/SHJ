@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我 | 胖子叔叔作品集</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet from parent directory -->
+    <link rel="stylesheet" href="../styles.css">
+    <!-- Vue 3 Global CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 24px 60px;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 48px;
+            max-width: 1000px;
+            width: 100%;
+            padding: 48px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .about-card {
+                grid-template-columns: 1fr;
+                padding: 32px 24px;
+                gap: 32px;
+            }
+        }
+
+        .profile-sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-right: 1px solid rgba(0, 0, 0, 0.06);
+            padding-right: 48px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-sidebar {
+                border-right: none;
+                padding-right: 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+                padding-bottom: 32px;
+            }
+        }
+
+        .profile-photo-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 5px solid white;
+            background-color: #f1f5f9;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 20px;
+        }
+
+        .profile-photo-wrapper:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-hint {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            line-height: 1.5;
+            background-color: rgba(0, 0, 0, 0.03);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .profile-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .profile-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .profile-socials a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .profile-socials a:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .bio-content h2 {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .bio-title-underline {
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin-bottom: 28px;
+            border-radius: 2px;
+        }
+
+        .bio-text {
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 32px;
+        }
+
+        .skills-section {
+            margin-bottom: 40px;
+        }
+
+        .skills-section h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-badge {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .actions-section {
+            display: flex;
+            gap: 16px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(26, 37, 47, 0.2);
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Floating Navigation Header -->
+        <header :class="{ 'scrolled': scrolled }">
+            <nav>
+                <a href="../index-zh.html" class="logo">panzisusu : 胖子叔叔作品集</a>
+                
+                <ul class="nav-links" :class="{ 'active': menuActive }">
+                    <li><a href="../index-zh.html">首頁</a></li>
+                    <li><a href="../index-zh.html#portfolio">作品集</a></li>
+                    <li class="language-selector">
+                        <select v-model="selectedLanguage" @change="changeLanguage">
+                            <option value="en">EN</option>
+                            <option value="zh">繁中</option>
+                        </select>
+                    </li>
+                </ul>
+                
+                <!-- Hamburger Mobile Menu Trigger -->
+                <div class="menu-toggle" @click="toggleMenu">
+                    <i class="fa-solid" :class="menuActive ? 'fa-xmark' : 'fa-bars'"></i>
+                </div>
+            </nav>
+        </header>
+
+        <!-- About Me Content Container -->
+        <div class="about-wrapper">
+            <main class="about-card">
+                <!-- Sidebar with Photo and Core Info -->
+                <section class="profile-sidebar">
+                    <div class="profile-photo-wrapper">
+                        <!-- Defaulting to the cute pig character. User can replace it. -->
+                        <img src="../assets/webp/uncle-meat.webp" alt="胖子叔叔 Mascot" class="profile-photo">
+                    </div>
+                    
+                    <div class="profile-info">
+                        <h3>胖子叔叔</h3>
+                        <p>panzisusu</p>
+                        
+                        <div class="profile-socials">
+                            <a href="https://github.com/panzisusu" target="_blank" title="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="mailto:panzisusu@gmail.com" title="Email">
+                                <i class="fa-regular fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="photo-hint">
+                        <i class="fa-solid fa-circle-info"></i><br>
+                        <strong>更換照片提示：</strong><br>
+                        未來可將您的個人照片命名為 <code>uncle-meat.webp</code> 覆蓋於 <code>assets/webp/</code> 目錄，或在此處修改 <code>img src</code> 指向新相片。
+                    </div>
+                </section>
+
+                <!-- Main Biography & Skills Content -->
+                <section class="bio-content">
+                    <h2>關於胖子叔叔</h2>
+                    <div class="bio-title-underline"></div>
+                    
+                    <div class="bio-text">
+                        <p>您好！我是胖子叔叔 (panzisusu)。這裏是我的個人自介與作品集導覽頁面。</p>
+                        <p style="margin-top: 15px;">我專注於程式編碼、數據分析與機器學習領域的學習與探索。在這裡，我整理並收錄了許多學習歷程中的專案與實作，包含機器學習演算法、資料分析回歸模型、以及前端網頁交互式應用等。</p>
+                        <p style="margin-top: 15px;">（您可以在此檔案中編輯這段文字，填入您個人的具體自介、學經歷背景、學習目標或研究興趣。）</p>
+                    </div>
+
+                    <!-- Skills Showcase -->
+                    <div class="skills-section">
+                        <h4>核心技能與技術棧</h4>
+                        <div class="skills-grid">
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">機器學習 (ML)</span>
+                            <span class="skill-badge">數據分析 (Data Analysis)</span>
+                            <span class="skill-badge">前端開發 (HTML / CSS / JS)</span>
+                            <span class="skill-badge">Vue.js</span>
+                            <span class="skill-badge">AIoT 實時監控</span>
+                            <span class="skill-badge">Git / GitHub</span>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="actions-section">
+                        <a href="../index-zh.html" class="back-button">
+                            <i class="fa-solid fa-arrow-left"></i> 返回首頁
+                        </a>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="social-icons">
+                    <a href="https://github.com/panzisusu" target="_blank" title="GitHub Profile">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+                <p>&copy; {{ new Date().getFullYear() }} panzisusu. 所有權利保留。</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Inline Script for App Logic -->
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    scrolled: false,
+                    menuActive: false,
+                    selectedLanguage: 'zh'
+                }
+            },
+            methods: {
+                handleScroll() {
+                    this.scrolled = window.scrollY > 50;
+                },
+                toggleMenu() {
+                    this.menuActive = !this.menuActive;
+                },
+                changeLanguage() {
+                    if (this.selectedLanguage === 'en') {
+                        window.location.href = 'index.html';
+                    } else if (this.selectedLanguage === 'zh') {
+                        window.location.href = 'index-zh.html';
+                    }
+                }
+            },
+            mounted() {
+                window.addEventListener('scroll', this.handleScroll);
+            },
+            unmounted() {
+                window.removeEventListener('scroll', this.handleScroll);
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

@@ -433,6 +433,25 @@ function updateBossPanel() {
     if (newPcBossNameMob) newPcBossNameMob.innerText = boss.name.split(" ")[0];
     const newPcEnemyDeckCount = document.getElementById("new-pc-enemy-deck-count");
     if (newPcEnemyDeckCount) newPcEnemyDeckCount.innerText = boss.deck ? `${boss.deck.length} 張` : "8 張";
+
+    // 同步更新手繪佈局魔王面板 (Layout 4)
+    const sketchBossHpText = document.getElementById("sketch-boss-hp-text");
+    if (sketchBossHpText) sketchBossHpText.innerText = `${gameState.bossHp}/${gameState.bossMaxHp}`;
+    const sketchBossAvatar = document.getElementById("sketch-boss-avatar");
+    const sketchBossAvatarIcon = document.getElementById("sketch-boss-avatar-icon");
+    if (sketchBossAvatar && sketchBossAvatarIcon) {
+        sketchBossAvatar.src = boss.avatar;
+        sketchBossAvatar.style.display = "block";
+        sketchBossAvatarIcon.style.display = "none";
+    }
+    const sketchBossIntent = document.getElementById("sketch-boss-intent");
+    if (sketchBossIntent) sketchBossIntent.innerText = `意圖：${boss.skillName}`;
+    const sketchBossRage = document.getElementById("sketch-boss-rage");
+    if (sketchBossRage) sketchBossRage.innerText = `怒氣：${Math.min(100, gameState.currentLevel * 25)}%`;
+    const sketchBossUltimate = document.getElementById("sketch-boss-ultimate");
+    if (sketchBossUltimate) {
+        sketchBossUltimate.innerText = gameState.bossHp < gameState.bossMaxHp * 0.4 ? "絕招：準備就緒" : "絕招：蓄勢中";
+    }
 }
 
 // 11. 更新玩家面板狀態
@@ -471,6 +490,12 @@ function updatePlayerStatus() {
     if (newPcPlayerHpText) newPcPlayerHpText.innerText = `${gameState.playerHp}/${gameState.playerMaxHp}`;
     const newPcPlayerManaText = document.getElementById("new-pc-player-mana-text");
     if (newPcPlayerManaText) newPcPlayerManaText.innerText = `${gameState.playerMana}/${gameState.playerMaxMana}`;
+
+    // 同步更新手繪佈局玩家狀態 (Layout 4)
+    const sketchPlayerHpText = document.getElementById("sketch-player-hp-text");
+    if (sketchPlayerHpText) sketchPlayerHpText.innerText = `${gameState.playerHp}/${gameState.playerMaxHp}`;
+    const sketchPlayerManaText = document.getElementById("sketch-player-mana-text");
+    if (sketchPlayerManaText) sketchPlayerManaText.innerText = `${gameState.playerMana}/${gameState.playerMaxMana}`;
 }
 
 // 12. 渲染玩家手牌
@@ -577,6 +602,8 @@ function renderBattlefield() {
         const newEnemySlot = document.getElementById(`new-enemy-slot-${dir}`);
         const newPcPlayerSlot = document.getElementById(`new-pc-player-slot-${dir}`);
         const newPcEnemySlot = document.getElementById(`new-pc-enemy-slot-${dir}`);
+        const sketchPlayerSlot = document.getElementById(`sketch-player-slot-${dir}`);
+        const sketchEnemySlot = document.getElementById(`sketch-enemy-slot-${dir}`);
 
         // 1. 玩家卡槽渲染 (經典佈局)
         playerSlot.innerHTML = "";
@@ -592,6 +619,12 @@ function renderBattlefield() {
         if (newPcPlayerSlot) {
             newPcPlayerSlot.innerHTML = "";
             newPcPlayerSlot.classList.remove("resonance");
+        }
+
+        // 2c. 玩家卡槽渲染 (手繪佈局 - Layout 4)
+        if (sketchPlayerSlot) {
+            sketchPlayerSlot.innerHTML = "";
+            sketchPlayerSlot.classList.remove("resonance");
         }
 
         const playerCard = gameState.playerSlots[dir];
@@ -619,6 +652,14 @@ function renderBattlefield() {
                     newPcPlayerSlot.classList.add("resonance");
                 }
             }
+
+            if (sketchPlayerSlot) {
+                const cardElNew = createCardHtml(playerCard);
+                sketchPlayerSlot.appendChild(cardElNew);
+                if (isResonance(playerCard, dir)) {
+                    sketchPlayerSlot.classList.add("resonance");
+                }
+            }
         } else {
             if (newPlayerSlot) {
                 let dirLabel = "";
@@ -636,6 +677,14 @@ function renderBattlefield() {
                 if (dir === "north") dirLabel = "6 (北山經)";
                 newPcPlayerSlot.innerHTML = `<div class="slot-num">${dirLabel}</div>`;
             }
+            if (sketchPlayerSlot) {
+                let dirLabel = "";
+                if (dir === "east") dirLabel = "前排·木";
+                if (dir === "south") dirLabel = "前排·火";
+                if (dir === "west") dirLabel = "後排·金";
+                if (dir === "north") dirLabel = "後排·水";
+                sketchPlayerSlot.innerHTML = `<div class="slot-text">${dirLabel}</div>`;
+            }
         }
 
         // 3. 敵方卡槽渲染 (經典佈局)
@@ -652,6 +701,12 @@ function renderBattlefield() {
         if (newPcEnemySlot) {
             newPcEnemySlot.innerHTML = "";
             newPcEnemySlot.classList.remove("resonance");
+        }
+
+        // 4c. 敵方卡槽渲染 (手繪佈局 - Layout 4)
+        if (sketchEnemySlot) {
+            sketchEnemySlot.innerHTML = "";
+            sketchEnemySlot.classList.remove("resonance");
         }
 
         const enemyCard = gameState.enemySlots[dir];
@@ -678,6 +733,14 @@ function renderBattlefield() {
                     newPcEnemySlot.classList.add("resonance");
                 }
             }
+
+            if (sketchEnemySlot) {
+                const cardElNew = createCardHtml(enemyCard);
+                sketchEnemySlot.appendChild(cardElNew);
+                if (isResonance(enemyCard, dir)) {
+                    sketchEnemySlot.classList.add("resonance");
+                }
+            }
         } else {
             if (newEnemySlot) {
                 let dirLabel = "";
@@ -694,6 +757,14 @@ function renderBattlefield() {
                 if (dir === "west") dirLabel = "A (西山經)";
                 if (dir === "north") dirLabel = "B (北山經)";
                 newPcEnemySlot.innerHTML = `<div class="slot-num">${dirLabel}</div>`;
+            }
+            if (sketchEnemySlot) {
+                let dirLabel = "";
+                if (dir === "east") dirLabel = "前排·木";
+                if (dir === "south") dirLabel = "前排·火";
+                if (dir === "west") dirLabel = "後排·金";
+                if (dir === "north") dirLabel = "後排·水";
+                sketchEnemySlot.innerHTML = `<div class="slot-text">${dirLabel}</div>`;
             }
         }
     });
@@ -818,13 +889,18 @@ function setupGameDomListeners() {
 }
 
 // 16. 開始對局回合結算 (Battle Phase)
+// 16. 開始對局回合結算 (Battle Phase)
 async function startBattleClash() {
     gameState.isClashing = true;
     document.getElementById("start-clash-btn").disabled = true;
 
+    const sketchStatus = document.getElementById("sketch-battle-status");
+    if (sketchStatus) sketchStatus.innerText = "【對決開始！魔王回合開始】";
+
     // 1. 魔王回合 AI：隨機部署卡牌
     deployEnemyCards();
     renderBattlefield();
+    if (sketchStatus) sketchStatus.innerText = "【魔王召喚隨從上陣！】";
     await delay(800);
 
     // 2. 觸發魔王專屬被動技能
@@ -832,6 +908,7 @@ async function startBattleClash() {
     updateBossPanel();
     updatePlayerStatus();
     renderBattlefield();
+    if (sketchStatus) sketchStatus.innerText = "【魔王被動技能觸發！】";
     await delay(1000);
 
     // 2.5 觸發百鳥爭鳴陣營特效
@@ -842,6 +919,7 @@ async function startBattleClash() {
 
     if (pBirdCount >= 3) {
         showFloatingText("boss-avatar", "📣 百鳥爭鳴！敵方戰力-20%");
+        if (sketchStatus) sketchStatus.innerText = "📣 我方觸發【百鳥爭鳴】！敵方戰力降低";
         dirs.forEach(dir => {
             const card = gameState.enemySlots[dir];
             if (card) {
@@ -856,6 +934,7 @@ async function startBattleClash() {
 
     if (eBirdCount >= 3) {
         showFloatingText("player-hp-text", "📣 百鳥爭鳴！我方戰力-20%");
+        if (sketchStatus) sketchStatus.innerText = "📣 敵方觸發【百鳥爭鳴】！我方戰力降低";
         dirs.forEach(dir => {
             const card = gameState.playerSlots[dir];
             if (card) {
@@ -880,6 +959,7 @@ async function startBattleClash() {
     if (hasFiveElements) {
         showFloatingText("boss-avatar", "💥 五行齊聚！魔王受到 30 傷害");
         showFloatingText("player-hp-text", "✨ 乾坤共鳴！我方回復 20 生命");
+        if (sketchStatus) sketchStatus.innerText = "💥 戰場五行齊聚！發動天地大共鳴！";
         
         gameState.bossHp = Math.max(0, gameState.bossHp - 30);
         gameState.playerHp = Math.min(100, gameState.playerHp + 20);
@@ -901,7 +981,16 @@ async function startBattleClash() {
 
         // 高亮當前對決戰線
         const clashLine = document.getElementById(`clash-${dir}`);
-        clashLine.classList.add("active");
+        if (clashLine) clashLine.classList.add("active");
+        
+        if (sketchStatus) {
+            let dirName = "";
+            if (dir === "east") dirName = "東山 (木)";
+            if (dir === "south") dirName = "南山 (火)";
+            if (dir === "west") dirName = "西山 (金)";
+            if (dir === "north") dirName = "北山 (水)";
+            sketchStatus.innerText = `【對決結算：${dirName}戰線】`;
+        }
         await delay(500);
 
         if (playerCard && enemyCard) {
@@ -918,7 +1007,7 @@ async function startBattleClash() {
         renderBattlefield();
         updateBossPanel();
         updatePlayerStatus();
-        clashLine.classList.remove("active");
+        if (clashLine) clashLine.classList.remove("active");
         await delay(800);
 
         // 如果有一方已經陣亡，結束戰鬥
@@ -950,12 +1039,14 @@ async function startBattleClash() {
 
         gameState.isClashing = false;
         document.getElementById("start-clash-btn").disabled = false;
+        if (sketchStatus) sketchStatus.innerText = "【回合結束，重整戰線與靈力】";
         
         renderPlayerHand();
         renderBattlefield();
         updatePlayerStatus();
     } else {
         // 遊戲結束 (勝利或失敗)
+        if (sketchStatus) sketchStatus.innerText = gameState.bossHp <= 0 ? "【對決勝利！邪祟退散】" : "【不幸戰敗...】";
         showGameResult();
     }
 }
@@ -1254,15 +1345,19 @@ function showFloatingText(elementId, text) {
     if (elementId.startsWith("player-slot-")) {
         targets.push("new-" + elementId);
         targets.push("new-pc-" + elementId);
+        targets.push("sketch-" + elementId);
     } else if (elementId.startsWith("enemy-slot-")) {
         targets.push("new-" + elementId);
         targets.push("new-pc-" + elementId);
+        targets.push("sketch-" + elementId);
     } else if (elementId === "boss-avatar") {
         targets.push("new-boss-avatar");
         targets.push("new-pc-boss-avatar");
+        targets.push("sketch-boss-avatar-container");
     } else if (elementId === "player-hp-text") {
         targets.push("new-player-hp-text");
         targets.push("new-pc-player-hp-text");
+        targets.push("sketch-player-status-bar");
     } else if (elementId === "landscape-slot-1") {
         targets.push("desktop-slot-1");
     }

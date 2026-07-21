@@ -490,26 +490,26 @@
                         <div class="sketch-board-container" id="sketch-board-env">
                             <!-- Top Info -->
                             <div class="sketch-top-bar">
-                                <!-- Player segments -->
-                                <div class="sketch-segments-bar">
-                                    <div class="sketch-segment"></div>
-                                    <div class="sketch-segment"></div>
-                                    <div class="sketch-segment"></div>
-                                    <div class="sketch-segment"></div>
-                                    <div class="sketch-segment"></div>
-                                    <div class="sketch-segment"></div>
-                                    <div class="sketch-segment"></div>
-                                    <div class="sketch-segment"></div>
+                                <!-- Player health & status info -->
+                                <div class="sketch-player-status-bar">
+                                    <div class="sketch-status-label">【我方血量/狀態】</div>
+                                    <div class="sketch-status-values">
+                                        <div class="sketch-hp-info"><i class="fa-solid fa-heart"></i> HP: <span id="sketch-player-hp-text">100/100</span></div>
+                                        <div class="sketch-mana-info"><i class="fa-solid fa-fire-flame-simple"></i> 靈力: <span id="sketch-player-mana-text">3/3</span></div>
+                                    </div>
                                 </div>
                                 
                                 <!-- Central battlefield status -->
-                                <div class="sketch-center-status">
+                                <div class="sketch-center-status" id="sketch-battle-status">
                                     【山海共鳴 · 戰場中央事件大長條】
                                 </div>
                                 
                                 <!-- Boss status -->
                                 <div class="sketch-boss-status-bar">
-                                    【魔王血量/狀態】
+                                    <div class="sketch-status-label">【魔王血量/狀態】</div>
+                                    <div class="sketch-status-values">
+                                        <div class="sketch-hp-info"><i class="fa-solid fa-skull"></i> HP: <span id="sketch-boss-hp-text">150/150</span></div>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -517,25 +517,35 @@
                             <div class="sketch-arena">
                                 <!-- Left Side: Player -->
                                 <div class="sketch-side player-side">
-                                    <!-- 3 Left Buttons -->
-                                    <div class="sketch-left-buttons">
-                                        <div class="sketch-btn-item">主動技能 A</div>
-                                        <div class="sketch-btn-item">主動技能 B</div>
-                                        <div class="sketch-btn-item">主動技能 C</div>
+                                    <!-- Left Panel containing buttons & avatar -->
+                                    <div class="sketch-left-panel">
+                                        <div class="sketch-left-buttons">
+                                            <div class="sketch-btn-item">主動技能 A</div>
+                                            <div class="sketch-btn-item">主動技能 B</div>
+                                            <div class="sketch-btn-item">主動技能 C</div>
+                                        </div>
+                                        
+                                        <!-- Hero Avatar Left Bottom -->
+                                        <div class="sketch-hero-avatar player">
+                                            <div class="avatar-icon"><i class="fa-solid fa-user-ninja"></i></div>
+                                            <div class="avatar-label">我方角色</div>
+                                        </div>
                                     </div>
                                     
                                     <!-- 2x2 Grid -->
                                     <div class="sketch-grid">
-                                        <div class="sketch-card-slot"><div class="slot-text">前排·東</div></div>
-                                        <div class="sketch-card-slot"><div class="slot-text">前排·西</div></div>
-                                        <div class="sketch-card-slot"><div class="slot-text">後排·南</div></div>
-                                        <div class="sketch-card-slot"><div class="slot-text">後排·北</div></div>
-                                    </div>
-                                    
-                                    <!-- Hero Avatar Left Bottom -->
-                                    <div class="sketch-hero-avatar player">
-                                        <div class="avatar-icon"><i class="fa-solid fa-user-ninja"></i></div>
-                                        <div class="avatar-label">我方角色</div>
+                                        <div class="sketch-card-slot card-slot player-slot" data-direction="east" id="sketch-player-slot-east">
+                                            <div class="slot-text">前排·木</div>
+                                        </div>
+                                        <div class="sketch-card-slot card-slot player-slot" data-direction="south" id="sketch-player-slot-south">
+                                            <div class="slot-text">前排·火</div>
+                                        </div>
+                                        <div class="sketch-card-slot card-slot player-slot" data-direction="west" id="sketch-player-slot-west">
+                                            <div class="slot-text">後排·金</div>
+                                        </div>
+                                        <div class="sketch-card-slot card-slot player-slot" data-direction="north" id="sketch-player-slot-north">
+                                            <div class="slot-text">後排·水</div>
+                                        </div>
                                     </div>
                                 </div>
                                 
@@ -546,25 +556,34 @@
                                 <div class="sketch-side enemy-side">
                                     <!-- 2x2 Grid -->
                                     <div class="sketch-grid">
-                                        <div class="sketch-card-slot"><div class="slot-text">前排·木</div></div>
-                                        <div class="sketch-card-slot"><div class="slot-text">前排·火</div></div>
-                                        <div class="sketch-card-slot"><div class="slot-text">後排·金</div></div>
-                                        <div class="sketch-card-slot"><div class="slot-text">後排·水</div></div>
+                                        <div class="sketch-card-slot card-slot enemy-slot" data-direction="east" id="sketch-enemy-slot-east">
+                                            <div class="slot-text">前排·木</div>
+                                        </div>
+                                        <div class="sketch-card-slot card-slot enemy-slot" data-direction="south" id="sketch-enemy-slot-south">
+                                            <div class="slot-text">前排·火</div>
+                                        </div>
+                                        <div class="sketch-card-slot card-slot enemy-slot" data-direction="west" id="sketch-enemy-slot-west">
+                                            <div class="slot-text">後排·金</div>
+                                        </div>
+                                        <div class="sketch-card-slot card-slot enemy-slot" data-direction="north" id="sketch-enemy-slot-north">
+                                            <div class="slot-text">後排·水</div>
+                                        </div>
                                     </div>
                                     
-                                    <!-- 3 Right Buttons & Boss Avatar -->
-                                    <div class="sketch-right-buttons-container">
+                                    <!-- Right Panel containing buttons & avatar -->
+                                    <div class="sketch-right-panel">
                                         <!-- Boss Avatar top -->
-                                        <div class="sketch-hero-avatar boss">
-                                            <div class="avatar-icon"><i class="fa-solid fa-spider"></i></div>
+                                        <div class="sketch-hero-avatar boss" id="sketch-boss-avatar-container">
+                                            <img class="avatar-icon-img" id="sketch-boss-avatar" src="assets/webp/hundun.webp" alt="魔王" style="width:60px; height:60px; border-radius:50%; border:2px solid #2563eb; display:none; object-fit:cover;">
+                                            <div class="avatar-icon" id="sketch-boss-avatar-icon"><i class="fa-solid fa-spider"></i></div>
                                             <div class="avatar-label">魔王四大凶獸</div>
                                         </div>
                                         
                                         <!-- 3 Buttons -->
                                         <div class="sketch-right-buttons">
-                                            <div class="sketch-btn-item">魔王意圖</div>
-                                            <div class="sketch-btn-item">魔王怒氣</div>
-                                            <div class="sketch-btn-item">魔王絕招</div>
+                                            <div class="sketch-btn-item" id="sketch-boss-intent">魔王意圖</div>
+                                            <div class="sketch-btn-item" id="sketch-boss-rage">魔王怒氣</div>
+                                            <div class="sketch-btn-item" id="sketch-boss-ultimate">魔王絕招</div>
                                         </div>
                                     </div>
                                 </div>

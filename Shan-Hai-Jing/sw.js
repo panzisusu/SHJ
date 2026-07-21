@@ -1,4 +1,4 @@
-const CACHE_NAME = "shanhaijing-cache-v68";
+const CACHE_NAME = "shanhaijing-cache-v69";
 
 const ASSETS_TO_CACHE = [
   "./",

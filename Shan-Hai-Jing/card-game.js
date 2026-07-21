@@ -288,9 +288,9 @@ function loadLevel(levelNum) {
     // 建立玩家隨機 20 張牌組
     buildPlayerDeck();
     
-    // 抽 4 張初始手牌
+    // 抽 5 張初始手牌
     gameState.playerHand = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
         drawCard();
     }
 
@@ -1613,7 +1613,12 @@ function setupPremListeners() {
     if (clashBtn) {
         clashBtn.addEventListener("click", () => {
             if (!gameState.isClashing) {
+                const hasCardOnBoard = Object.values(gameState.playerSlots).some(card => card !== null);
                 const evBar = document.getElementById("prem-event-text");
+                if (!hasCardOnBoard) {
+                    if (evBar) evBar.textContent = "【提醒】請至少選擇並部署 1 張異獸卡牌上陣備戰！";
+                    return;
+                }
                 if (evBar) evBar.textContent = "【對決開始！】雙方隨從正面交鋒！";
                 startBattleClash();
             }

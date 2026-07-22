@@ -30,9 +30,9 @@ createApp({
                     icon: 'fa-bottle-droplet',
                     link: './油/index.html',
                     demo: 'https://taiwan-oil-recall-2026.vercel.app/',
-                    color: '#d97706',
+                    color: '#1e3a8a',
                     bgStyle: {
-                        background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #d97706 100%)'
+                        background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fcd34d 100%)'
                     }
                 },
                 {

@@ -2,7 +2,7 @@ import json
 import re
 
 def main():
-    with open('g:/油/下游業者資料.json', 'r', encoding='utf-8') as f:
+    with open('下游業者資料.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     records = data.get('records', [])
@@ -106,7 +106,7 @@ def main():
         "products_db": products_db
     }
 
-    with open('g:/油/cleaned_data.json', 'w', encoding='utf-8') as f:
+    with open('cleaned_data.json', 'w', encoding='utf-8') as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
 
     print(f"Data cleaned successfully. Total records: {len(cleaned_records)}")

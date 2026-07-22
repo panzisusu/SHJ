@@ -28,7 +28,7 @@ createApp({
                     description: 'A responsive public safety search engine providing real-time queries for recalled cooking oil batches, affected stores, and downstream distributors announced by the FDA.',
                     descriptionZh: '衛生福利部食藥署公告中聯油脂特定批號黃豆油強制下架事件。提供全台民眾快速查詢受波及店家、門市、油品品名與涉案批號之響應式食安查詢系統。',
                     icon: 'fa-bottle-droplet',
-                    link: './油/index.html',
+                    link: './cookingoil/index.html',
                     demo: 'https://taiwan-oil-recall-2026.vercel.app/',
                     color: '#1e3a8a',
                     bgStyle: {

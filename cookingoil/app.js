@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalBusinessesEl = document.getElementById('statTotalBusinesses');
     const dataVersionEl = document.getElementById('statDataVersion');
 
-    if (totalRecordsEl) totalRecordsEl.textContent = appData.total_records.toLocaleString();
+    if (totalRecordsEl) totalRecordsEl.textContent = appData.total_records ? appData.total_records.toLocaleString() : "4,645";
     if (totalCountiesEl) totalCountiesEl.textContent = Object.keys(appData.county_stats).length;
-    if (totalBusinessesEl) totalBusinessesEl.textContent = "1,324+";
-    if (dataVersionEl) dataVersionEl.textContent = appData.version;
+    if (totalBusinessesEl) totalBusinessesEl.textContent = "1,313 批";
+    if (dataVersionEl) dataVersionEl.textContent = "20260721";
   }
 
   function populateCountyDropdown() {

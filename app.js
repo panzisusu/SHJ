@@ -22,19 +22,29 @@ createApp({
                     }
                 },
                 {
-                    id: 'ensemble-model',
-                    name: 'Ensemble Model Learning',
-                    nameZh: 'Ensemble Model 集成學習模型',
-                    description: 'A comprehensive study guide on machine learning ensemble methods, summarizing Bagging, Boosting, Voting, and Stacking with visual flowcharts.',
-                    descriptionZh: '整合學習模型完整學習導覽與實作。收錄自助聚合 (Bagging)、提升法 (Boosting)、加權投票與堆疊法 (Stacking) 核心架獲解析與課堂精華。',
-                    icon: 'fa-diagram-project',
-                    customIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="180" height="90"><defs><marker id="arrow-gold" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#8c6b12" /></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#9e2a2b" /></marker></defs><style>.icon-line { stroke: #8c6b12; stroke-width: 5.6px; fill: none; stroke-linecap: round; } .icon-line-dashed { stroke: #9e2a2b; stroke-width: 5.6px; fill: none; stroke-dasharray: 8,8; stroke-linecap: round; } .icon-node { fill: #8c6b12; stroke: #fcfbf9; stroke-width: 3px; } .icon-node-out { fill: #9e2a2b; stroke: #fcfbf9; stroke-width: 3px; } .icon-ring { stroke: #8c6b12; stroke-width: 2px; fill: none; opacity: 0.45; } .icon-ring-out { stroke: #9e2a2b; stroke-width: 2px; fill: none; opacity: 0.45; }</style><path class="icon-line" d="M 28 50 L 53 50 L 74 20 L 91 20" marker-end="url(#arrow-gold)" /><path class="icon-line" d="M 53 50 L 91 50" marker-end="url(#arrow-gold)" /><path class="icon-line" d="M 28 50 L 53 50 L 74 80 L 91 80" marker-end="url(#arrow-gold)" /><path class="icon-line-dashed" d="M 109 20 L 126 20 L 147 50" /><path class="icon-line-dashed" d="M 109 50 L 147 50" /><path class="icon-line-dashed" d="M 109 80 L 126 80 L 147 50" /><path class="icon-line-dashed" d="M 147 50 L 163 50" marker-end="url(#arrow-red)" /><circle cx="20" cy="50" r="8" class="icon-node" /><circle cx="20" cy="50" r="14" class="icon-ring" /><circle cx="100" cy="20" r="6.5" class="icon-node" /><circle cx="100" cy="50" r="6.5" class="icon-node" /><circle cx="100" cy="80" r="6.5" class="icon-node" /><circle cx="180" cy="50" r="8" class="icon-node-out" /><circle cx="180" cy="50" r="14" class="icon-ring-out" /></svg>',
-                    link: './Ensemble-Model/index.html',
-                    github: 'https://github.com/panzisusu/Ensemble-Model',
-                    color: '#8c6b12',
+                    id: 'oil-recall-2026',
+                    name: 'Taiwan 2026 Risk Oil Recall System',
+                    nameZh: '2026 風險油品事件全台下架店家查詢系統',
+                    description: 'A responsive public safety search engine providing real-time queries for recalled cooking oil batches, affected stores, and downstream distributors announced by the FDA.',
+                    descriptionZh: '衛生福利部食藥署公告中聯油脂特定批號黃豆油強制下架事件。提供全台民眾快速查詢受波及店家、門市、油品品名與涉案批號之響應式食安查詢系統。',
+                    icon: 'fa-bottle-droplet',
+                    link: './油/index.html',
+                    demo: 'https://taiwan-oil-recall-2026.vercel.app/',
+                    color: '#d97706',
                     bgStyle: {
-                        background: 'url(\'data:image/svg+xml;utf8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%20width=%22100%22%20height=%22100%22%3E%20%20%20%3Cstyle%3E%20%20%20%20%20.line%20{%20stroke:%20%23d8d3c5;%20stroke-width:%201.1px;%20fill:%20none;%20stroke-dasharray:%202,2;%20}%20%20%20%20%20.solid-line%20{%20stroke:%20%23d8d3c5;%20stroke-width:%201.1px;%20fill:%20none;%20}%20%20%20%20%20.node%20{%20fill:%20%23d8d3c5;%20}%20%20%20%20%20.ring%20{%20stroke:%20%23d8d3c5;%20stroke-width:%200.8px;%20fill:%20none;%20opacity:%200.5;%20}%20%20%20%3C/style%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2250%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2250%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2250%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2250%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2015%2050%20L%2030%2050%20L%2045%2025%20L%2055%2025%22%20/%3E%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2030%2050%20L%2055%2050%22%20/%3E%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2015%2050%20L%2030%2050%20L%2045%2075%20L%2055%2075%22%20/%3E%20%20%20%20%20%20%3Cpath%20class=%22line%22%20d=%22M%2055%2025%20L%2070%2025%20L%2080%2050%20M%2055%2050%20L%2080%2050%20M%2055%2075%20L%2070%2075%20L%2080%2050%20L%2085%2050%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2215%22%20cy=%2250%22%20r=%222.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2215%22%20cy=%2250%22%20r=%225%22%20class=%22ring%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2225%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2250%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2275%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2285%22%20cy=%2250%22%20r=%223%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2285%22%20cy=%2250%22%20r=%226%22%20class=%22ring%22%20/%3E%20%3C/svg%3E\') left top/80px 80px repeat, linear-gradient(135deg, #fdfcf7 0%, #f5f0e3 100%)'
+                        background: 'linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #d97706 100%)'
                     }
+                },
+                {
+                    id: 'hw10-weather',
+                    name: 'Taiwan CWA Weather Live (Cloud-Synced)',
+                    nameZh: '台灣氣象即時雲端同步觀測平台(即時性測試中)',
+                    description: 'A live weather monitoring dashboard utilizing real-time CWA APIs and synced with a PostgreSQL cloud database for persistent trend tracking.',
+                    descriptionZh: '即時雲端同步版天氣儀表板。整合氣象署實時 API 並透過 PostgreSQL 外部雲端資料庫儲存，可隨時點擊更新以獲取最新的天氣觀測與變化趨勢。',
+                    icon: 'fa-cloud-sun-rain',
+                    link: './cwa-weather-live/index.html',
+                    github: 'https://github.com/panzisusu/cwa-weather',
+                    color: '#0ea5e9'
                 },
                 {
                     id: 'cwa-weather-dashboard',
@@ -47,15 +57,19 @@ createApp({
                     color: '#64748b'
                 },
                 {
-                    id: 'hw10-weather',
-                    name: 'Taiwan CWA Weather Live (Cloud-Synced)',
-                    nameZh: '台灣氣象即時雲端同步觀測平台(即時性測試中)',
-                    description: 'A live weather monitoring dashboard utilizing real-time CWA APIs and synced with a PostgreSQL cloud database for persistent trend tracking.',
-                    descriptionZh: '即時雲端同步版天氣儀表板。整合氣象署實時 API 並透過 PostgreSQL 外部雲端資料庫儲存，可隨時點擊更新以獲取最新的天氣觀測與變化趨勢。',
-                    icon: 'fa-cloud-sun-rain',
-                    link: './cwa-weather-live/index.html',
-                    github: 'https://github.com/panzisusu/cwa-weather',
-                    color: '#0ea5e9'
+                    id: 'ensemble-model',
+                    name: 'Ensemble Model Learning',
+                    nameZh: 'Ensemble Model 集成學習模型',
+                    description: 'A comprehensive study guide on machine learning ensemble methods, summarizing Bagging, Boosting, Voting, and Stacking with visual flowcharts.',
+                    descriptionZh: '整合學習模型完整學習導覽與實作。收錄自助聚合 (Bagging)、提升法 (Boosting)、加權投票與堆疊法 (Stacking) 核心架獲解析與課堂精華。',
+                    icon: 'fa-diagram-project',
+                    customIcon: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="180" height="90"><defs><marker id="arrow-gold" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#8c6b12" /></marker><marker id="arrow-red" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="3" markerHeight="3" orient="auto-start-reverse"><path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#9e2a2b" /></marker></defs><style>.icon-line { stroke: #8c6b12; stroke-width: 5.6px; fill: none; stroke-linecap: round; } .icon-line-dashed { stroke: #9e2a2b; stroke-width: 5.6px; fill: none; stroke-dasharray: 8,8; stroke-linecap: round; } .icon-node { fill: #8c6b12; stroke: #fcfbf9; stroke-width: 3px; } .icon-node-out { fill: #9e2a2b; stroke: #fcfbf9; stroke-width: 3px; } .icon-ring { stroke: #8c6b12; stroke-width: 2px; fill: none; opacity: 0.45; } .icon-ring-out { stroke: #9e2a2b; stroke-width: 2px; fill: none; opacity: 0.45; }</style><path class="icon-line" d="M 28 50 L 53 50 L 74 20 L 91 20" marker-end="url(#arrow-gold)" /><path class="icon-line" d="M 53 50 L 91 50" marker-end="url(#arrow-gold)" /><path class="icon-line" d="M 28 50 L 53 50 L 74 80 L 91 80" marker-end="url(#arrow-gold)" /><path class="icon-line-dashed" d="M 109 20 L 126 20 L 147 50" /><path class="icon-line-dashed" d="M 109 50 L 147 50" /><path class="icon-line-dashed" d="M 109 80 L 126 80 L 147 50" /><path class="icon-line-dashed" d="M 147 50 L 163 50" marker-end="url(#arrow-red)" /><circle cx="20" cy="50" r="8" class="icon-node" /><circle cx="20" cy="50" r="14" class="icon-ring" /><circle cx="100" cy="20" r="6.5" class="icon-node" /><circle cx="100" cy="50" r="6.5" class="icon-node" /><circle cx="100" cy="80" r="6.5" class="icon-node" /><circle cx="180" cy="50" r="8" class="icon-node-out" /><circle cx="180" cy="50" r="14" class="icon-ring-out" /></svg>',
+                    link: './Ensemble-Model/index.html',
+                    github: 'https://github.com/panzisusu/Ensemble-Model',
+                    color: '#8c6b12',
+                    bgStyle: {
+                        background: 'url(\'data:image/svg+xml;utf8,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22%20width=%22100%22%20height=%22100%22%3E%20%20%20%3Cstyle%3E%20%20%20%20%20.line%20{%20stroke:%20%23d8d3c5;%20stroke-width:%201.1px;%20fill:%20none;%20stroke-dasharray:%202,2;%20}%20%20%20%20%20.solid-line%20{%20stroke:%20%23d8d3c5;%20stroke-width:%201.1px;%20fill:%20none;%20}%20%20%20%20%20.node%20{%20fill:%20%23d8d3c5;%20}%20%20%20%20%20.ring%20{%20stroke:%20%23d8d3c5;%20stroke-width:%200.8px;%20fill:%20none;%20opacity:%200.5;%20}%20%20%20%3C/style%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2250%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2210%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2250%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2250%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2210%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2250%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2290%22%20cy=%2290%22%20r=%220.5%22%20class=%22node%22%20/%3E%20%20%20%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2015%2050%20L%2030%2050%20L%2045%2025%20L%2055%2025%22%20/%3E%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2030%2050%20L%2055%2050%22%20/%3E%20%20%20%3Cpath%20class=%22solid-line%22%20d=%22M%2015%2050%20L%2030%2050%20L%2045%2075%20L%2055%2075%22%20/%3E%20%20%20%20%20%20%3Cpath%20class=%22line%22%20d=%22M%2055%2025%20L%2070%2025%20L%2080%2050%20M%2055%2050%20L%2080%2050%20M%2055%2075%20L%2070%2075%20L%2080%2050%20L%2085%2050%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2215%22%20cy=%2250%22%20r=%222.5%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2215%22%20cy=%2250%22%20r=%225%22%20class=%22ring%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2225%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2250%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2255%22%20cy=%2275%22%20r=%222%22%20class=%22node%22%20/%3E%20%20%20%20%20%20%3Ccircle%20cx=%2285%22%20cy=%2250%22%20r=%223%22%20class=%22node%22%20/%3E%20%20%20%3Ccircle%20cx=%2285%22%20cy=%2250%22%20r=%226%22%20class=%22ring%22%20/%3E%3C/svg%3E\') left top/80px 80px repeat, linear-gradient(135deg, #fdfcf7 0%, #f5f0e3 100%)'
+                    }
                 },
                 {
                     id: 'clustering-algorithm-gemini',

@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fetch Data
   async function loadData() {
     try {
-      const response = await fetch('cleaned_data.json');
+      let response = await fetch('cleaned_data_0721.json');
+      if (!response.ok) {
+        response = await fetch('cleaned_data.json');
+      }
       if (!response.ok) throw new Error('Data fetch failed');
       appData = await response.json();
       
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (businessCardsGrid) {
         businessCardsGrid.innerHTML = `
           <div style="grid-column: 1/-1; text-align: center; color: var(--vermilion); padding: 40px;">
-            ⚠️ cleaned_data.json 載入失敗。
+            ⚠️ cleaned_data_0721.json 載入失敗。
           </div>
         `;
       }
@@ -74,10 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalBusinessesEl = document.getElementById('statTotalBusinesses');
     const dataVersionEl = document.getElementById('statDataVersion');
 
-    if (totalRecordsEl) totalRecordsEl.textContent = appData.total_records.toLocaleString();
+    if (totalRecordsEl) totalRecordsEl.textContent = appData.total_records ? appData.total_records.toLocaleString() : "4,625";
     if (totalCountiesEl) totalCountiesEl.textContent = Object.keys(appData.county_stats).length;
-    if (totalBusinessesEl) totalBusinessesEl.textContent = "1,324+";
-    if (dataVersionEl) dataVersionEl.textContent = appData.version;
+    if (totalBusinessesEl) totalBusinessesEl.textContent = "共 1,309 批";
+    if (dataVersionEl) dataVersionEl.textContent = "1150721";
   }
 
   function populateCountyDropdown() {
@@ -299,6 +302,32 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const rereleased19 = [
+      "314-1150401", "318-1150415", "313-1150420", "314-1150425", "315-1150428", "316-1150504",
+      "314-1150507", "316-1150515", "318-1150517", "314-1150518", "319-1150522", "314-1150608",
+      "315-1150521", "319-1150609", "318-1150524", "315-1150614", "314-1150617", "316-1150623",
+      "316-1150609"
+    ];
+
+    const isRereleasedMatch = rereleased19.some(b => b.toLowerCase().includes(query) || query.includes(b.toLowerCase()));
+
+    if (isRereleasedMatch) {
+      lotResultBox.className = 'result-verdict safe';
+      lotResultBox.style.display = 'block';
+      lotResultBox.innerHTML = `
+        <h4 style="font-family: var(--font-serif); font-size: 1.2rem; color: #166534; display: flex; align-items: center; gap: 8px;">
+          🟢【07/21 食藥署官方核可】安全無虞！准予重新上架
+        </h4>
+        <p style="margin-top: 8px; font-size: 0.95rem; color: #14532d; line-height: 1.6;">
+          您查詢的批號 <strong>「${escapeHtml(query)}」</strong> 為中聯油脂 4~6 月生產並經衛生福利部食藥署與專家會議審查評估合格之 <strong>19 批准予重新上架油品之一</strong>。
+        </p>
+        <div style="margin-top: 10px; padding: 10px 14px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; font-size: 0.88rem; color: #166534;">
+          ✅ 檢驗結果：符合食安國家標準，已解除預防性封存並恢復正常販售，請民眾放心購買與食用。
+        </div>
+      `;
+      return;
+    }
+
     let matchedProducts = [];
     appData.products_db.forEach(prod => {
       const matchName = prod.name.toLowerCase().includes(query);
@@ -339,10 +368,10 @@ document.addEventListener('DOMContentLoaded', () => {
       lotResultBox.style.display = 'block';
       lotResultBox.innerHTML = `
         <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: #065f46; display: flex; align-items: center; gap: 8px;">
-          ✅ 未在食藥署 1150716 下架清單中比對到此批號
+          ✅ 未在食藥署下架清單中比對到此批號
         </h4>
         <p style="margin-top: 8px; font-size: 0.95rem;">
-          關鍵字 <strong>「${escapeHtml(query)}」</strong> 目前未包含於本次中聯油脂受波及之強制下架油品清單中。
+          關鍵字 <strong>「${escapeHtml(query)}」</strong> 目前未包含於本次受波及之強制下架油品清單中。
         </p>
         <p style="font-size: 0.85rem; color: #047857; margin-top: 8px;">
           註：請確認瓶身標籤字串輸入完整（例如中聯：<code>315-1150404</code> 或福壽批號 <code>BL200426D</code>）。

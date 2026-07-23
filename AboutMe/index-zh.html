@@ -95,15 +95,14 @@
             object-fit: cover;
         }
 
-        .photo-hint {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-top: 10px;
-            line-height: 1.5;
-            background-color: rgba(0, 0, 0, 0.03);
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px dashed rgba(0, 0, 0, 0.1);
+        .profile-sidebar .skills-section {
+            margin-top: 32px;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .profile-sidebar .skills-grid {
+            justify-content: center;
         }
 
         .profile-info h3 {
@@ -121,28 +120,38 @@
             margin-bottom: 24px;
         }
 
-        .profile-socials {
+        .bio-contact-links {
             display: flex;
-            gap: 16px;
+            gap: 24px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            flex-wrap: wrap;
         }
 
-        .profile-socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            display: flex;
+        .bio-contact-link {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
+            color: var(--text-color);
             text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
         }
 
-        .profile-socials a:hover {
-            background-color: var(--accent-color);
-            color: white;
-            transform: translateY(-3px);
+        .bio-contact-link i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .bio-contact-link:hover {
+            color: var(--accent-color);
+        }
+
+        .bio-contact-link:hover i {
+            transform: scale(1.15);
         }
 
         .bio-content h2 {
@@ -166,6 +175,10 @@
             line-height: 1.8;
             font-size: 1rem;
             margin-bottom: 32px;
+        }
+
+        .bio-text p {
+            text-indent: 2em;
         }
 
         .skills-section {
@@ -269,33 +282,6 @@
                     <div class="profile-info">
                         <h3>胖子叔叔</h3>
                         <p>panzisusu</p>
-                        
-                        <div class="profile-socials">
-                            <a href="https://github.com/panzisusu" target="_blank" title="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="mailto:panzisusu@gmail.com" title="Email">
-                                <i class="fa-regular fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="photo-hint">
-                        <i class="fa-solid fa-circle-info"></i><br>
-                        <strong>更換照片提示：</strong><br>
-                        未來可將您的個人照片命名為 <code>uncle-meat.webp</code> 覆蓋於 <code>assets/webp/</code> 目錄，或在此處修改 <code>img src</code> 指向新相片。
-                    </div>
-                </section>
-
-                <!-- Main Biography & Skills Content -->
-                <section class="bio-content">
-                    <h2>關於胖子叔叔</h2>
-                    <div class="bio-title-underline"></div>
-                    
-                    <div class="bio-text">
-                        <p>您好！我是胖子叔叔 (panzisusu)。這裏是我的個人自介與作品集導覽頁面。</p>
-                        <p style="margin-top: 15px;">我專注於程式編碼、數據分析與機器學習領域的學習與探索。在這裡，我整理並收錄了許多學習歷程中的專案與實作，包含機器學習演算法、資料分析回歸模型、以及前端網頁交互式應用等。</p>
-                        <p style="margin-top: 15px;">（您可以在此檔案中編輯這段文字，填入您個人的具體自介、學經歷背景、學習目標或研究興趣。）</p>
                     </div>
 
                     <!-- Skills Showcase -->
@@ -311,6 +297,29 @@
                             <span class="skill-badge">Git / GitHub</span>
                         </div>
                     </div>
+                </section>
+
+                <!-- Main Biography & Skills Content -->
+                <section class="bio-content">
+                    <h2>關於胖子叔叔</h2>
+                    <div class="bio-title-underline"></div>
+                    
+                    <div class="bio-text">
+                        <p>您好！我是胖子叔叔（panzisusu）。這是我個人自介與作品集導覽頁面。</p>
+                        <p style="margin-top: 15px;">長期擔任老人照顧臨床營養師（到處兼職），現在也在賣肉乾和老人營養品（研發顧問和個人行銷），燒仙草食品廠的研發顧問。以前在某大學擔任講師，主要教授營養學和食品安全相關（目前學校已經倒閉，只剩下流浪狗在上課）。我喜歡到處跑，偏鄉也跑，如果有偏鄉合作案找不到人可以找我（但是要給我合理薪水），當然都市也跑，畢竟那是賺錢的地方。</p>
+                        <p style="margin-top: 15px;">目前專注大數據的處理，於程式編碼、數據分析與機器學習領域的學習與探索，整理並收錄了許多學習歷程中的專案與實作，包含機器學習演算法、資料分析回歸模型、以及前端網頁交互式應用等。</p>
+                        <p style="margin-top: 15px;">中興大學食生所博士班畢業，可以幫忙中小公司企業提升品質（兼職），我會進場去看，了解問題，您賺大錢我賺小錢，我們一起在AI 4.0的時代，在中小企業公司之下，走出時代的光芒。</p>
+                        
+                        <div class="bio-contact-links">
+                            <a href="mailto:panzisusu@gmail.com" class="bio-contact-link" title="聯絡信箱">
+                                <i class="fa-regular fa-envelope"></i> panzisusu@gmail.com
+                            </a>
+                            <a href="https://github.com/panzisusu" target="_blank" class="bio-contact-link" title="GitHub 專頁">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+
 
                     <!-- Actions -->
                     <div class="actions-section">

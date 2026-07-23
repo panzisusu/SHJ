@@ -95,15 +95,14 @@
             object-fit: cover;
         }
 
-        .photo-hint {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-top: 10px;
-            line-height: 1.5;
-            background-color: rgba(0, 0, 0, 0.03);
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px dashed rgba(0, 0, 0, 0.1);
+        .profile-sidebar .skills-section {
+            margin-top: 32px;
+            margin-bottom: 0;
+            width: 100%;
+        }
+
+        .profile-sidebar .skills-grid {
+            justify-content: center;
         }
 
         .profile-info h3 {
@@ -121,28 +120,38 @@
             margin-bottom: 24px;
         }
 
-        .profile-socials {
+        .bio-contact-links {
             display: flex;
-            gap: 16px;
+            gap: 24px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            flex-wrap: wrap;
         }
 
-        .profile-socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
-            color: var(--primary-color);
-            display: flex;
+        .bio-contact-link {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
+            color: var(--text-color);
             text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
         }
 
-        .profile-socials a:hover {
-            background-color: var(--accent-color);
-            color: white;
-            transform: translateY(-3px);
+        .bio-contact-link i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .bio-contact-link:hover {
+            color: var(--accent-color);
+        }
+
+        .bio-contact-link:hover i {
+            transform: scale(1.15);
         }
 
         .bio-content h2 {
@@ -166,6 +175,10 @@
             line-height: 1.8;
             font-size: 1rem;
             margin-bottom: 32px;
+        }
+
+        .bio-text p {
+            text-indent: 2em;
         }
 
         .skills-section {
@@ -269,33 +282,6 @@
                     <div class="profile-info">
                         <h3>Fatty Uncle</h3>
                         <p>panzisusu</p>
-                        
-                        <div class="profile-socials">
-                            <a href="https://github.com/panzisusu" target="_blank" title="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="mailto:panzisusu@gmail.com" title="Email">
-                                <i class="fa-regular fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="photo-hint">
-                        <i class="fa-solid fa-circle-info"></i><br>
-                        <strong>Change Photo:</strong><br>
-                        Replace <code>uncle-meat.webp</code> in <code>assets/webp/</code> with your photo or edit the <code>img src</code> path here.
-                    </div>
-                </section>
-
-                <!-- Main Biography & Skills Content -->
-                <section class="bio-content">
-                    <h2>About Fatty Uncle</h2>
-                    <div class="bio-title-underline"></div>
-                    
-                    <div class="bio-text">
-                        <p>Hello! I am Fatty Uncle (panzisusu). Welcome to my personal introduction page.</p>
-                        <p style="margin-top: 15px;">I focus on learning programming, data analytics, and machine learning. Here, I have organized projects from my learning journey, including machine learning algorithms, data regression models, and front-end interactive applications.</p>
-                        <p style="margin-top: 15px;">(You can edit this text file to add your own personal details, educational background, goals, or research interests.)</p>
                     </div>
 
                     <!-- Skills Showcase -->
@@ -311,6 +297,29 @@
                             <span class="skill-badge">Git / GitHub</span>
                         </div>
                     </div>
+                </section>
+
+                <!-- Main Biography & Skills Content -->
+                <section class="bio-content">
+                    <h2>About Fatty Uncle</h2>
+                    <div class="bio-title-underline"></div>
+                    
+                    <div class="bio-text">
+                        <p>Hello! I am Fatty Uncle (panzisusu). This is my personal introduction and portfolio page.</p>
+                        <p style="margin-top: 15px;">I have long served as a clinical dietitian in elder care (working part-time in various places), and currently also sell beef jerky and elder nutrition products (serving as a research consultant and personal marketing). I also serve as a research consultant for a grass jelly food factory. Previously, I was a lecturer at a university, mainly teaching nutrition and food safety related subjects (the school has since closed down, leaving only stray dogs attending class). I like to travel everywhere, including remote areas. If you have rural cooperation projects and cannot find anyone, feel free to reach out to me (reasonable compensation is required). Of course, I also travel to urban areas, since that is where the money is.</p>
+                        <p style="margin-top: 15px;">Currently, I focus on big data processing, learning and exploring the fields of programming, data analytics, and machine learning. Here, I have compiled projects from my learning journey, including machine learning algorithms, data regression models, and front-end interactive applications.</p>
+                        <p style="margin-top: 15px;">Graduated with a Ph.D. from the Department of Food Science and Biotechnology at National Chung Hsing University. I can help small and medium-sized enterprises (SMEs) improve their quality (part-time). I will conduct on-site inspections to analyze and solve problems. Let's work together to help SMEs shine in the era of AI 4.0.</p>
+                        
+                        <div class="bio-contact-links">
+                            <a href="mailto:panzisusu@gmail.com" class="bio-contact-link" title="Email">
+                                <i class="fa-regular fa-envelope"></i> panzisusu@gmail.com
+                            </a>
+                            <a href="https://github.com/panzisusu" target="_blank" class="bio-contact-link" title="GitHub Profile">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+
 
                     <!-- Actions -->
                     <div class="actions-section">

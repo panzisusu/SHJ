@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>西瓜忍者 Watermelon Ninja - Light & White Edition</title>
+    <meta name="description" content="基於 Light & White 現代極簡設計系統的西瓜忍者切水果手機 Web App，支援觸控滑動切西瓜、連擊系統與豐富水果種類。">
+    <script>
+        if (!window.location.pathname.endsWith('/') && !window.location.pathname.endsWith('.html')) {
+            window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background Grid Graphic -->
+    <div class="bg-grid"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="top-nav" id="top-nav">
+        <div class="brand">
+            <span class="brand-icon">🍉</span>
+            <span>西瓜忍者 <span class="accent">Ninja</span></span>
+        </div>
+        <div class="nav-actions">
+            <a href="../index.html#portfolio" class="btn-back-portfolio" title="回到胖子叔叔作品集">
+                <span>🏠 回到胖子叔叔作品集</span>
+            </a>
+            <button class="btn-icon" id="btn-sound-toggle" title="切換音效">
+                <span id="sound-icon">🔊</span>
+            </button>
+            <button class="btn-icon" id="btn-pause-toggle" title="暫停遊戲">
+                <span>⏸️</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Mobile Frame Container -->
+    <main class="app-viewport">
+        <div class="game-container" id="game-container">
+            
+            <!-- HUD Overlay -->
+            <div class="hud-layer" id="hud-layer">
+                <div class="hud-card score-display">
+                    <span class="hud-label">SCORE</span>
+                    <span class="hud-value" id="hud-score">0</span>
+                </div>
+
+                <div class="hud-card timer-display" id="hud-timer-card" style="display: none;">
+                    <span class="hud-label">TIME</span>
+                    <span class="timer-value" id="hud-timer">60s</span>
+                </div>
+
+                <div class="hud-card lives-container" id="hud-lives-card">
+                    <span class="heart-icon" id="life-1">❤️</span>
+                    <span class="heart-icon" id="life-2">❤️</span>
+                    <span class="heart-icon" id="life-3">❤️</span>
+                </div>
+            </div>
+
+            <!-- Combo Banner Callout -->
+            <div class="combo-banner" id="combo-banner">
+                3x COMBO! +30
+            </div>
+
+            <!-- HTML5 Game Canvas -->
+            <canvas id="game-canvas"></canvas>
+
+            <!-- Main Menu Screen Overlay -->
+            <section class="overlay-screen active" id="start-menu-screen">
+                <svg class="watermelon-hero" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="46" fill="#28A745" stroke="#1E293B" stroke-width="4"/>
+                    <path d="M 8 50 A 42 42 0 0 0 92 50 Z" fill="#E11D48"/>
+                    <circle cx="30" cy="65" r="3" fill="#1E293B"/>
+                    <circle cx="50" cy="72" r="3" fill="#1E293B"/>
+                    <circle cx="70" cy="65" r="3" fill="#1E293B"/>
+                    <circle cx="40" cy="58" r="3" fill="#1E293B"/>
+                    <circle cx="60" cy="58" r="3" fill="#1E293B"/>
+                </svg>
+                
+                <h1 class="menu-title">西瓜忍者</h1>
+                <p class="menu-subtitle">Light & White 現代高對比主題版</p>
+
+                <!-- Game Mode Tabs -->
+                <div class="mode-selector">
+                    <button class="tab-btn" data-mode="classic" id="mode-tab-classic">經典 3 心</button>
+                    <button class="tab-btn active" data-mode="zen" id="mode-tab-zen">60s 限時</button>
+                    <button class="tab-btn" data-mode="practice" id="mode-tab-practice">無盡練習</button>
+                </div>
+
+                <!-- Blade Glow Color Selector -->
+                <span class="blade-label">刀光軌跡配色</span>
+                <div class="blade-selection">
+                    <div class="blade-opt selected" data-color="#0a84ff" style="background: #0a84ff;" title="經典藍 (PhET Blue)"></div>
+                    <div class="blade-opt" data-color="#28a745" style="background: #28a745;" title="翡翠綠 (Green)"></div>
+                    <div class="blade-opt" data-color="#df5c00" style="background: #df5c00;" title="活力橙 (Orange)"></div>
+                    <div class="blade-opt" data-color="#e11d48" style="background: #e11d48;" title="烈焰紅 (Red)"></div>
+                </div>
+
+                <button class="btn-primary" id="btn-start-game">
+                    <span>⚔️ 開始揮刀切割</span>
+                </button>
+                
+                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 10px;">
+                    🏆 最高紀錄: <strong id="menu-high-score" style="color: var(--vermilion);">0</strong>
+                </div>
+            </section>
+
+            <!-- Game Over Overlay Screen -->
+            <section class="overlay-screen" id="game-over-screen">
+                <h2 class="menu-title" style="color: var(--phet-red);" id="game-over-title">切割結束!</h2>
+                <p class="menu-subtitle" id="game-over-subtitle">精彩的揮刀表現！</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="val" id="stat-final-score">0</div>
+                        <div class="lbl">最終得分</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="val" id="stat-sliced-count">0</div>
+                        <div class="lbl">切開水果數</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="val" id="stat-max-combo">0x</div>
+                        <div class="lbl">最大連擊</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="val" id="stat-high-score">0</div>
+                        <div class="lbl">最高紀錄</div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="btn-restart-game">
+                    <span>🔄 再試一次</span>
+                </button>
+                <button class="btn-secondary" id="btn-back-menu">
+                    <span>🏠 返回主選單</span>
+                </button>
+            </section>
+
+            <!-- Pause Screen Overlay -->
+            <section class="overlay-screen" id="pause-screen">
+                <h2 class="menu-title">遊戲暫停</h2>
+                <p class="menu-subtitle">請放鬆手腕準備下一輪切擊</p>
+                <button class="btn-primary" id="btn-resume-game" style="margin-bottom: 12px;">
+                    <span>▶️ 繼續遊戲</span>
+                </button>
+                <button class="btn-secondary" id="btn-pause-menu">
+                    <span>🏠 結束並返回選單</span>
+                </button>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Main Logic Script -->
+    <script src="game.js"></script>
+</body>
+</html>

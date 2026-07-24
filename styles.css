@@ -405,14 +405,17 @@ nav {
 }
 
 .card-img-placeholder.clustering-algorithm-copilot,
-.card-img-placeholder.clustering-algorithm-gemini {
+.card-img-placeholder.clustering-algorithm-gemini,
+.card-img-placeholder.watermelon-ninja {
     color: #1f1f1f;
 }
 
 .card-img-placeholder.clustering-algorithm-copilot i,
 .card-img-placeholder.clustering-algorithm-copilot span,
 .card-img-placeholder.clustering-algorithm-gemini i,
-.card-img-placeholder.clustering-algorithm-gemini span {
+.card-img-placeholder.clustering-algorithm-gemini span,
+.card-img-placeholder.watermelon-ninja i,
+.card-img-placeholder.watermelon-ninja span {
     color: #1f1f1f;
 }
 

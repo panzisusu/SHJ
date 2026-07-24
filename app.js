@@ -152,6 +152,19 @@ createApp({
                     color: '#ffc72c'
                 },
                 {
+                    id: 'watermelon-ninja',
+                    name: 'Watermelon Ninja Mobile Web App',
+                    nameZh: '西瓜忍者 (Watermelon Ninja) 手機 Web App',
+                    description: 'A high-performance, mobile-first fruit slicing game built with HTML5 Canvas, Web Audio API synthesis, dynamic slice physics, combos, and crisp Light & White design theme.',
+                    descriptionZh: '高質感響應式西瓜忍者切水果手機 Web App。採用 HTML5 Canvas 60 FPS 向量物理引擎、極簡 Light & White 現代風格、多點觸控劃刀光軌、連擊倍率與 Web Audio 音效合成。',
+                    icon: 'fa-gamepad',
+                    link: './watermelon-ninja/index.html',
+                    color: '#28a745',
+                    bgStyle: {
+                        background: 'linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%)'
+                    }
+                },
+                {
                     id: 'cosmos',
                     name: 'Cosmos Generator',
                     nameZh: '宇宙星空生成器',

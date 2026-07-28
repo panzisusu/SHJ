@@ -4,7 +4,7 @@ from fastapi import FastAPI, BackgroundTasks, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from psycopg2.extras import RealDictCursor
+from psycopg2.extras import RealDictCursor, execute_values
 
 # Import PostgreSQL modules
 from api.db import get_db_connection, release_connection, init_db, store_cache, get_cache
@@ -194,7 +194,10 @@ def seed_default_stations():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
+<<<<<<< HEAD
         now_str = "2026-07-28 23:30:00"
+=======
+>>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
         
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS weather (
@@ -221,8 +224,18 @@ def seed_default_stations():
         """)
         conn.commit()
         
+<<<<<<< HEAD
         # Clear old rows to guarantee clean 500+ node refresh
         cursor.execute("DELETE FROM weather;")
+=======
+        # Check if table already has rows to avoid slow repeated seeds
+        cursor.execute("SELECT COUNT(*) FROM weather;")
+        existing_count = cursor.fetchone()[0]
+        if existing_count > 0:
+            return
+            
+        now_str = "2026-07-28 23:30:00"
+>>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
         
         # Taiwan 22 Counties & 368+ Townships & Automatic Weather Station grid Generator (500+ Stations)
         counties_grid = [
@@ -240,7 +253,11 @@ def seed_default_stations():
             ("嘉義市", 23.4958, 120.4322, ["東區", "西區", "嘉義公園"]),
             ("嘉義縣", 23.4518, 120.2559, ["太保市", "朴子市", "布袋鎮", "大林鎮", "民雄鄉", "溪口鄉", "新港鄉", "六腳鄉", "東石鄉", "義竹鄉", "鹿草鄉", "水上鄉", "中埔鄉", "竹崎鄉", "梅山鄉", "番路鄉", "大埔鄉", "阿里山"]),
             ("臺南市", 22.9933, 120.2047, ["中西區", "東區", "南區", "北區", "安平區", "安南區", "永康區", "歸仁區", "新化區", "左鎮區", "玉井區", "楠西區", "南化區", "仁德區", "關廟區", "龍崎區", "官田區", "麻豆區", "佳里區", "西港區", "七股區", "將軍區", "學甲區", "北門區", "新營區", "後壁區", "白河區", "東山區", "六甲區", "下營區", "柳營區", "鹽水區", "善化區", "大內區", "山上區", "新市區", "安定區"]),
+<<<<<<< HEAD
             ("高雄市", 22.5661, 120.3157, ["楠梓區", "左營區", "鼓山區", "三民區", "鹽埕區", "前金區", "新興區", "苓雅區", "前鎮區", "旗津區", "小港區", "鳳山區", "林園區", "大寮區", "大樹區", "大社區", "仁武區", "鳥松區", "岡山區", "橋頭區", "燕巢區", "田寮區", "阿蓮區", "路竹區", "湖內區", "茄萣區", "永安區", "彌陀區", "梓官區", "旗山區", "美濃區", "六龜區", "甲仙區", "杉林區", "內門區", "茂林區", "桃源區", "那瑪夏區"]),
+=======
+            ("高雄市", 22.5661, 120.3157, ["楠梓區", "左營區", "鼓山區", "三民區", "鹽埕區", "前金區", "新興區", "苓雅區", "前鎮區", "旗津區", "小港區", "鳳山區", "林園區", "大寮區", "大樹區", "大社區", "仁武區", "鳥松區", "岡山區", "橋頭區", "燕巢區", "田寮區", "阿蓮區", "路竹區", "湖內區", "茄萣區", "永安區", "彌陀區", "梓官區", "旗山區", "美濃區", "六龜區", "甲仙區", "杉林區", "內門區", "桃源區", "那瑪夏區"]),
+>>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
             ("屏東縣", 22.6728, 120.4881, ["屏東市", "潮州鎮", "東港鎮", "恆春鎮", "萬丹鄉", "長治鄉", "麟洛鄉", "九如鄉", "里港鄉", "鹽埔鄉", "高樹鄉", "萬巒鄉", "內埔鄉", "竹田鄉", "新埤鄉", "枋寮鄉", "新園鄉", "坎頂鄉", "林邊鄉", "南州鄉", "佳冬鄉", "琉球鄉", "車城鄉", "滿州鄉", "枋山鄉", "三地門鄉", "霧台鄉", "瑪家鄉", "泰武鄉", "來義鄉", "春日鄉", "獅子鄉", "牡丹鄉", "鵝鑾鼻"]),
             ("宜蘭縣", 24.7640, 121.7565, ["宜蘭市", "羅東鎮", "蘇澳鎮", "頭城鎮", "礁溪鄉", "壯圍鄉", "員山鄉", "冬山鄉", "五結鄉", "三星鄉", "大同鄉", "南澳鄉", "太平山", "龜山島"]),
             ("花蓮縣", 23.9750, 121.6133, ["花蓮市", "鳳林鎮", "玉里鎮", "新城鄉", "吉安鄉", "壽豐鄉", "光復鄉", "豐濱鄉", "瑞穗鄉", "富里鄉", "秀林鄉", "萬榮鄉", "卓溪鄉", "太魯閣"]),
@@ -252,7 +269,11 @@ def seed_default_stations():
         
         import random
         station_counter = 1000
+<<<<<<< HEAD
         inserted_count = 0
+=======
+        records = []
+>>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
         
         for cname, clat, clon, towns in counties_grid:
             for idx, town in enumerate(towns):
@@ -260,7 +281,10 @@ def seed_default_stations():
                 sid = f"C0{station_counter}"
                 sname = f"{cname[:2]}{town[:2]}"
                 
+<<<<<<< HEAD
                 # Small random lat/lon offset to form dense realistic station dots
+=======
+>>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
                 lat_off = (random.random() - 0.5) * 0.18
                 lon_off = (random.random() - 0.5) * 0.18
                 
@@ -273,20 +297,21 @@ def seed_default_stations():
                 wdir = round(random.random() * 360.0, 1)
                 rain = round(random.random() * 2.0, 1) if random.random() > 0.8 else 0.0
                 
-                cursor.execute("""
-                    INSERT INTO weather (
-                        station_id, station_name, time, temperature, humidity, pressure,
-                        wind_speed, wind_direction, rainfall, rain_1h, rain_3h, rain_24h, rain_daily,
-                        latitude, longitude, county_name, town_name, altitude
-                    ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-                """, (
+                records.append((
                     sid, sname, now_str, temp, hum, press, wind, wdir, rain, rain, rain, rain, rain,
                     lat, lon, cname, town, round(10.0 + random.random() * 200, 1)
                 ))
-                inserted_count += 1
                 
+        insert_query = """
+            INSERT INTO weather (
+                station_id, station_name, time, temperature, humidity, pressure,
+                wind_speed, wind_direction, rainfall, rain_1h, rain_3h, rain_24h, rain_daily,
+                latitude, longitude, county_name, town_name, altitude
+            ) VALUES %s;
+        """
+        execute_values(cursor, insert_query, records)
         conn.commit()
-        print(f"[Seed Data] Injected {inserted_count} Taiwan comprehensive stations successfully.")
+        print(f"[Seed Data] Injected {len(records)} Taiwan comprehensive stations in bulk.")
     except Exception as e:
         if conn:
             conn.rollback()
@@ -316,11 +341,11 @@ def run_update_pipeline():
         print("[Background Update Info] Operating on Taiwan regional station network.")
 
 @app.api_route("/api/update", methods=["GET", "POST"])
-def trigger_update():
-    """Trigger update pipeline to download and parse all weather datasets into PostgreSQL."""
+def trigger_update(background_tasks: BackgroundTasks):
+    """Trigger update pipeline in background to return immediately and prevent HTTP timeout."""
     try:
-        run_update_pipeline()
-        return {"success": True, "message": "CWA live update pipeline executed successfully."}
+        background_tasks.add_task(run_update_pipeline)
+        return {"success": True, "message": "CWA live update pipeline started in background."}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Update pipeline failed: {str(e)}")
 

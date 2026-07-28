@@ -445,17 +445,18 @@ function setupEventListeners() {
         try {
             const res = await fetch("/api/update", { method: "POST" });
             const result = await res.json();
-            if (result.success) {
+            if (res.ok && result.success) {
                 await loadData();
-                btn.disabled = false;
-                btn.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> 更新觀測資料';
+                alert("資料更新成功！");
+            } else {
+                alert("更新未完成：" + (result.detail || result.message || "請確認雲端資料庫連線與API Key"));
             }
-
         } catch (err) {
             console.error("觸發更新資料失敗:", err);
+            alert("更新資料請求失敗，請檢查網路連線。");
+        } finally {
             btn.disabled = false;
             btn.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> 更新觀測資料';
-            alert("更新資料請求失敗。");
         }
     });
 

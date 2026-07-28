@@ -446,13 +446,11 @@ function setupEventListeners() {
             const res = await fetch("/api/update", { method: "POST" });
             const result = await res.json();
             if (result.success) {
-                alert("資料更新已在背景啟動！系統將於數秒後重新載入。");
-                setTimeout(() => {
-                    loadData();
-                    btn.disabled = false;
-                    btn.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> 更新觀測資料';
-                }, 6000); // 6s wait for obs + rain + forecast + typhoon news
+                await loadData();
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> 更新觀測資料';
             }
+
         } catch (err) {
             console.error("觸發更新資料失敗:", err);
             btn.disabled = false;

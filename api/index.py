@@ -201,11 +201,15 @@ def run_update_pipeline():
     else:
         print("[Background Update Error] Dataset fetch returned None.")
 
-@app.post("/api/update")
-def trigger_update(background_tasks: BackgroundTasks):
-    """Trigger background task to download and parse all weather datasets."""
-    background_tasks.add_task(run_update_pipeline)
-    return {"success": True, "message": "CWA live update task started in background."}
+@app.api_route("/api/update", methods=["GET", "POST"])
+def trigger_update():
+    """Trigger update pipeline to download and parse all weather datasets into PostgreSQL."""
+    try:
+        run_update_pipeline()
+        return {"success": True, "message": "CWA live update pipeline executed successfully."}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Update pipeline failed: {str(e)}")
+
 
 # Mount frontend directory for local uvicorn execution
 if os.path.exists(FRONTEND_DIR):

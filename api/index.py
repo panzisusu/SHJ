@@ -196,6 +196,32 @@ def seed_default_stations():
         cursor = conn.cursor()
         now_str = "2026-07-28 23:30:00"
         
+        # Ensure schema table exists properly
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS weather (
+                id SERIAL PRIMARY KEY,
+                station_id TEXT,
+                station_name TEXT,
+                time TEXT,
+                temperature REAL,
+                humidity INTEGER,
+                pressure REAL,
+                wind_speed REAL,
+                wind_direction REAL,
+                rainfall REAL,
+                rain_1h REAL,
+                rain_3h REAL,
+                rain_24h REAL,
+                rain_daily REAL,
+                latitude REAL,
+                longitude REAL,
+                county_name TEXT,
+                town_name TEXT,
+                altitude REAL
+            );
+        """)
+        conn.commit()
+        
         default_stations = [
             ("466920", "臺北", now_str, 28.5, 75, 1008.2, 2.1, 90.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0377, 121.5149, "臺北市", "中正區", 9.0),
             ("466880", "板橋", now_str, 29.0, 72, 1007.8, 1.8, 110.0, 0.0, 0.0, 0.0, 0.0, 0.0, 24.9976, 121.4422, "新北市", "板橋區", 9.7),
@@ -215,17 +241,16 @@ def seed_default_stations():
             ("467110", "金門", now_str, 27.0, 81, 1008.2, 3.8, 50.0, 0.0, 0.0, 0.0, 0.0, 0.0, 24.4075, 118.2894, "金門縣", "金城鎮", 48.0)
         ]
         
+        # Clear old rows to prevent constraint conflicts
+        cursor.execute("DELETE FROM weather;")
+        
         for st in default_stations:
             cursor.execute("""
                 INSERT INTO weather (
                     station_id, station_name, time, temperature, humidity, pressure,
                     wind_speed, wind_direction, rainfall, rain_1h, rain_3h, rain_24h, rain_daily,
                     latitude, longitude, county_name, town_name, altitude
-                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                ON CONFLICT (station_id, time) DO UPDATE SET
-                    temperature = EXCLUDED.temperature,
-                    humidity = EXCLUDED.humidity,
-                    pressure = EXCLUDED.pressure;
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
             """, st)
             
         conn.commit()
@@ -279,4 +304,5 @@ def get_dashboard():
     if not os.path.exists(html_path):
         return {"message": "FastAPI Serverless endpoints are ready. Run inside Vercel to access the portfolio."}
     return FileResponse(html_path)
+
 

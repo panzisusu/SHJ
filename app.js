@@ -36,6 +36,16 @@ createApp({
                     }
                 },
                 {
+                    id: 'cwa-weather-dashboard',
+                    name: 'Taiwan CWA Weather Archive (2026/07/08)',
+                    nameZh: '台灣氣象觀測歷史存檔儀表板 (只有7/17的數據)',
+                    description: 'A historical snapshot of the full-stack weather system frozen on July 8, featuring compiled SQLite observations and static historical trends.',
+                    descriptionZh: '歷史存檔版天氣儀表板。靜態封裝了 2026 年 7 月 8 日以前的氣象觀測與 SQLite 歷史紀錄，適合作為歷史數據之回溯與展示。',
+                    icon: 'fa-box-archive',
+                    link: 'https://cwa-weather-nu.vercel.app/',
+                    color: '#64748b'
+                },
+                {
                     id: 'hw10-weather',
                     name: 'Taiwan CWA Weather Live (Cloud-Synced)',
                     nameZh: '台灣氣象即時雲端同步觀測平台(即時性測試中)',
@@ -45,16 +55,6 @@ createApp({
                     link: './cwa-weather-live/index.html',
                     github: 'https://github.com/panzisusu/cwa-weather',
                     color: '#0ea5e9'
-                },
-                {
-                    id: 'cwa-weather-dashboard',
-                    name: 'Taiwan CWA Weather Archive (2026/07/08)',
-                    nameZh: '台灣氣象觀測歷史存檔儀表板 (只有7/17的數據)',
-                    description: 'A historical snapshot of the full-stack weather system frozen on July 8, featuring compiled SQLite observations and static historical trends.',
-                    descriptionZh: '歷史存檔版天氣儀表板。靜態封裝了 2026 年 7 月 8 日以前的氣象觀測與 SQLite 歷史紀錄，適合作為歷史數據之回溯與展示。',
-                    icon: 'fa-box-archive',
-                    link: 'https://cwa-weather-nu.vercel.app/',
-                    color: '#64748b'
                 },
                 {
                     id: 'ensemble-model',

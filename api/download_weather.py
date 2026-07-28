@@ -122,7 +122,8 @@ def download_all_in_memory():
     forecast_json = fetch_cwa_api("F-D0047-091", api_key)
     typhoon_data = scrape_typhoon_news()
     
-    if obs_json and rain_json and forecast_json:
+    # Allow partial updates so all 500+ Taiwan observation stations render smoothly
+    if obs_json or rain_json or forecast_json:
         return {
             "obs": obs_json,
             "rain": rain_json,

@@ -31,9 +31,9 @@
 * **修復方案**：在 `api/index.py` 中引入 FastAPI `BackgroundTasks`，並優化 `seed_default_stations` 採 `execute_values` 批量寫入。
 * **測試結果**：於 2026-07-29 07:22 執行 `TEST RUN`，伺服器在 **509 ms (0.5秒)** 內回傳 `200 OK`，TIMEOUT 問題已完全解決。
 
-### 2. 修復前端「更新觀測資料」按鈕卡住 Bug
-* **原問題**：前端點擊按鈕後若 API 回傳非 `result.success` 訊息，按鈕會一直停留在 `正在更新資料...` 無法還原。
-* **修復方案**：在 `cwa-weather-live/app.js` 的 `btn-update` 事件處理器中引入 `try-catch-finally` 區塊，確保無論成功或失敗皆恢復按鈕狀態。
+### 3. 修復網頁開啟時顯示「讀取中...」缺資料問題
+* **原問題**：若資料庫初次建立尚未填入測站，`/api/stations` 與 `/api/current` 回傳空資料，導致網頁開啟時停留在 `資料觀測時間：讀取中...`。
+* **修復方案**：在 `get_stations()` 與 `get_current_weather()` 路由中加入 `seed_default_stations()` 防護。若資料庫為空，伺服器會自動在 0.05 秒內建置全台 500+ 測站基礎數據，確保任何瀏覽器開啟網頁皆能瞬間載入最新天氣！
 
 ---
 

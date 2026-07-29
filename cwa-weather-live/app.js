@@ -50,8 +50,13 @@ async function loadData() {
             
             // Update Header Update Time
             if (latestObservations.length > 0) {
-                const latestTime = latestObservations[0].time;
-                const formattedTime = new Date(latestTime).toLocaleString('zh-TW', { hour12: false });
+                let maxTimeStr = "";
+                for (const obs of latestObservations) {
+                    if (obs.time && obs.time > maxTimeStr) {
+                        maxTimeStr = obs.time;
+                    }
+                }
+                const formattedTime = maxTimeStr ? new Date(maxTimeStr).toLocaleString('zh-TW', { hour12: false }) : '暫無數據';
                 document.getElementById("update-time-text").textContent = `資料觀測時間：${formattedTime}`;
             } else {
                 document.getElementById("update-time-text").textContent = `資料觀測時間：暫無數據`;

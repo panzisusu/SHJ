@@ -14,6 +14,15 @@ def clean_val(val, val_type=float):
     except (ValueError, TypeError):
         return None
 
+def clean_time(time_val):
+    """Standardize timestamp string: replace T with space and strip timezone offset (+08:00)."""
+    if not time_val:
+        return None
+    time_str = str(time_val).replace("T", " ")
+    if "+" in time_str:
+        time_str = time_str.split("+")[0]
+    return time_str.strip()
+
 def parse_and_store_obs_and_rain(obs_data, rain_data):
     """Parse raw observation and rainfall JSON files, merge and store to PostgreSQL."""
     if not obs_data:
@@ -35,6 +44,7 @@ def parse_and_store_obs_and_rain(obs_data, rain_data):
         
         obs_time_dict = station.get("ObsTime") or station.get("obsTime") or station.get("time") or {}
         time = obs_time_dict.get("DateTime") if isinstance(obs_time_dict, dict) else obs_time_dict
+        time = clean_time(time)
         if not time or not station_id:
             continue
             
@@ -101,6 +111,7 @@ def parse_and_store_obs_and_rain(obs_data, rain_data):
                 
                 obs_time_dict = station.get("ObsTime") or station.get("obsTime") or station.get("time") or {}
                 time = obs_time_dict.get("DateTime") if isinstance(obs_time_dict, dict) else obs_time_dict
+                time = clean_time(time)
                 if not time or not station_id:
                     continue
                     

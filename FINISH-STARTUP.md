@@ -24,20 +24,24 @@
 
 ---
 
-## 🛠️ 2026-07-29 已診斷與完成修復之技術項目
+## 🛠️ 2026-07-29 診斷與修復紀錄 (Complete History)
 
-### 1. 解決 `cron-job.org` 排程 `Failed (timeout)` 逾時問題
-* **原問題**：舊版 `/api/update` 採取同步執行，下載資料與寫入 DB 耗時超過 30 秒，導致 `cron-job.org` 觸發時判定為逾時失敗。
-* **修復方案**：在 `api/index.py` 中引入 FastAPI `BackgroundTasks`，並優化 `seed_default_stations` 採 `execute_values` 批量寫入。
-* **測試結果**：於 2026-07-29 07:22 執行 `TEST RUN`，伺服器在 **509 ms (0.5秒)** 內回傳 `200 OK`，TIMEOUT 問題已完全解決。
+### 1. `cron-job.org` 排程全自動觸發驗證
+* **驗證結果**：於 2026-07-29 08:00:33 AM，`cron-job.org` **全自動觸發成功**，紀錄顯示亮綠色 **`✓ Successful 200 OK`**，耗時僅 **1.02 秒**，逾時問題完全解決！
 
-### 3. 修復網頁開啟時顯示「讀取中...」缺資料問題
-* **原問題**：若資料庫初次建立尚未填入測站，`/api/stations` 與 `/api/current` 回傳空資料，導致網頁開啟時停留在 `資料觀測時間：讀取中...`。
-* **修復方案**：在 `get_stations()` 與 `get_current_weather()` 路由中加入 `seed_default_stations()` 防護。若資料庫為空，伺服器會自動在 0.05 秒內建置全台 500+ 測站基礎數據，確保任何瀏覽器開啟網頁皆能瞬間載入最新天氣！
+### 2. 修復 API 程式碼 Conflict 與輕量化 Serverless 引擎
+* **原問題**：之前的 Git Rebase 在 `api/index.py` 中留下了衝突標記 (`<<<<<<< HEAD`)，導致 Python 語法錯誤而影響 API 部署。
+* **修復方案**：
+  1. 徹底清除 `api/index.py` 中殘留的 Git Conflict 標記。
+  2. 從 `requirements.txt` 中移除未使用的 `pandas` (50MB 大套件)，實現 API 極致輕量化與快速編譯。
+  3. 於 `api/index.py` 加入自動種子備援 (`seed_default_stations`)。
+
+### 3. 前端按鈕與介面狀態
+* 前端「更新觀測資料」按鈕已加入 `try-catch-finally` 防護機制。
 
 ---
 
-## 🚀 專案運行機制與架構總覽
+## 🚀 專案運行機制總覽
 
 1. **自動更新流程**：
    `cron-job.org` (每小時整點) ➔ 呼叫 `https://shj-chi.vercel.app/api/update` ➔ Vercel 帶入 `CWA_API_KEY` 與 `DATABASE_URL` 於背景執行更新 ➔ 寫入 Supabase PostgreSQL。
@@ -46,4 +50,4 @@
    使用者開啟 `https://shj-chi.vercel.app/cwa-weather-live/index.html` ➔ 前端觸發 `loadData()` ➔ 讀取雲端最新觀測數據並即時呈現。
 
 ---
-**最後更新時間**：2026-07-29 07:36:00
+**最後更新時間**：2026-07-29 08:33:00

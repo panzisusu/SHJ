@@ -20,45 +20,48 @@ def parse_and_store_obs_and_rain(obs_data, rain_data):
         print("[Parser Error] No observation data provided.")
         return False
 
-    cwaopendata = obs_data.get("cwaopendata", {})
-    dataset = cwaopendata.get("dataset", {})
-    obs_station_list = dataset.get("Station", [])
+    cwaopendata = obs_data.get("cwaopendata") or obs_data.get("records") or obs_data
+    dataset = cwaopendata.get("dataset") or cwaopendata.get("Dataset") or cwaopendata.get("records") or cwaopendata
+    obs_station_list = dataset.get("Station") or dataset.get("station") or dataset.get("location") or []
+    if isinstance(obs_station_list, dict):
+        obs_station_list = [obs_station_list]
     
     station_map = {} # station_id -> row_dict
     print(f"[Parser] Parsing {len(obs_station_list)} weather stations...")
     
     for station in obs_station_list:
-        station_id = station.get("StationId")
-        station_name = station.get("StationName")
+        station_id = station.get("StationId") or station.get("stationId") or station.get("locationCode")
+        station_name = station.get("StationName") or station.get("stationName") or station.get("locationName")
         
-        obs_time_dict = station.get("ObsTime", {})
-        time = obs_time_dict.get("DateTime")
+        obs_time_dict = station.get("ObsTime") or station.get("obsTime") or station.get("time") or {}
+        time = obs_time_dict.get("DateTime") if isinstance(obs_time_dict, dict) else obs_time_dict
         if not time or not station_id:
             continue
             
-        geo_info = station.get("GeoInfo", {})
-        county_name = geo_info.get("CountyName")
-        town_name = geo_info.get("TownName")
-        altitude = clean_val(geo_info.get("StationAltitude"))
+        geo_info = station.get("GeoInfo") or station.get("geoInfo") or {}
+        county_name = geo_info.get("CountyName") or geo_info.get("countyName")
+        town_name = geo_info.get("TownName") or geo_info.get("townName")
+        altitude = clean_val(geo_info.get("StationAltitude") or geo_info.get("stationAltitude"))
         
-        coords = geo_info.get("Coordinates", [])
+        coords = geo_info.get("Coordinates") or geo_info.get("coordinates") or []
         latitude, longitude = None, None
         for c in coords:
-            if c.get("CoordinateName") == "WGS84":
-                latitude = clean_val(c.get("StationLatitude"))
-                longitude = clean_val(c.get("StationLongitude"))
+            c_name = c.get("CoordinateName") or c.get("coordinateName")
+            if c_name == "WGS84":
+                latitude = clean_val(c.get("StationLatitude") or c.get("stationLatitude"))
+                longitude = clean_val(c.get("StationLongitude") or c.get("stationLongitude"))
                 break
                 
-        elem = station.get("WeatherElement", {})
-        temperature = clean_val(elem.get("AirTemperature"))
-        humidity = clean_val(elem.get("RelativeHumidity"), val_type=int)
-        pressure = clean_val(elem.get("AirPressure"))
-        wind_speed = clean_val(elem.get("WindSpeed"))
-        wind_direction = clean_val(elem.get("WindDirection"))
+        elem = station.get("WeatherElement") or station.get("weatherElement") or {}
+        temperature = clean_val(elem.get("AirTemperature") or elem.get("airTemperature"))
+        humidity = clean_val(elem.get("RelativeHumidity") or elem.get("relativeHumidity"), val_type=int)
+        pressure = clean_val(elem.get("AirPressure") or elem.get("airPressure"))
+        wind_speed = clean_val(elem.get("WindSpeed") or elem.get("windSpeed"))
+        wind_direction = clean_val(elem.get("WindDirection") or elem.get("windDirection"))
         
         # O-A0001-001 rainfall
-        now_info = elem.get("Now", {})
-        rainfall = clean_val(now_info.get("Precipitation"))
+        now_info = elem.get("Now") or elem.get("now") or {}
+        rainfall = clean_val(now_info.get("Precipitation") or now_info.get("precipitation"))
         
         row = {
             "station_id": station_id,
@@ -85,41 +88,44 @@ def parse_and_store_obs_and_rain(obs_data, rain_data):
     # Merge O-A0002-001 rainfall stations
     if rain_data:
         try:
-            cwaopendata_rain = rain_data.get("cwaopendata", {})
-            dataset_rain = cwaopendata_rain.get("dataset", {})
-            rain_station_list = dataset_rain.get("Station", [])
+            cwaopendata_rain = rain_data.get("cwaopendata") or rain_data.get("records") or rain_data
+            dataset_rain = cwaopendata_rain.get("dataset") or cwaopendata_rain.get("Dataset") or cwaopendata_rain.get("records") or cwaopendata_rain
+            rain_station_list = dataset_rain.get("Station") or dataset_rain.get("station") or dataset_rain.get("location") or []
+            if isinstance(rain_station_list, dict):
+                rain_station_list = [rain_station_list]
             print(f"[Parser] Merging {len(rain_station_list)} rainfall stations...")
             
             for station in rain_station_list:
-                station_id = station.get("StationId")
-                station_name = station.get("StationName")
+                station_id = station.get("StationId") or station.get("stationId") or station.get("locationCode")
+                station_name = station.get("StationName") or station.get("stationName") or station.get("locationName")
                 
-                obs_time_dict = station.get("ObsTime", {})
-                time = obs_time_dict.get("DateTime")
+                obs_time_dict = station.get("ObsTime") or station.get("obsTime") or station.get("time") or {}
+                time = obs_time_dict.get("DateTime") if isinstance(obs_time_dict, dict) else obs_time_dict
                 if not time or not station_id:
                     continue
                     
-                geo_info = station.get("GeoInfo", {})
-                county_name = geo_info.get("CountyName")
-                town_name = geo_info.get("TownName")
-                altitude = clean_val(geo_info.get("StationAltitude"))
+                geo_info = station.get("GeoInfo") or station.get("geoInfo") or {}
+                county_name = geo_info.get("CountyName") or geo_info.get("countyName")
+                town_name = geo_info.get("TownName") or geo_info.get("townName")
+                altitude = clean_val(geo_info.get("StationAltitude") or geo_info.get("stationAltitude"))
                 
-                coords = geo_info.get("Coordinates", [])
+                coords = geo_info.get("Coordinates") or geo_info.get("coordinates") or []
                 latitude, longitude = None, None
                 for c in coords:
-                    if c.get("CoordinateName") == "WGS84":
-                        latitude = clean_val(c.get("StationLatitude"))
-                        longitude = clean_val(c.get("StationLongitude"))
+                    c_name = c.get("CoordinateName") or c.get("coordinateName")
+                    if c_name == "WGS84":
+                        latitude = clean_val(c.get("StationLatitude") or c.get("stationLatitude"))
+                        longitude = clean_val(c.get("StationLongitude") or c.get("stationLongitude"))
                         break
                         
-                elem = station.get("WeatherElement", {})
-                now_info = elem.get("Now", {})
+                elem = station.get("WeatherElement") or station.get("weatherElement") or {}
+                now_info = elem.get("Now") or elem.get("now") or {}
                 
                 # Precipitation indicators
-                rain_1h = clean_val(elem.get("Precipitation1Hr"))
-                rain_3h = clean_val(elem.get("Precipitation3Hr"))
-                rain_24h = clean_val(elem.get("Precipitation24Hr"))
-                rain_daily = clean_val(now_info.get("Precipitation"))
+                rain_1h = clean_val(elem.get("Precipitation1Hr") or elem.get("precipitation1Hr"))
+                rain_3h = clean_val(elem.get("Precipitation3Hr") or elem.get("precipitation3Hr"))
+                rain_24h = clean_val(elem.get("Precipitation24Hr") or elem.get("precipitation24Hr"))
+                rain_daily = clean_val(now_info.get("Precipitation") or now_info.get("precipitation"))
                 
                 if station_id in station_map:
                     # Update rainfall fields for existing station

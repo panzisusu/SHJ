@@ -24,13 +24,13 @@ def fetch_cwa_api(dataset_id, api_key):
     
     print(f"[API] Fetching RESTful dataset {dataset_id} from CWA...")
     try:
-        r = requests.get(url, params=params, headers=headers, timeout=12, verify=False)
+        r = requests.get(url, params=params, headers=headers, timeout=6, verify=False)
         if r.status_code == 200:
             return r.json()
         else:
             # Fallback to legacy fileapi endpoint if RESTful endpoint fails
             fallback_url = f"https://opendata.cwa.gov.tw/fileapi/v1/opendataapi/{dataset_id}"
-            r_fallback = requests.get(fallback_url, params={"Authorization": api_key, "downloadType": "WEB", "format": "JSON"}, headers=headers, timeout=12, verify=False)
+            r_fallback = requests.get(fallback_url, params={"Authorization": api_key, "downloadType": "WEB", "format": "JSON"}, headers=headers, timeout=6, verify=False)
             if r_fallback.status_code == 200:
                 return r_fallback.json()
             print(f"[API Error] {dataset_id} failed with HTTP status code: {r.status_code}")
@@ -114,7 +114,7 @@ def scrape_typhoon_news():
         return None
 
 def download_all_in_memory():
-    """Fetch all observations, rainfall, forecasts and typhoon info directly into memory."""
+    """Fetch observations, rainfall, forecast and typhoon info fast into memory."""
     api_key = load_api_key()
     if not api_key:
         print("[Error] CWA_API_KEY environment variable is not defined.")
@@ -122,10 +122,19 @@ def download_all_in_memory():
         
     obs_json = fetch_cwa_api("O-A0001-001", api_key)
     rain_json = fetch_cwa_api("O-A0002-001", api_key)
-    forecast_json = fetch_cwa_api("F-D0047-091", api_key)
-    typhoon_data = scrape_typhoon_news()
     
-    # Allow partial updates so all 500+ Taiwan observation stations render smoothly
+    forecast_json = None
+    try:
+        forecast_json = fetch_cwa_api("F-D0047-091", api_key)
+    except Exception as e:
+        print(f"[API Info] Forecast fetch skipped: {e}")
+        
+    typhoon_data = None
+    try:
+        typhoon_data = scrape_typhoon_news()
+    except Exception as e:
+        print(f"[Scraper Info] Typhoon scrape skipped: {e}")
+    
     if obs_json or rain_json or forecast_json:
         return {
             "obs": obs_json,

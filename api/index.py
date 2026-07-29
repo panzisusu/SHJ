@@ -196,10 +196,7 @@ def seed_default_stations():
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-<<<<<<< HEAD
-        now_str = "2026-07-28 23:30:00"
-=======
->>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
+        now_str = "2026-07-29 09:00:00"
         
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS weather (
@@ -231,8 +228,6 @@ def seed_default_stations():
         existing_count = cursor.fetchone()[0]
         if existing_count > 0:
             return
-            
-        now_str = "2026-07-28 23:30:00"
         
         # Taiwan 22 Counties & 368+ Townships & Automatic Weather Station grid Generator (500+ Stations)
         counties_grid = [

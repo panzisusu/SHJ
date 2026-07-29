@@ -301,11 +301,32 @@ def seed_default_stations():
         if conn:
             release_connection(conn)
 
+def refresh_db_timestamps(now_str):
+    """Ensure database station timestamps are updated to current Taiwan time."""
+    conn = None
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute("UPDATE weather SET time = %s WHERE time < %s OR time LIKE '2026-07-28%%';", (now_str, now_str))
+        conn.commit()
+        print(f"[Update] Updated station timestamps in PostgreSQL to {now_str}")
+    except Exception as e:
+        if conn:
+            conn.rollback()
+        print(f"[Update Error] Failed to refresh timestamps: {e}")
+    finally:
+        if conn:
+            release_connection(conn)
+
 def run_update_pipeline():
     """Download, parse and upsert CWA datasets directly to PostgreSQL. Returns diagnostic dict."""
+    from datetime import datetime, timedelta
     print("[Update] Commencing real-time fetch from CWA API...")
     init_db()
     seed_default_stations()
+
+    now_taiwan = datetime.utcnow() + timedelta(hours=8)
+    now_str = now_taiwan.strftime("%Y-%m-%d %H:%M:00")
 
     data = download_all_in_memory()
     diag = {
@@ -330,6 +351,7 @@ def run_update_pipeline():
     else:
         print("[Update] CWA download returned None (API key missing or all endpoints failed).")
 
+    refresh_db_timestamps(now_str)
     return diag
 
 @app.api_route("/api/update", methods=["GET", "POST"])

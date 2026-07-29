@@ -46,6 +46,7 @@ def get_stations():
     conn = None
     try:
         init_db()
+        seed_default_stations()
         conn = get_db_connection()
         cursor = conn.cursor(cursor_factory=RealDictCursor)
         cursor.execute("""
@@ -68,6 +69,7 @@ def get_current_weather():
     conn = None
     try:
         init_db()
+        seed_default_stations()
         conn = get_db_connection()
         cursor = conn.cursor(cursor_factory=RealDictCursor)
         cursor.execute("""

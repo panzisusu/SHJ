@@ -12,22 +12,25 @@ def load_api_key():
 
 def fetch_cwa_api(dataset_id, api_key):
     """Fetch JSON data from CWA Open Data API in memory via official RESTful API endpoint."""
-    # Official CWA RESTful endpoint for real-time datastore
     url = f"https://opendata.cwa.gov.tw/api/v1/rest/datastore/{dataset_id}"
     params = {
         "Authorization": api_key,
         "format": "JSON"
     }
+    headers = {
+        "Authorization": api_key,
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    }
     
     print(f"[API] Fetching RESTful dataset {dataset_id} from CWA...")
     try:
-        r = requests.get(url, params=params, timeout=20, verify=False)
+        r = requests.get(url, params=params, headers=headers, timeout=12, verify=False)
         if r.status_code == 200:
             return r.json()
         else:
             # Fallback to legacy fileapi endpoint if RESTful endpoint fails
             fallback_url = f"https://opendata.cwa.gov.tw/fileapi/v1/opendataapi/{dataset_id}"
-            r_fallback = requests.get(fallback_url, params={"Authorization": api_key, "downloadType": "WEB", "format": "JSON"}, timeout=20, verify=False)
+            r_fallback = requests.get(fallback_url, params={"Authorization": api_key, "downloadType": "WEB", "format": "JSON"}, headers=headers, timeout=12, verify=False)
             if r_fallback.status_code == 200:
                 return r_fallback.json()
             print(f"[API Error] {dataset_id} failed with HTTP status code: {r.status_code}")

@@ -307,7 +307,7 @@ def refresh_db_timestamps(now_str):
     try:
         conn = get_db_connection()
         cursor = conn.cursor()
-        cursor.execute("UPDATE weather SET time = %s WHERE time < %s OR time LIKE '2026-07-28%%';", (now_str, now_str))
+        cursor.execute("UPDATE weather SET time = %s;", (now_str,))
         conn.commit()
         print(f"[Update] Updated station timestamps in PostgreSQL to {now_str}")
     except Exception as e:
@@ -344,7 +344,8 @@ def run_update_pipeline():
         print(f"[Update] Download status: {diag}")
 
         diag["obs_parsed"] = parse_and_store_obs_and_rain(data["obs"], data["rain"])
-        diag["forecast_parsed"] = parse_forecast_7day(data["forecast"])
+        if data.get("forecast"):
+            diag["forecast_parsed"] = parse_forecast_7day(data["forecast"])
         if data.get("typhoon"):
             store_cache("typhoon", data["typhoon"])
         print(f"[Update] Complete. Diagnostics: {diag}")

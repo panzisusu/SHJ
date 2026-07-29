@@ -161,24 +161,13 @@ def parse_and_store_obs_and_rain(obs_data, rain_data):
         print("[Parser Warning] No station records parsed.")
         return False
 
-    new_df = pd.DataFrame(parsed_rows)
-
-    # Database execution preparation: Align schema order exactly with psycopg2 queries
     columns_order = [
         "station_id", "station_name", "time", "temperature", "humidity", "pressure",
         "wind_speed", "wind_direction", "rainfall", "rain_1h", "rain_3h", "rain_24h", "rain_daily",
         "latitude", "longitude", "county_name", "town_name", "altitude"
     ]
-    
-    for col in columns_order:
-        if col not in new_df.columns:
-            new_df[col] = None
-            
-    # Rearrange and replace NaN with None for raw SQL compatibility
-    new_df = new_df[columns_order]
-    new_df = new_df.where(pd.notnull(new_df), None)
-    
-    rows = [tuple(r) for r in new_df.values.tolist()]
+
+    rows = [tuple(item.get(col) for col in columns_order) for item in parsed_rows]
     
     # Store to PostgreSQL
     print("[Parser] Writing records to PostgreSQL database...")

@@ -1,6 +1,6 @@
 import os
 import json
-from fastapi import FastAPI, BackgroundTasks, HTTPException
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -322,11 +322,11 @@ def run_update_pipeline():
         print("[Background Update Info] Operating on Taiwan regional station network.")
 
 @app.api_route("/api/update", methods=["GET", "POST"])
-def trigger_update(background_tasks: BackgroundTasks):
-    """Trigger update pipeline in background to return immediately and prevent HTTP timeout."""
+def trigger_update():
+    """Synchronously run update pipeline. Vercel kills background tasks after response."""
     try:
-        background_tasks.add_task(run_update_pipeline)
-        return {"success": True, "message": "CWA live update pipeline started in background."}
+        run_update_pipeline()
+        return {"success": True, "message": "CWA live update pipeline completed successfully."}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Update pipeline failed: {str(e)}")
 

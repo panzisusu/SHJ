@@ -226,10 +226,6 @@ def seed_default_stations():
         """)
         conn.commit()
         
-<<<<<<< HEAD
-        # Clear old rows to guarantee clean 500+ node refresh
-        cursor.execute("DELETE FROM weather;")
-=======
         # Check if table already has rows to avoid slow repeated seeds
         cursor.execute("SELECT COUNT(*) FROM weather;")
         existing_count = cursor.fetchone()[0]
@@ -237,7 +233,6 @@ def seed_default_stations():
             return
             
         now_str = "2026-07-28 23:30:00"
->>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
         
         # Taiwan 22 Counties & 368+ Townships & Automatic Weather Station grid Generator (500+ Stations)
         counties_grid = [
@@ -255,11 +250,7 @@ def seed_default_stations():
             ("嘉義市", 23.4958, 120.4322, ["東區", "西區", "嘉義公園"]),
             ("嘉義縣", 23.4518, 120.2559, ["太保市", "朴子市", "布袋鎮", "大林鎮", "民雄鄉", "溪口鄉", "新港鄉", "六腳鄉", "東石鄉", "義竹鄉", "鹿草鄉", "水上鄉", "中埔鄉", "竹崎鄉", "梅山鄉", "番路鄉", "大埔鄉", "阿里山"]),
             ("臺南市", 22.9933, 120.2047, ["中西區", "東區", "南區", "北區", "安平區", "安南區", "永康區", "歸仁區", "新化區", "左鎮區", "玉井區", "楠西區", "南化區", "仁德區", "關廟區", "龍崎區", "官田區", "麻豆區", "佳里區", "西港區", "七股區", "將軍區", "學甲區", "北門區", "新營區", "後壁區", "白河區", "東山區", "六甲區", "下營區", "柳營區", "鹽水區", "善化區", "大內區", "山上區", "新市區", "安定區"]),
-<<<<<<< HEAD
             ("高雄市", 22.5661, 120.3157, ["楠梓區", "左營區", "鼓山區", "三民區", "鹽埕區", "前金區", "新興區", "苓雅區", "前鎮區", "旗津區", "小港區", "鳳山區", "林園區", "大寮區", "大樹區", "大社區", "仁武區", "鳥松區", "岡山區", "橋頭區", "燕巢區", "田寮區", "阿蓮區", "路竹區", "湖內區", "茄萣區", "永安區", "彌陀區", "梓官區", "旗山區", "美濃區", "六龜區", "甲仙區", "杉林區", "內門區", "茂林區", "桃源區", "那瑪夏區"]),
-=======
-            ("高雄市", 22.5661, 120.3157, ["楠梓區", "左營區", "鼓山區", "三民區", "鹽埕區", "前金區", "新興區", "苓雅區", "前鎮區", "旗津區", "小港區", "鳳山區", "林園區", "大寮區", "大樹區", "大社區", "仁武區", "鳥松區", "岡山區", "橋頭區", "燕巢區", "田寮區", "阿蓮區", "路竹區", "湖內區", "茄萣區", "永安區", "彌陀區", "梓官區", "旗山區", "美濃區", "六龜區", "甲仙區", "杉林區", "內門區", "桃源區", "那瑪夏區"]),
->>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
             ("屏東縣", 22.6728, 120.4881, ["屏東市", "潮州鎮", "東港鎮", "恆春鎮", "萬丹鄉", "長治鄉", "麟洛鄉", "九如鄉", "里港鄉", "鹽埔鄉", "高樹鄉", "萬巒鄉", "內埔鄉", "竹田鄉", "新埤鄉", "枋寮鄉", "新園鄉", "坎頂鄉", "林邊鄉", "南州鄉", "佳冬鄉", "琉球鄉", "車城鄉", "滿州鄉", "枋山鄉", "三地門鄉", "霧台鄉", "瑪家鄉", "泰武鄉", "來義鄉", "春日鄉", "獅子鄉", "牡丹鄉", "鵝鑾鼻"]),
             ("宜蘭縣", 24.7640, 121.7565, ["宜蘭市", "羅東鎮", "蘇澳鎮", "頭城鎮", "礁溪鄉", "壯圍鄉", "員山鄉", "冬山鄉", "五結鄉", "三星鄉", "大同鄉", "南澳鄉", "太平山", "龜山島"]),
             ("花蓮縣", 23.9750, 121.6133, ["花蓮市", "鳳林鎮", "玉里鎮", "新城鄉", "吉安鄉", "壽豐鄉", "光復鄉", "豐濱鄉", "瑞穗鄉", "富里鄉", "秀林鄉", "萬榮鄉", "卓溪鄉", "太魯閣"]),
@@ -271,11 +262,7 @@ def seed_default_stations():
         
         import random
         station_counter = 1000
-<<<<<<< HEAD
-        inserted_count = 0
-=======
         records = []
->>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
         
         for cname, clat, clon, towns in counties_grid:
             for idx, town in enumerate(towns):
@@ -283,10 +270,7 @@ def seed_default_stations():
                 sid = f"C0{station_counter}"
                 sname = f"{cname[:2]}{town[:2]}"
                 
-<<<<<<< HEAD
                 # Small random lat/lon offset to form dense realistic station dots
-=======
->>>>>>> a8fd6e5 (fix(weather): use background tasks for update route to prevent timeout)
                 lat_off = (random.random() - 0.5) * 0.18
                 lon_off = (random.random() - 0.5) * 0.18
                 

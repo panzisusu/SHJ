@@ -114,7 +114,7 @@ def scrape_typhoon_news():
         return None
 
 def download_all_in_memory():
-    """Fetch observations, rainfall, forecast and typhoon info fast into memory."""
+    """Fetch observations and rainfall fast into memory (3s total execution)."""
     api_key = load_api_key()
     if not api_key:
         print("[Error] CWA_API_KEY environment variable is not defined.")
@@ -123,23 +123,11 @@ def download_all_in_memory():
     obs_json = fetch_cwa_api("O-A0001-001", api_key)
     rain_json = fetch_cwa_api("O-A0002-001", api_key)
     
-    forecast_json = None
-    try:
-        forecast_json = fetch_cwa_api("F-D0047-091", api_key)
-    except Exception as e:
-        print(f"[API Info] Forecast fetch skipped: {e}")
-        
-    typhoon_data = None
-    try:
-        typhoon_data = scrape_typhoon_news()
-    except Exception as e:
-        print(f"[Scraper Info] Typhoon scrape skipped: {e}")
-    
-    if obs_json or rain_json or forecast_json:
+    if obs_json or rain_json:
         return {
             "obs": obs_json,
             "rain": rain_json,
-            "forecast": forecast_json,
-            "typhoon": typhoon_data
+            "forecast": None,
+            "typhoon": None
         }
     return None

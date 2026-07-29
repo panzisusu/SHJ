@@ -1,6 +1,5 @@
 import os
 import json
-import pandas as pd
 from api.db import insert_weather_rows, store_cache
 
 def clean_val(val, val_type=float):

@@ -1,5 +1,4 @@
 requests
-pandas
 fastapi
 uvicorn
 beautifulsoup4

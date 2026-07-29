@@ -302,31 +302,42 @@ def seed_default_stations():
             release_connection(conn)
 
 def run_update_pipeline():
-    """Download, parse and upsert CWA datasets directly to PostgreSQL in background."""
-    print("[Background Update] Commencing real-time fetch from CWA API...")
+    """Download, parse and upsert CWA datasets directly to PostgreSQL. Returns diagnostic dict."""
+    print("[Update] Commencing real-time fetch from CWA API...")
     init_db()
-    
-    # Guarantee Taiwan major stations exist first
     seed_default_stations()
-    
+
     data = download_all_in_memory()
+    diag = {
+        "obs_downloaded": False,
+        "rain_downloaded": False,
+        "forecast_downloaded": False,
+        "obs_parsed": False,
+        "forecast_parsed": False,
+    }
 
     if data:
-        print("[Background Update] Parse Commencing: Merging observations...")
-        obs_parsed = parse_and_store_obs_and_rain(data["obs"], data["rain"])
-        forecast_parsed = parse_forecast_7day(data["forecast"])
-        if data["typhoon"]:
+        diag["obs_downloaded"] = data.get("obs") is not None
+        diag["rain_downloaded"] = data.get("rain") is not None
+        diag["forecast_downloaded"] = data.get("forecast") is not None
+        print(f"[Update] Download status: {diag}")
+
+        diag["obs_parsed"] = parse_and_store_obs_and_rain(data["obs"], data["rain"])
+        diag["forecast_parsed"] = parse_forecast_7day(data["forecast"])
+        if data.get("typhoon"):
             store_cache("typhoon", data["typhoon"])
-        print(f"[Background Update] Complete. Observations upserted: {obs_parsed}, Forecast cached: {forecast_parsed}")
+        print(f"[Update] Complete. Diagnostics: {diag}")
     else:
-        print("[Background Update Info] Operating on Taiwan regional station network.")
+        print("[Update] CWA download returned None (API key missing or all endpoints failed).")
+
+    return diag
 
 @app.api_route("/api/update", methods=["GET", "POST"])
 def trigger_update():
-    """Synchronously run update pipeline. Vercel kills background tasks after response."""
+    """Synchronously run update pipeline and return diagnostics. Vercel kills background tasks after response."""
     try:
-        run_update_pipeline()
-        return {"success": True, "message": "CWA live update pipeline completed successfully."}
+        diag = run_update_pipeline()
+        return {"success": True, "message": "CWA live update pipeline completed.", "diagnostics": diag}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Update pipeline failed: {str(e)}")
 

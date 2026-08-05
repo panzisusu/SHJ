@@ -37,24 +37,26 @@ createApp({
                 },
                 {
                     id: 'cwa-weather-dashboard',
-                    name: 'Taiwan CWA Weather Archive (2026/07/08)',
+                    name: 'Taiwan CWA Weather Archive (2026/07/17)',
                     nameZh: '台灣氣象觀測歷史存檔儀表板 (只有7/17的數據)',
-                    description: 'A historical snapshot of the full-stack weather system frozen on July 8, featuring compiled SQLite observations and static historical trends.',
-                    descriptionZh: '歷史存檔版天氣儀表板。靜態封裝了 2026 年 7 月 8 日以前的氣象觀測與 SQLite 歷史紀錄，適合作為歷史數據之回溯與展示。',
+                    description: 'A historical snapshot of the full-stack weather system frozen on July 17, featuring compiled SQLite observations and static historical trends.',
+                    descriptionZh: '歷史存檔版天氣儀表板。靜態封裝了 2026 年 7 月 17 日以前的氣象觀測與 SQLite 歷史紀錄，適合作為歷史數據之回溯與展示。',
                     icon: 'fa-box-archive',
                     link: 'https://cwa-weather-nu.vercel.app/',
                     color: '#64748b'
                 },
                 {
-                    id: 'hw10-weather',
-                    name: 'Taiwan CWA Weather Live (Cloud-Synced)',
-                    nameZh: '台灣氣象即時雲端同步觀測平台(即時性測試中)',
-                    description: 'A live weather monitoring dashboard utilizing real-time CWA APIs and synced with a PostgreSQL cloud database for persistent trend tracking.',
-                    descriptionZh: '即時雲端同步版天氣儀表板。整合氣象署實時 API 並透過 PostgreSQL 外部雲端資料庫儲存，可隨時點擊更新以獲取最新的天氣觀測與變化趨勢。',
-                    icon: 'fa-cloud-sun-rain',
-                    link: './cwa-weather-live/index.html',
-                    github: 'https://github.com/panzisusu/cwa-weather',
-                    color: '#0ea5e9'
+                    id: 'fortune-telling',
+                    name: 'Cosmic Divination Oracle',
+                    nameZh: '星境啟示錄占卜坊',
+                    description: 'A premium mystical oracle application offering Tarot draws, daily horoscopes, and traditional throw-jiao divination.',
+                    descriptionZh: '高質感神秘學占卜系統。整合大阿爾克那塔羅牌三牌啟示、每日星象運勢度量衡，以及經典求籤與擲筊互動問卜。',
+                    icon: 'fa-wand-magic-sparkles',
+                    link: './fortune-telling/index.html',
+                    color: '#a855f7',
+                    bgStyle: {
+                        background: 'linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.85)), url("./fortune-telling/assets/webp/divination_bg.webp") center/cover no-repeat'
+                    }
                 },
                 {
                     id: 'ensemble-model',
@@ -99,16 +101,16 @@ createApp({
                     }
                 },
                 {
-                    id: 'fortune-telling',
-                    name: 'Cosmic Divination Oracle',
-                    nameZh: '星境啟示錄占卜坊',
-                    description: 'A premium mystical oracle application offering Tarot draws, daily horoscopes, and traditional throw-jiao divination.',
-                    descriptionZh: '高質感神秘學占卜系統。整合大阿爾克那塔羅牌三牌啟示、每日星象運勢度量衡，以及經典求籤與擲筊互動問卜。',
-                    icon: 'fa-wand-magic-sparkles',
-                    link: './fortune-telling/index.html',
-                    color: '#a855f7',
+                    id: 'watermelon-ninja',
+                    name: 'Watermelon Ninja Mobile Web App',
+                    nameZh: '西瓜忍者 (Watermelon Ninja) 手機 Web App',
+                    description: 'A high-performance, mobile-first fruit slicing game built with HTML5 Canvas, Web Audio API synthesis, dynamic slice physics, combos, and crisp Light & White design theme.',
+                    descriptionZh: '高質感響應式西瓜忍者切水果手機 Web App。採用 HTML5 Canvas 60 FPS 向量物理引擎、極簡 Light & White 現代風格、多點觸控劃刀光軌、連擊倍率與 Web Audio 音效合成。',
+                    icon: 'fa-gamepad',
+                    link: './watermelon-ninja/index.html',
+                    color: '#28a745',
                     bgStyle: {
-                        background: 'linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.85)), url("./fortune-telling/assets/webp/divination_bg.webp") center/cover no-repeat'
+                        background: 'linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%)'
                     }
                 },
                 {
@@ -150,19 +152,6 @@ createApp({
                     icon: 'fa-burger',
                     link: './mcdonalds-ordering/index.html',
                     color: '#ffc72c'
-                },
-                {
-                    id: 'watermelon-ninja',
-                    name: 'Watermelon Ninja Mobile Web App',
-                    nameZh: '西瓜忍者 (Watermelon Ninja) 手機 Web App',
-                    description: 'A high-performance, mobile-first fruit slicing game built with HTML5 Canvas, Web Audio API synthesis, dynamic slice physics, combos, and crisp Light & White design theme.',
-                    descriptionZh: '高質感響應式西瓜忍者切水果手機 Web App。採用 HTML5 Canvas 60 FPS 向量物理引擎、極簡 Light & White 現代風格、多點觸控劃刀光軌、連擊倍率與 Web Audio 音效合成。',
-                    icon: 'fa-gamepad',
-                    link: './watermelon-ninja/index.html',
-                    color: '#28a745',
-                    bgStyle: {
-                        background: 'linear-gradient(135deg, #f8f9fa 0%, #edf2f7 100%)'
-                    }
                 },
                 {
                     id: 'cosmos',

@@ -1,0 +1,3110 @@
+[
+  {
+    "id": "nine-tailed-fox",
+    "type": "原始",
+    "name": "九尾狐",
+    "region": "東山經 (青丘山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 35,
+      "rarity": 80
+    },
+    "statsText": "靈:85 / 攻:35 / 稀:80",
+    "description": "九尾狐居住在青丘國。牠長著九條尾巴，聲音如同嬰兒啼哭一般。雖然古籍記載牠會吃人，但同時也指出，人們若食用了牠的肉，就可以避開妖邪之氣的蠱惑。在後世文化中，九尾狐逐漸演變為繁衍昌盛與太平祥瑞的吉兆。"
+  },
+  {
+    "id": "zhu-long",
+    "type": "原始",
+    "name": "燭龍",
+    "region": "北山經 (鐘山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 98,
+      "aggression": 15,
+      "rarity": 99
+    },
+    "statsText": "靈:98 / 攻:15 / 稀:99",
+    "description": "燭龍又稱燭陰，是鐘山之神。牠擁有人的面孔與紅色的蛇形身軀，身長千里。祂的神力無邊，睜開雙眼世界便是白晝，閉上雙眼便是黑夜；吹氣時大地進入寒冬，呼氣時便轉為炎夏。祂不需要飲食、呼吸與休息，祂的每一次悠長呼吸，都會化作天地間的人間大風。"
+  },
+  {
+    "id": "taotie",
+    "type": "原始",
+    "name": "饕餮 (麅鴞)",
+    "region": "西山經 (鉤吾山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 95,
+      "rarity": 88
+    },
+    "statsText": "靈:80 / 攻:95 / 稀:88",
+    "description": "饕餮在《山海經》中被記載為「麅鴞」。牠長著羊的身體、人的面孔，眼睛長在腋下，擁有老虎般的牙齒和人的指甲，聲音聽起來像嬰兒。饕餮極度貪食，生性凶殘且會食人。在後世中，祂被視為中國古代四大凶獸之一，常被鑄造於青銅器上，象徵無窮的貪婪與權慾。"
+  },
+  {
+    "id": "jingwei",
+    "type": "原始",
+    "name": "精衛",
+    "region": "北山經 (發鳩山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 10,
+      "rarity": 85
+    },
+    "statsText": "靈:75 / 攻:10 / 稀:85",
+    "description": "精衛原是太陽神炎帝的小女兒，名叫女娃。她在東海遊玩時不幸溺水身亡，靈魂化為一隻頭部有花紋、白嘴喙、紅爪子的神鳥。她對東海懷有極大的怨恨，每日不知疲倦地銜著西山的木枝與石子，投向波濤洶湧的東海，立志要將大海填平。象徵著永不妥協的精神。"
+  },
+  {
+    "id": "qilin",
+    "type": "原始",
+    "name": "麒麟",
+    "region": "中山經 (中次九經)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 92,
+      "aggression": 5,
+      "rarity": 92
+    },
+    "statsText": "靈:92 / 攻:5 / 稀:92",
+    "description": "麒麟是中國古代傳說中的神聖仁獸。牠的身體像麇鹿，長著獨角，擁有一條龍尾與駿馬的蹄子，身上覆蓋著五彩斑斕的鱗甲。麒麟不傷生靈，不踐踏生草，祂的出世往往預示著聖人誕生、王道興盛與天下太平。與龍、鳳、龜並稱為四大靈獸。"
+  },
+  {
+    "id": "xing-tian",
+    "type": "原始",
+    "name": "刑天",
+    "region": "西山經 (海外西經)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 90,
+      "aggression": 98,
+      "rarity": 95
+    },
+    "statsText": "靈:90 / 攻:98 / 稀:95",
+    "description": "刑天是中國古代神話中的戰神與巨人。他與黃帝爭奪天帝神位，在激烈的搏鬥中被黃帝砍去了頭顱，頭顱被安葬在常羊山下。然而，無頭的刑天並未屈服，他以雙乳化為眼睛，以肚臍當作嘴巴，右手揮舞著戰斧（戚），左手持著盾牌（干），繼續在天地間戰鬥，象徵著永不妥協、抗爭到底的悲壯英雄靈魂。"
+  },
+  {
+    "id": "hundun",
+    "type": "原始",
+    "name": "混沌 (帝江)",
+    "region": "西山經 (天山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 45,
+      "rarity": 92
+    },
+    "statsText": "靈:85 / 攻:45 / 稀:92",
+    "description": "混沌又名帝江，是西方的神鳥。牠的外形像一個黃色的口袋，散發著如丹火般耀眼的紅光。牠長著六隻腳和四隻翅膀，但是完全沒有五官與面目（渾敦無面目）。混沌雖然沒有七竅，卻非常精通唱歌與跳舞。在後世中，祂被列為中國古代四大凶獸之一，代表混沌無序狀態。"
+  },
+  {
+    "id": "tiangou",
+    "type": "原始",
+    "name": "天狗",
+    "region": "西山經 (陰山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 30,
+      "rarity": 88
+    },
+    "statsText": "靈:82 / 攻:30 / 稀:88",
+    "description": "天狗是中國古代傳說中的靈獸。不同於後世吃月亮的惡狗或日本神話中的天狗，在《山海經》原始記載中，天狗是一隻形狀像狸（野貓）、腦袋呈白色的奇特神獸。牠會發出「榴榴」的叫聲。人們豢養牠可以用來禦凶、防範妖邪與災禍，是一隻能帶來平安的吉獸。"
+  },
+  {
+    "id": "bi-fang",
+    "type": "原始",
+    "name": "畢方",
+    "region": "西山經 (章莪山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 55,
+      "rarity": 90
+    },
+    "statsText": "靈:88 / 攻:55 / 稀:90",
+    "description": "畢方是中國古代神話中的木神與火神鳥。牠的外貌像鶴，但極其奇特的是牠只有一隻腳。畢方身體呈青色，覆蓋著紅色的斑紋，嘴喙是白色的。牠的叫聲就像在呼喚自己的名字「畢方」。傳說中，只要畢方在某處出現，該城鎮或地區就會莫名奇妙地發生離奇的火災（訛火）。"
+  },
+  {
+    "id": "ling-ling",
+    "type": "原始",
+    "name": "軨軨",
+    "region": "東山經 (空桑山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 78,
+      "aggression": 70,
+      "rarity": 85
+    },
+    "statsText": "靈:78 / 攻:70 / 稀:85",
+    "description": "軨軨是居住在東方空桑山的一種異獸。牠的外形長得像牛，但身上覆蓋著如老虎一般斑闌的條紋。牠叫聲奇特，聽起來就像是在喊自己的名字「軨軨」。軨軨是象徵洪水的凶獸，傳說中只要看見牠出沒，天下就會發生極大的洪水水災。"
+  },
+  {
+    "id": "fenghuang",
+    "type": "原始",
+    "name": "鳳凰",
+    "region": "南山經 (丹穴山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 96,
+      "aggression": 10,
+      "rarity": 98
+    },
+    "statsText": "靈:96 / 攻:10 / 稀:98",
+    "description": "鳳凰是中國傳說中的百鳥之王。牠的外形像雞，身上覆蓋著五彩斑斕的羽毛，並有特殊的紋理。牠出沒於丹穴之山，能夠自己歌唱與跳舞，一旦出現就象徵著天下太平與安寧。"
+  },
+  {
+    "id": "luwu",
+    "type": "原始",
+    "name": "陸吾",
+    "region": "西山經 (崑崙山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 90,
+      "rarity": 95
+    },
+    "statsText": "靈:95 / 攻:90 / 稀:95",
+    "description": "陸吾是天帝在人間都城崑崙山的守護神。祂擁有老虎的身體、九條尾巴、人的面孔與老虎的利爪。祂掌控天之九部及天帝平圃的時節，威嚴不可侵犯。"
+  },
+  {
+    "id": "kui",
+    "type": "原始",
+    "name": "夔",
+    "region": "東山經 (流波山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 94,
+      "aggression": 80,
+      "rarity": 94
+    },
+    "statsText": "靈:94 / 攻:80 / 稀:94",
+    "description": "夔是生活在東海流波山上的獨腳神獸。牠的外形像牛，但身體是蒼青色的且沒有角。牠出入水中時必定會伴隨狂風暴雨，身上散發著日月般的光芒，叫聲如雷鳴般震耳欲聾。"
+  },
+  {
+    "id": "yinglong",
+    "type": "原始",
+    "name": "應龍",
+    "region": "大荒東經 (凶犁土丘)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 97,
+      "aggression": 95,
+      "rarity": 97
+    },
+    "statsText": "靈:97 / 攻:95 / 稀:97",
+    "description": "應龍是中國古代神話中長有雙翼的巨龍。祂曾助黃帝討伐蚩尤與夸父，並助大禹治水。因消耗過多神力，無法再返回天庭，轉而居住在南方的南方大澤中，被尊為雨神。"
+  },
+  {
+    "id": "bashe",
+    "type": "原始",
+    "name": "巴蛇",
+    "region": "海內南經 (巴國)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 70,
+      "aggression": 92,
+      "rarity": 85
+    },
+    "statsText": "靈:70 / 攻:92 / 稀:85",
+    "description": "巴蛇是古代傳說中的黑色巨蛇。牠體型無比巨大，生性貪婪，甚至能吞食一整隻大象，並在三年後才吐出象骨。古人傳說服用巴蛇的骨頭可以治愈心腹疾病。"
+  },
+  {
+    "id": "kaiming",
+    "type": "原始",
+    "name": "開明獸",
+    "region": "海內西經 (崑崙山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 93,
+      "aggression": 88,
+      "rarity": 93
+    },
+    "statsText": "靈:93 / 攻:88 / 稀:93",
+    "description": "開明獸是崑崙山九道天門的守護神。牠體型巨大如虎，長著九個腦袋，每個腦袋都是人面，面朝東方肅立於崑崙山上，守護天界不被外邪侵擾。"
+  },
+  {
+    "id": "yingzhao",
+    "type": "原始",
+    "name": "英招",
+    "region": "西山經 (槐江山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 92,
+      "aggression": 70,
+      "rarity": 90
+    },
+    "statsText": "靈:92 / 攻:70 / 稀:90",
+    "description": "英招是負責看守天帝平圃（御花園）的神明。祂長著馬的身體、人的面孔，身上有老虎的花紋，背上生有一雙鳥的翅膀，其叫聲如同唱歌一般，負責巡視四海。"
+  },
+  {
+    "id": "taowu",
+    "type": "原始",
+    "name": "檮杌",
+    "region": "西山經 (西方荒野)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 96,
+      "rarity": 92
+    },
+    "statsText": "靈:75 / 攻:96 / 稀:92",
+    "description": "檮杌是中國古代傳說中的四大凶獸之一。牠體型像老虎，覆蓋著狗毛，長著人的面孔、老虎的腳掌、豬的獠牙，尾巴長達一丈八尺，生性極其固執，傲狠難訓。"
+  },
+  {
+    "id": "qiongqi",
+    "type": "原始",
+    "name": "窮奇",
+    "region": "西山經 (邽山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 97,
+      "rarity": 94
+    },
+    "statsText": "靈:82 / 攻:97 / 稀:94",
+    "description": "窮奇是四大凶獸之一。在西山經中記載牠外形象牛，身上長滿如刺蝟般的硬毛，叫聲像狗嚎，生性食人。傳說牠喜歡「懲善揚惡」，看見有人爭鬥就會去吃有理的一方。"
+  },
+  {
+    "id": "dangkang",
+    "type": "原始",
+    "name": "當康",
+    "region": "東山經 (欽山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 10,
+      "rarity": 82
+    },
+    "statsText": "靈:80 / 攻:10 / 稀:82",
+    "description": "當康是一隻代表五穀豐登的吉兆瑞獸。牠的外形長得像一隻小豬，但嘴裡長著長長的獠牙。當牠在田野間跳躍並叫出自己的名字時，就預示著天下將迎來大豐收。"
+  },
+  {
+    "id": "fuzhu",
+    "type": "原始",
+    "name": "夫諸",
+    "region": "中山經 (敖岸山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 86,
+      "aggression": 40,
+      "rarity": 88
+    },
+    "statsText": "靈:86 / 攻:40 / 稀:88",
+    "description": "夫諸是一隻形狀像白鹿卻長著四隻角的異獸。牠的外表高雅溫馴，但卻是代表洪水的凶兆之獸。傳說中只要夫諸在哪裡現身，該地區就會發生極其嚴重的洪澇災害。"
+  },
+  {
+    "id": "feiyi",
+    "type": "原始",
+    "name": "肥遺 (蛇)",
+    "region": "西山經 (太華山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 78,
+      "aggression": 65,
+      "rarity": 85
+    },
+    "statsText": "靈:78 / 攻:65 / 稀:85",
+    "description": "肥遺是太華山中的奇特蛇類，長著六隻腳和四隻翅膀。雖然有翅膀，但極少飛翔。牠是象徵嚴重旱災的凶獸，一旦在人間現身，天下就會面臨赤地千里的極度乾旱。"
+  },
+  {
+    "id": "mingshe",
+    "type": "原始",
+    "name": "鳴蛇",
+    "region": "中山經 (鮮山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 60,
+      "rarity": 84
+    },
+    "statsText": "靈:74 / 攻:60 / 稀:84",
+    "description": "鳴蛇是生活在鮮山中的異蛇。牠的外形像普通的蛇，但背部長有四隻翅膀。牠的叫聲非常清脆響亮，如同敲擊石磬一般。牠同樣是旱災的徵兆，出現會帶來大旱。"
+  },
+  {
+    "id": "huashe",
+    "type": "原始",
+    "name": "化蛇",
+    "region": "中山經 (陽山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 75,
+      "rarity": 87
+    },
+    "statsText": "靈:80 / 攻:75 / 稀:87",
+    "description": "化蛇是一隻極為詭異的異獸。牠擁有人的面孔、豺狼的身體、鳥的翅膀，卻像蛇一樣匍匐前行。牠的叫聲如同人類在大聲呵斥。化蛇出沒會帶來毀滅性的洪水大災。"
+  },
+  {
+    "id": "xuanguian",
+    "type": "原始",
+    "name": "旋龜",
+    "region": "南山經 (杻陽山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 84,
+      "aggression": 15,
+      "rarity": 80
+    },
+    "statsText": "靈:84 / 攻:15 / 稀:80",
+    "description": "旋龜生活在杻陽山的怪水中。牠長著烏龜的身體，卻有著鳥類的腦袋與毒蛇的尾巴。古人常把牠的龜殼佩戴在身上，傳說可以防治耳聾，還能治療手腳上的老繭。"
+  },
+  {
+    "id": "lushu",
+    "type": "原始",
+    "name": "鹿蜀",
+    "region": "南山經 (杻陽山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 10,
+      "rarity": 84
+    },
+    "statsText": "靈:82 / 攻:10 / 稀:84",
+    "description": "鹿蜀是杻陽山上的奇特靈獸。牠長得像馬，頭部是白色的，身上長滿如老虎般的斑紋，並有一條紅色的尾巴。牠的叫聲極其動聽，如民謠般優美，佩戴其皮毛能使子孫興旺。"
+  },
+  {
+    "id": "xingxing",
+    "type": "原始",
+    "name": "狌狌",
+    "region": "南山經 (招搖山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 78,
+      "aggression": 20,
+      "rarity": 78
+    },
+    "statsText": "靈:78 / 攻:20 / 稀:78",
+    "description": "狌狌是招搖山的第一種野獸。牠的形狀像獼猴，但長著一雙白色的耳朵。牠能像人一樣彎腰爬行或直立行走。傳說食用了牠的肉，人就能健步如飛，且能通曉過去的事情。"
+  },
+  {
+    "id": "lei",
+    "type": "原始",
+    "name": "類",
+    "region": "南山經 (亶爰山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 15,
+      "rarity": 82
+    },
+    "statsText": "靈:80 / 攻:15 / 稀:82",
+    "description": "類居住在亶爰山，外形象一隻長著長鬃毛的靈貓。牠最奇特之處在於雌雄同體（自為牝牡），能夠獨自繁衍後代。傳說人們若食用了牠的肉，就不會再產生嫉妒之心。"
+  },
+  {
+    "id": "boyi",
+    "type": "原始",
+    "name": "猼訑",
+    "region": "南山經 (基山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 83,
+      "aggression": 25,
+      "rarity": 87
+    },
+    "statsText": "靈:83 / 攻:25 / 稀:87",
+    "description": "猼訑是基山的一種奇異神獸。牠的外形像山羊，但長有九條尾巴和四隻耳朵。最特別的是，牠的眼睛長在背上。據說將牠的皮毛佩戴在身上，就能獲得勇氣，無所畏懼。"
+  },
+  {
+    "id": "guanguan",
+    "type": "原始",
+    "name": "灌灌",
+    "region": "南山經 (青丘山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 76,
+      "aggression": 12,
+      "rarity": 80
+    },
+    "statsText": "靈:76 / 攻:12 / 稀:80",
+    "description": "灌灌是青丘山上的一種野鳥，形狀像鳩鴿，叫聲聽起來像是在大聲呵斥人。古人常將其羽毛佩戴在身上，傳說可以使人保持清醒，不受妖邪之氣的蠱惑和蒙蔽。"
+  },
+  {
+    "id": "chiru",
+    "type": "原始",
+    "name": "赤鱬",
+    "region": "南山經 (青丘山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 81,
+      "aggression": 15,
+      "rarity": 83
+    },
+    "statsText": "靈:81 / 攻:15 / 稀:83",
+    "description": "赤鱬生活在青丘山的英水中。牠長著魚的身體、卻有一張人的面孔，叫聲如同鴛鴦一般婉轉。傳說食用了赤鱬的肉，人就不會染上疥瘡等皮膚疾病，具有神奇的醫療效果。"
+  },
+  {
+    "id": "lili",
+    "type": "原始",
+    "name": "狸力",
+    "region": "南山經 (櫃山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 79,
+      "aggression": 30,
+      "rarity": 81
+    },
+    "statsText": "靈:79 / 攻:30 / 稀:81",
+    "description": "狸力是櫃山中外形象豬的靈獸。牠長著像雞爪一樣的距，叫聲如同狗吠。狸力擅長掘土築地，只要牠出沒的地方，就預示著當地的縣邑將會興起大規模的土木工程建設。"
+  },
+  {
+    "id": "lingyu",
+    "type": "原始",
+    "name": "鴒䳿",
+    "region": "南山經 (東始山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 10,
+      "rarity": 84
+    },
+    "statsText": "靈:75 / 攻:10 / 稀:84",
+    "description": "鴒䳿是東始山上的一種奇鳥。牠擁有雄雞的身體，卻長著人的面孔。牠善於在山林間低空飛翔，傳說人們食用了牠的肉，可以預防和治愈大脖子病（癭瘤）。"
+  },
+  {
+    "id": "quru",
+    "type": "原始",
+    "name": "瞿如",
+    "region": "南山經 (禱過山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 77,
+      "aggression": 15,
+      "rarity": 85
+    },
+    "statsText": "靈:77 / 攻:15 / 稀:85",
+    "description": "瞿如是禱過山上的一種奇鳥，形體像鵁鶿，但腦袋是白色的。牠長著三隻腳，並且長著一張人的臉。牠的叫聲聽起來就像是在驚恐地呼喊自己的名字。"
+  },
+  {
+    "id": "hujiao",
+    "type": "原始",
+    "name": "虎蛟",
+    "region": "南山經 (禱過山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 65,
+      "rarity": 88
+    },
+    "statsText": "靈:85 / 攻:65 / 稀:88",
+    "description": "虎蛟生活在禱過山的泿水中。牠是一種介於魚與蛇之間的古老水中巨獸，擁有魚的身體與毒蛇的尾巴，叫聲極其響亮如同鴛鴦。食用其肉可防止身體發炎腫脹。"
+  },
+  {
+    "id": "fei",
+    "type": "原始",
+    "name": "蜚",
+    "region": "東山經 (太山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 85,
+      "rarity": 93
+    },
+    "statsText": "靈:80 / 攻:85 / 稀:93",
+    "description": "蜚是太山中極度不祥的荒野惡獸。牠的身體像牛，但頭是白色的，只長著一隻眼睛，尾巴則是一條大蛇。蜚所到之處，水源乾涸，草木枯死，現身便意味著天下將爆發大瘟疫。"
+  },
+  {
+    "id": "yongyong-fish",
+    "type": "原始",
+    "name": "鱅鱅魚",
+    "region": "東山經 (食水)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 72,
+      "aggression": 10,
+      "rarity": 80
+    },
+    "statsText": "靈:72 / 攻:10 / 稀:80",
+    "description": "鱅鱅魚是東山經中記載的一種淡水魚類。牠的身體像犁牛一樣龐大，但叫聲卻像豬叫一般。傳說人們若食用了鱅鱅魚的魚肉，就可以防止身體產生浮腫或腫瘤。"
+  },
+  {
+    "id": "xiegou",
+    "type": "原始",
+    "name": "絜鉤",
+    "region": "東山經 (䃌山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 73,
+      "aggression": 40,
+      "rarity": 86
+    },
+    "statsText": "靈:73 / 攻:40 / 稀:86",
+    "description": "絜鉤是䃌山中的一種怪鳥。牠長著野鴨子一樣的身體，卻長著一條老鼠的尾巴。牠是傳播致命疾病的不祥之鳥，一旦在某個國家或城鎮出現，該地便會爆發嚴重的流行疫病。"
+  },
+  {
+    "id": "shusi",
+    "type": "原始",
+    "name": "數斯",
+    "region": "西山經 (皋塗山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 20,
+      "rarity": 81
+    },
+    "statsText": "靈:75 / 攻:20 / 稀:81",
+    "description": "數斯生活在皋塗山上。牠的外形長得像鴟（鷂鷹），但卻長著一雙像人類一樣的腳掌。古人傳說食用了數斯的肉，可以有效治療和預防甲狀腺腫大等頑疾。"
+  },
+  {
+    "id": "ranyi-fish",
+    "type": "原始",
+    "name": "冉遺魚",
+    "region": "西山經 (英鞮山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 83,
+      "aggression": 15,
+      "rarity": 88
+    },
+    "statsText": "靈:83 / 攻:15 / 稀:88",
+    "description": "冉遺魚生活在英鞮山的涴水中。牠奇特地長著魚的身體、蛇的腦袋、六隻腳，眼睛的形狀則像馬的耳朵。食其肉可以讓人睡覺不做噩夢，且具有辟邪與禦凶的神奇功效。"
+  },
+  {
+    "id": "bo",
+    "type": "原始",
+    "name": "駁",
+    "region": "西山經 (中曲山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 89,
+      "aggression": 90,
+      "rarity": 91
+    },
+    "statsText": "靈:89 / 攻:90 / 稀:91",
+    "description": "駁生活在中曲山，外形象白馬，但有著黑色的尾巴、一隻獨角、老虎的牙齒和利爪。牠的叫聲如擂鼓般響亮。駁生性極其兇猛，以虎豹為食，飼養牠可免受兵刃與戰爭之災。"
+  },
+  {
+    "id": "huan",
+    "type": "原始",
+    "name": "讙",
+    "region": "西山經 (翼望山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 35,
+      "rarity": 88
+    },
+    "statsText": "靈:82 / 攻:35 / 稀:88",
+    "description": "讙是翼望山的一種異獸。牠的外形像一隻野貓，但只長著一隻眼睛，並有三條尾巴。牠的叫聲能夠模仿和奪去上百種鳥獸的叫聲。佩戴牠能防範災禍，食其肉可治愈黃疸病。"
+  },
+  {
+    "id": "qitu",
+    "type": "原始",
+    "name": "鵸鵌",
+    "region": "西山經 (翼望山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 81,
+      "aggression": 20,
+      "rarity": 86
+    },
+    "statsText": "靈:81 / 攻:20 / 稀:86",
+    "description": "鵸鵌是翼望山的一種奇鳥。牠形狀像烏鴉，卻長著三個腦袋和六條尾巴。牠非常喜歡發出像人類笑聲一樣的叫聲。佩戴牠的羽毛可使人不生夢魘，亦可當作辟邪禦凶的吉祥物。"
+  },
+  {
+    "id": "zhuhuai",
+    "type": "原始",
+    "name": "諸懷",
+    "region": "北山經 (北嶽山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 76,
+      "aggression": 94,
+      "rarity": 89
+    },
+    "statsText": "靈:76 / 攻:94 / 稀:89",
+    "description": "諸懷是北嶽山中的凶獸。牠的外形象一隻大牛，但長著四隻角、人的眼睛和豬一樣的耳朵。牠的叫聲聽起來如同大雁在空中鳴叫一般，本性極其凶狠野蠻，以食人為生。"
+  },
+  {
+    "id": "liangqu",
+    "type": "原始",
+    "name": "梁渠",
+    "region": "中山經 (歷石山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 78,
+      "aggression": 80,
+      "rarity": 88
+    },
+    "statsText": "靈:78 / 攻:80 / 稀:88",
+    "description": "梁渠是生活在歷石山中的凶兆異獸。牠的外形長得像狸，但是腦袋是白色的，並長著老虎般的利爪。牠代表著戰爭與殺戮，傳說只要梁渠出現，該國必會爆發大戰亂。"
+  },
+  {
+    "id": "juru",
+    "type": "原始",
+    "name": "狙如",
+    "region": "西山經 (倚帝山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 72,
+      "aggression": 45,
+      "rarity": 84
+    },
+    "statsText": "靈:72 / 攻:45 / 稀:84",
+    "description": "狙如是一隻體型如鼢鼠般大小的異獸，長著白色的耳朵和白色的喙。雖然體型微小看似無害，但牠在古籍中是與梁渠齊名的戰爭凶獸，一旦在某國集體出沒，該國必有大戰爭。"
+  },
+  {
+    "id": "aoye",
+    "type": "原始",
+    "name": "獓𢀚",
+    "region": "北山經 (三桑山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 95,
+      "rarity": 90
+    },
+    "statsText": "靈:75 / 攻:95 / 稀:90",
+    "description": "獓𢀚（又稱獓因）是三桑山中的食人巨獸。牠的體型龐大如牛，長著白色的身體和四隻尖角。牠身上的長毛如同披著一件蓑衣，性格極為暴躁，一旦遇見人類就會進行捕食。"
+  },
+  {
+    "id": "jueru",
+    "type": "原始",
+    "name": "玃如",
+    "region": "西山經 (皋塗山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 20,
+      "rarity": 85
+    },
+    "statsText": "靈:82 / 攻:20 / 稀:85",
+    "description": "玃如是皋塗山上的奇特異獸。牠擁有鹿的身體但有一條白色的尾巴，長著馬一樣的蹄子、但前肢卻像人類的手掌，頭上長有四隻鹿角，外形十分奇特但生性溫和。"
+  },
+  {
+    "id": "jufu",
+    "type": "原始",
+    "name": "舉父",
+    "region": "西山經 (崇吾山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 40,
+      "rarity": 83
+    },
+    "statsText": "靈:80 / 攻:40 / 稀:83",
+    "description": "舉父是崇吾山的一種猿猴類異獸。牠長著像獼猴一樣的身體，手臂上長滿了斑斕的花紋。牠的性格開朗，極其擅長投擲石頭和木塊，速度極快且準確無比。"
+  },
+  {
+    "id": "shuhu",
+    "type": "原始",
+    "name": "孰湖",
+    "region": "西山經 (崦嵫山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 25,
+      "rarity": 90
+    },
+    "statsText": "靈:88 / 攻:25 / 稀:90",
+    "description": "孰湖是崦嵫山中的半人半獸神靈。牠長著馬的身體、鳥的翅膀，卻有著人的面孔和一條蛇的尾巴。牠的性格非常親人，十分喜歡抱起或背負人類在大天空中飛翔翱翔。"
+  },
+  {
+    "id": "songsi",
+    "type": "原始",
+    "name": "竦斯",
+    "region": "西山經 (灌題山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 10,
+      "rarity": 80
+    },
+    "statsText": "靈:74 / 攻:10 / 稀:80",
+    "description": "竦斯是灌題山上的一種怪鳥。牠擁有野雞一樣的身體，但卻長著一張十分精緻的人的面孔。只要看見有人走過，牠就會在枝頭或草地上興奮地跳躍，並發出歡快的叫聲。"
+  },
+  {
+    "id": "lei-bird",
+    "type": "原始",
+    "name": "鸓",
+    "region": "西山經 (小華山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 15,
+      "rarity": 85
+    },
+    "statsText": "靈:82 / 攻:15 / 稀:85",
+    "description": "鸓是小華山上的一種珍貴神鳥。牠長著紅色的頭部，但有雙重翅膀，能自由在高空翱翔。據說古人飼養這種神鳥，可以用來預防和撲滅離奇發生的山火與火災。"
+  },
+  {
+    "id": "huan-beast",
+    "type": "原始",
+    "name": "患",
+    "region": "中山經 (青要山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 87,
+      "aggression": 5,
+      "rarity": 91
+    },
+    "statsText": "靈:87 / 攻:5 / 稀:91",
+    "description": "患居住在黃帝行宮所在的青要山中。牠的外形長得像一隻山羊，但是非常奇異的是牠完全沒有嘴巴（無口），不需要進食。患擁有金剛不壞之軀，無法被凡間刀劍所殺害。"
+  },
+  {
+    "id": "tianma",
+    "type": "原始",
+    "name": "天馬",
+    "region": "北山經 (馬成山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 86,
+      "aggression": 20,
+      "rarity": 90
+    },
+    "statsText": "靈:86 / 攻:20 / 稀:90",
+    "description": "不同於西方神話中長翅膀的馬，《山海經》裡的天馬是一隻外形如雪白獵犬、卻長著黑色腦袋的神獸。牠只要一見到人類走近，就會展現神力在空中自由自在地翱翔飛翔。"
+  },
+  {
+    "id": "chenghuang",
+    "type": "原始",
+    "name": "乘黃",
+    "region": "海外西經 (白民之國)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 94,
+      "aggression": 5,
+      "rarity": 97
+    },
+    "statsText": "靈:94 / 攻:5 / 稀:97",
+    "description": "乘黃是生活在白民之國的極珍貴瑞獸。牠的外形像一隻明黃色的狐狸，但背部中央長著一隻長角。傳說中只要人類有幸能騎乘一次乘黃，就能獲得長達二千歲的悠長壽命。"
+  },
+  {
+    "id": "jiufeng",
+    "type": "原始",
+    "name": "九鳳",
+    "region": "大荒北經 (荒野山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 75,
+      "rarity": 96
+    },
+    "statsText": "靈:95 / 攻:75 / 稀:96",
+    "description": "九鳳是中國楚地神話中極為古老的九頭神鳥。祂擁有火紅鳳凰的巨大鳥身，但長著九個美麗的人類首面。祂是掌控風雷的大荒神祇之一，擁有強大且神聖的巫術法力。"
+  },
+  {
+    "id": "zheng",
+    "type": "原始",
+    "name": "猙",
+    "region": "西山經 (章莪山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 86,
+      "aggression": 80,
+      "rarity": 88
+    },
+    "statsText": "靈:86 / 攻:80 / 稀:88",
+    "description": "猙是生活在章莪山中的威武靈獸。牠的身體像一隻紅色的豹子，但長著五條長長的尾巴，額頭中央長著一隻利角。牠的聲音非常清脆，如同兩塊玉石猛烈撞擊一般。"
+  },
+  {
+    "id": "jiao",
+    "type": "原始",
+    "name": "狡",
+    "region": "西山經 (玉山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 83,
+      "aggression": 40,
+      "rarity": 85
+    },
+    "statsText": "靈:83 / 攻:40 / 稀:85",
+    "description": "狡居住在王母娘娘所居的西王母之山（玉山）。牠長著狗的身體，身上遍布著獵豹一般的花紋，頭上長著一對威風的牛角。牠是豐收的吉兆，現身便意味著該國將迎來大豐收。"
+  },
+  {
+    "id": "luanniao",
+    "type": "原始",
+    "name": "鸞鳥",
+    "region": "西山經 (女床山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 93,
+      "aggression": 10,
+      "rarity": 93
+    },
+    "statsText": "靈:93 / 攻:10 / 稀:93",
+    "description": "鸞鳥是與鳳凰齊名的神聖鳥類，生活在女床山。牠的身體形狀像野雞，但覆蓋著閃爍著青藍色光澤的五彩羽毛。鸞鳥性格溫順，其鳴聲悅耳，牠的現世代表天下安定和平。"
+  },
+  {
+    "id": "yong",
+    "type": "原始",
+    "name": "顒",
+    "region": "南山經 (令丘山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 77,
+      "aggression": 55,
+      "rarity": 86
+    },
+    "statsText": "靈:77 / 攻:55 / 稀:86",
+    "description": "顒是令丘山上的一種怪鳥。牠長著貓頭鷹的身體，卻有一張長著四隻眼睛的人臉，還長有一雙人類般的耳朵。牠叫聲如大聲呼喊。顒代表大旱，牠出現會讓天下河道枯竭。"
+  },
+  {
+    "id": "gudiao",
+    "type": "原始",
+    "name": "蠱雕",
+    "region": "東山經 (鹿吳山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 93,
+      "rarity": 88
+    },
+    "statsText": "靈:74 / 攻:93 / 稀:88",
+    "description": "蠱雕是鹿吳山中的食人惡獸。牠長著大雕一樣的翅膀與鳥身，但頭頂上長著尖銳的獨角。牠的叫聲非常具有欺騙性，聽起來如同嬰兒啼哭，藉此吸引路人並將其捕食。"
+  },
+  {
+    "id": "wuzhiqi",
+    "type": "原始",
+    "name": "無支祁",
+    "region": "中山經 (桐柏山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 92,
+      "aggression": 87,
+      "rarity": 93
+    },
+    "statsText": "靈:92 / 攻:87 / 稀:93",
+    "description": "無支祁是中國古代神話中的淮渦水神。祂形狀像猿猴，塌鼻子高額頭，身體呈青藍色而頭部是雪白的，雙眼射出金光。祂力大無窮能擊敗九頭大象，大禹曾將其鎖在龜山腳下。"
+  },
+  {
+    "id": "boyu",
+    "type": "原始",
+    "name": "薄魚",
+    "region": "東山經 (女烝山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 70,
+      "aggression": 50,
+      "rarity": 82
+    },
+    "statsText": "靈:70 / 攻:50 / 稀:82",
+    "description": "薄魚生活在東方的女烝水中。牠的外形像一隻比目魚（鰈），但尾巴是鮮紅色的，眼睛長在背部中央。牠的叫聲非常刺耳，如同人在嘔吐。薄魚現身會召喚恐怖的全國性大旱。"
+  },
+  {
+    "id": "heyu",
+    "type": "原始",
+    "name": "合窳",
+    "region": "東山經 (岷山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 88,
+      "rarity": 89
+    },
+    "statsText": "靈:75 / 攻:88 / 稀:89",
+    "description": "合窳生活在岷山中，體型龐大像一隻黃色身體的野豬，但長著一張人臉和紅色的尾巴。牠的叫聲如同嬰兒啼哭，生性極其殘暴，牠的出世會帶來淹沒農田與城鎮的特大洪水。"
+  },
+  {
+    "id": "wenyao-fish",
+    "type": "原始",
+    "name": "文鰩魚",
+    "region": "西山經 (觀水)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 10,
+      "rarity": 88
+    },
+    "statsText": "靈:85 / 攻:10 / 稀:88",
+    "description": "文鰩魚是生活在觀水中的神聖飛魚。牠的身體像鯉魚，但長有一雙大大的鳥翅膀。牠的頭是白色的，長著紅色的嘴喙，晚上會在海面上飛行。文鰩魚現世預示著天下五穀豐登。"
+  },
+  {
+    "id": "helu-fish",
+    "type": "原始",
+    "name": "何羅魚",
+    "region": "北山經 (譙明山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 15,
+      "rarity": 87
+    },
+    "statsText": "靈:80 / 攻:15 / 稀:87",
+    "description": "何羅魚生活在譙明山的譙水中。牠是極其奇特的多體魚類，擁有一顆大大的魚頭、卻連接了十個魚身。牠的叫聲如同小狗叫。古人傳說食用何羅魚的肉可以治療癰疽疔瘡等惡疾。"
+  },
+  {
+    "id": "manman-bird",
+    "type": "原始",
+    "name": "蠻蠻 (比翼鳥)",
+    "region": "西山經 (崇吾山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 12,
+      "rarity": 92
+    },
+    "statsText": "靈:88 / 攻:12 / 稀:92",
+    "description": "蠻蠻即中國著名的「比翼鳥」。牠的外形像野鴨，但每隻鳥只長著一隻翅膀和一隻眼睛，必須兩隻雌雄鳥緊緊依偎在一起才能配合飛翔。牠也象徵著忠貞不渝的情感。"
+  },
+  {
+    "id": "suanyu",
+    "type": "原始",
+    "name": "酸與",
+    "region": "西山經 (景山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 60,
+      "rarity": 89
+    },
+    "statsText": "靈:75 / 攻:60 / 稀:89",
+    "description": "酸與是景山中極其詭異的神鳥。牠長著蛇一樣的細長身體，但有四隻翅膀、六隻腳和三隻眼睛。牠的出現會帶給人心莫名的恐慌與集體混亂，現身即代表該地區會有驚恐之災。"
+  },
+  {
+    "id": "yayu",
+    "type": "原始",
+    "name": "窫窳",
+    "region": "西山經 (少咸山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 96,
+      "rarity": 93
+    },
+    "statsText": "靈:85 / 攻:96 / 稀:93",
+    "description": "窫窳曾是天神，被其他天神謀殺後靈魂化為食人怪獸。牠長著巨龍的腦袋或人面、紅色的豹身、馬的蹄子，叫聲如同嬰兒般。生性極度殘忍兇惡，常在山谷中捕食人類。"
+  },
+  {
+    "id": "sanzuwu",
+    "type": "原始",
+    "name": "三足烏",
+    "region": "大荒東經 (湯谷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 98,
+      "aggression": 30,
+      "rarity": 98
+    },
+    "statsText": "靈:98 / 攻:30 / 稀:98",
+    "description": "三足烏是居住在東方湯谷扶桑樹上的金色神鳥，也就是太陽的化身。祂擁有三隻腳，每天由一隻神烏載著一個太陽在空中巡行，帶給世間光熱與生命活力。"
+  },
+  {
+    "id": "bingyi",
+    "type": "原始",
+    "name": "冰夷",
+    "region": "北山經 (從極之淵)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 94,
+      "aggression": 70,
+      "rarity": 94
+    },
+    "statsText": "靈:94 / 攻:70 / 稀:94",
+    "description": "冰夷是黃河的主宰之神（河伯）。祂居住在北方幽深寒冷的從極之淵。冰夷長著一張英俊的人面，每次出巡都會乘坐著兩條神聖巨龍，掌管天下河川水源的水利起伏。"
+  },
+  {
+    "id": "yushiqie",
+    "type": "原始",
+    "name": "雨師妾",
+    "region": "海外東經 (雨師妾國)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 91,
+      "aggression": 65,
+      "rarity": 92
+    },
+    "statsText": "靈:91 / 攻:65 / 稀:92",
+    "description": "雨師妾是掌管天降雨水的遠古雨神之妾，其國人皮膚呈黑色。神明雨師妾的雙手各自握著一條滑動的毒蛇，左耳掛著青蛇，右耳掛著紅蛇，能操控天空中狂風暴雨與降水降雪。"
+  },
+  {
+    "id": "pingyi",
+    "type": "原始",
+    "name": "屏翳",
+    "region": "中山經 (大荒荒野)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 93,
+      "aggression": 60,
+      "rarity": 93
+    },
+    "statsText": "靈:93 / 攻:60 / 稀:93",
+    "description": "屏翳是中國古代傳說中兼管「雲」與「雨」的自然大天神。祂能在天空中呼風喚雨，撥雲見日，掌控著大地的耕作水源和自然時令。祂的意志決定了乾旱或豐收。"
+  },
+  {
+    "id": "nvchou",
+    "type": "原始",
+    "name": "女丑",
+    "region": "海外東經 (女丑之屍)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 92,
+      "aggression": 40,
+      "rarity": 95
+    },
+    "statsText": "靈:92 / 攻:40 / 稀:95",
+    "description": "女丑是古代神力強大的大女巫，傳說中十個太陽同時出現在天空暴曬大地時，她在大石之上作法祈雨，卻不幸被十日聯手曬死。她的遺體萬年不腐，以右手遮面，象徵抗爭。"
+  },
+  {
+    "id": "jiliang",
+    "type": "原始",
+    "name": "吉量",
+    "region": "海內西經 (犬封國)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 92,
+      "aggression": 5,
+      "rarity": 96
+    },
+    "statsText": "靈:92 / 攻:5 / 稀:96",
+    "description": "吉量是犬封國中的極珍稀白色文馬。牠有著純白如縞素的馬身，鮮紅奪目的馬鬃，雙眼如同黃金般閃閃發光。只要有幸騎乘一次吉量，人就能獲得一千歲的長壽福澤。"
+  },
+  {
+    "id": "luoyu",
+    "type": "原始",
+    "name": "蠃魚",
+    "region": "西山經 (邽山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 77,
+      "aggression": 50,
+      "rarity": 85
+    },
+    "statsText": "靈:77 / 攻:50 / 稀:85",
+    "description": "蠃魚生活在邽山的蒙水中。牠長著鯉魚一樣的身體，但卻長有一對鳥類的翅膀。牠的叫聲聽起來如同鴛鴦般。蠃魚是象徵嚴重水災的凶獸，出現便代表當地將發生洪災。"
+  },
+  {
+    "id": "shangao",
+    "type": "原始",
+    "name": "山膏",
+    "region": "中山經 (苦山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 65,
+      "aggression": 65,
+      "rarity": 81
+    },
+    "statsText": "靈:65 / 攻:65 / 稀:81",
+    "description": "山膏生活在苦山中。牠的外形長得像一隻紅色的小豬，全身顏色如丹火般耀眼。山膏性格極其惡劣好鬥，而且天生非常喜歡並擅長用各種惡毒的言語辱罵和詛咒路過的人類。"
+  },
+  {
+    "id": "juji",
+    "type": "原始",
+    "name": "居暨",
+    "region": "北山經 (柴桑山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 70,
+      "aggression": 55,
+      "rarity": 85
+    },
+    "statsText": "靈:70 / 攻:55 / 稀:85",
+    "description": "居暨生活在柴桑山。牠長著像小豬一樣的身體，但全身長滿了鋒利的尖刺，如同刺蝟。牠叫聲如豬哼。居暨是不祥的瘟疫之獸，一旦牠出現，當地縣邑便會爆發可怕大疫病。"
+  },
+  {
+    "id": "changyou",
+    "type": "原始",
+    "name": "長右",
+    "region": "南山經 (長右山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 76,
+      "aggression": 40,
+      "rarity": 83
+    },
+    "statsText": "靈:76 / 攻:40 / 稀:83",
+    "description": "長右生活在長右山。牠的形體像獼猴，但最奇特的是牠長著四隻耳朵。牠的叫聲聽起來就像是人類在悲傷呻吟一般。長右是水災的兆頭，看見牠意味著該郡縣會被洪水淹沒。"
+  },
+  {
+    "id": "huahuai",
+    "type": "原始",
+    "name": "猾褢",
+    "region": "南山經 (堯光山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 68,
+      "aggression": 60,
+      "rarity": 82
+    },
+    "statsText": "靈:68 / 攻:60 / 稀:82",
+    "description": "猾褢生活在堯光山，長著人一樣的軀體但身上覆蓋著豬一樣的硬鬣毛。牠居住在洞穴中並且會冬眠。牠的叫聲如砍木頭。見到牠預示著當地將有繁重的勞役與兵役工程。"
+  },
+  {
+    "id": "zhi",
+    "type": "原始",
+    "name": "彘 (獸)",
+    "region": "南山經 (浮玉山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 70,
+      "aggression": 92,
+      "rarity": 84
+    },
+    "statsText": "靈:70 / 攻:92 / 稀:84",
+    "description": "彘是浮玉山中的兇狠食人野獸。不同於普通的豬，山海經中的彘體型極大，長著老虎的身體和斑紋，但有一條長長的牛尾巴。叫聲如同狗吠一般，生性嗜血，專門吃人。"
+  },
+  {
+    "id": "qianyang",
+    "type": "原始",
+    "name": "羬羊",
+    "region": "西山經 (錢來山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 78,
+      "aggression": 10,
+      "rarity": 78
+    },
+    "statsText": "靈:78 / 攻:10 / 稀:78",
+    "description": "羬羊是西山經首座錢來山上的溫和靈獸。牠長著山羊的身體，但長有一條駿馬般蓬鬆的長尾巴。牠的油脂具有神奇藥效，塗抹可以治愈嚴重的皮膚乾裂與凍瘡。"
+  },
+  {
+    "id": "shuyu",
+    "type": "原始",
+    "name": "儵魚",
+    "region": "西山經 (彭水)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 12,
+      "rarity": 87
+    },
+    "statsText": "靈:82 / 攻:12 / 稀:87",
+    "description": "儵魚生活在彭水中。牠是一隻長相極其怪異的四頭水獸，擁有像雄雞一樣的身體並覆蓋紅色羽毛，長著三條尾巴、六隻腳和四個腦袋。食用牠的肉可以徹底治愈憂鬱症與焦慮症。"
+  },
+  {
+    "id": "luyu",
+    "type": "原始",
+    "name": "鯥",
+    "region": "南山經 (柢山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 20,
+      "rarity": 85
+    },
+    "statsText": "靈:80 / 攻:20 / 稀:85",
+    "description": "鯥生活在柢山的溪流中。牠擁有牛一般的身體，但有一條蛇的尾巴，並且背上長有大翅膀。牠能在陸地上爬行與棲息。傳說食用了鯥魚的肉，可以使人免受毒瘡與惡性腫瘤之苦。"
+  },
+  {
+    "id": "yuma",
+    "type": "原始",
+    "name": "𩣡馬",
+    "region": "北山經 (敦頭山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 84,
+      "aggression": 35,
+      "rarity": 88
+    },
+    "statsText": "靈:84 / 攻:35 / 稀:88",
+    "description": "𩣡馬是敦頭山上的一種純潔神獸。牠的外形長得像一隻矯健的駿馬，但額頭中央長著一隻螺旋尖角。牠非常通人性，將其飼養在軍隊或家中，可以用來辟邪防身，抵禦兵刃之災。"
+  },
+  {
+    "id": "tianquan",
+    "type": "原始",
+    "name": "天犬",
+    "region": "西山經 (天帝山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 83,
+      "aggression": 40,
+      "rarity": 89
+    },
+    "statsText": "靈:83 / 攻:40 / 稀:89",
+    "description": "天犬是天帝山上的神奇靈獸。牠長著野貓（貍）一樣的矯健身軀，但頭部的毛髮是雪白的。牠叫聲如「榴榴」。天犬是著名的鎮宅辟邪之獸，飼養牠可以禦除一切凶災與猛獸襲擊。"
+  },
+  {
+    "id": "lin",
+    "type": "原始",
+    "name": "獜",
+    "region": "東山經 (單張山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 70,
+      "aggression": 60,
+      "rarity": 83
+    },
+    "statsText": "靈:70 / 攻:60 / 稀:83",
+    "description": "獜是單張山的一種凶兆獵犬。牠的體型像狗，但身上長滿了老虎般斑斕的條紋，並且頭上長有一隻尖角。牠是不祥的飢荒之獸，只要現身，該國的麥田必定會枯萎絕收。"
+  },
+  {
+    "id": "huan-sheep",
+    "type": "原始",
+    "name": "䍺",
+    "region": "東山經 (單胡山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 86,
+      "aggression": 5,
+      "rarity": 90
+    },
+    "statsText": "靈:86 / 攻:5 / 稀:90",
+    "description": "䍺是單胡山上的不滅神獸。牠的外形長得像一隻山羊，但同樣不長嘴巴（無口），不需飲水進食。䍺體內蘊含著造化之氣，擁有不死之身，凡間的任何手段都無法將其殺死。"
+  },
+  {
+    "id": "youyou",
+    "type": "原始",
+    "name": "峳峳",
+    "region": "東山經 (䃌山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 84,
+      "aggression": 10,
+      "rarity": 86
+    },
+    "statsText": "靈:84 / 攻:10 / 稀:86",
+    "description": "峳峳是䃌山的一種靈鹿。牠長著梅花鹿的身體，但卻有一條蓬鬆的馬尾巴。牠的叫聲如同在大聲歡呼。峳峳是代表友好外交與客賢的瑞獸，現世預示該國將有許多賢良貴賓前來訪問。"
+  },
+  {
+    "id": "qiuyu",
+    "type": "原始",
+    "name": "犰狳",
+    "region": "東山經 (餘峨山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 72,
+      "aggression": 30,
+      "rarity": 85
+    },
+    "statsText": "靈:72 / 攻:30 / 稀:85",
+    "description": "不同於現代的犰狳，山海經中的犰狳長著兔子的身體、鳥的嘴喙、鴟鷹的眼睛與毒蛇的尾巴。牠膽子極小，一見人走近就會裝死（見人則眠）。牠出沒會招來漫天蝗蟲大肆啃食莊稼。"
+  },
+  {
+    "id": "zhuyan",
+    "type": "原始",
+    "name": "朱厭",
+    "region": "西山經 (小次山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 95,
+      "rarity": 93
+    },
+    "statsText": "靈:80 / 攻:95 / 稀:93",
+    "description": "朱厭是小次山中的著名戰亂凶獸。牠的外形長得像一隻大白猿，但腦袋毛髮雪白、四肢腳掌呈鮮紅色。朱厭生性極度好戰，只要牠在大地現身，天下必定會爆發極大規模的戰爭。"
+  },
+  {
+    "id": "danghu",
+    "type": "原始",
+    "name": "當扈",
+    "region": "西山經 (申首山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 79,
+      "aggression": 15,
+      "rarity": 83
+    },
+    "statsText": "靈:79 / 攻:15 / 稀:83",
+    "description": "當扈是申首山上的奇特野鳥。牠外形象野雞，但無法用翅膀飛行，而是靠著下巴兩側長長延伸的髯毛在空中神奇地滑翔。古人傳說食用其肉，可以防止眼睛昏花、流淚或視力下降。"
+  },
+  {
+    "id": "ershu",
+    "type": "原始",
+    "name": "耳鼠",
+    "region": "北山經 (丹熏山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 10,
+      "rarity": 87
+    },
+    "statsText": "靈:82 / 攻:10 / 稀:87",
+    "description": "耳鼠是丹熏山上的奇妙異獸。牠長著大老鼠的身子，但有一顆兔子的腦袋、馴鹿（麋）的身體，並且能豎起長尾巴像直升機一般在天空中飛翔。食其肉可禦防百毒，亦可治肚子痛。"
+  },
+  {
+    "id": "dijiang-origin",
+    "type": "原始",
+    "name": "帝江 (神鳥)",
+    "region": "西山經 (天山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 94,
+      "aggression": 40,
+      "rarity": 93
+    },
+    "statsText": "靈:94 / 攻:40 / 稀:93",
+    "description": "帝江是天山之神，也是混沌的化身。祂形狀像個裝滿丹火的黃皮袋子，長有六隻腳、四隻翅膀，雖然完全沒有面目五官，但極其精通歌舞，身懷無窮的虛無神力。"
+  },
+  {
+    "id": "feishu",
+    "type": "原始",
+    "name": "飛鼠",
+    "region": "北山經 (天池山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 10,
+      "rarity": 78
+    },
+    "statsText": "靈:74 / 攻:10 / 稀:78",
+    "description": "飛鼠生活在北方的天池之山。牠的身體像一隻大兔子，但腦袋是老鼠的模樣。牠能展開身體兩側寬大的皮膜在樹林與峽谷間自由地滑翔與飛翔，生性十分機警溫和。"
+  },
+  {
+    "id": "linghu",
+    "type": "原始",
+    "name": "領胡",
+    "region": "西山經 (泰冒山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 79,
+      "aggression": 30,
+      "rarity": 82
+    },
+    "statsText": "靈:79 / 攻:30 / 稀:82",
+    "description": "領胡是泰冒山中的奇妙靈獸。牠長得像一頭健壯的青牛，但長有一條鮮紅色的尾巴，且脖子上有類似駝峰的肉瘤。古籍傳說食用了領胡的肉，可以徹底根治瘋癲狂躁等精神病症。"
+  },
+  {
+    "id": "tulou",
+    "type": "原始",
+    "name": "土螻",
+    "region": "西山經 (崑崙山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 76,
+      "aggression": 90,
+      "rarity": 90
+    },
+    "statsText": "靈:76 / 攻:90 / 稀:90",
+    "description": "土螻是崑崙之丘上的四角惡獸。雖然外形長得像溫順的山羊，但頭頂上長著四隻粗壯銳利的尖角。土螻生性極其殘忍兇惡，會將迷路的旅人刺穿並以人類為食。"
+  },
+  {
+    "id": "qinyuan",
+    "type": "原始",
+    "name": "欽原",
+    "region": "西山經 (崑崙山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 95,
+      "rarity": 93
+    },
+    "statsText": "靈:85 / 攻:95 / 稀:93",
+    "description": "欽原是崑崙山上極度危險的神鳥。牠的外形長得像一隻大蜜蜂，體型卻有鴛鴦般大小。欽原的尾針含有劇毒，牠螫刺野獸野獸便會當場斃命，螫刺樹木樹木便會立刻枯萎乾死。"
+  },
+  {
+    "id": "ti-yu",
+    "type": "原始",
+    "name": "䱱魚",
+    "region": "東山經 (樂水分支)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 78,
+      "aggression": 10,
+      "rarity": 83
+    },
+    "statsText": "靈:78 / 攻:10 / 稀:83",
+    "description": "䱱魚生活在樂水之中。牠的外形象一隻普通的鯽魚（鮒），但身上非常怪異地長滿了像小豬一樣的剛硬鬃毛。牠的叫聲聽起來如同嬰兒沐浴。食其肉可以治愈嚴重的精神分裂與瘋狂症。"
+  },
+  {
+    "id": "sanshou-nation",
+    "type": "原始",
+    "name": "三首國神",
+    "region": "海外東經 (三首國)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 90,
+      "aggression": 50,
+      "rarity": 93
+    },
+    "statsText": "靈:90 / 攻:50 / 稀:93",
+    "description": "三首國神是海外東經記載的奇特神靈，在一身之上長著三個完全獨立的腦袋。三個腦袋能同時朝著不同的方向看守和交談，具有極強的感知能力，掌管東方海外的仙島結界。"
+  },
+  {
+    "id": "yuchan",
+    "type": "原始",
+    "name": "玉蟾",
+    "region": "中山經 (月宮深淵)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 93,
+      "aggression": 5,
+      "rarity": 95
+    },
+    "statsText": "靈:93 / 攻:5 / 稀:95",
+    "description": "玉蟾是中國古代創世神話與山海經旁支中守護月宮的翠玉神蟾。牠通體呈半透明的碧綠色，能吞吐月亮精華，代表著長生不老、财源滾滾與家庭和睦，具有無上的月系法力。"
+  },
+  {
+    "id": "qinglong",
+    "type": "原始",
+    "name": "青龍",
+    "region": "東山經 (東方天宮)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 99,
+      "aggression": 90,
+      "rarity": 99
+    },
+    "statsText": "靈:99 / 攻:90 / 稀:99",
+    "description": "青龍是四象之首，東方的守護神天之尊神。祂身軀修長呈青藍色，五行屬木，象徵著春天、東方、生機勃勃與雷霆萬鈞的力量，擁有掌控天地風雲與行雲布雨的無上神威。"
+  },
+  {
+    "id": "baihu",
+    "type": "原始",
+    "name": "白虎",
+    "region": "西山經 (西方天宮)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 99,
+      "aggression": 98,
+      "rarity": 99
+    },
+    "statsText": "靈:99 / 攻:98 / 稀:99",
+    "description": "白虎是四象之一，西方的守護戰神。祂身上覆蓋著雪白的皮毛與黑色的王戰斑紋，五行屬金，象徵秋天、西方、兵戈與至高無上的殺伐之力，威猛霸道，震懾百邪。"
+  },
+  {
+    "id": "zhuque",
+    "type": "原始",
+    "name": "朱雀",
+    "region": "南山經 (南方天宮)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 99,
+      "aggression": 94,
+      "rarity": 99
+    },
+    "statsText": "靈:99 / 攻:94 / 稀:99",
+    "description": "朱雀是四象之一，南方的守護神。祂的外形長得像燃燒著烈焰的火鳳凰，五行屬火，象徵夏天、南方、光明與不死重生的南陸之火，展翅間能焚燒世間一切妖魔邪祟。"
+  },
+  {
+    "id": "xuanwu",
+    "type": "原始",
+    "name": "玄武",
+    "region": "北山經 (北方天宮)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 99,
+      "aggression": 85,
+      "rarity": 99
+    },
+    "statsText": "靈:99 / 攻:85 / 稀:99",
+    "description": "玄武是四象之一，北方的守護神。祂是由一隻神龜與一條神蛇緊緊纏繞組成的太極玄武神體，五行屬水，象徵冬天、北方、玄冥與長生不老，守護著北方的冥府長夜。"
+  },
+  {
+    "id": "wangliang",
+    "type": "原始",
+    "name": "魍魎",
+    "region": "中山經 (弱水深淵)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 65,
+      "rarity": 86
+    },
+    "statsText": "靈:75 / 攻:65 / 稀:86",
+    "description": "魍魎是生活在山林大澤或弱水之中的木石精怪。牠們身體呈現紅黑色，體型如三歲幼兒般大小，擁有長長的頭髮與尖銳的爪子，最擅長在黑夜中幻化聲音迷惑路人迷路。"
+  },
+  {
+    "id": "yuchan-spirit",
+    "type": "原始",
+    "name": "玉兔",
+    "region": "中山經 (月宮仙境)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 5,
+      "rarity": 90
+    },
+    "statsText": "靈:88 / 攻:5 / 稀:90",
+    "description": "玉兔是月宮中常年陪伴嫦娥的白色仙兔。牠雙耳靈活，全身雪白無暇，每天在桂花樹下用玉杵默默地搗製長生不老的仙藥。玉兔代表著純潔、勤勞、吉祥與健康長壽。"
+  },
+  {
+    "id": "sanshu-bird",
+    "type": "原始",
+    "name": "三足烏 (精魂)",
+    "region": "大荒東經 (扶桑樹)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 97,
+      "aggression": 85,
+      "rarity": 97
+    },
+    "statsText": "靈:97 / 攻:85 / 稀:97",
+    "description": "三足金烏是帝俊與羲和的兒子，代表著太陽的真火精魂。祂們擁有三隻利爪，展開金黃色的火羽時能釋放融化冰川的熱量，是主管東方大荒光明循環的九天神鳥。"
+  },
+  {
+    "id": "qilin-lin",
+    "type": "原始",
+    "name": "麒",
+    "region": "中山經 (中央平原)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 93,
+      "aggression": 10,
+      "rarity": 94
+    },
+    "statsText": "靈:93 / 攻:10 / 稀:94",
+    "description": "麒是雄性的麒麟，象徵著天地的至剛陽氣與王道政治的興盛。祂龍首麋身，身披五彩金鱗，頭頂長著粗壯的獨角，出沒時代表天降大福與賢君當政，是世間至高仁獸。"
+  },
+  {
+    "id": "qilin-lin-female",
+    "type": "原始",
+    "name": "麟",
+    "region": "中山經 (中央平原)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 93,
+      "aggression": 5,
+      "rarity": 94
+    },
+    "statsText": "靈:93 / 攻:5 / 稀:94",
+    "description": "麟是雌性的麒麟，象徵著天地的至柔陰氣與萬物的慈悲生機。祂不履生草，不傷蟲豸，其獨角上有肉以示不用武力，現身則預示家庭和睦、百子千孫與福澤延綿。"
+  },
+  {
+    "id": "jiu-bird",
+    "type": "原始",
+    "name": "𩳁",
+    "region": "東山經 (胡兵山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 75,
+      "aggression": 10,
+      "rarity": 81
+    },
+    "statsText": "靈:75 / 攻:10 / 稀:81",
+    "description": "𩳁是東山經胡兵山中的紅色小鳥。牠體型嬌小形如山雀（爵），但羽毛呈现極具光澤的紅黑色。古籍中記載，食用了𩳁鳥的肉，可以有效消除脖子上的大癭瘤與甲狀腺腫塊。"
+  },
+  {
+    "id": "chiyan-beast",
+    "type": "原始",
+    "name": "赤眼",
+    "region": "北山經 (北極冰原)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 72,
+      "aggression": 94,
+      "rarity": 86
+    },
+    "statsText": "靈:72 / 攻:94 / 稀:86",
+    "description": "赤眼是北方極寒冰原上的巨大凶獸。牠的外形長得像一隻巨大的北極黑熊，但雙眼赤紅如血，性情極其暴躁與冷酷，一旦在風雪中遭遇人類，就會發起瘋狂的攻擊捕食。"
+  },
+  {
+    "id": "shenshen-beast",
+    "type": "原始",
+    "name": "甡甡",
+    "region": "南山經 (鹿安山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 35,
+      "rarity": 81
+    },
+    "statsText": "靈:80 / 攻:35 / 稀:81",
+    "description": "甡甡是鹿安山上群居的一種靈獸。牠長著像野牛一樣強壯的身體，但尾巴是雪白色的。甡甡集體出沒時，預示著當年的風調雨順、牧草茂盛以及國家畜牧業的大繁榮大豐收。"
+  },
+  {
+    "id": "xun-beast",
+    "type": "原始",
+    "name": "𤲞",
+    "region": "中山經 (姑逢山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 15,
+      "rarity": 87
+    },
+    "statsText": "靈:85 / 攻:15 / 稀:87",
+    "description": "𤲞是一隻長得像狐狸、但身體兩側長有薄薄翅膀的神奇飛獸。牠能藉助山風在山谷間滑翔。牠在中國神話中代表豐收吉兆，現身天下便會有五穀豐收與倉廩實大穰。"
+  },
+  {
+    "id": "youren-beast",
+    "type": "原始",
+    "name": "幽鴳",
+    "region": "北山經 (邊春山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 78,
+      "aggression": 10,
+      "rarity": 82
+    },
+    "statsText": "靈:78 / 攻:10 / 稀:82",
+    "description": "幽鴳是邊春山上的一種滑稽靈獸。牠的身體像獼猴，但全身長滿了斑斕的彩色斑紋。牠天生愛笑，聲音清脆，看見有人走近時，牠會故意躺在地上裝睡（見人則眠），令人發笑。"
+  },
+  {
+    "id": "tianzhi-bird",
+    "type": "原始",
+    "name": "天之",
+    "region": "中山經 (倚歌山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 76,
+      "aggression": 8,
+      "rarity": 80
+    },
+    "statsText": "靈:76 / 攻:8 / 稀:80",
+    "description": "天之是倚歌山上的求雨小神鳥。牠長得像普通的麻雀，但頭頂的羽毛呈鮮紅色。牠對大氣中的水氣變化極度敏感，只要天之在城鎮中歌唱，該地區當天便會降下甘霖雨水。"
+  },
+  {
+    "id": "shanjun-beast",
+    "type": "原始",
+    "name": "山君",
+    "region": "中山經 (大荒群山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 91,
+      "aggression": 90,
+      "rarity": 90
+    },
+    "statsText": "靈:91 / 攻:90 / 稀:90",
+    "description": "山君是尊貴的「山林之王」，也就是猛虎的精氣神格化。祂身形龐大威嚴，額頭有著清晰的「王」字紋，掌控著大山深林的生態清明與百獸秩序，能退治一切山精魍魎。"
+  },
+  {
+    "id": "mangcao-beast",
+    "type": "原始",
+    "name": "𢕟𢖵",
+    "region": "中山經 (熊耳山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 83,
+      "aggression": 10,
+      "rarity": 88
+    },
+    "statsText": "靈:83 / 攻:10 / 稀:88",
+    "description": "𢕟𢖵（芒草獸）是熊耳山上的神奇飛鹿。牠長著梅花鹿的身體、背上長有一對鳥類的翅膀，能在森林上空滑翔。據說食用牠的肉，可以大大增強記憶力，治療嚴重的健忘症。"
+  },
+  {
+    "id": "yingchu-beast",
+    "type": "原始",
+    "name": "嬰處",
+    "region": "中山經 (豐山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 5,
+      "rarity": 84
+    },
+    "statsText": "靈:80 / 攻:5 / 稀:84",
+    "description": "嬰處是豐山中的奇妙靈獸。牠長得像一隻獼猴，但頭部的毛髮是紅色的。嬰處天生嗜睡，體內精氣有催眠與安神的效果，食其肉能根治長年嚴重的失眠症與精神焦慮。"
+  },
+  {
+    "id": "huodou-beast",
+    "type": "原始",
+    "name": "禍斗",
+    "region": "海外南經 (厭火國)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 78,
+      "aggression": 85,
+      "rarity": 89
+    },
+    "statsText": "靈:78 / 攻:85 / 稀:89",
+    "description": "禍斗是厭火國中的不祥之犬。牠全身覆蓋著黑色的毛髮，以燃燒的火焰為食，並且排泄出滾燙的火石。牠是火災的象徵，牠在城市中走過，該地便會莫名爆發大火災。"
+  },
+  {
+    "id": "yuzhi-fish",
+    "type": "原始",
+    "name": "䲢魚 (天魚)",
+    "region": "中山經 (大荒大澤)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 90,
+      "aggression": 40,
+      "rarity": 92
+    },
+    "statsText": "靈:90 / 攻:40 / 稀:92",
+    "description": "䲢魚是傳說中的飛天神魚。牠平時隱匿在深淵大澤中，一旦跳出水面並展開魚鰭飛越九天時，天空中便會降下覆蓋千里的瓢潑大雨，因此被遠古部落供奉為祈雨天魚。"
+  },
+  {
+    "id": "chongqu-beast",
+    "type": "原始",
+    "name": "重渠",
+    "region": "中山經 (歌山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 81,
+      "aggression": 25,
+      "rarity": 83
+    },
+    "statsText": "靈:81 / 攻:25 / 稀:83",
+    "description": "重渠是歌山中長相十分慈祥的靈牛。牠擁有強壯的公牛身體，但頭頂和臉部覆蓋著雪白色的短毛。古籍記載，食用了重渠的牛肉，可以明目，並治愈長年的眼疾與白內障。"
+  },
+  {
+    "id": "ran-min-giant",
+    "type": "原始",
+    "name": "大人神",
+    "region": "大荒東經 (大人之國)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 91,
+      "aggression": 60,
+      "rarity": 93
+    },
+    "statsText": "靈:91 / 攻:60 / 稀:93",
+    "description": "大人神是居住在大荒波谷山上的巨人神族守護神。祂們體型如同小山般巍峨，一步跨越千丈，心地善良守序，保護著海外巨人國的商市集會與東海的潮汐平衡。"
+  },
+  {
+    "id": "tiandi-god",
+    "type": "原始",
+    "name": "天帝英靈",
+    "region": "中山經 (崑崙天宮)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 99,
+      "aggression": 95,
+      "rarity": 99
+    },
+    "statsText": "靈:99 / 攻:95 / 稀:99",
+    "description": "天帝英靈是統治崑崙天宮的天帝留在人間的意志顯化。祂常以白衣金甲的巨大威嚴靈體現身於崑崙天頂，散發著萬道五彩祥光，守護天庭的至高威嚴與人間的秩序運轉。"
+  },
+  {
+    "id": "chiyou-spirit",
+    "type": "原始",
+    "name": "蚩尤戰魂",
+    "region": "大荒東經 (大荒戰場)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 96,
+      "aggression": 99,
+      "rarity": 98
+    },
+    "statsText": "靈:96 / 攻:99 / 稀:98",
+    "description": "蚩尤是遠古九黎部落的首領，也是著名的華夏戰神。在涿鹿之戰中戰敗被殺後，祂那一股永不屈服的戰鬥意志凝聚成了蚩尤戰魂，身披青銅重甲，牛角銅頭，手持多種兵刃。"
+  },
+  {
+    "id": "zhaoyang-god",
+    "type": "原始",
+    "name": "朝陽水伯",
+    "region": "海外東經 (朝陽之谷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 93,
+      "aggression": 80,
+      "rarity": 94
+    },
+    "statsText": "靈:93 / 攻:80 / 稀:94",
+    "description": "朝陽水伯是居住在朝陽谷中的上古水神。祂的外形象徵著江河溪流的狂野力量，能隨心所欲地掀起洶湧波濤，調動千川萬流來滋潤大地，在東方海外享有崇高祭祀。"
+  },
+  {
+    "id": "sanshu-crow",
+    "type": "原始",
+    "name": "三足烏 (神雛)",
+    "region": "大荒東經 (扶桑樹梢)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 90,
+      "aggression": 15,
+      "rarity": 92
+    },
+    "statsText": "靈:90 / 攻:15 / 稀:92",
+    "description": "三足烏神雛是扶桑樹梢上誕生不久的幼年太陽神鳥。雖然體型較小且尚未能馱運巨大的太陽，但牠們羽毛已經開始散發溫暖的金色光芒，象徵著新生的希望與朝氣。"
+  },
+  {
+    "id": "jiliang-white",
+    "type": "原始",
+    "name": "縞馬 (吉量)",
+    "region": "海內西經 (犬封大草原)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 5,
+      "rarity": 92
+    },
+    "statsText": "靈:88 / 攻:5 / 稀:92",
+    "description": "縞馬是吉量在犬封大草原上產下的幼年神馬。牠們全身覆蓋著如白絹般柔順的短毛，一頭火紅的鬃毛已見雛形，雙眼清澈透亮，奔跑速度極快，被視為祥瑞的象徵。"
+  },
+  {
+    "id": "luoyu-spirit",
+    "type": "原始",
+    "name": "蠃魚精魂",
+    "region": "西山經 (蒙水深潭)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 60,
+      "rarity": 88
+    },
+    "statsText": "靈:82 / 攻:60 / 稀:88",
+    "description": "蠃魚精魂是蒙水深潭底部的古老水精。祂們匯聚了千萬年蒙水中的陰濕之氣，化作帶有大雙翼的幽藍色魚影，在暴風雨前夕會浮出水面歌唱，召喚淹沒千里的巨大山洪。"
+  },
+  {
+    "id": "shangao-cursing",
+    "type": "原始",
+    "name": "火豕 (山膏)",
+    "region": "中山經 (苦山森林)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 70,
+      "aggression": 80,
+      "rarity": 84
+    },
+    "statsText": "靈:70 / 攻:80 / 稀:84",
+    "description": "火豕是山膏中體型較大、全身燃燒著淡淡怒火的野豬戰士。牠們依然保留著喜歡辱罵對手的惡劣本性，且脾氣極為暴躁，一旦被激怒就會噴著火球發起野蠻衝撞。"
+  },
+  {
+    "id": "juji-hedgehog",
+    "type": "原始",
+    "name": "針豕 (居暨)",
+    "region": "北山經 (柴桑山谷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 70,
+      "rarity": 86
+    },
+    "statsText": "靈:74 / 攻:70 / 稀:86",
+    "description": "針豕是居暨中的刺衛首領，常在柴桑山谷的陰暗潮濕處出沒。牠們背上的剛刺具有毒素，在面臨威脅時會將刺射出。牠們攜帶著不祥的病氣，出沒便代表著瘟疫流行的警訊。"
+  },
+  {
+    "id": "changyou-water",
+    "type": "原始",
+    "name": "四耳禺 (長右)",
+    "region": "南山經 (長右山瀑布)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 79,
+      "aggression": 50,
+      "rarity": 85
+    },
+    "statsText": "靈:79 / 攻:50 / 稀:85",
+    "description": "四耳禺是棲息在長右山大瀑布周邊的一種古老巨猿。牠們靠著四隻靈敏的耳朵能聽見極遠處的水位上漲與潮汐爆發的聲音，其哀鳴聲意味著淹沒郡縣的巨大水災即將到來。"
+  },
+  {
+    "id": "huahuai-shaggy",
+    "type": "原始",
+    "name": "硬鬣禺 (猾褢)",
+    "region": "南山經 (堯光山岩洞)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 71,
+      "aggression": 70,
+      "rarity": 83
+    },
+    "statsText": "靈:71 / 攻:70 / 稀:83",
+    "description": "硬鬣禺是猾褢中體型粗壯、毛髮更為剛硬的洞穴猿人。牠們在嚴冬會陷入深度的冬眠，其沉悶的鼾聲如巨木撞擊，牠們的甦醒和出沒代表著徭役繁重與動盪的凶兆。"
+  },
+  {
+    "id": "zhi-tiger",
+    "type": "原始",
+    "name": "牛尾虎 (彘)",
+    "region": "南山經 (浮玉山密林)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 96,
+      "rarity": 87
+    },
+    "statsText": "靈:74 / 攻:96 / 稀:87",
+    "description": "牛尾虎是浮玉山密林深處的彘中之王。牠的體型比普通彘更為龐大，一條強壯的牛尾巴能如鐵鞭般擊碎巨石。牠極度狡猾，會在林間模仿犬吠來誘殺捕食人類與野獸。"
+  },
+  {
+    "id": "qianyang-white",
+    "type": "原始",
+    "name": "縞羊 (羬羊)",
+    "region": "西山經 (錢來山麓)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 8,
+      "rarity": 80
+    },
+    "statsText": "靈:80 / 攻:8 / 稀:80",
+    "description": "縞羊是羬羊中的珍稀純白頭體。牠們擁有極具光澤的純白羊毛與馬尾，漫步於錢來山麓。牠們性格極其溫馴，所分泌的滋潤油脂是古代治療凍傷的無上聖藥。"
+  },
+  {
+    "id": "shuyu-anxiety",
+    "type": "原始",
+    "name": "赤羽魚 (儵魚)",
+    "region": "西山經 (彭水清流)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 10,
+      "rarity": 89
+    },
+    "statsText": "靈:85 / 攻:10 / 稀:89",
+    "description": "赤羽魚是儵魚中靈力最強的一支，在彭水清澈的水底閃爍著如火焰般明亮的紅光。牠的多個頭能同時警戒。人食其肉便能驅散靈魂深處的陰霾，徹底忘卻憂愁與焦慮。"
+  },
+  {
+    "id": "luyu-ox",
+    "type": "原始",
+    "name": "翼牛魚 (鯥)",
+    "region": "南山經 (柢山沙洲)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 25,
+      "rarity": 87
+    },
+    "statsText": "靈:82 / 攻:25 / 稀:87",
+    "description": "翼牛魚是活動在柢山大沙洲的巨型鯥魚。牠們擁有如青牛般長滿厚皮的身體，蛇尾能掃清障礙。每逢乾旱牠們會展翅飛往大澤，食用牠們能讓人免於各類癰腫惡疾。"
+  },
+  {
+    "id": "yuma-gold",
+    "type": "原始",
+    "name": "金睛馬 (𩣡馬)",
+    "region": "北山經 (敦頭山谷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 87,
+      "aggression": 40,
+      "rarity": 90
+    },
+    "statsText": "靈:87 / 攻:40 / 稀:90",
+    "description": "金睛馬是敦頭山谷深處的𩣡馬首領。牠額頭上的獨角有著古老符文，雙眼如火般耀眼，能看穿一切伏擊。騎乘者能獲得辟邪神盾，在戰場上刀槍不入免受兵災。"
+  },
+  {
+    "id": "tianquan-cat",
+    "type": "原始",
+    "name": "白首貍 (天犬)",
+    "region": "西山經 (天帝神山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 45,
+      "rarity": 90
+    },
+    "statsText": "靈:85 / 攻:45 / 稀:90",
+    "description": "白首貍是天犬在天帝神山中的別稱。牠們動作快如閃電，能在林木頂端飛躍。天生具有極強的辟邪法力，是家宅神獸，能守護家門免受一切山魅凶獸侵擾。"
+  },
+  {
+    "id": "lin-barren",
+    "type": "原始",
+    "name": "虎紋犬 (獜)",
+    "region": "東山經 (單張荒山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 72,
+      "aggression": 70,
+      "rarity": 85
+    },
+    "statsText": "靈:72 / 攻:70 / 稀:85",
+    "description": "虎紋犬是單張荒山中成群活動的獜犬。牠們額頭有著灰色的短角，雙眼閃爍著飢餓的光芒。牠們是極度危險的荒原野犬，現身則會帶來蝗災旱災，使原野顆粒無收。"
+  },
+  {
+    "id": "huan-ram",
+    "type": "原始",
+    "name": "無口羊 (䍺)",
+    "region": "東山經 (單胡石壁)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 5,
+      "rarity": 92
+    },
+    "statsText": "靈:88 / 攻:5 / 稀:92",
+    "description": "無口羊是䍺在單胡山絕壁上的稱呼。牠們不需任何飲食，完全依靠天地靈氣為生。具有不可思議的不壞肉體，代表著生命力的極致瑞兆，見者能獲得健康與福報。"
+  },
+  {
+    "id": "youyou-deer",
+    "type": "原始",
+    "name": "馬尾鹿 (峳峳)",
+    "region": "東山經 (䃌山草甸)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 86,
+      "aggression": 8,
+      "rarity": 88
+    },
+    "statsText": "靈:86 / 攻:8 / 稀:88",
+    "description": "馬尾鹿是活動在䃌山大草甸的峳峳靈鹿。牠們有一條美麗的黑色長馬尾，奔跑時馬尾如黑絲般飛舞。牠們性情極其優雅，現世即預示著外交興盛，有諸多賢達貴賓來訪。"
+  },
+  {
+    "id": "qiuyu-locust",
+    "type": "原始",
+    "name": "兔首鳥喙 (犰狳)",
+    "region": "東山經 (餘峨山麓)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 71,
+      "aggression": 25,
+      "rarity": 86
+    },
+    "statsText": "靈:71 / 攻:25 / 稀:86",
+    "description": "兔首鳥喙是古書對犰狳的別名，其形狀如兔子卻有大鳥喙。只要受到驚嚇，牠們就會在地上縮成一團裝死。然而牠們是嚴重的災禍凶獸，會召喚毀滅性的蝗災破壞農田。"
+  },
+  {
+    "id": "zhuyan-war",
+    "type": "原始",
+    "name": "白首赤足 (朱厭)",
+    "region": "西山經 (小次山峽谷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 82,
+      "aggression": 97,
+      "rarity": 94
+    },
+    "statsText": "靈:82 / 攻:97 / 稀:94",
+    "description": "白首赤足是小次山大峽谷中朱厭古猿的威嚴姿態。牠雙臂力大無窮，能生撕虎豹。作為最古老的戰亂魔獸，牠在山巔發出雷鳴般的咆哮時，人間便會隨之爆發大戰亂。"
+  },
+  {
+    "id": "danghu-whisker",
+    "type": "原始",
+    "name": "髯飛鳥 (當扈)",
+    "region": "西山經 (申首山巔)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 81,
+      "aggression": 12,
+      "rarity": 85
+    },
+    "statsText": "靈:81 / 攻:12 / 稀:85",
+    "description": "髯飛鳥是申首山巔的當扈鳥。牠們展開兩側長長的金色髯毛在強風中飛翔，速度優雅。食其肉能讓人目力非凡，消除一切眼花、重影等病症，保佑眼睛健康明亮。"
+  },
+  {
+    "id": "ershu-flying",
+    "type": "原始",
+    "name": "飛耳鼠 (耳鼠)",
+    "region": "北山經 (丹熏山脈)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 10,
+      "rarity": 89
+    },
+    "statsText": "靈:85 / 攻:10 / 稀:89",
+    "description": "飛耳鼠是丹熏山脈的耳鼠領袖。牠們抖動長尾在大雪中滑翔，能感應百草毒性。捕獲並佩戴其毛皮能讓人百毒不侵，在嚴寒中保持身心溫暖與辟邪防病。"
+  },
+  {
+    "id": "mizhi",
+    "type": "原始",
+    "name": "朏朏",
+    "region": "中山經 (霍山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 75,
+      "rarity": 94
+    },
+    "statsText": "靈:95 / 攻:75 / 稀:94",
+    "description": "朏朏是霍山的一種靈獸，形狀像貓（貍），但長著白色的尾巴和鬃毛。飼養牠可以消除人的憂愁和焦慮，是著名的療癒系神獸。"
+  },
+  {
+    "id": "zouyu",
+    "type": "原始",
+    "name": "騶虞",
+    "region": "海內北經 (林氏國)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 67,
+      "aggression": 30,
+      "rarity": 93
+    },
+    "statsText": "靈:67 / 攻:30 / 稀:93",
+    "description": "騶虞是極其珍貴的仁獸，身軀如老虎般巨大，身上長滿五彩斑斕的斑紋，尾巴比身體還長。牠生性仁慈，不吃活的生物，騎乘牠一日可行五千里。"
+  },
+  {
+    "id": "baize-spirit",
+    "type": "原始",
+    "name": "白澤",
+    "region": "東望山 (崑崙)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 82,
+      "rarity": 86
+    },
+    "statsText": "靈:74 / 攻:82 / 稀:86",
+    "description": "白澤是中國古代著名的祥瑞神獸，智商極高，通曉天下萬物之情與妖怪的名字與形貌。曾協助黃帝編寫《白澤精怪圖》以辟除邪祟。"
+  },
+  {
+    "id": "qinggeng",
+    "type": "原始",
+    "name": "青耕",
+    "region": "中山經 (堇理山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 81,
+      "aggression": 67,
+      "rarity": 82
+    },
+    "statsText": "靈:81 / 攻:67 / 稀:82",
+    "description": "青耕是堇理山的一種神鳥，外形像喜鵲，身軀呈青藍色，嘴喙是白色的，紅色的雙腳，身上有黃色花紋。飼養牠可以防範和抵禦瘟疫。"
+  },
+  {
+    "id": "shengyu",
+    "type": "原始",
+    "name": "勝遇",
+    "region": "西山經 (玉山)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 11,
+      "rarity": 87
+    },
+    "statsText": "靈:88 / 攻:11 / 稀:87",
+    "description": "勝遇是生活在玉山的一種水鳥。牠的外形像野雞（翟），但羽毛呈現鮮紅色，主要以魚類為食。牠是象徵大洪水的凶鳥，現世便代表水災。"
+  },
+  {
+    "id": "tiangeng-divine",
+    "type": "原始",
+    "name": "天鯁",
+    "region": "北山經 (天鯁山)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 41,
+      "rarity": 74
+    },
+    "statsText": "靈:95 / 攻:41 / 稀:74",
+    "description": "天鯁是天鯁山的山神，長著人類的身體和一條豹子的尾巴，司掌北方極寒之地的氣候與風雪。"
+  },
+  {
+    "id": "xianfu-ape",
+    "type": "原始",
+    "name": "䴤",
+    "region": "西山經 (獮山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 87,
+      "aggression": 21,
+      "rarity": 97
+    },
+    "statsText": "靈:87 / 攻:21 / 稀:97",
+    "description": "䴤是獮山的一種靈獸，形體像獼猴（禺），但頭部毛髮呈鮮紅色。牠性情溫和，能在林木間輕盈飛躍。"
+  },
+  {
+    "id": "hechi",
+    "type": "原始",
+    "name": "獬豸",
+    "region": "大荒東經 (天庭)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 53,
+      "rarity": 75
+    },
+    "statsText": "靈:74 / 攻:53 / 稀:75",
+    "description": "獬豸是中國古代神話中的司法正義神獸。牠額頭上長著獨角，擁有極高的靈性，能辨識善惡忠奸。在判案時，牠會用獨角去頂撞無理理屈的一方。"
+  },
+  {
+    "id": "suanni-lion",
+    "type": "原始",
+    "name": "狻猊",
+    "region": "海外南經 (極南之地)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 81,
+      "aggression": 83,
+      "rarity": 89
+    },
+    "statsText": "靈:81 / 攻:83 / 稀:89",
+    "description": "狻猊外形象獅子，能捕食虎豹，威嚴無比。在神話中祂喜煙好坐，常出現在香爐底座上，象徵平安與吉祥。"
+  },
+  {
+    "id": "bixi-dragon",
+    "type": "原始",
+    "name": "赑屭",
+    "region": "大荒東經 (東海)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 85,
+      "rarity": 88
+    },
+    "statsText": "靈:88 / 攻:85 / 稀:88",
+    "description": "赑屭是龍生九子之首，外形象一隻巨大的烏龜。祂擁有無窮的力量，極其喜歡背負沉重的石碑與山川，是長壽與穩固的象徵。"
+  },
+  {
+    "id": "yazi-sword",
+    "type": "原始",
+    "name": "睚眥",
+    "region": "海外西經 (戰場)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 84,
+      "rarity": 81
+    },
+    "statsText": "靈:95 / 攻:84 / 稀:81",
+    "description": "睚眥是龍的次子，豺狼的身體龍的腦袋。祂性格剛烈好鬥，生性喜好殺戮與報復，其形象常被雕刻在刀環與劍柄上，增加兵器威懾力。"
+  },
+  {
+    "id": "pulao-bell",
+    "type": "原始",
+    "name": "蒲牢",
+    "region": "東海大澤 (海濱)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 67,
+      "aggression": 75,
+      "rarity": 74
+    },
+    "statsText": "靈:67 / 攻:75 / 稀:74",
+    "description": "蒲牢是龍的三子，體型較小，生性喜歡大聲吼叫。據說牠最害怕巨鯨，每次被鯨魚襲擊就會發出雷鳴般的大吼，因此其形象常被鑄造於大鐘上。"
+  },
+  {
+    "id": "chiwen-fire",
+    "type": "原始",
+    "name": "螭吻",
+    "region": "南山經 (海域)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 74,
+      "aggression": 88,
+      "rarity": 70
+    },
+    "statsText": "靈:74 / 攻:88 / 稀:70",
+    "description": "螭吻是龍的幼子，形似無角的龍或大魚。祂五行屬水，喜好吞食火焰與噴灑雨水，常用作古代木造建築屋脊上的避火神獸。"
+  },
+  {
+    "id": "qiuniu-lute",
+    "type": "原始",
+    "name": "囚牛",
+    "region": "中山經 (樂山)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 81,
+      "aggression": 35,
+      "rarity": 81
+    },
+    "statsText": "靈:81 / 攻:35 / 稀:81",
+    "description": "囚牛是龍生九子之一，性情極其溫順，平生最喜好音樂與彈奏樂器。其形象常被雕刻在胡琴、琵琶等樂器的頭部。"
+  },
+  {
+    "id": "yaxian-fish",
+    "type": "原始",
+    "name": "鱵魚",
+    "region": "東山經 (泿水)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 88,
+      "aggression": 34,
+      "rarity": 71
+    },
+    "statsText": "靈:88 / 攻:34 / 稀:71",
+    "description": "鱵魚生活在東方泿水中，身體細長如針，在清澈的水底成群滑行游動，是一隻能帶來河川清澈的吉祥水魚。"
+  },
+  {
+    "id": "gen-chiniu-1",
+    "type": "衍生",
+    "name": "赤牛",
+    "region": "南山經 (第2卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "窫窳曾是天神，被其他天神謀殺後靈魂化為食人怪獸。牠長著巨龍的腦袋或人面、紅色的豹身、馬的蹄子，叫聲如同嬰兒般。生性極度殘忍兇惡，常在山谷中捕食人類。（源自本卷神獸【窫窳】）"
+  },
+  {
+    "id": "gen-redox-41",
+    "type": "衍生",
+    "name": "赤牛",
+    "region": "南山經 (第2卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "窫窳曾是天神，被其他天神謀殺後靈魂化為食人怪獸。牠長著巨龍的腦袋或人面、紅色的豹身、馬的蹄子，叫聲如同嬰兒般。生性極度殘忍兇惡，常在山谷中捕食人類。（源自本卷神獸【窫窳】）"
+  },
+  {
+    "id": "gen-redox-21",
+    "type": "衍生",
+    "name": "赤牛",
+    "region": "南山經 (第2卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "窫窳曾是天神，被其他天神謀殺後靈魂化為食人怪獸。牠長著巨龍的腦袋或人面、紅色的豹身、馬的蹄子，叫聲如同嬰兒般。生性極度殘忍兇惡，常在山谷中捕食人類。（源自本卷神獸【窫窳】）"
+  },
+  {
+    "id": "gen-jiuque-7",
+    "type": "衍生",
+    "name": "九雀",
+    "region": "西山經 (第8卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "九鳳是中國楚地神話中極為古老的九頭神鳥。祂擁有火紅鳳凰的巨大鳥身，但長著九個美麗的人類首面。祂是掌控風雷的大荒神祇之一，擁有強大且神聖的巫術法力。（源自本卷神獸【九鳳】）"
+  },
+  {
+    "id": "gen-jiuque-47",
+    "type": "衍生",
+    "name": "九雀",
+    "region": "西山經 (第8卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "九鳳是中國楚地神話中極為古老的九頭神鳥。祂擁有火紅鳳凰的巨大鳥身，但長著九個美麗的人類首面。祂是掌控風雷的大荒神祇之一，擁有強大且神聖的巫術法力。（源自本卷神獸【九鳳】）"
+  },
+  {
+    "id": "gen-jiuque-27",
+    "type": "衍生",
+    "name": "九雀",
+    "region": "西山經 (第8卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "九鳳是中國楚地神話中極為古老的九頭神鳥。祂擁有火紅鳳凰的巨大鳥身，但長著九個美麗的人類首面。祂是掌控風雷的大荒神祇之一，擁有強大且神聖的巫術法力。（源自本卷神獸【九鳳】）"
+  },
+  {
+    "id": "gen-duyu-28",
+    "type": "衍生",
+    "name": "獨魚",
+    "region": "北山經 (第9卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "赤鱬生活在青丘山的英水中。牠長著魚的身體、卻有一張人的面孔，叫聲如同鴛鴦一般婉轉。傳說食用了赤鱬的肉，人就不會染上疥瘡等皮膚疾病，具有神奇的醫療效果。（源自本卷神獸【赤鱬】）"
+  },
+  {
+    "id": "gen-duyu-8",
+    "type": "衍生",
+    "name": "獨魚",
+    "region": "北山經 (第9卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "赤鱬生活在青丘山的英水中。牠長著魚的身體、卻有一張人的面孔，叫聲如同鴛鴦一般婉轉。傳說食用了赤鱬的肉，人就不會染上疥瘡等皮膚疾病，具有神奇的醫療效果。（源自本卷神獸【赤鱬】）"
+  },
+  {
+    "id": "gen-duyu-48",
+    "type": "衍生",
+    "name": "獨魚",
+    "region": "北山經 (第9卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "赤鱬生活在青丘山的英水中。牠長著魚的身體、卻有一張人的面孔，叫聲如同鴛鴦一般婉轉。傳說食用了赤鱬的肉，人就不會染上疥瘡等皮膚疾病，具有神奇的醫療效果。（源自本卷神獸【赤鱬】）"
+  },
+  {
+    "id": "gen-tianshe-29",
+    "type": "衍生",
+    "name": "天蛇",
+    "region": "中山經 (第10卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "化蛇是一隻極為詭異的異獸。牠擁有人的面孔、豺狼的身體、鳥的翅膀，卻像蛇一樣匍匐前行。牠的叫聲如同人類在大聲呵斥。化蛇出沒會帶來毀滅性的洪水大災。（源自本卷神獸【化蛇】）"
+  },
+  {
+    "id": "gen-tianshe-49",
+    "type": "衍生",
+    "name": "天蛇",
+    "region": "中山經 (第10卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "化蛇是一隻極為詭異的異獸。牠擁有人的面孔、豺狼的身體、鳥的翅膀，卻像蛇一樣匍匐前行。牠的叫聲如同人類在大聲呵斥。化蛇出沒會帶來毀滅性的洪水大災。（源自本卷神獸【化蛇】）"
+  },
+  {
+    "id": "gen-tianshe-9",
+    "type": "衍生",
+    "name": "天蛇",
+    "region": "中山經 (第10卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "化蛇是一隻極為詭異的異獸。牠擁有人的面孔、豺狼的身體、鳥的翅膀，卻像蛇一樣匍匐前行。牠的叫聲如同人類在大聲呵斥。化蛇出沒會帶來毀滅性的洪水大災。（源自本卷神獸【化蛇】）"
+  },
+  {
+    "id": "gen-leijiao-10",
+    "type": "衍生",
+    "name": "雷蛟",
+    "region": "東山經 (第11卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "夔是生活在東海流波山上的獨腳神獸。牠的外形像牛，但身體是蒼青色的且沒有角。牠出入水中時必定會伴隨狂風暴雨，身上散發著日月般的光芒，叫聲如雷鳴般震耳欲聾。（源自本卷神獸【夔】）"
+  },
+  {
+    "id": "gen-leijiao-50",
+    "type": "衍生",
+    "name": "雷蛟",
+    "region": "東山經 (第11卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "夔是生活在東海流波山上的獨腳神獸。牠的外形像牛，但身體是蒼青色的且沒有角。牠出入水中時必定會伴隨狂風暴雨，身上散發著日月般的光芒，叫聲如雷鳴般震耳欲聾。（源自本卷神獸【夔】）"
+  },
+  {
+    "id": "gen-leijiao-30",
+    "type": "衍生",
+    "name": "雷蛟",
+    "region": "東山經 (第11卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "夔是生活在東海流波山上的獨腳神獸。牠的外形像牛，但身體是蒼青色的且沒有角。牠出入水中時必定會伴隨狂風暴雨，身上散發著日月般的光芒，叫聲如雷鳴般震耳欲聾。（源自本卷神獸【夔】）"
+  },
+  {
+    "id": "gen-fengbao-31",
+    "type": "衍生",
+    "name": "風豹",
+    "region": "南山經 (第12卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "猙是生活在章莪山中的威武靈獸。牠的身體像一隻紅色的豹子，但長著五條長長的尾巴，額頭中央長著一隻利角。牠的聲音非常清脆，如同兩塊玉石猛烈撞擊一般。（源自本卷神獸【猙】）"
+  },
+  {
+    "id": "gen-fengbao-11",
+    "type": "衍生",
+    "name": "風豹",
+    "region": "南山經 (第12卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "猙是生活在章莪山中的威武靈獸。牠的身體像一隻紅色的豹子，但長著五條長長的尾巴，額頭中央長著一隻利角。牠的聲音非常清脆，如同兩塊玉石猛烈撞擊一般。（源自本卷神獸【猙】）"
+  },
+  {
+    "id": "gen-fengbao-51",
+    "type": "衍生",
+    "name": "風豹",
+    "region": "南山經 (第12卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "猙是生活在章莪山中的威武靈獸。牠的身體像一隻紅色的豹子，但長著五條長長的尾巴，額頭中央長著一隻利角。牠的聲音非常清脆，如同兩塊玉石猛烈撞擊一般。（源自本卷神獸【猙】）"
+  },
+  {
+    "id": "gen-shuihu-32",
+    "type": "衍生",
+    "name": "水虎",
+    "region": "西山經 (第13卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "虎蛟生活在禱過山的泿水中。牠是一種介於魚與蛇之間的古老水中巨獸，擁有魚的身體與毒蛇的尾巴，叫聲極其響亮如同鴛鴦。食用其肉可防止身體發炎腫脹。（源自本卷神獸【虎蛟】）"
+  },
+  {
+    "id": "gen-shuihu-52",
+    "type": "衍生",
+    "name": "水虎",
+    "region": "西山經 (第13卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "虎蛟生活在禱過山的泿水中。牠是一種介於魚與蛇之間的古老水中巨獸，擁有魚的身體與毒蛇的尾巴，叫聲極其響亮如同鴛鴦。食用其肉可防止身體發炎腫脹。（源自本卷神獸【虎蛟】）"
+  },
+  {
+    "id": "gen-shuihu-12",
+    "type": "衍生",
+    "name": "水虎",
+    "region": "西山經 (第13卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "虎蛟生活在禱過山的泿水中。牠是一種介於魚與蛇之間的古老水中巨獸，擁有魚的身體與毒蛇的尾巴，叫聲極其響亮如同鴛鴦。食用其肉可防止身體發炎腫脹。（源自本卷神獸【虎蛟】）"
+  },
+  {
+    "id": "gen-shanyu-53",
+    "type": "衍生",
+    "name": "山禺",
+    "region": "北山經 (第14卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "狌狌是招搖山的第一種野獸。牠的形狀像獼猴，但長著一雙白色的耳朵。牠能像人一樣彎腰爬行或直立行走。傳說食用了牠的肉，人就能健步如飛，且能通曉過去的事情。（源自本卷神獸【狌狌】）"
+  },
+  {
+    "id": "gen-shanyu-13",
+    "type": "衍生",
+    "name": "山禺",
+    "region": "北山經 (第14卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "狌狌是招搖山的第一種野獸。牠的形狀像獼猴，但長著一雙白色的耳朵。牠能像人一樣彎腰爬行或直立行走。傳說食用了牠的肉，人就能健步如飛，且能通曉過去的事情。（源自本卷神獸【狌狌】）"
+  },
+  {
+    "id": "gen-shanyu-33",
+    "type": "衍生",
+    "name": "山禺",
+    "region": "北山經 (第14卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "狌狌是招搖山的第一種野獸。牠的形狀像獼猴，但長著一雙白色的耳朵。牠能像人一樣彎腰爬行或直立行走。傳說食用了牠的肉，人就能健步如飛，且能通曉過去的事情。（源自本卷神獸【狌狌】）"
+  },
+  {
+    "id": "gen-shenhu-34",
+    "type": "衍生",
+    "name": "神狐",
+    "region": "中山經 (第15卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "九尾狐居住在青丘國。牠長著九條尾巴，聲音如同嬰兒啼哭一般。雖然古籍記載牠會吃人，但同時也指出，人們若食用了牠的肉，就可以避開妖邪之氣的蠱惑。在後世文化中，九尾狐逐漸演變為繁衍昌盛與太平祥瑞的吉兆。（源自本卷神獸【九尾狐】）"
+  },
+  {
+    "id": "gen-shenhu-14",
+    "type": "衍生",
+    "name": "神狐",
+    "region": "中山經 (第15卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "九尾狐居住在青丘國。牠長著九條尾巴，聲音如同嬰兒啼哭一般。雖然古籍記載牠會吃人，但同時也指出，人們若食用了牠的肉，就可以避開妖邪之氣的蠱惑。在後世文化中，九尾狐逐漸演變為繁衍昌盛與太平祥瑞的吉兆。（源自本卷神獸【九尾狐】）"
+  },
+  {
+    "id": "gen-shenhu-54",
+    "type": "衍生",
+    "name": "神狐",
+    "region": "中山經 (第15卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "九尾狐居住在青丘國。牠長著九條尾巴，聲音如同嬰兒啼哭一般。雖然古籍記載牠會吃人，但同時也指出，人們若食用了牠的肉，就可以避開妖邪之氣的蠱惑。在後世文化中，九尾狐逐漸演變為繁衍昌盛與太平祥瑞的吉兆。（源自本卷神獸【九尾狐】）"
+  },
+  {
+    "id": "gen-lingyao-35",
+    "type": "衍生",
+    "name": "靈鰩",
+    "region": "東山經 (第16卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "文鰩魚是生活在觀水中的神聖飛魚。牠的身體像鯉魚，但長有一雙大大的鳥翅膀。牠的頭是白色的，長著紅色的嘴喙，晚上會在海面上飛行。文鰩魚現世預示著天下五穀豐登。（源自本卷神獸【文鰩魚】）"
+  },
+  {
+    "id": "gen-lingyao-15",
+    "type": "衍生",
+    "name": "靈鰩",
+    "region": "東山經 (第16卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "文鰩魚是生活在觀水中的神聖飛魚。牠的身體像鯉魚，但長有一雙大大的鳥翅膀。牠的頭是白色的，長著紅色的嘴喙，晚上會在海面上飛行。文鰩魚現世預示著天下五穀豐登。（源自本卷神獸【文鰩魚】）"
+  },
+  {
+    "id": "gen-lingyao-55",
+    "type": "衍生",
+    "name": "靈鰩",
+    "region": "東山經 (第16卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "文鰩魚是生活在觀水中的神聖飛魚。牠的身體像鯉魚，但長有一雙大大的鳥翅膀。牠的頭是白色的，長著紅色的嘴喙，晚上會在海面上飛行。文鰩魚現世預示著天下五穀豐登。（源自本卷神獸【文鰩魚】）"
+  },
+  {
+    "id": "gen-huangfu-16",
+    "type": "衍生",
+    "name": "荒鳧",
+    "region": "南山經 (第17卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "酸與是景山中極其詭異的神鳥。牠長著蛇一樣的細長身體，但有四隻翅膀、六隻腳和三隻眼睛。牠的出現會帶給人心莫名的恐慌與集體混亂，現身即代表該地區會有驚恐之災。（源自本卷神獸【酸與】）"
+  },
+  {
+    "id": "gen-huangfu-56",
+    "type": "衍生",
+    "name": "荒鳧",
+    "region": "南山經 (第17卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "酸與是景山中極其詭異的神鳥。牠長著蛇一樣的細長身體，但有四隻翅膀、六隻腳和三隻眼睛。牠的出現會帶給人心莫名的恐慌與集體混亂，現身即代表該地區會有驚恐之災。（源自本卷神獸【酸與】）"
+  },
+  {
+    "id": "gen-huangfu-36",
+    "type": "衍生",
+    "name": "荒鳧",
+    "region": "南山經 (第17卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "酸與是景山中極其詭異的神鳥。牠長著蛇一樣的細長身體，但有四隻翅膀、六隻腳和三隻眼睛。牠的出現會帶給人心莫名的恐慌與集體混亂，現身即代表該地區會有驚恐之災。（源自本卷神獸【酸與】）"
+  },
+  {
+    "id": "gen-youwu-37",
+    "type": "衍生",
+    "name": "幽烏",
+    "region": "西山經 (第18卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "三足烏是居住在東方湯谷扶桑樹上的金色神鳥，也就是太陽的化身。祂擁有三隻腳，每天由一隻神烏載著一個太陽在空中巡行，帶給世間光熱與生命活力。（源自本卷神獸【三足烏】）"
+  },
+  {
+    "id": "gen-youwu-17",
+    "type": "衍生",
+    "name": "幽烏",
+    "region": "西山經 (第18卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "三足烏是居住在東方湯谷扶桑樹上的金色神鳥，也就是太陽的化身。祂擁有三隻腳，每天由一隻神烏載著一個太陽在空中巡行，帶給世間光熱與生命活力。（源自本卷神獸【三足烏】）"
+  },
+  {
+    "id": "gen-youwu-57",
+    "type": "衍生",
+    "name": "幽烏",
+    "region": "西山經 (第18卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "三足烏是居住在東方湯谷扶桑樹上的金色神鳥，也就是太陽的化身。祂擁有三隻腳，每天由一隻神烏載著一個太陽在空中巡行，帶給世間光熱與生命活力。（源自本卷神獸【三足烏】）"
+  },
+  {
+    "id": "gen-bingkun-38",
+    "type": "衍生",
+    "name": "冰鵾",
+    "region": "北山經 (第19卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "鯥生活在柢山的溪流中。牠擁有牛一般的身體，但有一條蛇的尾巴，並且背上長有大翅膀。牠能在陸地上爬行與棲息。傳說食用了鯥魚的肉，可以使人免受毒瘡與惡性腫瘤之苦。（源自本卷神獸【鯥】）"
+  },
+  {
+    "id": "gen-bingkun-58",
+    "type": "衍生",
+    "name": "冰鵾",
+    "region": "北山經 (第19卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "鯥生活在柢山的溪流中。牠擁有牛一般的身體，但有一條蛇的尾巴，並且背上長有大翅膀。牠能在陸地上爬行與棲息。傳說食用了鯥魚的肉，可以使人免受毒瘡與惡性腫瘤之苦。（源自本卷神獸【鯥】）"
+  },
+  {
+    "id": "gen-bingkun-18",
+    "type": "衍生",
+    "name": "冰鵾",
+    "region": "北山經 (第19卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "鯥生活在柢山的溪流中。牠擁有牛一般的身體，但有一條蛇的尾巴，並且背上長有大翅膀。牠能在陸地上爬行與棲息。傳說食用了鯥魚的肉，可以使人免受毒瘡與惡性腫瘤之苦。（源自本卷神獸【鯥】）"
+  },
+  {
+    "id": "gen-huodie-19",
+    "type": "衍生",
+    "name": "火鰈",
+    "region": "中山經 (第20卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "蠃魚生活在邽山的蒙水中。牠長著鯉魚一樣的身體，但卻長有一對鳥類的翅膀。牠的叫聲聽起來如同鴛鴦般。蠃魚是象徵嚴重水災的凶獸，出現便代表當地將發生洪災。（源自本卷神獸【蠃魚】）"
+  },
+  {
+    "id": "gen-huodie-59",
+    "type": "衍生",
+    "name": "火鰈",
+    "region": "中山經 (第20卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "蠃魚生活在邽山的蒙水中。牠長著鯉魚一樣的身體，但卻長有一對鳥類的翅膀。牠的叫聲聽起來如同鴛鴦般。蠃魚是象徵嚴重水災的凶獸，出現便代表當地將發生洪災。（源自本卷神獸【蠃魚】）"
+  },
+  {
+    "id": "gen-huodie-39",
+    "type": "衍生",
+    "name": "火鰈",
+    "region": "中山經 (第20卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "蠃魚生活在邽山的蒙水中。牠長著鯉魚一樣的身體，但卻長有一對鳥類的翅膀。牠的叫聲聽起來如同鴛鴦般。蠃魚是象徵嚴重水災的凶獸，出現便代表當地將發生洪災。（源自本卷神獸【蠃魚】）"
+  },
+  {
+    "id": "gen-qingma-40",
+    "type": "衍生",
+    "name": "青馬",
+    "region": "東山經 (第21卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "不同於西方神話中長翅膀的馬，《山海經》裡的天馬是一隻外形如雪白獵犬、卻長著黑色腦袋的神獸。牠只要一見到人類走近，就會展現神力在空中自由自在地翱翔飛翔。（源自本卷神獸【天馬】）"
+  },
+  {
+    "id": "gen-qingma-20",
+    "type": "衍生",
+    "name": "青馬",
+    "region": "東山經 (第21卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "不同於西方神話中長翅膀的馬，《山海經》裡的天馬是一隻外形如雪白獵犬、卻長著黑色腦袋的神獸。牠只要一見到人類走近，就會展現神力在空中自由自在地翱翔飛翔。（源自本卷神獸【天馬】）"
+  },
+  {
+    "id": "gen-qingma-60",
+    "type": "衍生",
+    "name": "青馬",
+    "region": "東山經 (第21卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "不同於西方神話中長翅膀的馬，《山海經》裡的天馬是一隻外形如雪白獵犬、卻長著黑色腦袋的神獸。牠只要一見到人類走近，就會展現神力在空中自由自在地翱翔飛翔。（源自本卷神獸【天馬】）"
+  },
+  {
+    "id": "gen-xuanyang-22",
+    "type": "衍生",
+    "name": "玄羊",
+    "region": "西山經 (第3卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "羬羊是西山經首座錢來山上的溫和靈獸。牠長著山羊的身體，但長有一條駿馬般蓬鬆的長尾巴。牠的油脂具有神奇藥效，塗抹可以治愈嚴重的皮膚乾裂與凍瘡。（源自本卷神獸【羬羊】）"
+  },
+  {
+    "id": "gen-xuanyang-2",
+    "type": "衍生",
+    "name": "玄羊",
+    "region": "西山經 (第3卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "羬羊是西山經首座錢來山上的溫和靈獸。牠長著山羊的身體，但長有一條駿馬般蓬鬆的長尾巴。牠的油脂具有神奇藥效，塗抹可以治愈嚴重的皮膚乾裂與凍瘡。（源自本卷神獸【羬羊】）"
+  },
+  {
+    "id": "gen-xuanyang-42",
+    "type": "衍生",
+    "name": "玄羊",
+    "region": "西山經 (第3卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "羬羊是西山經首座錢來山上的溫和靈獸。牠長著山羊的身體，但長有一條駿馬般蓬鬆的長尾巴。牠的油脂具有神奇藥效，塗抹可以治愈嚴重的皮膚乾裂與凍瘡。（源自本卷神獸【羬羊】）"
+  },
+  {
+    "id": "gen-baiquan-43",
+    "type": "衍生",
+    "name": "白犬",
+    "region": "北山經 (第4卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "天狗是中國古代傳說中的靈獸。不同於後世吃月亮的惡狗或日本神話中的天狗，在《山海經》原始記載中，天狗是一隻形狀像狸（野貓）、腦袋呈白色的奇特神獸。牠會發出「榴榴」的叫聲。人們豢養牠可以用來禦凶、防範妖邪與災禍，是一隻能帶來平安的吉獸。（源自本卷神獸【天狗】）"
+  },
+  {
+    "id": "gen-jinli-44",
+    "type": "衍生",
+    "name": "金貍",
+    "region": "中山經 (第5卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 85,
+      "aggression": 25,
+      "rarity": 80
+    },
+    "statsText": "靈:85 / 攻:25 / 稀:80",
+    "description": "金貍是霍山中朏朏（fěi fěi）一族的變異瑞獸。牠全身覆蓋著如黃金般閃耀的毛髮，特別喜歡趴在古老青松的枝頭上，探頭探腦地觀察著路過的人類。據說豢養牠能讓人忘卻世間所有的憂愁與煩惱，帶來無盡的歡樂與祥和。（源自本卷瑞獸【朏朏】）"
+  },
+  {
+    "id": "gen-baiquan-23",
+    "type": "衍生",
+    "name": "白犬",
+    "region": "北山經 (第4卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "天狗是中國古代傳說中的靈獸。不同於後世吃月亮的惡狗或日本神話中的天狗，在《山海經》原始記載中，天狗是一隻形狀像狸（野貓）、腦袋呈白色的奇特神獸。牠會發出「榴榴」的叫聲。人們豢養牠可以用來禦凶、防範妖邪與災禍，是一隻能帶來平安的吉獸。（源自本卷神獸【天狗】）"
+  },
+  {
+    "id": "gen-baiquan-3",
+    "type": "衍生",
+    "name": "白犬",
+    "region": "北山經 (第4卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "天狗是中國古代傳說中的靈獸。不同於後世吃月亮的惡狗或日本神話中的天狗，在《山海經》原始記載中，天狗是一隻形狀像狸（野貓）、腦袋呈白色的奇特神獸。牠會發出「榴榴」的叫聲。人們豢養牠可以用來禦凶、防範妖邪與災禍，是一隻能帶來平安的吉獸。（源自本卷神獸【天狗】）"
+  },
+  {
+    "id": "gen-jinli-4",
+    "type": "衍生",
+    "name": "金貍",
+    "region": "中山經 (第5卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "朏朏是霍山的一種靈獸，形狀像貓（貍），但長著白色的尾巴和鬃毛。飼養牠可以消除人的憂愁和焦慮，是著名的療癒系神獸。（源自本卷神獸【朏朏】）"
+  },
+  {
+    "id": "gen-jinli-44",
+    "type": "衍生",
+    "name": "金貍",
+    "region": "中山經 (第5卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "朏朏是霍山的一種靈獸，形狀像貓（貍），但長著白色的尾巴和鬃毛。飼養牠可以消除人的憂愁和焦慮，是著名的療癒系神獸。（源自本卷神獸【朏朏】）"
+  },
+  {
+    "id": "gen-jinli-24",
+    "type": "衍生",
+    "name": "金貍",
+    "region": "中山經 (第5卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "朏朏是霍山的一種靈獸，形狀像貓（貍），但長著白色的尾巴和鬃毛。飼養牠可以消除人的憂愁和焦慮，是著名的療癒系神獸。（源自本卷神獸【朏朏】）"
+  },
+  {
+    "id": "gen-yudiao-25",
+    "type": "衍生",
+    "name": "玉雕",
+    "region": "東山經 (第6卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "蠱雕是鹿吳山中的食人惡獸。牠長著大雕一樣的翅膀與鳥身，但頭頂上長著尖銳的獨角。牠的叫聲非常具有欺騙性，聽起來如同嬰兒啼哭，藉此吸引路人並將其捕食。（源自本卷神獸【蠱雕】）"
+  },
+  {
+    "id": "gen-yudiao-5",
+    "type": "衍生",
+    "name": "玉雕",
+    "region": "東山經 (第6卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "蠱雕是鹿吳山中的食人惡獸。牠長著大雕一樣的翅膀與鳥身，但頭頂上長著尖銳的獨角。牠的叫聲非常具有欺騙性，聽起來如同嬰兒啼哭，藉此吸引路人並將其捕食。（源自本卷神獸【蠱雕】）"
+  },
+  {
+    "id": "gen-yudiao-45",
+    "type": "衍生",
+    "name": "玉雕",
+    "region": "東山經 (第6卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "蠱雕是鹿吳山中的食人惡獸。牠長著大雕一樣的翅膀與鳥身，但頭頂上長著尖銳的獨角。牠的叫聲非常具有欺騙性，聽起來如同嬰兒啼哭，藉此吸引路人並將其捕食。（源自本卷神獸【蠱雕】）"
+  },
+  {
+    "id": "gen-feihe-26",
+    "type": "衍生",
+    "name": "飛鶴",
+    "region": "南山經 (第7卷)",
+    "category": "瑞獸",
+    "stats": {
+      "spiritual": 80,
+      "aggression": 30,
+      "rarity": 75
+    },
+    "statsText": "靈:80 / 攻:30 / 稀:75",
+    "description": "畢方是中國古代神話中的木神與火神鳥。牠的外貌像鶴，但極其奇特的是牠只有一隻腳。畢方身體呈青色，覆蓋著紅色的斑紋，嘴喙是白色的。牠的叫聲就像在呼喚自己的名字「畢方」。傳說中，只要畢方在某處出現，該城鎮或地區就會莫名奇妙地發生離奇的火災（訛火）。（源自本卷神獸【畢方】）"
+  },
+  {
+    "id": "gen-feihe-46",
+    "type": "衍生",
+    "name": "飛鶴",
+    "region": "南山經 (第7卷)",
+    "category": "凶獸",
+    "stats": {
+      "spiritual": 40,
+      "aggression": 85,
+      "rarity": 80
+    },
+    "statsText": "靈:40 / 攻:85 / 稀:80",
+    "description": "畢方是中國古代神話中的木神與火神鳥。牠的外貌像鶴，但極其奇特的是牠只有一隻腳。畢方身體呈青色，覆蓋著紅色的斑紋，嘴喙是白色的。牠的叫聲就像在呼喚自己的名字「畢方」。傳說中，只要畢方在某處出現，該城鎮或地區就會莫名奇妙地發生離奇的火災（訛火）。（源自本卷神獸【畢方】）"
+  },
+  {
+    "id": "gen-feihe-6",
+    "type": "衍生",
+    "name": "飛鶴",
+    "region": "南山經 (第7卷)",
+    "category": "神獸",
+    "stats": {
+      "spiritual": 95,
+      "aggression": 50,
+      "rarity": 90
+    },
+    "statsText": "靈:95 / 攻:50 / 稀:90",
+    "description": "畢方是中國古代神話中的木神與火神鳥。牠的外貌像鶴，但極其奇特的是牠只有一隻腳。畢方身體呈青色，覆蓋著紅色的斑紋，嘴喙是白色的。牠的叫聲就像在呼喚自己的名字「畢方」。傳說中，只要畢方在某處出現，該城鎮或地區就會莫名奇妙地發生離奇的火災（訛火）。（源自本卷神獸【畢方】）"
+  }
+]

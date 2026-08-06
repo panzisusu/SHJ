@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>山海經：奇獸對決 Battle 2.0</title>
+
+    <link rel="stylesheet" href="css/layout.css" />
+  </head>
+
+  <body>
+    <div class="battle-container">
+      <header class="top-bar">
+        <div class="game-header-brand">
+          <span class="game-subtitle">山海經 · 奇獸對決</span>
+          <span class="version-badge">v3.0 Prototype</span>
+        </div>
+
+        <div class="battle-title">
+          <div class="turn-counter">第 1 回合</div>
+          <div id="battle-msg" class="battle-msg"></div>
+        </div>
+
+        <div class="header-decor">
+          <span class="realm-badge">第一卷：青丘祥瑞</span>
+          <button id="bgm-toggle-btn" class="bgm-toggle-btn" title="切換背景音樂" aria-label="切換背景音樂">🔊</button>
+        </div>
+      </header>
+
+      <main class="battle-main">
+        <!-- 左側：山海行者 角色對戰區 (Desktop 28%) -->
+        <aside class="left-panel">
+          <div class="player-character-card">
+            <div class="character-header">
+              <div class="character-title-group">
+                <span class="character-name">山海行者</span>
+                <span class="character-subtitle">人族 · 符陣師</span>
+              </div>
+              <div class="character-level">Lv. 25</div>
+            </div>
+
+            <!-- 大型角色 正式素材 (山海行者) -->
+            <div class="player-character-stage">
+              <div class="player-mist-bg"></div>
+              <div class="player-rune-halo"></div>
+              <img src="assets/player_main.webp" alt="山海行者" class="player-official-img" />
+              <div class="player-ground-shadow"></div>
+            </div>
+
+            <!-- HP / MP 數值條 -->
+            <div class="player-stats-compact">
+              <div class="stat-bar-group">
+                <div class="stat-label">
+                  <span>HP 體力</span>
+                  <span class="stat-value">500 / 500</span>
+                </div>
+                <div class="hp-bar-outer">
+                  <div class="hp-bar-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <div class="stat-bar-group">
+                <div class="stat-label">
+                  <span>MP 靈力</span>
+                  <span class="stat-value">200 / 200</span>
+                </div>
+                <div class="mp-bar-outer">
+                  <div class="mp-bar-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BUFF / DEBUFF 狀態標籤 (精簡列) -->
+            <div class="status-badges-compact">
+              <div class="status-badge buff" title="每回合恢復 5% HP">
+                <span class="badge-icon">🌿</span>
+                <span class="badge-name">五行護體</span>
+                <span class="badge-turns">3T</span>
+              </div>
+              <div class="status-badge buff" title="攻擊力提升 15%">
+                <span class="badge-icon">⚡</span>
+                <span class="badge-name">靈力湧動</span>
+                <span class="badge-turns">2T</span>
+              </div>
+              <div class="status-badge debuff" title="每回合受到火傷害">
+                <span class="badge-icon">🔥</span>
+                <span class="badge-name">狐火灼燒</span>
+                <span class="badge-turns">2T</span>
+              </div>
+            </div>
+
+            <!-- 我方五行效果輔助資訊 -->
+            <div class="element-effects-card">
+              <div class="panel-title-sm">五行力量共鳴</div>
+              <div class="element-grid-mini">
+                <div class="element-mini">
+                  <span class="el-name wood-txt">木</span>
+                  <div class="el-bar-mini"><div class="el-fill wood" style="width: 80%;"></div></div>
+                </div>
+                <div class="element-mini">
+                  <span class="el-name fire-txt">火</span>
+                  <div class="el-bar-mini"><div class="el-fill fire" style="width: 60%;"></div></div>
+                </div>
+                <div class="element-mini">
+                  <span class="el-name earth-txt">土</span>
+                  <div class="el-bar-mini"><div class="el-fill earth" style="width: 90%;"></div></div>
+                </div>
+                <div class="element-mini">
+                  <span class="el-name metal-txt">金</span>
+                  <div class="el-bar-mini"><div class="el-fill metal" style="width: 45%;"></div></div>
+                </div>
+                <div class="element-mini">
+                  <span class="el-name water-txt">水</span>
+                  <div class="el-bar-mini"><div class="el-fill water" style="width: 75%;"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- 中央：五行召喚陣 (Desktop 40%) -->
+        <section class="battle-board">
+          <div class="array-bg-ring"></div>
+          <div class="battle-field">
+            <div class="array-center-ink"></div>
+            <div class="node north" data-position="north">水</div>
+            <div class="node east" data-position="east">木</div>
+            <div class="node south" data-position="south">火</div>
+            <div class="node west" data-position="west">金</div>
+            <div class="node center" data-position="center">土</div>
+          </div>
+        </section>
+
+        <!-- 右側：九尾狐 Boss 對戰區 (Desktop 32%) -->
+        <aside class="right-panel">
+          <div class="boss-card enemy-info">
+            <div class="boss-header">
+              <div class="boss-title-group">
+                <div class="boss-name">九尾狐</div>
+                <div class="boss-subtitle">青丘大妖 · Lv.30</div>
+              </div>
+              <div class="boss-element-badge">
+                <span class="boss-element-wood">屬性：木</span>
+              </div>
+            </div>
+
+            <!-- Boss HP Bar (保留 DOM ID enemy-hp-bar & enemy-hp-text) -->
+            <div class="boss-hp-section">
+              <div class="hp-label-row">
+                <span>Boss HP 生命值</span>
+              </div>
+              <div class="hp" id="enemy-hp-bar">
+                <span id="enemy-hp-text">HP 400 / 400</span>
+              </div>
+            </div>
+
+            <!-- 大型 Boss 圖像 (使用既有素材 assets/nine_tailed_fox.webp) -->
+            <div class="boss-character-stage">
+              <img src="assets/nine_tailed_fox.webp" alt="九尾狐" class="boss-official-img" />
+              <div class="boss-ground-shadow"></div>
+            </div>
+
+            <!-- Boss 技能列表 (簡化單行版) -->
+            <div class="boss-skills-section">
+              <div class="skills-title">⚔️ 妖獸技能</div>
+              <div class="skill-list">
+                <div class="skill-item">
+                  <div class="skill-icon">🔥</div>
+                  <span class="skill-name">狐火焚天</span>
+                  <span class="skill-cd">CD 2</span>
+                </div>
+
+                <div class="skill-item">
+                  <div class="skill-icon">👁️</div>
+                  <span class="skill-name">魅惑之眸</span>
+                  <span class="skill-cd">CD 3</span>
+                </div>
+
+                <div class="skill-item ultimate">
+                  <div class="skill-icon">⚡</div>
+                  <span class="skill-name">九尾天劫</span>
+                  <span class="skill-cd ultimate-tag">蓄力 1/4</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </main>
+
+      <section class="skill-bar"></section>
+
+      <section class="hand-bar" id="hand-bar">
+        <!-- 由 game.js 動態載入異獸卡牌 -->
+      </section>
+
+      <!-- 開場遮罩 -->
+      <div id="intro-overlay" class="intro-overlay">
+        <div class="modal-content intro-content">
+          <div class="stage-tag">第一卷</div>
+          <h2>青丘祥瑞</h2>
+          
+          <div class="intro-text">
+            <p>青丘之山，有獸焉，<br />其狀如狐而九尾，<br />其音如嬰兒，能食人，<br />食者不蠱。</p>
+          </div>
+
+          <div class="stage-goal">
+            <span class="goal-label">關卡目標：</span>
+            <span>擊敗九尾狐，取得牠的認可。</span>
+          </div>
+
+          <div class="modal-actions">
+            <button id="start-battle-btn" class="start-btn">開始戰鬥</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 過關遮罩 -->
+      <div id="victory-modal" class="victory-modal hidden">
+        <div class="modal-content">
+          <h2>第一關完成</h2>
+          <p class="subtitle">擊敗九尾狐</p>
+          <div class="reward-list">
+            <div class="reward-item">
+              <span class="icon">🎴</span>
+              <span>獲得異獸卡：九尾狐</span>
+            </div>
+            <div class="reward-item">
+              <span class="icon">📜</span>
+              <span>獲得卷軸：青丘祥瑞</span>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button id="read-scroll-btn" class="read-btn">閱讀卷軸</button>
+            <button id="finish-demo-btn" class="finish-btn">完成 Demo</button>
+          </div>
+          <div id="scroll-story" class="scroll-story hidden">
+            <p>青丘之山，有獸焉，<br />其狀如狐而九尾，<br />其音如嬰兒，能食人，<br />食者不蠱。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 背景音樂 Audio 物件 (全域單一實例) -->
+    <audio id="bgm-player" src="assets/bgm.mp3" loop preload="auto"></audio>
+
+    <script src="js/game.js"></script>
+  </body>
+</html>

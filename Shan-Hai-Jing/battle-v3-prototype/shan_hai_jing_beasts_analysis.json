@@ -1,0 +1,245 @@
+{
+  "totalBeasts": 222,
+  "originalBeasts": 161,
+  "generatedBeasts": 61,
+  "directionBreakdown": {
+    "allOriginal": {
+      "east": 35,
+      "south": 26,
+      "west": 53,
+      "north": 18,
+      "central": 29
+    },
+    "strictlyMountainClassics": {
+      "east": 22,
+      "south": 24,
+      "west": 47,
+      "north": 18,
+      "central": 26
+    },
+    "seaWildernessClassics": {
+      "east": 13,
+      "south": 2,
+      "west": 6,
+      "north": 0,
+      "central": 3
+    },
+    "gameBalanceGenerated": {
+      "east": 12,
+      "south": 12,
+      "west": 12,
+      "north": 12,
+      "central": 13
+    }
+  },
+  "categoryBreakdown": {
+    "allOriginal": {
+      "divine": 34,
+      "auspicious": 80,
+      "perilous": 47
+    },
+    "strictlyMountainClassics": {
+      "divine": 21,
+      "auspicious": 72,
+      "perilous": 44
+    },
+    "seaWildernessClassics": {
+      "divine": 13,
+      "auspicious": 8,
+      "perilous": 3
+    },
+    "gameBalanceGenerated": {
+      "divine": 20,
+      "auspicious": 21,
+      "perilous": 20
+    }
+  },
+  "statsSummary": {
+    "spiritual": {
+      "average": 82.88,
+      "max": {
+        "name": "青龍",
+        "value": 99
+      },
+      "min": {
+        "name": "山膏",
+        "value": 65
+      }
+    },
+    "aggression": {
+      "average": 46.37,
+      "max": {
+        "name": "蚩尤戰魂",
+        "value": 99
+      },
+      "min": {
+        "name": "麒麟",
+        "value": 5
+      }
+    },
+    "rarity": {
+      "average": 87.77,
+      "max": {
+        "name": "燭龍",
+        "value": 99
+      },
+      "min": {
+        "name": "螭吻",
+        "value": 70
+      }
+    }
+  },
+  "featuresClassification": {
+    "winged": {
+      "count": 62,
+      "examples": [
+        "精衛",
+        "混沌 (帝江)",
+        "畢方",
+        "鳳凰",
+        "應龍",
+        "英招",
+        "肥遺 (蛇)",
+        "鳴蛇",
+        "化蛇",
+        "旋龜",
+        "狌狌",
+        "灌灌",
+        "狸力",
+        "鴒䳿",
+        "瞿如",
+        "孰湖",
+        "儵魚",
+        "鯥",
+        "當扈",
+        "耳鼠"
+      ]
+    },
+    "humanFaced": {
+      "count": 16,
+      "examples": [
+        "饕餮 (麅鴞)",
+        "陸吾",
+        "開明獸",
+        "英招",
+        "檮杌",
+        "化蛇",
+        "赤鱬",
+        "鴒䳿",
+        "瞿如",
+        "孰湖",
+        "竦斯",
+        "九鳳",
+        "顒",
+        "合窳",
+        "窫窳"
+      ]
+    },
+    "multiHeadedTailed": {
+      "count": 26,
+      "examples": [
+        "九尾狐",
+        "混沌 (帝江)",
+        "陸吾",
+        "開明獸",
+        "夫諸",
+        "肥遺 (蛇)",
+        "猼訑",
+        "瞿如",
+        "冉遺魚",
+        "讙",
+        "鵸鵌",
+        "諸懷",
+        "獓𢀚",
+        "玃如",
+        "九鳳",
+        "三首國神"
+      ]
+    },
+    "singleLegged": {
+      "count": 2,
+      "examples": [
+        "畢方",
+        "夔"
+      ]
+    },
+    "waterDwelling": {
+      "count": 21,
+      "examples": [
+        "夔",
+        "旋龜",
+        "赤鱬",
+        "虎蛟",
+        "鱅鱅魚",
+        "冉遺魚",
+        "薄魚",
+        "文鰩魚",
+        "何羅魚",
+        "蠃魚",
+        "儵魚",
+        "鯥",
+        "䱱魚",
+        "䲢魚"
+      ]
+    },
+    "snakeDragon": {
+      "count": 28,
+      "examples": [
+        "燭龍",
+        "應龍",
+        "巴蛇",
+        "肥遺 (蛇)",
+        "鳴蛇",
+        "化蛇",
+        "旋龜",
+        "虎蛟",
+        "蜚",
+        "冉遺魚",
+        "孰湖",
+        "酸與",
+        "窫窳",
+        "冰夷"
+      ]
+    },
+    "auspiciousSigns": {
+      "count": 35,
+      "examples": [
+        "九尾狐",
+        "天狗",
+        "應龍",
+        "巴蛇",
+        "旋龜",
+        "鹿蜀",
+        "猼訑",
+        "灌灌",
+        "赤鱬",
+        "鴒䳿",
+        "虎蛟",
+        "鱅鱅魚",
+        "數斯",
+        "冉遺魚",
+        "駁"
+      ]
+    },
+    "ominousSigns": {
+      "count": 31,
+      "examples": [
+        "畢方",
+        "軨軨",
+        "夫諸",
+        "肥遺 (蛇)",
+        "鳴蛇",
+        "化蛇",
+        "蜚",
+        "駁",
+        "梁渠",
+        "狙如",
+        "鸓",
+        "顒",
+        "薄魚",
+        "合窳",
+        "蠻蠻 (比翼鳥)"
+      ]
+    }
+  }
+}

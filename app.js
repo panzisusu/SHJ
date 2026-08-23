@@ -38,9 +38,9 @@ createApp({
                 {
                     id: 'cwa-weather-dashboard',
                     name: 'Taiwan CWA Weather Archive (2026/07/17)',
-                    nameZh: '台灣氣象觀測歷史存檔儀表板 (只有7/17的數據)',
+                    nameZh: '台灣 CWA 氣象即時觀測 & AI 趨勢預報系統',
                     description: 'A historical snapshot of the full-stack weather system frozen on July 17, featuring compiled SQLite observations and static historical trends.',
-                    descriptionZh: '歷史存檔版天氣儀表板。靜態封裝了 2026 年 7 月 17 日以前的氣象觀測與 SQLite 歷史紀錄，適合作為歷史數據之回溯與展示。',
+                    descriptionZh: '串接中央氣象署 CWA Open Data API，即時取得全台氣象觀測站資料，提供溫度、濕度、氣壓、風速、風向與降雨量等資訊，並結合地圖視覺化與 AI 趨勢預報功能。',
                     icon: 'fa-box-archive',
                     link: 'https://cwa-weather-nu.vercel.app/',
                     color: '#64748b'
